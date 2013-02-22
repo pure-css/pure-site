@@ -43,12 +43,15 @@ app.use(express.favicon(path.join(config.dirs.pub, 'favicon.ico')));
 app.use(app.router);
 app.use(middleware.slash);
 app.use(express.static(config.dirs.pub));
+app.use(middleware.errors.notfound);
 
 if (config.isDevelopment) {
     app.use(express.errorHandler({
         dumpExceptions: true,
         showStack     : true
     }));
+} else {
+    app.use(middleware.errors.server);
 }
 
 // -- Routes -------------------------------------------------------------------
