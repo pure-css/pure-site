@@ -27,9 +27,10 @@ app.engine('handlebars', exphbs({
 }));
 
 app.locals({
-    title: 'YUI CSS',
-    yui  : config.yui,
-    min  : config.isProduction ? '-min' : ''
+    title         : 'YUI CSS',
+    copyright_year: '2013',
+    yui           : config.yui,
+    min           : config.isProduction ? '-min' : ''
 });
 
 // -- Middleware ---------------------------------------------------------------
