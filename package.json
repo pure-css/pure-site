@@ -1,0 +1,23 @@
+{
+    "name"       : "yuilib-css",
+    "description": "YUI CSS website.",
+    "homepage"   : "http://css.yuilibrary.com/",
+    "version"    : "0.0.1",
+    "private"    : true,
+
+    "author": "Eric Ferraiuolo <eferraiuolo@gmail.com> (http://ericf.me/)",
+
+    "engines": {
+        "node": "0.8.x",
+        "npm" : ">=1.1.2"
+    },
+
+    "dependencies": {
+        "express"            : "3.x",
+        "express3-handlebars": "0.3.x"
+    },
+
+    "main": "server",
+
+    "directories": {"lib": "./lib"}
+}
