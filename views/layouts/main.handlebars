@@ -6,6 +6,13 @@
 
     <title>{{title}}</title>
 
+    {{addCdnCSS "3.9.0pr3" "cssnormalize" prepend=true}}
+    <link rel="stylesheet" href="{{{cdnCSSURL}}}" />
+
+  {{#githubCSS}}
+    <link rel="stylesheet" href="{{{.}}}" />
+  {{/githubCSS}}
+
     <link rel="stylesheet" href="/css/main.css" />
 </head>
 <body>
