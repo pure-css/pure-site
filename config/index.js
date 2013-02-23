@@ -15,5 +15,11 @@ module.exports = Object.freeze({
         partials: path.resolve('views/partials/')
     }),
 
-    yui: require('./yui')
+    nav: [
+        {id: 'home',  url: '/',       label: 'Home'},
+        {id: 'forms', url: '/forms/', label: 'Forms'}
+    ],
+
+    typekit: 'ajf8ggy',
+    yui    : require('./yui')
 });

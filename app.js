@@ -30,7 +30,8 @@ app.locals({
     title         : 'YUI CSS',
     copyright_year: '2013',
     yui           : config.yui,
-    min           : config.isProduction ? '-min' : ''
+    min           : config.isProduction ? '-min' : '',
+    nav           : config.nav
 });
 
 // -- Middleware ---------------------------------------------------------------
