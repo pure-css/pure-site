@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="{{{cdnCSSURL}}}" />
 
     {{addGithubCSS "tilomitra" "csslist"   "master/css/list.css"}}
-    {{addGithubCSS "tilomitra" "cssextras" "gh-pages/cssextras.css"}}
+    {{!addGithubCSS "tilomitra" "cssextras" "gh-pages/cssextras.css"}}
+    {{addGithubCSS "ccampbell" "rainbow"   "master/themes/github.css"}}
 
   {{#githubCSS}}
     <link rel="stylesheet" href="{{{.}}}" />
@@ -32,6 +33,8 @@
 {{{body}}}
 
 {{> legal}}
+
+<script src="/vendor/rainbow-min.js"></script>
 
 </body>
 </html>
