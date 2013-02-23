@@ -87,24 +87,24 @@
             }
           }
         },
-        "handlebars": {
-          "version": "1.0.9",
+        "semver": {
+          "version": "1.1.3"
+        }
+      }
+    },
+    "handlebars": {
+      "version": "1.0.9",
+      "dependencies": {
+        "optimist": {
+          "version": "0.3.5",
           "dependencies": {
-            "optimist": {
-              "version": "0.3.5",
-              "dependencies": {
-                "wordwrap": {
-                  "version": "0.0.2"
-                }
-              }
-            },
-            "uglify-js": {
-              "version": "1.2.6"
+            "wordwrap": {
+              "version": "0.0.2"
             }
           }
         },
-        "semver": {
-          "version": "1.1.3"
+        "uglify-js": {
+          "version": "1.2.6"
         }
       }
     }
