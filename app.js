@@ -3,7 +3,7 @@ var express = require('express'),
     path    = require('path'),
 
     config     = require('./config'),
-    helpers    = require('./lib/helpers'),
+    hbs        = require('./lib/hbs'),
     middleware = require('./lib/middleware'),
     routes     = require('./lib/routes'),
 
@@ -15,16 +15,12 @@ app.set('name', 'YUI CSS');
 app.set('env', config.env);
 app.set('port', config.port);
 app.set('views', config.dirs.views);
-app.set('view engine', 'handlebars');
+app.set('view engine', hbs.extname);
 
 app.enable('strict routing');
 
-app.engine('handlebars', exphbs({
-    defaultLayout: 'main',
-    helpers      : helpers,
-    layoutsDir   : config.dirs.layouts,
-    partialsDir  : config.dirs.partials
-}));
+hbs.defaultLayout = 'main';
+app.engine(hbs.extname, hbs.engine);
 
 app.locals({
     title         : 'YUI CSS',
