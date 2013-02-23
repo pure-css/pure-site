@@ -1,7 +1,9 @@
 {{#if nav}}
 <ul class="menu">
   {{#each nav}}
-    {{> nav/item}}
+    <li class="menu-item {{#if isActive}}active{{/if}}">
+        <a href="{{url}}">{{label}}</a>
+    </li>
   {{/each}}
 </ul>
 {{/if}}
