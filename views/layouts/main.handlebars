@@ -19,7 +19,11 @@
     <link rel="stylesheet" href="{{{.}}}" />
   {{/githubCSS}}
 
-    <link rel="stylesheet" href="/css/main.css" />
+    {{addLocalCSS "/css/main.css" prepend=true}}
+
+  {{#localCSS}}
+    <link rel="stylesheet" href="{{{.}}}" />
+  {{/localCSS}}
 
   {{#if typekit}}
     <script src="http://use.typekit.net/{{typekit}}.js"></script>
