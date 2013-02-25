@@ -27,7 +27,8 @@ app.locals({
     copyright_year: '2013',
     yui           : config.yui,
     min           : config.isProduction ? '-min' : '',
-    nav           : config.nav
+    nav           : config.nav,
+    typekit       : config.typekit
 });
 
 // -- Middleware ---------------------------------------------------------------
