@@ -15,12 +15,6 @@ module.exports = Object.freeze({
         partials: path.resolve('views/partials/')
     }),
 
-    nav: [
-        {id: 'home',   url: '/',        label: 'Home'},
-        {id: 'forms',  url: '/forms/',  label: 'Forms'},
-        {id: 'tables', url: '/tables/', label: 'Tables'}
-    ],
-
     typekit: 'ajf8ggy',
     yui    : require('./yui')
 });

@@ -25,10 +25,16 @@ app.engine(hbs.extname, hbs.engine);
 app.locals({
     title         : 'YUI CSS',
     copyright_year: '2013',
-    yui           : config.yui,
-    min           : config.isProduction ? '-min' : '',
-    nav           : config.nav,
-    typekit       : config.typekit
+
+    nav: [
+        {id: 'home',   url: '/',        label: 'Home'},
+        {id: 'forms',  url: '/forms/',  label: 'Forms'},
+        {id: 'tables', url: '/tables/', label: 'Tables'}
+    ],
+
+    yui    : config.yui,
+    min    : config.isProduction ? '-min' : '',
+    typekit: config.typekit
 });
 
 // -- Middleware ---------------------------------------------------------------
