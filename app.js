@@ -58,6 +58,7 @@ if (config.isDevelopment) {
 app.get('/',       routes.home);
 app.get('/forms/', routes.forms);
 app.get('/tables/', routes.tables);
+app.get('/lists/', routes.lists);
 
 
 // -- Exports ------------------------------------------------------------------
