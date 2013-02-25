@@ -16,8 +16,8 @@ module.exports = Object.freeze({
     }),
 
     nav: [
-        {id: 'home',  url: '/',       label: 'Home'},
-        {id: 'forms', url: '/forms/', label: 'Forms'},
+        {id: 'home',   url: '/',        label: 'Home'},
+        {id: 'forms',  url: '/forms/',  label: 'Forms'},
         {id: 'tables', url: '/tables/', label: 'Tables'}
     ],
 
