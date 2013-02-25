@@ -29,7 +29,8 @@ app.locals({
     nav: [
         {id: 'home',   url: '/',        label: 'Home'},
         {id: 'forms',  url: '/forms/',  label: 'Forms'},
-        {id: 'tables', url: '/tables/', label: 'Tables'}
+        {id: 'tables', url: '/tables/', label: 'Tables'},
+        {id: 'lists',  url: '/lists/',  label: 'Navigation'}
     ],
 
     yui    : config.yui,
@@ -64,6 +65,7 @@ if (config.isDevelopment) {
 app.get('/',        routes.home);
 app.get('/forms/',  routes.forms);
 app.get('/tables/', routes.tables);
+app.get('/lists/',  routes.lists);
 
 
 // -- Exports ------------------------------------------------------------------
