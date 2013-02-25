@@ -14,13 +14,11 @@ var express = require('express'),
 app.set('name', 'YUI CSS');
 app.set('env', config.env);
 app.set('port', config.port);
-app.set('views', config.dirs.views);
-app.set('view engine', hbs.extname);
-
 app.enable('strict routing');
 
-hbs.defaultLayout = 'main';
 app.engine(hbs.extname, hbs.engine);
+app.set('view engine', hbs.extname);
+app.set('views', config.dirs.views);
 
 app.locals({
     title         : 'YUI CSS',
