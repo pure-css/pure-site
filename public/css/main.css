@@ -7,10 +7,11 @@ body {
 .header {
      min-height: 80px;
      margin: 0;
-     color:#fff;
+     color:#333;
      padding: 50px 20px 30px;
      text-align: center;
      border-bottom:1px solid #eee;
+     background: #fff;
  }
     .header h1 {
         margin: 0.2em 0;
@@ -19,6 +20,7 @@ body {
      .header h2 {
          font-weight:300;
          margin:0;
+         color: #ccc;
      }
 
 h1,h2,h3,h4,h5,h6 {
@@ -51,7 +53,7 @@ h1,h2,h3,h4,h5,h6 {
     }
 
 
-/* NAVIGATION HEADER */
+/* Main Navigation Header */
 #headerMenu ul {
     background: #111;
     color: #fff;
@@ -71,20 +73,20 @@ h1,h2,h3,h4,h5,h6 {
     }
 
 
-.gist {
-    margin-top:25px;
-}
-.gist::before {
-    content: "Code:";
-    margin-bottom: 10px;
-    display: block;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light",
-                 "Helvetica Neue", sans-serif;
-    font-weight: 300;
+/* example code blocks */
+.example-snippet {
+    margin: 2em 0;
+    font-size: 85%;
 }
 
+/* green call to action button class */
+.notice {
+    background-color: #61B842;
+    color: white;
+}
 
 
+/* Responsive */
 @media (max-width: 767px) {
     #headerMenu {
         position: relative;

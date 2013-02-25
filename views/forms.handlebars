@@ -1,11 +1,121 @@
 {{addCdnCSS "gallery-2013.01.09-23-24" "gallerycss-cssform"}}
+{{addCdnCSS "3.9.0pr3" "cssbutton"}}
 {{activeNav "forms"}}
 
-<h1>Forms</h1>
+{{> header}}
 
-<h2>Default Form</h2>
-{{> forms/default}}
 
-{{#code}}
+<div class="content">
+
+
+    <h2>Default Form</h2>
+
     {{> forms/default}}
-{{/code}}
+
+    {{#code}}
+    {{> forms/default}}
+    {{/code}}
+
+
+    <h2>Multi-Column Form (with YUI Grids)</h2>
+    <p>Multi-column forms such as the one below can be created by pulling down YUI Grids.</p>
+
+    {{> forms/multi}}
+
+    {{#code}}
+    {{> forms/multi}}
+    {{/code}}
+
+    <h2>Inline Form</h2>
+
+    {{> forms/inline}}
+
+    {{#code}}
+    {{> forms/inline}}
+    {{/code}}
+
+
+    <h2>Horizontal Form</h2>
+
+    <p>Horizontal forms are great for standard forms that look well-aligned. The labels are right-aligned against the form input controls.</p>
+
+    {{> forms/horizontal}}
+
+    {{#code}}
+    {{> forms/horizontal}}
+    {{/code}}
+
+
+
+    <h2>Grouped Inputs</h2>
+
+    <p>Grouped inputs are great for grouping small sets of text-based input elements. They work well for sign-up forms, and look natural on mobile devices.</p>
+
+    {{> forms/grouped}}
+
+    {{#code}}
+    {{> forms/grouped}}
+    {{/code}}
+
+
+    <h2>Input Sizing</h2>
+
+    <p>You can size any input element by adding the classnames below. Since these styles just set <code>width</code>, they can be  applied to more than just form controls.</p>
+
+
+    {{> forms/input-size}}
+
+    {{#code}}
+    {{> forms/input-size}}
+    {{/code}}
+
+
+    <h2>Invalid Inputs</h2>
+    <p>Add the <code>required</code> attribute to any form control.</p>
+
+
+    {{> forms/invalid}}
+
+    {{#code}}
+    {{> forms/invalid}}
+    {{/code}}
+
+
+    <h2>Disabled Inputs</h2>
+    <p>Add the <code>disabled</code> attribute to any form control.</p>
+
+    {{> forms/disabled}}
+
+    {{#code}}
+    {{> forms/disabled}}
+    {{/code}}
+
+    <h2>Rounded Inputs</h2>
+    <p>Add the <code>yui3-input-rounded</code> classname to any form control.</p>
+
+    {{> forms/rounded}}
+
+    {{#code}}
+    {{> forms/rounded}}
+    {{/code}}
+
+    <h2>Checkboxes and Radios</h2>
+    <p>YUI Forms normalizes and aligns checkboxes and radio inputs for you too. Just add the <code>.yui3-checkbox</code> or <code>.yui3-radio</code> classname to these controls.</p>
+
+
+    {{> forms/checkbox-radio}}
+
+    {{#code}}
+    {{> forms/checkbox-radio}}
+    {{/code}}
+
+</div>
+
+
+
+
+
+
+
+
+
