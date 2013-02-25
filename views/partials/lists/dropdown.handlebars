@@ -1,0 +1,46 @@
+<div id="horizontal-menu">
+    <ul id="std-menu-items">
+        <li class="yui3-menu-active"><a href="#">Flickr</a></li>
+        <li><a href="#">Messenger</a></li>
+        <li><a href="#">Sports</a></li>
+        <li><a href="#">Finance</a></li>
+        <li>
+            <a href="#">Other</a>
+            <ul>
+                <li class="yui3-menu-heading">More from Yahoo!</li>
+                <li class="yui3-menu-separator"></li>
+                <li><a href="#">Autos</a></li>
+                <li><a href="#">Flickr</a></li>
+                <li><a href="#">Answers</a></li>
+                <li>
+                    <a href="#">Even More</a>
+                    <ul>
+                        <li><a href="#">Horoscopes</a></li>
+                        <li><a href="#">Games</a></li>
+                        <li><a href="#">Jobs</a></li>
+                        <li><a href="#">OMG</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<script>
+YUI({
+    gallery: 'gallery-2013.02.07-15-27',
+    fetchCSS: false
+}).use('gallery-sm-menu', function (Y) {
+
+    var horizontalMenu = new Y.Menu({
+        container: '#horizontal-menu',
+        sourceNode: '#std-menu-items',
+        orientation: 'horizontal',
+        hideOnOutsideClick: false
+    });
+
+    horizontalMenu.render();
+    horizontalMenu.show();
+
+});
+</script>
