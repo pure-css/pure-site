@@ -53,34 +53,33 @@ h1,h2,h3,h4,h5,h6 {
     }
 
 /* Apply the .box class on the immediate parent of any grid element (yui3-u-*) to apply some padding. */
-.box {
+.l-box {
     padding: 1em;
-}
-
-.clearfix {
-    clear:both;
 }
 
 /* Footer */
 .legal {
     font-size:85%;
     border-top:1px solid #eee;
-    padding-top:0.5em;
+    padding:0.5em 0;
 }
-.legal-links {
-    list-style: none;
-}
-    .legal-links li {
-        float:right;
-        padding-right:1em;
+
+    .legal-license, .legal-copyright {
+        margin:0;
     }
-.legal-copyright {
-    text-align: right;
-}
-.footer-logo {
-    text-align: center;
-    margin-top:0.7em;
-}
+
+    .legal-copyright, .legal-links {
+        text-align: right;
+    }
+
+    .legal-links {
+        list-style: none;
+        margin:0;
+    }
+    
+    .legal-logo {
+        text-align: center;
+    }
 
 /* Main Navigation Header */
 #headerMenu ul {
@@ -138,5 +137,11 @@ h1,h2,h3,h4,h5,h6 {
 
     .content {
         width: 95%;
+    }
+    .legal-links {
+        padding:1em 0;
+    }
+    .legal-license, .legal-copyright, .legal-links, .legal-links li {
+        text-align: center;
     }
 }
