@@ -84,7 +84,13 @@ h1,h2,h3,h4,h5,h6 {
     background-color: #61B842;
     color: white;
 }
-
+.content .yui3-menu {
+    width:40%; 
+    margin-top: 2em;   
+}
+.content .yui3-menu.yui3-menu-horizontal {
+    width:100%;
+}
 
 /* Responsive */
 @media (max-width: 767px) {
