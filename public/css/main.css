@@ -1,7 +1,6 @@
 body {
     font-family: sans-serif;
     color: #777;
-
 }
 
 .header {
@@ -24,9 +23,8 @@ body {
      }
 
 h1,h2,h3,h4,h5,h6 {
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light",
-                 "Helvetica Neue", sans-serif;
-    font-weight: 300;
+    font-weight: bold;
+    color:rgb(75, 75, 75);
 }
 .content {
     margin: 0 auto;
@@ -42,9 +40,7 @@ h1,h2,h3,h4,h5,h6 {
         text-shadow: 0 1px 0 rgba(0,0,0,0.2);
     }
     .content h2 {
-        color:rgb(75, 75, 75);
         margin:50px 0 20px 0;
-        font-weight:bold;
     }
     .content code {
         /* even though we have nowrap, for long lines like gallery, it's better to wrap. especially on smaller screens. */
@@ -54,7 +50,7 @@ h1,h2,h3,h4,h5,h6 {
 
 /* Apply the .box class on the immediate parent of any grid element (yui3-u-*) to apply some padding. */
 .l-box {
-    padding: 1em;
+    padding: 2em;
 }
 
 /* Footer */
