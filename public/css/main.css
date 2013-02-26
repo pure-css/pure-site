@@ -52,6 +52,34 @@ h1,h2,h3,h4,h5,h6 {
         line-height:2em;
     }
 
+/* Apply the .box class on the immediate parent of any grid element (yui3-u-*) to apply some padding. */
+.l-box {
+    padding: 1em;
+}
+
+/* Footer */
+.legal {
+    font-size:85%;
+    border-top:1px solid #eee;
+    padding:0.5em 0;
+}
+
+    .legal-license, .legal-copyright {
+        margin:0;
+    }
+
+    .legal-copyright, .legal-links {
+        text-align: right;
+    }
+
+    .legal-links {
+        list-style: none;
+        margin:0;
+    }
+    
+    .legal-logo {
+        text-align: center;
+    }
 
 /* Main Navigation Header */
 #headerMenu ul {
@@ -92,6 +120,9 @@ h1,h2,h3,h4,h5,h6 {
     width:100%;
 }
 
+
+
+
 /* Responsive */
 @media (max-width: 767px) {
     #headerMenu {
@@ -106,5 +137,11 @@ h1,h2,h3,h4,h5,h6 {
 
     .content {
         width: 95%;
+    }
+    .legal-links {
+        padding:1em 0;
+    }
+    .legal-license, .legal-copyright, .legal-links, .legal-links li {
+        text-align: center;
     }
 }
