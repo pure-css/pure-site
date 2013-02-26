@@ -1,0 +1,34 @@
+.hero {
+    text-align: center;
+    margin: 8em 0 6em;
+}
+    .hero h1 {
+        font-size: 800%;
+        margin: 0;
+        padding: 0;
+        color: #111;
+        font-weight: 100;
+    }
+    .hero h2 {
+        font-weight: 100;
+        font-size: 260%;
+        margin: 0.02em 0;
+        color: #888;
+    }
+
+p {
+    line-height: 1.7em;
+}
+
+
+@media (max-width: 767px) {
+    .hero {
+        margin: 2em 0 3em;
+    }
+        .hero h1 {
+            font-size: 400%;
+        }
+        .hero h2 {
+            font-size: 165%;
+        }
+}
