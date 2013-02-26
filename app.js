@@ -14,20 +14,26 @@ var express = require('express'),
 app.set('name', 'YUI CSS');
 app.set('env', config.env);
 app.set('port', config.port);
-app.set('views', config.dirs.views);
-app.set('view engine', hbs.extname);
-
 app.enable('strict routing');
 
-hbs.defaultLayout = 'main';
 app.engine(hbs.extname, hbs.engine);
+app.set('view engine', hbs.extname);
+app.set('views', config.dirs.views);
 
 app.locals({
     title         : 'YUI CSS',
     copyright_year: '2013',
-    yui           : config.yui,
-    min           : config.isProduction ? '-min' : '',
-    nav           : config.nav
+
+    nav: [
+        {id: 'home',   url: '/',        label: 'Home'},
+        {id: 'forms',  url: '/forms/',  label: 'Forms'},
+        {id: 'tables', url: '/tables/', label: 'Tables'},
+        {id: 'lists',  url: '/lists/',  label: 'Navigation'}
+    ],
+
+    yui    : config.yui,
+    min    : config.isProduction ? '-min' : '',
+    typekit: config.typekit
 });
 
 // -- Middleware ---------------------------------------------------------------
@@ -54,8 +60,11 @@ if (config.isDevelopment) {
 
 // -- Routes -------------------------------------------------------------------
 
-app.get('/',       routes.home);
-app.get('/forms/', routes.forms);
+app.get('/',        routes.home);
+app.get('/forms/',  routes.forms);
+app.get('/tables/', routes.tables);
+app.get('/lists/',  routes.lists);
+
 
 // -- Exports ------------------------------------------------------------------
 

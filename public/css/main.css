@@ -1,16 +1,21 @@
 body {
     font-family: sans-serif;
     color: #777;
+}
 
+/* TODO: HACK */
+pre code {
+    white-space: pre !important;
 }
 
 .header {
      min-height: 80px;
      margin: 0;
-     color:#fff;
+     color:#333;
      padding: 50px 20px 30px;
      text-align: center;
      border-bottom:1px solid #eee;
+     background: #fff;
  }
     .header h1 {
         margin: 0.2em 0;
@@ -19,12 +24,12 @@ body {
      .header h2 {
          font-weight:300;
          margin:0;
+         color: #ccc;
      }
 
 h1,h2,h3,h4,h5,h6 {
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light",
-                 "Helvetica Neue", sans-serif;
-    font-weight: 300;
+    font-weight: bold;
+    color:rgb(75, 75, 75);
 }
 .content {
     margin: 0 auto;
@@ -40,9 +45,7 @@ h1,h2,h3,h4,h5,h6 {
         text-shadow: 0 1px 0 rgba(0,0,0,0.2);
     }
     .content h2 {
-        color:rgb(75, 75, 75);
         margin:50px 0 20px 0;
-        font-weight:bold;
     }
     .content code {
         /* even though we have nowrap, for long lines like gallery, it's better to wrap. especially on smaller screens. */
@@ -50,8 +53,36 @@ h1,h2,h3,h4,h5,h6 {
         line-height:2em;
     }
 
+/* Apply the .box class on the immediate parent of any grid element (yui3-u-*) to apply some padding. */
+.l-box {
+    padding: 2em;
+}
 
-/* NAVIGATION HEADER */
+/* Footer */
+.legal {
+    font-size:85%;
+    border-top:1px solid #eee;
+    padding:0.5em 0;
+}
+
+    .legal-license, .legal-copyright {
+        margin:0;
+    }
+
+    .legal-copyright, .legal-links {
+        text-align: right;
+    }
+
+    .legal-links {
+        list-style: none;
+        margin:0;
+    }
+
+    .legal-logo {
+        text-align: center;
+    }
+
+/* Main Navigation Header */
 #headerMenu ul {
     background: #111;
     color: #fff;
@@ -71,20 +102,29 @@ h1,h2,h3,h4,h5,h6 {
     }
 
 
-.gist {
-    margin-top:25px;
-}
-.gist::before {
-    content: "Code:";
-    margin-bottom: 10px;
-    display: block;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light",
-                 "Helvetica Neue", sans-serif;
-    font-weight: 300;
+/* example code blocks */
+.example-snippet {
+    margin: 2em 0;
+    font-size: 85%;
 }
 
+/* green call to action button class */
+.notice {
+    background-color: #61B842;
+    color: white;
+}
+.content .yui3-menu {
+    width:40%;
+    margin-top: 2em;
+}
+.content .yui3-menu.yui3-menu-horizontal {
+    width:100%;
+}
 
 
+
+
+/* Responsive */
 @media (max-width: 767px) {
     #headerMenu {
         position: relative;
@@ -98,5 +138,11 @@ h1,h2,h3,h4,h5,h6 {
 
     .content {
         width: 95%;
+    }
+    .legal-links {
+        padding:1em 0;
+    }
+    .legal-license, .legal-copyright, .legal-links, .legal-links li {
+        text-align: center;
     }
 }
