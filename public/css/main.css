@@ -11,26 +11,28 @@ pre code {
 .header {
      min-height: 80px;
      margin: 0;
-     color:#333;
+     color: #333;
      padding: 50px 20px 30px;
      text-align: center;
-     border-bottom:1px solid #eee;
+     border-bottom: 1px solid #eee;
      background: #fff;
  }
     .header h1 {
         margin: 0.2em 0;
-        font-size:3em;
+        font-size: 3em;
     }
      .header h2 {
-         font-weight:300;
-         margin:0;
+         font-weight: 300;
+         margin: 0;
          color: #ccc;
      }
 
 h1,h2,h3,h4,h5,h6 {
     font-weight: bold;
-    color:rgb(75, 75, 75);
+    color: rgb(75, 75, 75);
 }
+
+/* The content div is placed as a wrapper around all the docs */
 .content {
     margin: 0 auto;
     width: 70%;
@@ -45,28 +47,40 @@ h1,h2,h3,h4,h5,h6 {
         text-shadow: 0 1px 0 rgba(0,0,0,0.2);
     }
     .content h2 {
-        margin:50px 0 20px 0;
+        margin: 50px 0 20px 0;
     }
-    .content code {
-        /* even though we have nowrap, for long lines like gallery, it's better to wrap. especially on smaller screens. */
-        white-space: normal;
-        line-height:2em;
+
+    .content ul {
+        line-height: 1.8em;
+    }
+
+    /* A code snippet that has been syntax highlighted */
+    .content .snippet {
+        margin: 1.3em 0 1em;
+    }
+    /* The rainbow styles will overwrite the border and background styles */
+    pre code {
+        background: none;
+        border: none;
     }
 
 /* Apply the .box class on the immediate parent of any grid element (yui3-u-*) to apply some padding. */
 .l-box {
-    padding: 2em;
+    padding: 1.3em;
+}
+.l-centered {
+    text-align: center;
 }
 
 /* Footer */
 .legal {
-    font-size:85%;
-    border-top:1px solid #eee;
-    padding:0.5em 0;
+    font-size: 80%;
+    border-top: 1px solid #eee;
+    padding: 0.5em 0;
 }
 
     .legal-license, .legal-copyright {
-        margin:0;
+        margin: 0;
     }
 
     .legal-copyright, .legal-links {
@@ -75,7 +89,7 @@ h1,h2,h3,h4,h5,h6 {
 
     .legal-links {
         list-style: none;
-        margin:0;
+        margin: 0;
     }
 
     .legal-logo {
@@ -113,16 +127,6 @@ h1,h2,h3,h4,h5,h6 {
     background-color: #61B842;
     color: white;
 }
-.content .yui3-menu {
-    width:40%;
-    margin-top: 2em;
-}
-.content .yui3-menu.yui3-menu-horizontal {
-    width:100%;
-}
-
-
-
 
 /* Responsive */
 @media (max-width: 767px) {

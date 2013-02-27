@@ -1,0 +1,7 @@
+.content .yui3-menu {
+    width: 40%;
+    margin-top: 2em;
+}
+.content .yui3-menu.yui3-menu-horizontal {
+    width: 100%;
+}
