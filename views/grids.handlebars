@@ -8,7 +8,7 @@
 <div class="content">
 
 
-    <h2 class='y-u-1'>First, include it on your page</h2>
+    <h2 class='y-u-1'>Include the following <code>link</code> on your page</h2>
 
     {{#code}}
     <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.9.0pr3/build/cssgrids-responsive/cssgrids-responsive-min.css">
@@ -16,19 +16,19 @@
 
     <p>Optionally, you can head over to the <a href="http://yui.github.com/gridbuilder/">GridBuilder</a> to make your very own custom grid. Save the outputted CSS in a file.</p>
 
-    <h2>How does it work?</h2>
+    <h2 class="content-subhead">How does it work?</h2>
 
     <p>YUI3 Responsive Grids builds on top of the existing YUI3 Grids implementation. It adds a single new class name called <code>.yui3-g-r</code> (the "r" stands for responsive, you see). You can use this instead of using <code>.yui3-g</code> as you normally do. All elements with a class name of <code>.yui3-g-*-*</code> will automatically become responsive if they are direct descendents of a <code>.yui3-g-r.</code></p>
 
 
-    <h2>The HTML</h2>
+    <h2 class="content-subhead">The HTML</h2>
 
     <p>The first gist shows how regular YUI3 grids are written. These grids are unresponsive. They'll always be one-thirds irrespective of the width of the screen. The second gist replaces the <code>.yui3-g</code> with <code>.yui3-g-r</code>, thereby making the one-third columns collapse to full width on lower screen widths.</p>
 
 
-    <h2>Features</h2>
+    <h2 class="content-subhead">Features</h2>
 
-    <ul>
+    <ul class="content-spaced">
         <li>Adds configurable media queries for different screen widths (Desktops, Landscape Tablets, Portrait Tablets, Phones)</li>
         <li>Collapses elements to 100% if smaller than a certain width (767px by default)</li>
         <li>Adjusts images to fit on smaller screens</li>
@@ -44,7 +44,7 @@
     {{> grids/four-col}}
 
 
-    <h2>Grids on Mobile</h2>
+    <h2 class="content-subhead">Grids on Mobile</h2>
 
     <p>Putting the <code>yui3-g</code> classname on the wrapper instead of <code>yui3-g-r</code> will ensure that grid units will not collapse on small screens. This is a good way to make grids on smaller screens like phones. 
 
