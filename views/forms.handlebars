@@ -1,4 +1,5 @@
-{{addCdnCSS "gallery-2013.02.13-21-08" "gallerycss-cssform"}}
+{{addGithubCSS "tilomitra" "cssforms" "master/css/forms.css"}}
+{{addGithubCSS "tilomitra" "cssforms" "master/css/forms-responsive.css"}}
 {{addCdnCSS "3.9.0pr3" "cssbutton"}}
 {{activeNav "forms"}}
 
@@ -57,6 +58,28 @@
     {{/code}}
 
 
+    <h2>Prepending and Appending to Inputs</h2>
+
+    <p>Sometimes, you may need to prepend or append text to <code>input</code>s. To do this, put your input element in a wrapper with a <code>yui3-input-prepend</code> or <code>yui3-input-append</code> class name, and append or prepend a <code>span</code> with a <code>yui3-addon</code> class name.</p>
+
+    {{> forms/appended-inputs}}
+
+    {{#code}}
+    {{> forms/appended-inputs}}
+    {{/code}}
+
+
+    <h2>Prepending and Appending Buttons to Inputs</h2>
+
+    <p>Similar to text, you can also prepend and append buttons. Just follow the steps above, but replace the <code>span</code> with a button or anchor tag with a <code>yui3-button</code> class name.</p>
+
+    {{> forms/appended-buttons}}
+
+    {{#code}}
+    {{> forms/appended-buttons}}
+    {{/code}}
+
+
     <h2>Input Sizing</h2>
 
     <p>You can size any input element by adding the classnames below. Since these styles just set <code>width</code>, they can be  applied to more than just form controls.</p>
@@ -99,7 +122,7 @@
     {{/code}}
 
     <h2>Checkboxes and Radios</h2>
-    <p>YUI Forms normalizes and aligns checkboxes and radio inputs for you too. Just add the <code>.yui3-checkbox</code> or <code>.yui3-radio</code> classname to these controls.</p>
+    <p>YUI Forms normalizes and aligns checkboxes and radio inputs for you too. Just add the <code>yui3-checkbox</code> or <code>yui3-radio</code> classname to these controls.</p>
 
 
     {{> forms/checkbox-radio}}
