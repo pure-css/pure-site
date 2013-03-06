@@ -1,0 +1,120 @@
+{{addCdnCSS "3.9.0pr3" "cssnormalize"}}
+{{addGithubCSS "tilomitra" "csstables"   "master/css/tables.css"}}
+{{activeNav "base"}}
+
+{{> header}}
+
+<div class="content">
+
+
+    <h2 class="content-subhead">The Foundation</h2>
+
+    <p>
+        All modules in YUI CSS build on top of <a href="http://necolas.github.com/normalize.css/">Normalize.css</a>. It's our foundational layer to maintain some degree of cross-browser consistency. We use Normalize v1.10 because it supports older versions of Internet Explorer. We like Normalize so much that we put it on our CDN. You can pull in Normalize.css by adding this <code>link</code> tag on your page:
+    </p>
+
+    {{#code}}
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.9.0pr3/build/cssnormalize/cssnormalize-min.css">
+    {{/code}}
+
+    <h3>A bit about Normalize.css</h3>
+    <p>
+        <a href="http://necolas.github.com/normalize.css/">Normalize.css</a> is an open-source project by <a href="http://twitter.com/necolas">Nicolas Gallagher</a> and <a href="http://twitter.com/jon_neal">Jonathan Neal</a>. In their own words:
+    </p>
+
+    <blockquote class="content-quote">
+        Normalize.css is a small CSS file that provides better cross-browser consistency in the default styling of HTML elements. It’s a modern, HTML5-ready, alternative to the traditional CSS reset." We use it liberally in YUI CSS.
+    </blockquote>
+
+    <p>
+        Normalize.css comes with <a href="https://github.com/necolas/normalize.css/wiki">great documentation<a/>, and a <a href="http://nicolasgallagher.com/about-normalize-css/">thorough guide</a> explaining how it differs from a traditional Reset. You can also check out YUI's <a href="http://stage.yuilibrary.com/yui/docs/cssnormalize/">CSSNormalize</a> module, that includes the generic Normalize along with a <a href="http://stage.yuilibrary.com/yui/docs/cssnormalize/#context">contextual version</a>.
+    </p>
+
+    <h2 class="content-subhead">Typography</h2>
+
+    <p>
+        To keep YUI CSS lean and extensible, we do not add any typographic styles over the foundational layer provided by Normalize. This means that you get headings with different sizes, blockquotes, lists, definition lists and more, but their styles are minimal and easy to over-ride. 
+    </p>
+
+    <h2>Headings</h2>
+
+    <p>
+        Headings run from 1 to 6 in decreasing size. Font sizes are defined in <code>em</code>.
+    </p>
+
+    {{> base/headings}}
+
+    <h2>Lists</h2>
+
+    <p>
+        Lists come in different forms. There are unordered lists, ordered lists and description lists. Normalize provides basic styling and cross-browser consistency for these lists. You can style these further in your specific application. If you're looking to use lists to make menus, check out <a href="../lists/">List CSS</a>.
+    </p>
+
+    {{> base/lists}}
+
+
+    <h2>Blockquotes</h2>
+
+    <p>
+        Blockquotes encompass text that is meant to represent a quotation. By default, blockquotes look like regular text, except that they are indented. This gives you the freedom to set your own styles on top. Here's a default one: 
+    </p>
+
+    {{> base/blockquote}}
+
+    {{#code}}
+    {{> base/blockquote}}
+    {{/code}}
+
+    <p>
+        Taking advantage of the lack of default styles, we've customized the blockquotes on this site to look a little different. We encourage you to do the same based on how your site looks. 
+    </p>
+
+    <blockquote class="content-quote">
+        One small step for man, one giant leap for mankind.
+    </blockquote>
+
+
+
+    <h2>Abbreviations</h2>
+
+    <p>
+        The <code>abbr</code> represents an abbreviation. If a <code>title</code> attribute is provided, it'll show up on hover. Abbreviations generally have a small dotted underline.
+    </p>
+
+    {{> base/abbr}}
+
+    {{#code}}
+    {{> base/abbr}}
+    {{/code}}
+
+    <h2>Addresses</h2>
+
+    <p>
+        The <code>address</code> is used to reference contact information. By default, addresses have no specific styling. However, they can be styled using the various inline styles available through Normalize.
+    </p>
+
+    {{> base/address}}
+
+    {{#code}}
+    {{> base/address}}
+    {{/code}}
+
+    <h2>Inline Styles</h2>
+
+    <p>
+        There are numerous other inline styles that can be used. Here's a quick list from the <a href="http://github.com/necolas/normalize.css">Normalize documentation</a>: 
+    </p>
+
+    {{> base/inline}}
+
+
+    <h2>Moving beyond Normalize</h2>
+
+    <p>
+        Normalize.css is a great starting piece for your project, but some HTML elements such as forms, tables and lists require more styling than what's provided by Normalize.
+    </p>
+    <p>
+        We made a more opinionated look and feel for these elements, while keeping them minimal enough so that you can customize them for your site or app's needs. Check out our CSS for <a href="../forms/">Forms</a>, <a href="../tables/">Tables</a>, and <a href="../lists/">Navigation Lists</a>.
+    </p>
+        
+</div>
