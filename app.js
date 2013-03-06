@@ -26,8 +26,8 @@ app.locals({
 
     nav: [
         {id: 'home',   url: '/',        label: 'Home'},
-        {id: 'grids',  url: '/grids/',  label: 'Grids'},
         {id: 'base',   url: '/base/',   label: 'Base'},
+        {id: 'grids',  url: '/grids/',  label: 'Grids'},
         {id: 'forms',  url: '/forms/',  label: 'Forms'},
         {id: 'tables', url: '/tables/', label: 'Tables'},
         {id: 'lists',  url: '/lists/',  label: 'Navigation'}
@@ -68,7 +68,6 @@ app.get('/grids/',  routes.grids);
 app.get('/forms/',  routes.forms);
 app.get('/tables/', routes.tables);
 app.get('/lists/',  routes.lists);
-
 
 // -- Exports ------------------------------------------------------------------
 
