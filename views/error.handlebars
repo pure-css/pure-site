@@ -1,11 +1,15 @@
-<h1>{{status}}</h1>
+{{setTitle status}}
 
-<div class="error">
-    <p class="error-msg">
-      {{#if message}}
-        {{message}}
-      {{else}}
-        Looks like there was a problem :(
-      {{/if}}
-    </p>
+{{> header}}
+
+<div class="content">
+    <div class="error">
+        <p class="error-msg">
+          {{#if message}}
+            {{message}}
+          {{else}}
+            Looks like there was a problem :(
+          {{/if}}
+        </p>
+    </div>
 </div>

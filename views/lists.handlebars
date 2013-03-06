@@ -1,14 +1,15 @@
-<!-- adding to the top so that the dropdown example code can run -->
-<script src="http://yui.yahooapis.com/3.9.0pr2/build/yui/yui-min.js"></script>
+{{setTitle     "YUI List CSS"}}
+{{setSubTitle  "Simple CSS for HTML Lists"}}
+{{setActiveNav "lists"}}
 
-{{addGithubCSS "tilomitra" "csslist" "master/css/list-paginator.css"}}
 {{addCdnCSS "3.9.0pr3" "cssbutton"}}
+{{addGithubCSS "tilomitra" "csslist" "master/css/list-paginator.css"}}
 {{addLocalCSS "/css/lists.css"}}
-
-{{activeNav "lists"}}
 
 {{> header}}
 
+<!-- adding to the top so that the dropdown example code can run -->
+<script src="http://yui.yahooapis.com/3.9.0pr3/build/yui/yui-min.js"></script>
 
 <div class="content">
 
@@ -68,7 +69,7 @@
 
     <h3>Dark Menu</h3>
     <p>
-        Light menus don't work well with dark backgrounds. Make your menu darker by adding the class <code>yui3-menu-dark</code>. 
+        Light menus don't work well with dark backgrounds. Make your menu darker by adding the class <code>yui3-menu-dark</code>.
     </p>
 
     <div class="dark-ribbon">
@@ -82,7 +83,7 @@
 
     <h2 class="content-subhead">Paginators</h2>
     <p>
-        Paginators are list-based elements too! You can implement a paginator control by adding the <code>.yui3-paginator</code> classname to a <code>ul</code> element. Paginator controls generally look like buttons, but omit the <code>yui3-button</code> class name if you want simple paginators. 
+        Paginators are list-based elements too! You can implement a paginator control by adding the <code>.yui3-paginator</code> classname to a <code>ul</code> element. Paginator controls generally look like buttons, but omit the <code>yui3-button</code> class name if you want simple paginators.
     </p>
 
     {{> lists/paginator}}

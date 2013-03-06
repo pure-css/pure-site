@@ -62,12 +62,12 @@ if (config.isDevelopment) {
 
 // -- Routes -------------------------------------------------------------------
 
-app.get('/',        routes.home);
-app.get('/base/',   routes.base);
-app.get('/grids/',  routes.grids);
-app.get('/forms/',  routes.forms);
-app.get('/tables/', routes.tables);
-app.get('/lists/',  routes.lists);
+app.get('/',        routes.render('home'));
+app.get('/base/',   routes.render('base'));
+app.get('/grids/',  routes.render('grids'));
+app.get('/forms/',  routes.render('forms'));
+app.get('/tables/', routes.render('tables'));
+app.get('/lists/',  routes.render('lists'));
 
 // -- Exports ------------------------------------------------------------------
 
