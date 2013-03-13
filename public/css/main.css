@@ -67,7 +67,7 @@ h1,h2,h3,h4,h5,h6 {
      min-height: 80px;
      margin: 0;
      color: #333;
-     padding: 50px 20px 30px;
+     padding: 1em;
      text-align: center;
      border-bottom: 1px solid #eee;
      background: #fff;
@@ -75,6 +75,7 @@ h1,h2,h3,h4,h5,h6 {
     .header h1 {
         margin: 0.2em 0;
         font-size: 3em;
+        font-weight: 300;
     }
      .header h2 {
          font-weight: 300;
@@ -100,6 +101,8 @@ h1,h2,h3,h4,h5,h6 {
 
     .content .content-subhead {
         margin: 50px 0 20px 0;
+        font-weight: 300;
+        color: #888;
     }
 
     .content .content-spaced {
