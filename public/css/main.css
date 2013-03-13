@@ -176,7 +176,6 @@ h1,h2,h3,h4,h5,h6 {
 }
     #menu a {
         color: #999;
-        text-shadow: none;
     }
     #menu .yui3-menu ul {
         border: none;
