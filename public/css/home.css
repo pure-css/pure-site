@@ -6,14 +6,14 @@
         font-size: 800%;
         margin: 0;
         padding: 0;
-        color: #111;
+        color: rgb(23, 218, 255);
         font-weight: 100;
     }
     .hero h2 {
         font-weight: 100;
         font-size: 260%;
-        margin: 0.02em 0;
-        color: #888;
+        margin: 0.02em 0 0.8em;
+        color: #666;
     }
 
 p {
@@ -24,9 +24,11 @@ p {
 @media (max-width: 767px) {
     .hero {
         margin: 2em 0 3em;
+        padding: 0.6em;
     }
         .hero h1 {
-            font-size: 400%;
+            font-size: 250%;
+            font-weight: 300; /* slightly thicker to compensate for font-size */
         }
         .hero h2 {
             font-size: 165%;
