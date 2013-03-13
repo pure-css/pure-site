@@ -1,10 +1,27 @@
-YUI().use('node-base', function (Y) {
-    var menu = Y.one('#menu'),
-        menuLink = Y.one('.yui3-menu-link'),
-        layout = Y.one('#layout');
+var menu = document.getElementById('menu'),
+    menuLink = document.getElementById('menuLink'),
+    layout = document.getElementById('layout'),
 
-    Y.one(menuLink).on('click', function (e) {
-        layout.toggleClass('active');
-        menu.toggleClass('active');
-    });
-});
+    toggleClass = function (element, className) {
+        var classes = element.className.split(/\s+/),
+            length = classes.length,
+            i = 0;
+
+        for(; i < length; i++) {
+          if (classes[i] === className) {
+            classes.splice(i, 1);
+            break;
+          }
+        }
+        // The className is not found
+        if (length === classes.length) {
+            classes.push(className);
+        }
+        element.className = classes.join(" ");
+    };
+
+    menuLink.onclick = function (e) {
+        var active = 'active';
+        toggleClass(layout, active);
+        toggleClass(menu, active);
+    } 
