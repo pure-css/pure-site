@@ -180,6 +180,7 @@ aside {
 }
     #menu a {
         color: #999;
+        border: none;
         white-space: normal;
     }
 
@@ -193,7 +194,6 @@ aside {
 
         #menu .yui3-menu li a:hover {
             background: #333;
-            border-color: #333;
         }
 
     #menu .yui3-menu-link {
@@ -206,7 +206,7 @@ aside {
     }
 
         #menu .yui3-menu-link:hover {
-            background: black;
+            background: #000;
         }
 
     #menu .yui3-menu-title {
@@ -220,6 +220,10 @@ aside {
 
         #menu .yui3-menu-active a {
             color: rgb(4, 119, 141);
+        }
+
+        #menu li.yui3-menu-active a:hover {
+            background: none;
         }
 
 
