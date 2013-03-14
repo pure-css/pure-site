@@ -11,15 +11,35 @@
 <div class="content">
 
 
-    <h2 class='y-u-1'>Include the following <code>link</code> on your page</h2>
+    <h2 class='yui3-u-1'>Include the CSS on your page</h2>
+
+    <p>You can pull down Responsive Grids from the YUI CDN. Just include this script in your <code>&lt;head&gt;</code>.</p>
 
     {{#code}}
-    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.9.0pr3/build/cssgrids-responsive/cssgrids-responsive-min.css">
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/{{yui.version}}/build/cssgrids-responsive/cssgrids-responsive-min.css">
     {{/code}}
 
-    <p>Optionally, you can head over to the <a href="http://yui.github.com/gridbuilder/">GridBuilder</a> to make your very own custom grid. Save the outputted CSS in a file.</p>
+    <div class="notification">
+        <p>Optionally, you can head over to the <a href="http://yui.github.com/gridbuilder/">GridBuilder</a> to make your very own custom grid. Save the outputted CSS in a file and you're good to go!</p>
+    </div>
 
-    <h2 class="content-subhead">How does it work?</h2>
+    <h2 class="content-subhead">How do YUI Grids work?</h2>
+
+    <p>YUI3 Grids are very easy to work with. Consider <code>yui3-g</code> to be a row or "grid", and <code>yui3-u-*</code> to be columns, or "units". Each <code>yui3-g</code> can contain many units. Units have various class names that represent their widths. For example, <code>.yui3-u-1-2</code> has a width of 50%, whereas <code>.yui3-u-1-5</code> would have a width of 20%.</p>
+
+    <p>The only constraints for YUI3 Grids are that all "units" are children of a "grid". All you need to do is define a grid, one or more units inside it, and specify widths for them. Then stack and nest as required. Here's an example of a grid with three columns:</p>
+
+    {{#code}}
+
+        {{> grids/intro}}
+
+    {{/code}}
+
+    <div class="notification">
+        <p>For a more detailed guide, check out the <a href="http://yuilibrary.com/yui/docs/cssgrids/">CSS Grids documentation</a> on YUILibrary.</p>
+    </div>
+
+    <h2 class="content-subhead">How do responsive grids work?</h2>
 
     <p>YUI3 Responsive Grids builds on top of the existing YUI3 Grids implementation. It adds a single new class name called <code>.yui3-g-r</code> (the "r" stands for responsive, you see). You can use this instead of using <code>.yui3-g</code> as you normally do. All elements with a class name of <code>.yui3-g-*-*</code> will automatically become responsive if they are direct descendents of a <code>.yui3-g-r.</code></p>
 
