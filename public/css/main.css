@@ -32,6 +32,14 @@ h1,h2,h3,h4,h5,h6 {
     color: rgb(75, 75, 75);
 }
 
+
+aside {
+    background: #d4f1f7; /* normal color palette when primary color palette is at #00d4ff */
+    padding: 0.3em 1em;
+    border-radius: 3px;
+    color: #1f91a8; /* text.low from normal color palette. */
+}
+
 /* The content div is placed as a wrapper around all the docs */
 .content {
     margin: 0 auto;
@@ -144,13 +152,6 @@ h1,h2,h3,h4,h5,h6 {
 .notice {
     background-color: #61B842;
     color: white;
-}
-
-.notification {
-    background: #d4f1f7; /* normal color palette when primary color palette is at #00d4ff */
-    padding: 0.3em 1em;
-    border-radius: 3px;
-    color: #1f91a8; /* text.low from normal color palette.
 }
 
 /* Responsive */
