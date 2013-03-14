@@ -1,8 +1,3 @@
-/* Add height: 100% to all parents down to #menu so that it can stay fixed at 100% height. */
-html, body, #layout, #menu {
-    height:100%;
-}
-
 body {
     font-family: sans-serif;
     color: #777;
@@ -178,16 +173,22 @@ aside {
     margin-left: -150px; /* "#menu" width */
     width: 150px;
     position: fixed;
+    top: 0;
+    bottom: 0;
     z-index: 1000; /* so the menu or its navicon stays above all content */
     background: #191818;    
 }
     #menu a {
         color: #999;
+        white-space: normal;
+    }
+
+    #menu .yui3-menu-separator {
+        background: #333;
     }
     #menu .yui3-menu ul {
         border: none;
         background: transparent;
-        box-shadow: inset 0 6px 6px black;
     }
 
         #menu .yui3-menu li a:hover {
@@ -199,6 +200,7 @@ aside {
         display: none; /* show this only on small screens */
         top: 0;
         left: 150px; /* "#menu width" */
+        background: #000;
         background: rgba(0,0,0,0.7);
         padding: 1em;
     }
