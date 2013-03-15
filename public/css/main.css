@@ -6,7 +6,7 @@ body {
 
 /* Add transition to containers so they can push in and out */
 #layout, #menu, #menu .yui3-menu-link {
-    -webkit-transition: all 0.2s ease-out;  
+    -webkit-transition: all 0.2s ease-out;
     -moz-transition: all 0.2s ease-out;
     -ms-transition: all 0.2s ease-out;
     -o-transition: all 0.2s ease-out;
@@ -176,7 +176,7 @@ aside {
     top: 0;
     bottom: 0;
     z-index: 1000; /* so the menu or its navicon stays above all content */
-    background: #191818;    
+    background: #191818;
 }
     #menu a {
         color: #999;
@@ -184,12 +184,14 @@ aside {
         white-space: normal;
     }
 
-    #menu .yui3-menu-separator {
-        background: #333;
-    }
     #menu .yui3-menu ul {
         border: none;
         background: transparent;
+    }
+
+    #menu .yui3-menu ul,
+    #menu .yui3-menu .menu-item-yui {
+        border-top: 1px solid #333;
     }
 
         #menu .yui3-menu li a:hover {
@@ -269,7 +271,7 @@ a.plain-button {
 */
 
 @media (max-width: 870px) {
-    
+
     /* Navigation Push Styles */
     #layout {
         position: relative;
@@ -293,7 +295,7 @@ a.plain-button {
 
     #menu.active .yui3-menu-link {
         left: 250px;
-    }    
+    }
 }
 
 @media (max-width: 767px) {
