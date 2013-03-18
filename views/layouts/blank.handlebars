@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{{title}}</title>
+
+    {{addCdnCSS yui.version "cssnormalize" prepend=true}}
+    {{addCdnCSS yui.version "cssgrids-responsive"}}
+    {{addCdnCSS yui.version "cssbutton"}}
+    {{addCdnCSS yui.gallery "gallerycss-cssform"}}
+    {{addCdnCSS yui.gallery "gallerycss-csslist"}}
+    <link rel="stylesheet" href="{{{cdnCSSURL}}}" />
+
+  {{#githubCSS}}
+    <link rel="stylesheet" href="{{{.}}}" />
+  {{/githubCSS}}
+
+  {{#localCSS}}
+    <link rel="stylesheet" href="{{{.}}}" />
+  {{/localCSS}}
+
+  {{#if typekit}}
+    <script src="http://use.typekit.net/{{typekit}}.js"></script>
+    <script>
+        try { Typekit.load(); } catch (e) {}
+    </script>
+  {{/if}}
+</head>
+<body>
+
+{{{body}}}
+
+</body>
+</html>
