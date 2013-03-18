@@ -40,6 +40,10 @@ aside {
     color: #1f91a8; /* text.low from normal color palette. */
 }
 
+img.bordered {
+    border: 1px solid #ddd;
+}
+
 /* The content div is placed as a wrapper around all the docs */
 .content {
     margin: 0 auto;
