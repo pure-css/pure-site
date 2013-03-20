@@ -1,0 +1,107 @@
+body {
+    color: #666;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    color: #111;
+}
+
+.l-box {
+    padding: 2em;
+}
+
+.header .yui3-menu {
+    border-bottom-color: black;
+    border-radius: 0;
+}
+
+.photo-box, .text-box {
+    overflow: hidden;
+    position: relative;
+    height: 250px;
+}
+
+
+    .photo-box img {
+        min-height: 250px;
+        width: 100%;
+    }
+
+    .photo-box aside {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 1em 0.5em;
+        color: white;
+        width: 100%;
+        font-size: 80%;
+        text-align: right;
+        background: -moz-linear-gradient(top,  rgba(16,27,30,0) 0%, rgba(12,2,2,1) 90%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(16,27,30,0)), color-stop(90%,rgba(12,2,2,1))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,  rgba(16,27,30,0) 0%,rgba(12,2,2,1) 90%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top,  rgba(16,27,30,0) 0%,rgba(12,2,2,1) 90%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top,  rgba(16,27,30,0) 0%,rgba(12,2,2,1) 90%); /* IE10+ */
+        background: linear-gradient(to bottom,  rgba(16,27,30,0) 0%,rgba(12,2,2,1) 90%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00101b1e', endColorstr='#0c0202',GradientType=0 ); /* IE6-9 */
+
+    }
+
+    .photo-box aside span {
+        color: #aaa;
+    }
+
+        .photo-box aside span a {
+            color: #ccc;
+            text-decoration: none;
+        }
+
+.text-box {
+    background: rgb(28, 28, 37); /* bluish grey */
+    color: rgb(133, 154, 238); /* steel blue */
+}
+
+    .text-box-head {
+        color: #fff;
+        border-bottom: 2px solid rgb(43, 43, 58);
+        padding-bottom: 0.2em;
+    }
+
+    .text-box-subhead {
+        font-weight: normal;
+        font-size: 150%;
+    }
+
+.form-box {
+    text-align: center;
+    font-size: 120%;
+    border-bottom: 1px solid #eee;
+}
+
+    .form-box .yui3-button {
+        background-color: #61B842;
+        color: white;
+        vertical-align: top;
+        font-size: 106%;
+    }
+
+.footer {
+    background: #111;
+    color: #666;
+    text-align: center;
+    padding: 1em;
+    font-size: 80%;
+}
+
+@media (max-width: 767px) {
+    .photo-box, .text-box {
+        text-align: center;
+    }
+
+        .photo-box img {
+            width: 100%;
+        }
+
+    .text-box {
+        height: auto;
+    }
+}
