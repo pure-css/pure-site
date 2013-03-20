@@ -25,13 +25,13 @@ app.locals({
     copyright_year: '2013',
 
     nav: [
-        {id: 'home',   url: '/',        label: 'Home'},
-        {id: 'base',   url: '/base/',   label: 'Base'},
-        {id: 'grids',  url: '/grids/',  label: 'Grids'},
-        {id: 'layouts',url: '/layouts/',label: 'Layouts'},
-        {id: 'forms',  url: '/forms/',  label: 'Forms'},
-        {id: 'tables', url: '/tables/', label: 'Tables'},
-        {id: 'lists',  url: '/lists/',  label: 'Navigation'}
+        {id: 'home',    url: '/',         label: 'Home'},
+        {id: 'base',    url: '/base/',    label: 'Base'},
+        {id: 'grids',   url: '/grids/',   label: 'Grids'},
+        {id: 'layouts', url: '/layouts/', label: 'Layouts'},
+        {id: 'forms',   url: '/forms/',   label: 'Forms'},
+        {id: 'tables',  url: '/tables/',  label: 'Tables'},
+        {id: 'lists',   url: '/lists/',   label: 'Navigation'}
     ],
 
     yui    : config.yui,
@@ -63,13 +63,13 @@ if (config.isDevelopment) {
 
 // -- Routes -------------------------------------------------------------------
 
-app.get('/',        routes.render('home'));
-app.get('/base/',   routes.render('base'));
-app.get('/grids/',  routes.render('grids'));
-app.get('/layouts/',routes.render('layouts'));
-app.get('/forms/',  routes.render('forms'));
-app.get('/tables/', routes.render('tables'));
-app.get('/lists/',  routes.render('lists'));
+app.get('/',         routes.render('home'));
+app.get('/base/',    routes.render('base'));
+app.get('/grids/',   routes.render('grids'));
+app.get('/layouts/', routes.render('layouts'));
+app.get('/forms/',   routes.render('forms'));
+app.get('/tables/',  routes.render('tables'));
+app.get('/lists/',   routes.render('lists'));
 
 app.get('/layouts/marketing/', routes.render('templates/marketing', {layout: 'blank'}));
 app.get('/layouts/gallery/', routes.render('templates/gallery', {layout: 'blank'}));
