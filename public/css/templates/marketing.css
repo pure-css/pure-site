@@ -7,24 +7,14 @@ body {
     padding: 1em;
 }
 
-
-
-
 .header {
     margin: 0 0;
 }
 
     .header .yui3-menu {
-        background: #fff;
         padding: 0.5em;
-        border-bottom: 1px solid #ddd;
     }
-        .header .yui3-menu .yui3-menu-heading {
-            display: inline-block;
-        }
-        .header .yui3-menu ul {
-            display: inline-block;
-        }
+
         .header .yui3-menu li a:hover {
             background: none;
             border: none;
