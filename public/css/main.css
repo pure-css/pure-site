@@ -184,6 +184,11 @@ aside {
         white-space: normal;
     }
 
+    #menu .yui3-menu-open {
+        background: transparent;
+        border: 0;
+    }
+
     #menu .yui3-menu ul {
         border: none;
         background: transparent;
