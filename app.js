@@ -72,6 +72,8 @@ app.get('/tables/', routes.render('tables'));
 app.get('/lists/',  routes.render('lists'));
 
 app.get('/layouts/marketing/', routes.render('templates/marketing', {layout: 'blank'}));
+app.get('/layouts/gallery/', routes.render('templates/gallery', {layout: 'blank'}));
+
 
 // -- Exports ------------------------------------------------------------------
 

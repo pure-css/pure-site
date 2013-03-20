@@ -98,9 +98,16 @@ img.bordered {
 .l-box {
     padding: 1.3em;
 }
+
+.l-hbox {
+    padding: 0 1.3em;
+}
+
 .l-centered {
     text-align: center;
 }
+
+
 
 /* Footer */
 .legal {
@@ -178,5 +185,10 @@ img.bordered {
     }
     .legal-license, .legal-copyright, .legal-links, .legal-links li {
         text-align: center;
+    }
+
+    /* normalize paddings on small screens*/
+    .l-hbox {
+        padding: 1.3em;
     }
 }
