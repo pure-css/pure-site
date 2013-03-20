@@ -10,7 +10,10 @@
     {{addCdnCSS yui.version "cssgrids-responsive"}}
     {{addCdnCSS yui.version "cssbutton"}}
     {{addCdnCSS yui.gallery "gallerycss-cssform"}}
-    {{addCdnCSS yui.gallery "gallerycss-csslist"}}
+    {{addGithubCSS "tilomitra" "csslist" "master/css/list-core.css"}}
+    {{addGithubCSS "tilomitra" "csslist" "master/css/list.css"}}
+    {{addGithubCSS "tilomitra" "csslist" "master/css/list-responsive.css"}}
+    
     <link rel="stylesheet" href="{{{cdnCSSURL}}}" />
 
   {{#githubCSS}}
