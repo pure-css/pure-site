@@ -10,7 +10,7 @@ module.exports = Object.freeze({
 
     dirs: Object.freeze({
         pub     : path.resolve('public/'),
-        views   : path.resolve('views/'),
+        views   : path.resolve('views/pages/'),
         layouts : path.resolve('views/layouts/'),
         partials: path.resolve('views/partials/')
     }),

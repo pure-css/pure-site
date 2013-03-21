@@ -1,11 +1,21 @@
-{{#if nav}}
-<div id="headerMenu" class="yui3-menu yui3-menu-open yui3-menu-horizontal yui3-menu-fixed">
-    <ul>
-      {{#each nav}}
-        <li class="{{#if isActive}}yui3-menu-active{{/if}}">
-            <a href="{{url}}">{{label}}</a>
-        </li>
-      {{/each}}
-    </ul>
+<div class="yui3-u" id="menu">
+    <div class="yui3-menu yui3-menu-open">
+        <a class="yui3-menu-title" href="/">YUI CSS</a>
+
+        <a href="#menu" id="menuLink" class="yui3-menu-link">
+            <img src="/img/navicon-png2x.png" width="20"/>
+        </a>
+
+        <ul>
+          {{#each nav}}
+            <li class="{{#if isActive}}yui3-menu-active{{/if}}">
+                <a href="{{url}}">{{label}}</a>
+            </li>
+          {{/each}}
+
+          <li class="menu-item-yui">
+              <a href="http://yuilibrary.com/">YUI Library</a>
+          </li>
+        </ul>
+    </div>
 </div>
-{{/if}}

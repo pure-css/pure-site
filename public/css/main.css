@@ -3,16 +3,69 @@ body {
     color: #777;
 }
 
-/* TODO: HACK */
-pre code {
-    white-space: pre !important;
+
+/* Add transition to containers so they can push in and out */
+#layout, #menu, #menu .yui3-menu-link {
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
 }
 
+
+/* --------------------------
+ * Element Styles
+ * --------------------------
+*/
+
+
+h1,h2,h3,h4,h5,h6 {
+    font-weight: bold;
+    color: rgb(75, 75, 75);
+}
+
+
+/* --------------------------
+ * Layout Styles
+ * --------------------------
+*/
+
+#layout {
+    padding-left: 150px; /* left col width "#menu" */
+}
+
+#main {
+    width: 100%;
+}
+
+
+/* Apply the .box class on the immediate parent of any grid element (yui3-u-*) to apply some padding. */
+.l-box {
+    padding: 1.3em;
+}
+
+.l-hbox {
+    padding: 0 1.3em;
+}
+
+.l-centered {
+    text-align: center;
+}
+
+
+
+
+
+/* --------------------------
+ * Header Module Styles
+ * --------------------------
+*/
 .header {
      min-height: 80px;
      margin: 0;
      color: #333;
-     padding: 50px 20px 30px;
+     padding: 1em;
      text-align: center;
      border-bottom: 1px solid #eee;
      background: #fff;
@@ -20,18 +73,13 @@ pre code {
     .header h1 {
         margin: 0.2em 0;
         font-size: 3em;
+        font-weight: 300;
     }
      .header h2 {
          font-weight: 300;
          margin: 0;
          color: #ccc;
      }
-
-h1,h2,h3,h4,h5,h6 {
-    font-weight: bold;
-    color: rgb(75, 75, 75);
-}
-
 
 aside {
     background: #d4f1f7; /* normal color palette when primary color palette is at #00d4ff */
@@ -40,9 +88,10 @@ aside {
     color: #1f91a8; /* text.low from normal color palette. */
 }
 
-img.bordered {
-    border: 1px solid #ddd;
-}
+ /* --------------------------
+  * Content Module Styles
+  * --------------------------
+ */
 
 /* The content div is placed as a wrapper around all the docs */
 .content {
@@ -57,6 +106,8 @@ img.bordered {
 
     .content .content-subhead {
         margin: 50px 0 20px 0;
+        font-weight: 300;
+        color: #888;
     }
 
     .content .content-spaced {
@@ -94,22 +145,12 @@ img.bordered {
         padding-left: 1.5em;
     }
 
-/* Apply the .box class on the immediate parent of any grid element (yui3-u-*) to apply some padding. */
-.l-box {
-    padding: 1.3em;
-}
-
-.l-hbox {
-    padding: 0 1.3em;
-}
-
-.l-centered {
-    text-align: center;
-}
 
 
-
-/* Footer */
+/* --------------------------
+ * Footer Module Styles
+ * --------------------------
+*/
 .legal {
     font-size: 80%;
     border-top: 1px solid #eee;
@@ -133,25 +174,82 @@ img.bordered {
         text-align: center;
     }
 
-/* Main Navigation Header */
-#headerMenu ul {
-    background: #111;
-    color: #fff;
+/* --------------------------
+ * Main Navigation Bar Styles
+ * --------------------------
+*/
+
+#menu {
+    margin-left: -150px; /* "#menu" width */
+    width: 150px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 1000; /* so the menu or its navicon stays above all content */
+    background: #191818;
 }
-
-    #headerMenu a:hover {
-        background: #222;
-        border-color: #222;
+    #menu a {
+        color: #999;
+        border: none;
+        white-space: normal;
+        padding: 0.6em 0 0.6em 0.6em;
     }
-    #headerMenu a {
+
+    #menu .yui3-menu-open {
+        background: transparent;
+        border: 0;
+    }
+
+    #menu .yui3-menu ul {
+        border: none;
+        background: transparent;
+    }
+
+    #menu .yui3-menu ul,
+    #menu .yui3-menu .menu-item-yui {
+        border-top: 1px solid #333;
+    }
+
+        #menu .yui3-menu li a:hover {
+            background: #333;
+        }
+
+    #menu .yui3-menu-link {
+        display: none; /* show this only on small screens */
+        top: 0;
+        left: 150px; /* "#menu width" */
+        background: #000;
+        background: rgba(0,0,0,0.7);
+        padding: 0.75em 1em;
+    }
+
+        #menu .yui3-menu-link:hover {
+            background: #000;
+        }
+
+    #menu .yui3-menu-title {
+        font-size:110%;
         color: #fff;
-        text-shadow: none;
     }
 
-    #headerMenu .yui3-menu-active {
-        background: #222;
+    #menu .yui3-menu-active {
+        background: rgb(23, 218, 255);
     }
 
+        #menu .yui3-menu-active a {
+            color: rgb(4, 119, 141);
+        }
+
+        #menu li.yui3-menu-active a:hover {
+            background: none;
+        }
+
+
+
+/* ---------------------
+ * Smaller Module Styles
+ * ---------------------
+*/
 
 /* example code blocks */
 .example-snippet {
@@ -165,21 +263,64 @@ img.bordered {
     color: white;
 }
 
-/* Responsive */
-@media (max-width: 767px) {
-    #headerMenu {
+a.plain-button {
+    margin: 0.3em 0;
+    background: white;
+    font-size: 100%;
+    padding: 0.8em 1.5em;
+    box-shadow: none;
+    color: rgb(189, 189, 189);
+    border: 1px solid #ccc;
+    text-transform: uppercase;
+}
+
+    a.plain-button:hover {
+        background: white;
+        border-color: #222;
+        color: #222;
+    }
+
+
+/* --------------------------
+ * Responsive Styles
+ * --------------------------
+*/
+
+@media (max-width: 870px) {
+
+    /* Navigation Push Styles */
+    #layout {
         position: relative;
+        padding-left: 0;
     }
-    #headerMenu ul {
-        text-align: center;
+        #layout.active {
+            position: relative;
+            left: 150px;
+        }
+
+            #layout.active #menu {
+                left: 150px;
+                width: 150px;
+            }
+
+    #menu .yui3-menu-link {
+        position: fixed;
+        left: 0;
+        display: block;
     }
-    #headerMenu a {
-        font-size:80%;
+
+    #menu.active .yui3-menu-link {
+        left: 150px;
     }
+}
+
+@media (max-width: 767px) {
 
     .content {
         width: 95%;
+        font-size: 90%;
     }
+
     .legal-links {
         padding:1em 0;
     }

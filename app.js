@@ -21,7 +21,7 @@ app.set('view engine', hbs.extname);
 app.set('views', config.dirs.views);
 
 app.locals({
-    title         : 'YUI CSS',
+    site          : 'YUI CSS',
     copyright_year: '2013',
 
     nav: [
