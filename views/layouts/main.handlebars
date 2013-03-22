@@ -1,37 +1,15 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {{> layouts/meta}}
+    {{> layouts/title}}
 
-    <title>{{pageTitle}}</title>
-
-    {{addCdnCSS yui.version "cssnormalize" prepend=true}}
-    {{addCdnCSS yui.version "cssgrids-responsive"}}
-    {{addCdnCSS yui.version "cssbutton"}}
-
-    <link rel="stylesheet" href="{{{cdnCSSURL}}}" />
-
-    {{addGithubCSS "tilomitra" "csslist" "master/css/list-core.css"}}
-    {{addGithubCSS "tilomitra" "csslist" "master/css/list.css"}}
-    {{addGithubCSS "tilomitra" "csslist" "master/css/list-responsive.css"}}
+    {{addLocalCSS "/css/main.css"}}
     {{addGithubCSS "ccampbell" "rainbow" "master/themes/github.css"}}
-
-  {{#githubCSS}}
-    <link rel="stylesheet" href="{{{.}}}" />
-  {{/githubCSS}}
-
-    {{addLocalCSS "/css/main.css" prepend=true}}
-
-  {{#localCSS}}
-    <link rel="stylesheet" href="{{{.}}}" />
-  {{/localCSS}}
+    {{> layouts/styles}}
 
   {{#if typekit}}
-    <script src="http://use.typekit.net/{{typekit}}.js"></script>
-    <script>
-        try { Typekit.load(); } catch (e) {}
-    </script>
+    {{> layouts/typekit}}
   {{/if}}
 </head>
 <body>

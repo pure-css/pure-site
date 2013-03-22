@@ -1,0 +1,20 @@
+{{! Common styles used across multiple layouts }}
+
+{{addCdnCSS yui.version "cssnormalize" prepend=true}}
+{{addCdnCSS yui.version "cssgrids-responsive"}}
+{{addCdnCSS yui.version "cssbutton"}}
+{{addCdnCSS yui.gallery "gallerycss-cssform"}}
+{{addGithubCSS "tilomitra" "csslist" "master/css/list-core.css"}}
+{{addGithubCSS "tilomitra" "csslist" "master/css/list.css"}}
+{{addGithubCSS "tilomitra" "csslist" "master/css/list-responsive.css"}}
+
+<link rel="stylesheet" href="{{{cdnCSSURL}}}" />
+
+{{#githubCSS}}
+  <link rel="stylesheet" href="{{{.}}}" />
+{{/githubCSS}}
+
+{{#localCSS}}
+  <link rel="stylesheet" href="{{{.}}}" />
+{{/localCSS}}
+
