@@ -1,16 +1,14 @@
 <!doctype html>
 <html lang="en">
 <head>
-    {{> layouts/meta}}
-    {{> layouts/title}}
+    {{> meta}}
+    {{> title}}
 
     {{addLocalCSS "/css/main.css"}}
     {{addGithubCSS "ccampbell" "rainbow" "master/themes/github.css"}}
-    {{> layouts/styles}}
+    {{> styles}}
 
-  {{#if typekit}}
-    {{> layouts/typekit}}
-  {{/if}}
+    {{> typekit}}
 </head>
 <body>
 
