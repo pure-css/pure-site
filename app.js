@@ -71,9 +71,8 @@ app.get('/forms/',   routes.render('forms'));
 app.get('/tables/',  routes.render('tables'));
 app.get('/lists/',   routes.render('lists'));
 
+app.get('/layouts/gallery/',   routes.render('layouts/gallery', 'blank'));
 app.get('/layouts/marketing/', routes.render('layouts/marketing', 'blank'));
-app.get('/layouts/gallery/', routes.render('layouts/gallery', 'blank'));
-
 
 // -- Exports ------------------------------------------------------------------
 
