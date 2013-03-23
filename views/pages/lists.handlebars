@@ -2,7 +2,6 @@
 {{setSubTitle  "Simple CSS for HTML Lists"}}
 {{setActiveNav "lists"}}
 
-{{addCdnCSS yui.version "cssbutton"}}
 {{addGithubCSS "tilomitra" "csslist" "master/css/list-paginator.css"}}
 {{addLocalCSS "/css/lists.css"}}
 
@@ -12,53 +11,50 @@
 <script src="http://yui.yahooapis.com/{{yui.version}}/build/yui/yui{{min}}.js"></script>
 
 <div class="content">
-
     <h2 class="content-subhead">Include the CSS on your page</h2>
+    <p>
+        You can pull down CSSList from the YUI Gallery. Just include this {{code "<link>"}} element in your {{code "<head>"}}.
+    </p>
 
-    <p>You can pull down CSSList from the YUI Gallery. Just include this {{code "<link>"}} element in your {{code "<head>"}}.</p>
-
-    {{#code}}
-    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/{{yui.gallery}}/build/gallerycss-csslist/gallerycss-csslist-min.css">
-    {{/code}}
+  {{#code}}
+    <link rel="stylesheet" href="http://yui.yahooapis.com/{{yui.gallery}}/build/gallerycss-csslist/gallerycss-csslist-min.css">
+  {{/code}}
 
 
     <h2 class="content-subhead">Horizontal Menu</h2>
-
     <p>
         Create horizontal menus by adding the {{code "yui3-menu-horizontal"}} class name. You can mark the active list element by adding the {{code "yui3-menu-active"}} class to the list element.
     </p>
 
     {{> lists/horizontal}}
 
-    {{#code}}
+  {{#code}}
     {{> lists/horizontal}}
-    {{/code}}
+  {{/code}}
 
 
     <h2 class="content-subhead">Vertical Menu</h2>
-
     <p>
         Menus are vertical by default. Just add the {{code "yui3-menu"}} class to style the menu, and the {{code "yui3-menu-open"}} class to ensure that it is visible.
     </p>
 
     {{> lists/vertical}}
 
-    {{#code}}
+  {{#code}}
     {{> lists/vertical}}
-    {{/code}}
+  {{/code}}
+
 
     <h2 class="content-subhead">Add Dropdowns to Menus</h2>
-
     <p>
         Adding dropdowns to menus requires the use of JavaScript. The {{code "Y.Menu"}} module adds dropdown functionality and the ability to create JavaScript menus.
     </p>
 
     {{> lists/dropdown}}
 
-    {{#code}}
+  {{#code}}
     {{> lists/dropdown}}
-    {{/code}}
-
+  {{/code}}
 
 
     <h2 class="content-subhead">Styled Menus</h2>
@@ -67,13 +63,11 @@
         Don't want a plain menu? Just add the class {{code "yui3-menu-light"}} to add some more styles to your menu.
     </p>
 
-
     {{> lists/light-menu}}
 
-    {{#code}}
+  {{#code}}
     {{> lists/light-menu}}
-    {{/code}}
-
+  {{/code}}
 
     <h3>Dark Menu</h3>
     <p>
@@ -83,9 +77,9 @@
     <div class="dark-ribbon">
         {{> lists/dark-menu}}
 
-        {{#code}}
+      {{#code}}
         {{> lists/dark-menu}}
-        {{/code}}
+      {{/code}}
     </div>
 
 
@@ -96,17 +90,7 @@
 
     {{> lists/paginator}}
 
-    {{#code}}
+  {{#code}}
     {{> lists/paginator}}
-    {{/code}}
-
+  {{/code}}
 </div>
-
-
-
-
-
-
-
-
-

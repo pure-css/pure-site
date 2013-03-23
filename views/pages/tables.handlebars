@@ -6,75 +6,73 @@
 
 {{> header}}
 
-
 <div class="content">
-
     <h2 class="content-subhead">Include the CSS on your page</h2>
+    <p>
+        You can pull down CSSTable from the YUI Gallery. Just include this {{code "<link>"}} element in your {{code "<head>"}}.
+    </p>
 
-    <p>You can pull down CSSTable from the YUI Gallery. Just include this {{code "<link>"}} element in your {{code "<head>"}}.</p>
+  {{#code}}
+    <link rel="stylesheet" href="http://yui.yahooapis.com/{{yui.gallery}}/build/gallerycss-csstable/gallerycss-csstable-min.css">
+  {{/code}}
 
-    {{#code}}
-    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/{{yui.gallery}}/build/gallerycss-csstable/gallerycss-csstable-min.css">
-    {{/code}}
 
     <h2 class="content-subhead">Default Table</h2>
-
-    <p>Add the {{code "yui3-table"}} classname to a table to style an HTML table similar to how a YUI3 Datatable would be styled. This class adds appropriate padding and borders to table elements, and increases the emphasis on the header.</p>
+    <p>
+        Add the {{code "yui3-table"}} classname to a table to style an HTML table similar to how a YUI3 Datatable would be styled. This class adds appropriate padding and borders to table elements, and increases the emphasis on the header.
+    </p>
 
     {{> tables/default}}
 
-    {{#code}}
+  {{#code}}
     {{> tables/default}}
-    {{/code}}
+  {{/code}}
 
 
     <h2 class="content-subhead">Bordered Table</h2>
-    <p>To add horizontal and vertical borders to all cells, add the {{code "yui3-table-bordered"}} classname to the {{code "<table>"}} element.</p>
+    <p>
+        To add horizontal and vertical borders to all cells, add the {{code "yui3-table-bordered"}} classname to the {{code "<table>"}} element.
+    </p>
 
     {{> tables/bordered}}
 
-    {{#code}}
+  {{#code}}
     {{> tables/bordered}}
-    {{/code}}
+  {{/code}}
+
 
     <h2 class="content-subhead">Table with Horizontal Borders</h2>
-    <p>If you prefer to just have horizontal lines, add the {{code "yui3-table-horizontal"}} classname to the {{code "<table>"}} element.</p>
+    <p>
+        If you prefer to just have horizontal lines, add the {{code "yui3-table-horizontal"}} classname to the {{code "<table>"}} element.
+    </p>
 
     {{> tables/horizontal}}
 
-    {{#code}}
+  {{#code}}
     {{> tables/horizontal}}
-    {{/code}}
+  {{/code}}
 
 
     <h2 class="content-subhead">Striped Table</h2>
-
-    <p>Large tables are easier to parse visually if rows are easily distinguishable. Adding the {{code "yui3-table-odd"}} class name to every other {{code "<tr>"}} element changes the background of the row and creates a zebra-styled effect.</p>
+    <p>
+        Large tables are easier to parse visually if rows are easily distinguishable. Adding the {{code "yui3-table-odd"}} class name to every other {{code "<tr>"}} element changes the background of the row and creates a zebra-styled effect.
+    </p>
 
     {{> tables/striped}}
 
-    {{#code}}
+  {{#code}}
     {{> tables/striped}}
-    {{/code}}
-
+  {{/code}}
 
 
     <h2 class="content-subhead">Simple Table with plain header</h2>
-    <p>To remove the styled header, simply add the {{code "yui3-thead-simple"}} class name to the {{code "<thead>"}} element. You can mix and match this with other table class names mentioned above.</p>
+    <p>
+        To remove the styled header, simply add the {{code "yui3-thead-simple"}} class name to the {{code "<thead>"}} element. You can mix and match this with other table class names mentioned above.
+    </p>
 
     {{> tables/simple}}
 
-    {{#code}}
+  {{#code}}
     {{> tables/simple}}
-    {{/code}}
-
+  {{/code}}
 </div>
-
-
-
-
-
-
-
-
-
