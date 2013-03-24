@@ -24,15 +24,8 @@ app.locals({
     site          : 'YUI CSS',
     copyright_year: '2013',
 
-    nav: [
-        {id: 'home',    url: '/',         label: 'Home'},
-        {id: 'base',    url: '/base/',    label: 'Base'},
-        {id: 'grids',   url: '/grids/',   label: 'Grids'},
-        {id: 'layouts', url: '/layouts/', label: 'Layouts'},
-        {id: 'forms',   url: '/forms/',   label: 'Forms'},
-        {id: 'tables',  url: '/tables/',  label: 'Tables'},
-        {id: 'lists',   url: '/lists/',   label: 'Navigation'}
-    ],
+    nav  : [],
+    pages: {},
 
     yui    : config.yui,
     min    : config.isProduction ? '-min' : '',
@@ -63,16 +56,31 @@ if (config.isDevelopment) {
 
 // -- Routes -------------------------------------------------------------------
 
-app.get('/',         routes.render('home'));
-app.get('/base/',    routes.render('base'));
-app.get('/grids/',   routes.render('grids'));
-app.get('/layouts/', routes.render('layouts'));
-app.get('/forms/',   routes.render('forms'));
-app.get('/tables/',  routes.render('tables'));
-app.get('/lists/',   routes.render('lists'));
+function routePage(id, path, label, callbacks) {
+    if (typeof label !== 'string') {
+        callbacks = label;
+        label     = null;
+    }
 
-app.get('/layouts/gallery/',   routes.render('layouts/gallery', 'blank'));
-app.get('/layouts/marketing/', routes.render('layouts/marketing', 'blank'));
+    app.get(path, callbacks);
+
+    app.locals.pages[id] = path;
+
+    if (label) {
+        app.locals.nav.push({id: id, url: path, label: label});
+    }
+}
+
+routePage('home',    '/',         'Home',       routes.render('home'));
+routePage('base',    '/base/',    'Base',       routes.render('base'));
+routePage('grids',   '/grids/',   'Grids',      routes.render('grids'));
+routePage('layouts', '/layouts/', 'Layouts',    routes.render('layouts'));
+routePage('forms',   '/forms/',   'Forms',      routes.render('forms'));
+routePage('tables',  '/tables/',  'Tables',     routes.render('tables'));
+routePage('lists',   '/lists/',   'Navigation', routes.render('lists'));
+
+routePage('layoutsGallery',   '/layouts/gallery/',   routes.render('layouts/gallery', 'blank'));
+routePage('layoutsMarketing', '/layouts/marketing/', routes.render('layouts/marketing', 'blank'));
 
 // -- Exports ------------------------------------------------------------------
 
