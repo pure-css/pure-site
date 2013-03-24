@@ -1,16 +1,14 @@
 <!doctype html>
 <html lang="en">
 <head>
-    {{> layouts/meta}}
-    {{> layouts/title}}
+    {{> meta}}
+    {{> title}}
 
-    {{addLocalCSS "/css/main.css"}}
     {{addGithubCSS "ccampbell" "rainbow" "master/themes/github.css"}}
-    {{> layouts/styles}}
+    {{addLocalCSS "/css/main.css"}}
+    {{> styles}}
 
-  {{#if typekit}}
-    {{> layouts/typekit}}
-  {{/if}}
+    {{> typekit}}
 </head>
 <body>
 
@@ -22,6 +20,7 @@
             {{{body}}}
 
             {{> legal}}
+
         </div>
     </div>
 

@@ -2,48 +2,57 @@
 {{setSubTitle  "A fully-customizable responsive grid"}}
 {{setActiveNav "grids"}}
 
-{{addCdnCSS yui.version "cssgrids-responsive"}}
 {{addGithubCSS "tilomitra" "csstables" "master/css/tables.css"}}
 
 {{> header}}
 
-
 <div class="content">
+    <h2 class="content-subhead">Include the CSS on your page</h2>
+    <p>
+        You can pull down Responsive Grids from the YUI CDN. Just include this {{code "<link>"}} element in your {{code "<head>"}}.
+    </p>
 
-    <h2 class='yui3-u-1'>Include the CSS on your page</h2>
-
-    <p>You can pull down Responsive Grids from the YUI CDN. Just include this {{code "<link>"}} element in your {{code "<head>"}}.</p>
-
-    {{#code}}
-    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/{{yui.version}}/build/cssgrids-responsive/cssgrids-responsive-min.css">
-    {{/code}}
+  {{#code}}
+    <link rel="stylesheet" href="http://yui.yahooapis.com/{{yui.version}}/build/cssgrids-responsive/cssgrids-responsive-min.css">
+  {{/code}}
 
     <aside>
-        <p>Optionally, you can head over to the <a href="http://yui.github.com/gridbuilder/">GridBuilder</a> to make your very own custom grid. Save the outputted CSS in a file and you're good to go!</p>
+        <p>
+            Optionally, you can head over to the <a href="http://yui.github.com/gridbuilder/">GridBuilder</a> to make your very own custom grid. Save the outputted CSS in a file and you're good to go!
+        </p>
     </aside>
+
 
     <h2 class="content-subhead">How do YUI Grids work?</h2>
+    <p>
+        YUI Grids are very easy to work with. Consider <code>yui3-g</code> to be a row or "grid", and {{code "yui3-u-*"}} to be columns, or "units". Each {{code "yui3-g"}} can contain many units. Units have various class names that represent their widths. For example, {{code "yui3-u-1-2"}} has a width of 50%, whereas {{code "yui3-u-1-5"}} would have a width of 20%.
+    </p>
 
-    <p>YUI Grids are very easy to work with. Consider <code>yui3-g</code> to be a row or "grid", and {{code "yui3-u-*"}} to be columns, or "units". Each {{code "yui3-g"}} can contain many units. Units have various class names that represent their widths. For example, {{code "yui3-u-1-2"}} has a width of 50%, whereas {{code "yui3-u-1-5"}} would have a width of 20%.</p>
+    <p>
+        The only constraints for YUI3 Grids are that all "units" are children of a "grid". All you need to do is define a grid, one or more units inside it, and specify widths for them. Then stack and nest as required. Here's an example of a grid with three columns:
+    </p>
 
-    <p>The only constraints for YUI3 Grids are that all "units" are children of a "grid". All you need to do is define a grid, one or more units inside it, and specify widths for them. Then stack and nest as required. Here's an example of a grid with three columns:</p>
-
-    {{#code}}
+  {{#code}}
     {{> grids/intro}}
-    {{/code}}
+  {{/code}}
 
     <aside>
-        <p>For a more detailed guide, check out the <a href="http://yuilibrary.com/yui/docs/cssgrids/">CSS Grids documentation</a> on YUILibrary.</p>
+        <p>
+            For a more detailed guide, check out the <a href="http://yuilibrary.com/yui/docs/cssgrids/">CSS Grids documentation</a> on YUILibrary.
+        </p>
     </aside>
 
-    <h2 class="content-subhead">How do responsive grids work?</h2>
 
-    <p>YUI3 Responsive Grids builds on top of the existing YUI3 Grids implementation. It adds a single new class name called {{code "yui3-g-r"}} (the "r" stands for responsive, you see). You can use this instead of using {{code "yui3-g"}} as you normally do. All elements with a class name of {{code "yui3-g-*-*"}} will automatically become responsive if they are direct descendents of a {{code "yui3-g-r."}}</p>
+    <h2 class="content-subhead">How do responsive grids work?</h2>
+    <p>
+        YUI3 Responsive Grids builds on top of the existing YUI3 Grids implementation. It adds a single new class name called {{code "yui3-g-r"}} (the "r" stands for responsive, you see). You can use this instead of using {{code "yui3-g"}} as you normally do. All elements with a class name of {{code "yui3-g-*-*"}} will automatically become responsive if they are direct descendents of a {{code "yui3-g-r."}}
+    </p>
 
 
     <h2 class="content-subhead">The HTML</h2>
-
-    <p>The first gist shows how regular YUI3 grids are written. These grids are unresponsive. They'll always be one-thirds irrespective of the width of the screen. The second gist replaces the {{code "yui3-g"}} with {{code "yui3-g-r"}}, thereby making the one-third columns collapse to full width on lower screen widths.</p>
+    <p>
+        The first gist shows how regular YUI3 grids are written. These grids are unresponsive. They'll always be one-thirds irrespective of the width of the screen. The second gist replaces the {{code "yui3-g"}} with {{code "yui3-g-r"}}, thereby making the one-third columns collapse to full width on lower screen widths.
+    </p>
 
 
     <h2 class="content-subhead">Features</h2>
@@ -60,23 +69,13 @@
     <h2 class="l-centered">See it in action below!</h2>
     <h3 class="l-centered">Resize the page to see the grid collapse.</h3>
 
-
     {{> grids/four-col}}
 
 
     <h2 class="content-subhead">Grids on Mobile</h2>
-
-    <p>Putting the {{code "yui3-g"}} classname on the wrapper instead of {{code "yui3-g-r"}} will ensure that grid units will not collapse on small screens. This is a good way to make grids on smaller screens like phones.
+    <p>
+        Putting the {{code "yui3-g"}} classname on the wrapper instead of {{code "yui3-g-r"}} will ensure that grid units will not collapse on small screens. This is a good way to make grids on smaller screens like phones.
+    </p>
 
     {{> grids/mobile-col}}
-
 </div>
-
-
-
-
-
-
-
-
-

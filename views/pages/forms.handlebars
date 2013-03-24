@@ -2,30 +2,30 @@
 {{setSubTitle  "Simple CSS for HTML Forms"}}
 {{setActiveNav "forms"}}
 
-{{addCdnCSS yui.version "cssbutton"}}
 {{addGithubCSS "tilomitra" "cssforms" "master/css/forms.css"}}
 {{addGithubCSS "tilomitra" "cssforms" "master/css/forms-responsive.css"}}
 
 {{> header}}
 
 <div class="content">
-    
     <h2 class="content-subhead">Include the CSS on your page</h2>
+    <p>
+        You can pull down CSSForm from the YUI Gallery. Just include this {{code "<link>"}} element in your {{code "<head>"}}.
+    </p>
 
-    <p>You can pull down CSSForm from the YUI Gallery. Just include this {{code "<link>"}} element in your {{code "<head>"}}.</p>
+  {{#code}}
+    <link rel="stylesheet" href="http://yui.yahooapis.com/{{yui.gallery}}/build/gallerycss-cssform/gallerycss-cssform-min.css">
+  {{/code}}
 
-    {{#code}}
-    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/{{yui.gallery}}/build/gallerycss-cssform/gallerycss-cssform-min.css">
-    {{/code}}
 
     <h2 class="content-subhead">Default Form</h2>
     <p>A default inline form can be created by adding the {{code "yui3-form"}} to any {{code "<form>"}} element. This creates an inline form.</p>
 
     {{> forms/default}}
 
-    {{#code}}
+  {{#code}}
     {{> forms/default}}
-    {{/code}}
+  {{/code}}
 
 
     <h2 class="content-subhead">Multi-Column Form (with YUI Grids)</h2>
@@ -33,9 +33,10 @@
 
     {{> forms/multi}}
 
-    {{#code}}
+  {{#code}}
     {{> forms/multi}}
-    {{/code}}
+  {{/code}}
+
 
     <h2 class="content-subhead">Stacked Form</h2>
     <p>A stacked form has its input elements below the labels. Apply this style by adding the {{code "yui3-form-stacked"}} class-name on a {{code "<form>"}} element in addition to {{code "yui3-form"}}.
@@ -57,17 +58,16 @@
     {{> forms/aligned}}
     {{/code}}
 
-
-
     <h2 class="content-subhead">Grouped Inputs</h2>
-
-    <p>Grouped inputs are great for grouping small sets of text-based input elements. They work well for sign-up forms, and look natural on mobile devices.</p>
+    <p>
+        Grouped inputs are great for grouping small sets of text-based input elements. They work well for sign-up forms, and look natural on mobile devices.
+    </p>
 
     {{> forms/grouped}}
 
-    {{#code}}
+  {{#code}}
     {{> forms/grouped}}
-    {{/code}}
+  {{/code}}
 
 
     <h2 class="content-subhead">Input Sizing</h2>
@@ -88,42 +88,49 @@
     {{/code}}
 
     <h2 class="content-subhead">Invalid Inputs</h2>
-    <p>Add the {{code "required"}} attribute to any form control.</p>
-
+    <p>
+        Add the {{code "required"}} attribute to any form control.
+    </p>
 
     {{> forms/invalid}}
 
-    {{#code}}
+  {{#code}}
     {{> forms/invalid}}
-    {{/code}}
+  {{/code}}
 
 
     <h2 class="content-subhead">Disabled Inputs</h2>
-    <p>Add the {{code "disabled"}} attribute to any form control.</p>
+    <p>
+        Add the {{code "disabled"}} attribute to any form control.
+    </p>
 
     {{> forms/disabled}}
 
-    {{#code}}
+  {{#code}}
     {{> forms/disabled}}
-    {{/code}}
+  {{/code}}
+
 
     <h2 class="content-subhead">Rounded Inputs</h2>
-    <p>Add the {{code "yui3-input-rounded"}} classname to any form control.</p>
+    <p>
+        Add the {{code "yui3-input-rounded"}} classname to any form control.
+    </p>
 
     {{> forms/rounded}}
 
-    {{#code}}
+  {{#code}}
     {{> forms/rounded}}
-    {{/code}}
+  {{/code}}
 
 
     <h2 class="content-subhead">Checkboxes and Radios</h2>
-    <p>YUI Forms normalizes and aligns checkboxes and radio inputs for you too. Just add the {{code "yui3-checkbox"}} or {{code "yui3-radio"}} classname to these controls.</p>
+    <p>
+        YUI Forms normalizes and aligns checkboxes and radio inputs for you too. Just add the {{code "yui3-checkbox"}} or {{code "yui3-radio"}} classname to these controls.
+    </p>
 
     {{> forms/checkbox-radio}}
 
-    {{#code}}
+  {{#code}}
     {{> forms/checkbox-radio}}
-    {{/code}}
-
+  {{/code}}
 </div>
