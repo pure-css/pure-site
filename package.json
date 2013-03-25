@@ -13,6 +13,7 @@
     },
 
     "dependencies": {
+        "combohandler"       : "0.2.x",
         "express"            : "3.x",
         "express3-handlebars": "0.3.x",
         "handlebars"         : "1.x"

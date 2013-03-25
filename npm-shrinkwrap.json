@@ -2,6 +2,73 @@
   "name": "yuilib-css",
   "version": "0.0.1",
   "dependencies": {
+    "combohandler": {
+      "version": "0.2.0",
+      "dependencies": {
+        "express": {
+          "version": "3.0.0",
+          "dependencies": {
+            "connect": {
+              "version": "2.6.0",
+              "dependencies": {
+                "qs": {
+                  "version": "0.5.1"
+                },
+                "formidable": {
+                  "version": "1.0.11"
+                },
+                "bytes": {
+                  "version": "0.1.0"
+                },
+                "send": {
+                  "version": "0.0.4",
+                  "dependencies": {
+                    "mime": {
+                      "version": "1.2.6"
+                    }
+                  }
+                },
+                "pause": {
+                  "version": "0.0.1"
+                }
+              }
+            },
+            "commander": {
+              "version": "0.6.1"
+            },
+            "range-parser": {
+              "version": "0.0.4"
+            },
+            "mkdirp": {
+              "version": "0.3.3"
+            },
+            "cookie": {
+              "version": "0.0.4"
+            },
+            "crc": {
+              "version": "0.2.0"
+            },
+            "fresh": {
+              "version": "0.1.0"
+            },
+            "methods": {
+              "version": "0.0.1"
+            },
+            "send": {
+              "version": "0.1.0",
+              "dependencies": {
+                "mime": {
+                  "version": "1.2.6"
+                }
+              }
+            },
+            "debug": {
+              "version": "0.7.2"
+            }
+          }
+        }
+      }
+    },
     "express": {
       "version": "3.1.0",
       "dependencies": {

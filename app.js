@@ -27,8 +27,12 @@ app.locals({
     nav  : [],
     pages: {},
 
+    isDevelopment: config.isDevelopment,
+    isProduction : config.isProduction,
+
+    min: config.isProduction ? '-min' : '',
+
     yui    : config.yui,
-    min    : config.isProduction ? '-min' : '',
     typekit: config.typekit
 });
 
@@ -81,6 +85,8 @@ routePage('lists',   '/lists/',   'Navigation', routes.render('lists'));
 
 routePage('layoutsGallery',   '/layouts/gallery/',   routes.render('layouts/gallery', 'blank'));
 routePage('layoutsMarketing', '/layouts/marketing/', routes.render('layouts/marketing', 'blank'));
+
+app.get('/combo', routes.combo);
 
 // -- Exports ------------------------------------------------------------------
 
