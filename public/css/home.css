@@ -31,6 +31,8 @@ p {
     .size-chart-item {
         box-sizing: border-box;
         display: inline-block;
+        zoom: 1;
+        *display: inline;
     }
 
     .size-chart-base {
@@ -86,6 +88,8 @@ p {
         font-size: 0.8em;
         color: rgb(126, 126, 126);
         display: inline-block;
+        zoom: 1;
+        *display: inline;
         position: relative;
         bottom: -52px;
         text-align: center;
