@@ -24,8 +24,12 @@
         </div>
     </div>
 
-    <script src="/js/ui.js"></script>
-    <script src="/vendor/rainbow-min.js"></script>
+    {{addLocalJS "/js/ui.js"}}
+    {{addLocalJS "/vendor/rainbow-min.js"}}
+
+  {{#localJS}}
+    <script src="{{{.}}}"></script>
+  {{/localJS}}
 
 </body>
 </html>
