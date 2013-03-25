@@ -2,6 +2,7 @@
 {{setSubTitle  "Simple CSS for HTML Forms"}}
 {{setActiveNav "forms"}}
 
+{{addGithubCSS "tilomitra" "cssforms" "master/css/forms-core.css"}}
 {{addGithubCSS "tilomitra" "cssforms" "master/css/forms.css"}}
 {{addGithubCSS "tilomitra" "cssforms" "master/css/forms-responsive.css"}}
 
@@ -19,8 +20,13 @@
 
 
     <h2 class="content-subhead">Default Form</h2>
+    <p>
+        A default inline form can be created by adding the {{code "yui3-form"}} to any {{code "<form>"}} element. This creates an inline form.
+    </p>
 
+  {{#prefixIds "default"}}
     {{> forms/default}}
+  {{/prefixIds}}
 
   {{#code}}
     {{> forms/default}}
@@ -29,34 +35,43 @@
 
     <h2 class="content-subhead">Multi-Column Form (with YUI Grids)</h2>
     <p>
-        Multi-column forms such as the one below can be created by pulling down YUI Grids.
+        Multi-column forms such as the one below can be created by pulling down YUI Grids. In this example, we're using YUI Grids with a stacked form.
     </p>
 
+  {{#prefixIds "multi"}}
     {{> forms/multi}}
+  {{/prefixIds}}
 
   {{#code}}
     {{> forms/multi}}
   {{/code}}
 
 
-    <h2 class="content-subhead">Inline Form</h2>
-
-    {{> forms/inline}}
-
-  {{#code}}
-    {{> forms/inline}}
-  {{/code}}
-
-
-    <h2 class="content-subhead">Horizontal Form</h2>
+    <h2 class="content-subhead">Stacked Form</h2>
     <p>
-        Horizontal forms are great for standard forms that look well-aligned. The labels are right-aligned against the form input controls.
+        A stacked form has its input elements below the labels. Apply this style by adding the {{code "yui3-form-stacked"}} class-name on a {{code "<form>"}} element in addition to {{code "yui3-form"}}.
     </p>
 
-    {{> forms/horizontal}}
+  {{#prefixIds "stacked"}}
+    {{> forms/stacked}}
+  {{/prefixIds}}
 
   {{#code}}
-    {{> forms/horizontal}}
+    {{> forms/stacked}}
+  {{/code}}
+
+
+    <h2 class="content-subhead">Aligned Form</h2>
+    <p>
+        Aligned forms are great for standard forms that look well-aligned. The labels are right-aligned against the form input controls, but re-align to be standard left-aligned forms on smaller screens. Apply the {{code "yui3-form-aligned"}} class to your {{code "<form>"}} element.
+    </p>
+
+  {{#prefixIds "aligned"}}
+    {{> forms/aligned}}
+  {{/prefixIds}}
+
+  {{#code}}
+    {{> forms/aligned}}
   {{/code}}
 
 
@@ -65,46 +80,38 @@
         Grouped inputs are great for grouping small sets of text-based input elements. They work well for sign-up forms, and look natural on mobile devices.
     </p>
 
+  {{#prefixIds "grouped"}}
     {{> forms/grouped}}
+  {{/prefixIds}}
 
   {{#code}}
     {{> forms/grouped}}
-  {{/code}}
-
-
-    <h2 class="content-subhead">Prepending and Appending to Inputs</h2>
-    <p>
-        Sometimes, you may need to prepend or append text to {{code "<input>"}}s. To do this, put your input element in a wrapper with a {{code "yui3-input-prepend"}} or {{code "yui3-input-append"}} class name, and append or prepend a {{code "<span>"}} with a {{code "yui3-addon"}} class name.
-    </p>
-
-    {{> forms/appended-inputs}}
-
-  {{#code}}
-    {{> forms/appended-inputs}}
-  {{/code}}
-
-
-    <h2 class="content-subhead">Prepending and Appending Buttons to Inputs</h2>
-    <p>
-        Similar to text, you can also prepend and append buttons. Just follow the steps above, but replace the {{code "<span>"}} with a button or anchor element with a {{code "yui3-button"}} class name.
-    </p>
-
-    {{> forms/appended-buttons}}
-
-  {{#code}}
-    {{> forms/appended-buttons}}
   {{/code}}
 
 
     <h2 class="content-subhead">Input Sizing</h2>
     <p>
-        You can size any input element by adding the classnames below. Since these styles just set {{code "width"}}, they can be  applied to more than just form controls.
+        Input elements have fluid width sizes in a syntax that is similar to YUI Grids. You can apply a {{code "yui3-input-*"}} class to these elements.
     </p>
 
+  {{#prefixIds "input-size"}}
     {{> forms/input-size}}
+  {{/prefixIds}}
 
   {{#code}}
     {{> forms/input-size}}
+  {{/code}}
+
+    <p>
+        Another way of sizing inputs is to wrap them in grid containers. This lets you customize your input sizing even more. In the example below, the {{code "<input>"}} elements have a {{code "yui3-input-1"}} class, but are wrapped in a {{code "<div>"}} with a specific grid class.
+    </p>
+
+  {{#prefixIds "input-grid"}}
+    {{> forms/input-grid}}
+  {{/prefixIds}}
+
+  {{#code}}
+    {{> forms/input-grid}}
   {{/code}}
 
 
@@ -113,7 +120,9 @@
         Add the {{code "required"}} attribute to any form control.
     </p>
 
+  {{#prefixIds "invalid"}}
     {{> forms/invalid}}
+  {{/prefixIds}}
 
   {{#code}}
     {{> forms/invalid}}
@@ -125,7 +134,9 @@
         Add the {{code "disabled"}} attribute to any form control.
     </p>
 
+  {{#prefixIds "disabled"}}
     {{> forms/disabled}}
+  {{/prefixIds}}
 
   {{#code}}
     {{> forms/disabled}}
@@ -137,7 +148,9 @@
         Add the {{code "yui3-input-rounded"}} classname to any form control.
     </p>
 
+  {{#prefixIds "rounded"}}
     {{> forms/rounded}}
+  {{/prefixIds}}
 
   {{#code}}
     {{> forms/rounded}}
@@ -149,7 +162,9 @@
         YUI Forms normalizes and aligns checkboxes and radio inputs for you too. Just add the {{code "yui3-checkbox"}} or {{code "yui3-radio"}} classname to these controls.
     </p>
 
+  {{#prefixIds "checkbox-radio"}}
     {{> forms/checkbox-radio}}
+  {{/prefixIds}}
 
   {{#code}}
     {{> forms/checkbox-radio}}
