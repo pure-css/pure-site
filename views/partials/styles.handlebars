@@ -3,11 +3,14 @@
 {{addCdnCSS yui.version "cssnormalize" prepend=true}}
 {{addCdnCSS yui.version "cssgrids-responsive"}}
 {{addCdnCSS yui.version "cssbutton"}}
+
 {{addGithubCSS "tilomitra" "csslist" "master/css/list-core.css"}}
 {{addGithubCSS "tilomitra" "csslist" "master/css/list.css"}}
 {{addGithubCSS "tilomitra" "csslist" "master/css/list-responsive.css"}}
 
-<link rel="stylesheet" href="{{{cdnCSSURL}}}">
+{{#cdnCSS}}
+<link rel="stylesheet" href="{{{.}}}">
+{{/cdnCSS}}
 
 {{#githubCSS}}
 <link rel="stylesheet" href="{{{.}}}">
