@@ -45,6 +45,10 @@ h1,h2,h3,h4,h5,h6 {
     padding: 1.3em;
 }
 
+.l-vbox {
+    padding: 1.3em 0;
+}
+
 .l-hbox {
     padding: 0 1.3em;
 }
@@ -269,8 +273,8 @@ a.plain-button {
     font-size: 100%;
     padding: 0.8em 1.5em;
     box-shadow: none;
-    color: rgb(189, 189, 189);
-    border: 1px solid #ccc;
+    color: #999;
+    border: 1px solid #999;
     text-transform: uppercase;
 }
 
