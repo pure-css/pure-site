@@ -32,6 +32,17 @@
     {{> lists/horizontal}}
   {{/code}}
 
+    <h2 class="content-subhead">Menu with Headings</h2>
+    <p>
+        You can add headings to your menu by adding an {{code "<a>"}} element with the {{code "yui3-menu-heading"}} class name. This element should be inserted outside the {{code "<ul>"}} element. 
+    </p>
+
+    {{> lists/heading}}
+
+  {{#code}}
+    {{> lists/heading}}
+  {{/code}}
+
 
     <h2 class="content-subhead">Vertical Menu</h2>
     <p>
@@ -56,31 +67,16 @@
     {{> lists/dropdown}}
   {{/code}}
 
-
-    <h2 class="content-subhead">Styled Menus</h2>
-    <h3>Light Menu</h3>
+    <h2 class="content-subhead">Menus with Disabled Items</h2>
     <p>
-        Don't want a plain menu? Just add the class {{code "yui3-menu-light"}} to add some more styles to your menu.
+        You can add disabled links to your menu by adding an {{code "<a>"}} element with the {{code "yui3-menu-disabled"}} class name. Disabled items do not inherit hover styles, and appear faded. 
     </p>
 
-    {{> lists/light-menu}}
+    {{> lists/disabled}}
 
   {{#code}}
-    {{> lists/light-menu}}
+    {{> lists/disabled}}
   {{/code}}
-
-    <h3>Dark Menu</h3>
-    <p>
-        Light menus don't work well with dark backgrounds. Make your menu darker by adding the class {{code "yui3-menu-dark"}}.
-    </p>
-
-    <div class="dark-ribbon">
-        {{> lists/dark-menu}}
-
-      {{#code}}
-        {{> lists/dark-menu}}
-      {{/code}}
-    </div>
 
 
     <h2 class="content-subhead">Paginators</h2>
