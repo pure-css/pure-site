@@ -17,9 +17,49 @@
     }
 
 p {
-    line-height: 1.7em;
+    line-height: 1.6em;
 }
 
+.size-chart, .size-chart-item {
+    height: 50px;
+}
+
+.size-chart {
+    width: 100%;
+}
+
+    .size-chart-item {
+        box-sizing: border-box;
+        display: inline-block;
+    }
+
+    .size-chart-base {
+        background: #0e90d2;
+    }
+
+    .size-chart-grids {
+        background: rgb(128, 88, 165);
+    }
+
+    .size-chart-forms {
+        background: #5eb95e;
+    }
+    .size-chart-lists {
+        background: #faa732;;
+    }
+    .size-chart-tables {
+        background: #dd514c;
+    }
+
+    .size-chart-label {
+        font-size: 0.8em;
+        color: #fff;
+        display: table-cell;
+        vertical-align: middle;
+        height: 50px;
+        width: 100%;
+        padding-left: 1em;
+    }
 
 @media (max-width: 767px) {
     .hero {
@@ -33,4 +73,23 @@ p {
         .hero h2 {
             font-size: 165%;
         }
+    
+    /* by default l-hbox becomes padding: 1.3em; at <= 767px. However, this makes the heading
+    too far away from the content, so adding this in here. */
+    h3.l-hbox {
+        padding: 0 1.3em;
+    }
+}
+
+@media (max-width: 480px) {
+    .size-chart-label {
+        font-size: 0.8em;
+        color: rgb(126, 126, 126);
+        display: inline-block;
+        position: relative;
+        bottom: -52px;
+        text-align: center;
+        padding: 0;
+        vertical-align: top;
+    }
 }
