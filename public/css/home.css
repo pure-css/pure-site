@@ -20,10 +20,6 @@ p {
     line-height: 1.6em;
 }
 
-.size-chart, .size-chart-item {
-    height: 50px;
-}
-
 .size-chart {
     width: 100%;
 }
@@ -32,19 +28,14 @@ p {
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
-        display: inline-block;
-        zoom: 1;
-        *display: inline;
     }
 
     .size-chart-base {
         background: #0e90d2;
     }
-
     .size-chart-grids {
         background: rgb(128, 88, 165);
     }
-
     .size-chart-forms {
         background: #5eb95e;
     }
@@ -56,16 +47,17 @@ p {
     }
 
     a.size-chart-label {
-        font-size: 0.8em;
-        color: #fff;
-        width: 100%;
-        height: 100%;
-        padding: 1.3em 0 0 1em;
         display: block;
+        color: #fff;
+        padding: 0.5em;
         text-decoration: none;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
+    }
+
+    .size-chart-size {
+        display: block;
     }
 
 @media (max-width: 767px) {
@@ -80,39 +72,16 @@ p {
         .hero h2 {
             font-size: 165%;
         }
-    
+
     /* by default l-hbox becomes padding: 1.3em; at <= 767px. However, this makes the heading
     too far away from the content, so adding this in here. */
-    h3.l-hbox {
+    h3.l-hbox,
+    p.l-hbox {
         padding: 0 1.3em;
     }
 
-    /* slightly thicker lines because some text may wrap */
-    .size-chart, .size-chart-item {
-        height: 70px;
-    }
-}
-
-@media (max-width: 480px) {
-    .size-chart, .size-chart-item {
-        height: 50px;
-    }
-
     a.size-chart-label {
-        font-size: 0.8em;
-        color: rgb(126, 126, 126);
-        display: inline-block;
-        zoom: 1;
-        *display: inline;
-        position: relative;
-        bottom: -52px;
-        text-align: center;
-        padding: 0;
-        vertical-align: top;
-
-        /* This is a hack to make the labels along with the colored bars clickable for small screens. We add a padding-top equivalent to the amount this element has been shifted to the bottom, and then use negative margins to bring it back up */
-
-        padding-top: 52px;
-        margin-top: -52px;
+        font-size: 0.75em;
+        padding: 0.6667em;
     }
 }
