@@ -276,23 +276,6 @@ aside {
     color: white;
 }
 
-a.plain-button {
-    margin: 0.3em 0;
-    background: white;
-    font-size: 100%;
-    padding: 0.8em 1.5em;
-    box-shadow: none;
-    color: #999;
-    border: 1px solid #999;
-    text-transform: uppercase;
-}
-
-    a.plain-button:hover {
-        background: white;
-        border-color: #222;
-        color: #222;
-    }
-
 
 /* --------------------------
  * Responsive Styles
