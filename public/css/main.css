@@ -65,7 +65,9 @@ a:visited {
     text-align: center;
 }
 
-
+a.yui3-button {
+    color: inherit;
+}
 
 
 
