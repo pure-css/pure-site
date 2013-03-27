@@ -1,6 +1,6 @@
 .hero {
     text-align: center;
-    margin: 8em 0 6em;
+    margin: 8em 0 3em;
 }
     .hero h1 {
         font-size: 800%;
@@ -62,7 +62,7 @@ p {
 
 @media (max-width: 767px) {
     .hero {
-        margin: 2em 0 3em;
+        margin: 2em 0 1.5em;
         padding: 0.6em;
     }
         .hero h1 {
