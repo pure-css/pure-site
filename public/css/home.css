@@ -1,3 +1,7 @@
+p {
+    line-height: 1.6em;
+}
+
 .hero {
     text-align: center;
     margin: 8em 0 3em;
@@ -15,10 +19,6 @@
         margin: 0.02em 0 0.8em;
         color: #666;
     }
-
-p {
-    line-height: 1.6em;
-}
 
 .size-chart {
     width: 100%;
@@ -58,6 +58,16 @@ p {
 
     .size-chart-size {
         display: block;
+    }
+
+.marketing-ribbon {
+    border-bottom: 1px solid #eee;
+    padding: 1em 0;
+}
+
+    .marketing-ribbon h3 {
+        font-size: 1.47em;
+        font-weight: normal;
     }
 
 @media (max-width: 767px) {
