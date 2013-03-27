@@ -25,6 +25,14 @@ h1,h2,h3,h4,h5,h6 {
     color: rgb(75, 75, 75);
 }
 
+a {
+    color: #81d9e9; /* block-mine-text-low */
+    text-decoration: none;
+}
+
+a:visited {
+    color: #22abc3; /* block-mine-text-normal */
+}
 
 /* --------------------------
  * Layout Styles
@@ -43,6 +51,10 @@ h1,h2,h3,h4,h5,h6 {
 /* Apply the .box class on the immediate parent of any grid element (yui3-u-*) to apply some padding. */
 .l-box {
     padding: 1.3em;
+}
+
+.l-vbox {
+    padding: 1.3em 0;
 }
 
 .l-hbox {
@@ -85,7 +97,7 @@ aside {
     background: #d4f1f7; /* normal color palette when primary color palette is at #00d4ff */
     padding: 0.3em 1em;
     border-radius: 3px;
-    color: #1f91a8; /* text.low from normal color palette. */
+    color: #0c3941; /* block-high-text-normal */
 }
 
  /* --------------------------
@@ -155,6 +167,7 @@ aside {
     font-size: 80%;
     border-top: 1px solid #eee;
     padding: 0.5em 0;
+    background: rgb(250, 250, 250);
 }
 
     .legal-license, .legal-copyright {
@@ -262,23 +275,6 @@ aside {
     background-color: #61B842;
     color: white;
 }
-
-a.plain-button {
-    margin: 0.3em 0;
-    background: white;
-    font-size: 100%;
-    padding: 0.8em 1.5em;
-    box-shadow: none;
-    color: rgb(189, 189, 189);
-    border: 1px solid #ccc;
-    text-transform: uppercase;
-}
-
-    a.plain-button:hover {
-        background: white;
-        border-color: #222;
-        color: #222;
-    }
 
 
 /* --------------------------
