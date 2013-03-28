@@ -240,20 +240,20 @@ aside {
             background: #000;
         }
 
-    #menu .yui3-menu-title {
+    #menu .yui3-menu-heading {
         font-size:110%;
         color: #fff;
     }
 
-    #menu .yui3-menu-active {
+    #menu .yui3-menu-selected {
         background: rgb(23, 218, 255);
     }
 
-        #menu .yui3-menu-active a {
+        #menu .yui3-menu-selected a {
             color: rgb(4, 119, 141);
         }
 
-        #menu li.yui3-menu-active a:hover {
+        #menu li.yui3-menu-selected a:hover {
             background: none;
         }
 
