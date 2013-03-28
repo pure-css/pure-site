@@ -1,0 +1,64 @@
+/**
+ * Baby Blue theme for RainbowJS
+ *
+ * @author tilomitra
+ */
+
+pre {
+    word-wrap: break-word;
+    padding: 6px 10;
+    line-height: 1.3em;
+    margin-bottom: 20;
+    border: 1px solid #eee;
+}
+
+code {
+    border: none;
+    margin: 0 2px;
+    font-size: 0.8em;
+    padding: 0.4em 0.6em;
+}
+
+pre code {
+    padding: 0;
+    margin: 0;
+    font-size: 0.95em;
+}
+
+pre, code {
+    font-family: Consolas, 'Liberation Mono', Courier, monospace;
+    color: #333;
+    background: rgb(250, 250, 250);
+}
+
+
+pre .comment {
+    color: #999;
+}
+
+
+pre .tag, pre .tag-name, pre .support.tag-name {
+    color: rgb(85, 85, 85);
+}
+
+pre .keyword, pre .css-property, pre .vendor-prefix, pre .sass, pre .class, pre .id, pre .css-value, pre .entity.function, pre .storage.function {
+    font-weight: bold;
+}
+
+pre .css-property, pre .css-value, pre .vendor-prefix, pre .support.namespace {
+    color: #333;
+}
+
+pre .constant.numeric, pre .keyword.unit, pre .hex-color {
+    font-weight: normal;
+    color: #099;
+}
+
+pre .attribute, pre .variable, pre .support {
+    color:  #969696; /* skinbuilder block-page-text-low with #17daff as primary */
+}
+
+pre .string, pre .support.value  {
+    font-weight: normal;
+    color: #22a0b9; /* skinbuilder block-high-text-low with #17daff as primary */
+}
