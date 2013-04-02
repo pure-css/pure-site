@@ -80,7 +80,7 @@ routePage('base',    '/base/',    'Base',       routes.render('base'));
 routePage('grids',   '/grids/',   'Grids',      routes.render('grids'));
 routePage('forms',   '/forms/',   'Forms',      routes.render('forms'));
 routePage('tables',  '/tables/',  'Tables',     routes.render('tables'));
-routePage('lists',   '/lists/',   'Navigation', routes.render('lists'));
+routePage('menus',   '/menus/',   'Menus',      routes.render('menus'));
 routePage('layouts', '/layouts/', 'Layouts',    routes.render('layouts'));
 
 routePage('layoutsGallery',   '/layouts/gallery/',   routes.render('layouts/gallery', 'blank'));
