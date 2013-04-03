@@ -1,8 +1,8 @@
-{{setTitle     "Lists"}}
-{{setSubTitle  "Simple CSS for HTML Lists"}}
-{{setActiveNav "lists"}}
+{{setTitle     "Menus"}}
+{{setSubTitle  "Simple CSS for Menus"}}
+{{setActiveNav "menus"}}
 
-{{addLocalCSS "/css/lists.css"}}
+{{addLocalCSS "/css/menus.css"}}
 
 {{> header}}
 
@@ -12,7 +12,7 @@
 <div class="content">
     <h2 class="content-subhead">Include the CSS on your page</h2>
     <p>
-        You can pull down CSSList from the YUI Gallery. Just include this {{code "<link>"}} element in your {{code "<head>"}}.
+        Menus are contained within the CSSList module. You can pull down CSSList from the YUI Gallery. Just include this {{code "<link>"}} element in your {{code "<head>"}}.
     </p>
 
   {{#code}}
@@ -25,10 +25,10 @@
         Create horizontal menus by adding the {{code "yui3-menu-horizontal"}} class name. You can mark the active list element by adding the {{code "yui3-menu-selected"}} class to the list element.
     </p>
 
-    {{> lists/horizontal}}
+    {{> menus/horizontal}}
 
   {{#code}}
-    {{> lists/horizontal}}
+    {{> menus/horizontal}}
   {{/code}}
 
 
@@ -37,10 +37,10 @@
         You can add headings to your menu by adding an {{code "<a>"}} element with the {{code "yui3-menu-heading"}} class name. This element should be inserted outside the {{code "<ul>"}} element.
     </p>
 
-    {{> lists/heading}}
+    {{> menus/heading}}
 
   {{#code}}
-    {{> lists/heading}}
+    {{> menus/heading}}
   {{/code}}
 
 
@@ -49,10 +49,10 @@
         Menus are vertical by default. Just add the {{code "yui3-menu"}} class to style the menu, and the {{code "yui3-menu-open"}} class to ensure that it is visible.
     </p>
 
-    {{> lists/vertical}}
+    {{> menus/vertical}}
 
   {{#code}}
-    {{> lists/vertical}}
+    {{> menus/vertical}}
   {{/code}}
 
 
@@ -61,10 +61,10 @@
         Adding dropdowns to menus requires the use of JavaScript. The {{code "Y.Menu"}} module adds dropdown functionality and the ability to create JavaScript menus.
     </p>
 
-    {{> lists/dropdown}}
+    {{> menus/dropdown}}
 
   {{#code}}
-    {{> lists/dropdown}}
+    {{> menus/dropdown}}
   {{/code}}
 
 
@@ -73,21 +73,21 @@
         You can add disabled links to your menu by adding an {{code "<a>"}} element with the {{code "yui3-menu-disabled"}} class name. Disabled items do not inherit hover styles, and appear faded.
     </p>
 
-    {{> lists/disabled}}
+    {{> menus/disabled}}
 
   {{#code}}
-    {{> lists/disabled}}
+    {{> menus/disabled}}
   {{/code}}
 
 
     <h2 class="content-subhead">Paginators</h2>
     <p>
-        Paginators are list-based elements too! You can implement a paginator control by adding the {{code "yui3-paginator"}} classname to a {{code "<ul>"}} element. Paginator controls generally look like buttons, but omit the {{code "yui3-button"}} class name if you want simple paginators.
+        You can implement a paginator control by adding the {{code "yui3-paginator"}} classname to a {{code "<ul>"}} element. Paginator controls generally look like buttons, but omit the {{code "yui3-button"}} class name if you want simple paginators.
     </p>
 
-    {{> lists/paginator}}
+    {{> menus/paginator}}
 
   {{#code}}
-    {{> lists/paginator}}
+    {{> menus/paginator}}
   {{/code}}
 </div>
