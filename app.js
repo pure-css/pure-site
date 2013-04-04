@@ -75,13 +75,13 @@ function routePage(id, path, label, callbacks) {
     }
 }
 
-routePage('home',    '/',         'Home',       routes.render('home'));
-routePage('base',    '/base/',    'Base',       routes.render('base'));
-routePage('grids',   '/grids/',   'Grids',      routes.render('grids'));
-routePage('forms',   '/forms/',   'Forms',      routes.render('forms'));
-routePage('tables',  '/tables/',  'Tables',     routes.render('tables'));
-routePage('menus',   '/menus/',   'Menus',      routes.render('menus'));
-routePage('layouts', '/layouts/', 'Layouts',    routes.render('layouts'));
+routePage('home',    '/',         'Home',    routes.render('home'));
+routePage('base',    '/base/',    'Base',    routes.render('base'));
+routePage('grids',   '/grids/',   'Grids',   routes.render('grids'));
+routePage('forms',   '/forms/',   'Forms',   routes.render('forms'));
+routePage('tables',  '/tables/',  'Tables',  routes.render('tables'));
+routePage('menus',   '/menus/',   'Menus',   routes.render('menus'));
+routePage('layouts', '/layouts/', 'Layouts', routes.render('layouts'));
 
 routePage('layoutsGallery',   '/layouts/gallery/',   routes.render('layouts/gallery', 'blank'));
 routePage('layoutsMarketing', '/layouts/marketing/', routes.render('layouts/marketing', 'blank'));
