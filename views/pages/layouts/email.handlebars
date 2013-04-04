@@ -138,14 +138,19 @@
     </div>
 </div>
 
-<script src="http://yui.yahooapis.com/3.9.1/build/yui/yui-min.js"></script>
+<script src="http://yui.yahooapis.com/{{yui.version}}/build/yui/yui{{min}}.js"></script>
 <script>
     YUI().use('node-base', function (Y) {
+
         var menuButton = Y.one('.nav-menu-button'),
             nav = Y.one('#nav');
+
+        //Setting the active class name expands the menu vertically on small screens.
         menuButton.on('click', function (e) {
             nav.toggleClass('active');
         });
+
+        //Your application code goes here...
     });
 
 </script>
