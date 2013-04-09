@@ -1,0 +1,183 @@
+{{addLocalCSS "/css/layouts/email.css"}}
+
+<div class="yui3-g-r" id="layout">
+    <div class="yui3-u" id="nav">
+        <a href="#nav" class="nav-menu-button">Menu</a>
+
+        <div class="nav-inner">
+            <a class="yui3-button primary-button" href="#">Compose</a>
+
+            <div class="yui3-menu yui3-menu-open">
+                <ul>
+                    <li><a href="#">Inbox <span class="email-count">(2)</span></a></li>
+                    <li><a href="#">Important</a></li>
+                    <li><a href="#">Sent</a></li>
+                    <li><a href="#">Drafts</a></li>
+                    <li><a href="#">Trash</a></li>
+                    <li class="yui3-menu-heading">Labels</li>
+                    <li><a href="#"><span class="email-label-personal"></span>Personal</a></li>
+                    <li><a href="#"><span class="email-label-work"></span>Work</a></li>
+                    <li><a href="#"><span class="email-label-travel"></span>Travel</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="yui3-u" id="list">
+        <div class="content">
+            <div class="email-item email-item-selected yui3-g">
+                <div class="yui3-u">
+                    <img class="email-avatar" alt="Tilo Mitra's avatar" src="http://api.twitter.com/1/users/profile_image?screen_name=tilomitra&size=bigger" height="65" width="65">
+                </div>
+
+                <div class="yui3-u-3-4">
+                    <h5 class="email-name">Tilo Mitra</h5>
+                    <h4 class="email-subject">Hello from Toronto</h4>
+                    <p class="email-desc">
+                        Hey, I just wanted to check in with you from Toronto. I got here earlier today.
+                    </p>
+                </div>
+            </div>
+
+            <div class="email-item email-item-unread yui3-g">
+                <div class="yui3-u">
+                    <img class="email-avatar" alt="Eric Ferraiuolo's avatar" src="http://api.twitter.com/1/users/profile_image?screen_name=ericf&size=bigger" height="65" width="65">
+                </div>
+
+                <div class="yui3-u-3-4">
+                    <h5 class="email-name">Eric Ferraiuolo</h5>
+                    <h4 class="email-subject">Re: Pull Requests</h4>
+                    <p class="email-desc">
+                        Hey, I had some feedback for pull request #51. We should center the menu so it looks better on mobile.
+                    </p>
+                </div>
+            </div>
+
+            <div class="email-item email-item-unread yui3-g">
+                <div class="yui3-u">
+                    <img class="email-avatar" alt="YUILibrary's avatar" src="http://api.twitter.com/1/users/profile_image?screen_name=yuilibrary&size=bigger" height="65" width="65"/>
+                </div>
+
+                <div class="yui3-u-3-4">
+                    <h5 class="email-name">YUILibrary</h5>
+                    <h4 class="email-subject">You have 5 bugs assigned to you</h4>
+                    <p class="email-desc">
+                        Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla.
+                    </p>
+                </div>
+            </div>
+
+            <div class="email-item yui3-g">
+                <div class="yui3-u">
+                    <img class="email-avatar" alt="Reid Burke's avatar" src="http://api.twitter.com/1/users/profile_image?screen_name=reid&size=bigger" height="65" width="65"/>
+                </div>
+
+                <div class="yui3-u-3-4">
+                    <h5 class="email-name">Reid Burke</h5>
+                    <h4 class="email-subject">Re: Design Language</h4>
+                    <p class="email-desc">
+                        Excepteur sint occaecat cupidatat non proident, sunt in culpa.
+                    </p>
+                </div>
+            </div>
+
+            <div class="email-item yui3-g">
+                <div class="yui3-u">
+                    <img class="email-avatar" alt="Andrew Wooldridge's avatar" src="http://api.twitter.com/1/users/profile_image?screen_name=triptych&size=bigger" height="65" width="65"/>
+                </div>
+
+                <div class="yui3-u-3-4">
+                    <h5 class="email-name">Andrew Wooldridge</h5>
+                    <h4 class="email-subject">YUI Blog Updates?</h4>
+                    <p class="email-desc">
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
+                    </p>
+                </div>
+            </div>
+
+            <div class="email-item yui3-g">
+                <div class="yui3-u">
+                    <img class="email-avatar" alt="Yahoo! Finance's Avatar" src="http://api.twitter.com/1/users/profile_image?screen_name=yahoofinance&size=bigger" height="65" width="65"/>
+                </div>
+
+                <div class="yui3-u-3-4">
+                    <h5 class="email-name">Yahoo! Finance</h5>
+                    <h4 class="email-subject">How to protect your finances from winter storms</h4>
+                    <p class="email-desc">
+                        Mauris tempor mi vitae sem aliquet pharetra. Fusce in dui purus, nec malesuada mauris.
+                    </p>
+                </div>
+            </div>
+
+            <div class="email-item yui3-g">
+                <div class="yui3-u">
+                    <img class="email-avatar" alt="Yahoo! News' avatar" src="http://api.twitter.com/1/users/profile_image?screen_name=yahoonews&size=bigger" height="65" width="65"/>
+                </div>
+
+                <div class="yui3-u-3-4">
+                    <h5 class="email-name">Yahoo! News</h5>
+                    <h4 class="email-subject">Summary for April 3rd, 2012</h4>
+                    <p class="email-desc">
+                        We found 10 news articles that you may like.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="yui3-u" id="main">
+        <div class="content">
+            <div class="email-content yui3-g">
+                <div class="email-content-header yui3-g">
+                    <div class="yui3-u-1-2">
+                        <h1 class="email-content-title">Hello from Toronto</h1>
+                        <p class="email-content-subtitle">
+                            From <a href="#">Tilo Mitra</a> at <span>3:56pm, April 3, 2012</span>
+                        </p>
+                    </div>
+
+                    <div class="yui3-u-1-2 email-content-controls">
+                        <a class="yui3-button secondary-button">Reply</a>
+                        <a class="yui3-button secondary-button">Forward</a>
+                        <a class="yui3-button secondary-button">Move to</a>
+                    </div>
+                </div>
+
+                <div class="email-content-body yui3-u-1">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                    <p>
+                        Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                    <p>
+                        Aliquam ac feugiat dolor. Proin mattis massa sit amet enim iaculis tincidunt. Mauris tempor mi vitae sem aliquet pharetra. Fusce in dui purus, nec malesuada mauris. Curabitur ornare arcu quis mi blandit laoreet. Vivamus imperdiet fermentum mauris, ac posuere urna tempor at. Duis pellentesque justo ac sapien aliquet egestas. Morbi enim mi, porta eget ullamcorper at, pharetra id lorem.
+                    </p>
+                    <p>
+                        Donec sagittis dolor ut quam pharetra pretium varius in nibh. Suspendisse potenti. Donec imperdiet, velit vel adipiscing bibendum, leo eros tristique augue, eu rutrum lacus sapien vel quam. Nam orci arcu, luctus quis vestibulum ut, ullamcorper ut enim. Morbi semper erat quis orci aliquet condimentum. Nam interdum mauris sed massa dignissim rhoncus.
+                    </p>
+                    <p>
+                        Regards,<br>
+                        Tilo
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="http://yui.yahooapis.com/{{yui.version}}/build/yui/yui{{min}}.js"></script>
+<script>
+    YUI().use('node-base', function (Y) {
+
+        var menuButton = Y.one('.nav-menu-button'),
+            nav        = Y.one('#nav');
+
+        // Setting the active class name expands the menu vertically on small screens.
+        menuButton.on('click', function (e) {
+            nav.toggleClass('active');
+        });
+
+        // Your application code goes here...
+    });
+</script>

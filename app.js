@@ -85,6 +85,8 @@ routePage('layouts', '/layouts/', 'Layouts', routes.render('layouts'));
 
 routePage('layoutsGallery',   '/layouts/gallery/',   routes.render('layouts/gallery', 'blank'));
 routePage('layoutsMarketing', '/layouts/marketing/', routes.render('layouts/marketing', 'blank'));
+routePage('layoutsEmail',     '/layouts/email/',     routes.render('layouts/email', 'blank'));
+
 
 app.get('/combo', routes.combo);
 
