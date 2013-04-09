@@ -165,7 +165,7 @@ a.secondary-button {
         }
 
 
-@media (max-width: 767px) {
+@media (max-width: 867px) {
 
     #list, #main {
         width: auto;
