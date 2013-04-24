@@ -1,3 +1,5 @@
+console.log("Doing some logging here...");
+console.log(__dirname);
 console.log(process.env);
 console.dir(process.env);
 
