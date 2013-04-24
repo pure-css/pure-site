@@ -1,3 +1,6 @@
+console.log(process.env);
+console.dir(process.env);
+
 var express = require('express'),
     exphbs  = require('express3-handlebars'),
     path    = require('path'),
