@@ -20,6 +20,15 @@
     },
 
     "main": "server",
-
+    "yahoo": {
+        "bugzilla": {
+            "product": "YUI",
+            "component": "Kimono"
+        },
+        "custodian": {
+            "email": "tilo@yahoo-inc.com",
+            "url": "http://yo/yuicss"
+        }
+    },
     "directories": {"lib": "./lib"}
 }
