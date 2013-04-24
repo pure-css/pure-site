@@ -30,5 +30,6 @@
             "url": "http://yo/yuicss"
         }
     },
+    "main": "server.js",
     "directories": {"lib": "./lib"}
 }
