@@ -91,5 +91,6 @@ routePage('layoutsEmail',     '/layouts/email/',     routes.render('layouts/emai
 app.get('/combo', routes.combo);
 
 // -- Exports ------------------------------------------------------------------
-
+console.log(process.env);
+console.dir(process.env);
 module.exports = app;
