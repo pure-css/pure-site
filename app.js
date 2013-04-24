@@ -1,8 +1,3 @@
-console.log("Doing some logging here...");
-console.log(__dirname);
-console.log(process.env);
-console.dir(process.env);
-
 var express = require('express'),
     exphbs  = require('express3-handlebars'),
     path    = require('path'),
@@ -96,6 +91,4 @@ routePage('layoutsEmail',     '/layouts/email/',     routes.render('layouts/emai
 app.get('/combo', routes.combo);
 
 // -- Exports ------------------------------------------------------------------
-console.log(process.env);
-console.dir(process.env);
 module.exports = app;
