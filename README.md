@@ -1,4 +1,4 @@
-YUI CSS Website
+Kimono Website
 ===============
 
 The website which showcases YUI's CSS offering.

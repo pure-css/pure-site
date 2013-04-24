@@ -1,6 +1,6 @@
 {
     "name"       : "yuilib-css",
-    "description": "YUI CSS website.",
+    "description": "Kimono website.",
     "homepage"   : "http://css.yuilibrary.com/",
     "version"    : "0.0.1",
     "private"    : true,

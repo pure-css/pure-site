@@ -11,7 +11,7 @@ var express = require('express'),
 
 // -- Config -------------------------------------------------------------------
 
-app.set('name', 'YUI CSS');
+app.set('name', 'Kimono');
 app.set('env', config.env);
 app.set('port', config.port);
 app.enable('strict routing');
@@ -21,7 +21,7 @@ app.set('view engine', hbs.extname);
 app.set('views', config.dirs.views);
 
 app.locals({
-    site          : 'YUI CSS',
+    site          : 'Kimono',
     copyright_year: '2013',
 
     nav  : [],
