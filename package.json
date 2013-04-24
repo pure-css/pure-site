@@ -19,7 +19,16 @@
         "handlebars"         : "1.x"
     },
 
-    "main": "server",
-
+    "yahoo": {
+        "bugzilla": {
+            "product": "yui utilities",
+            "component": "Kimono"
+        },
+        "custodian": {
+            "email": "tilo@yahoo-inc.com",
+            "url": "http://yo/yuicss"
+        }
+    },
+    "main": "server.js",
     "directories": {"lib": "./lib"}
 }
