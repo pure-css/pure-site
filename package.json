@@ -19,10 +19,9 @@
         "handlebars"         : "1.x"
     },
 
-    "main": "server",
     "yahoo": {
         "bugzilla": {
-            "product": "YUI",
+            "product": "yui utilities",
             "component": "Kimono"
         },
         "custodian": {
