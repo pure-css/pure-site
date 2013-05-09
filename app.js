@@ -75,7 +75,7 @@ function routePage(id, path, label, callbacks) {
     }
 }
 
-routePage('home',    '/',         'Home',    routes.render('home'));
+routePage('home',    '/',         routes.render('home'));
 routePage('base',    '/base/',    'Base',    routes.render('base'));
 routePage('grids',   '/grids/',   'Grids',   routes.render('grids'));
 routePage('forms',   '/forms/',   'Forms',   routes.render('forms'));
