@@ -5,7 +5,7 @@ body {
 
 
 /* Add transition to containers so they can push in and out */
-#layout, #menu, #menu .yui3-menu-link {
+#layout, #menu, #menu .k-menu-link {
     -webkit-transition: all 0.2s ease-out;
     -moz-transition: all 0.2s ease-out;
     -ms-transition: all 0.2s ease-out;
@@ -48,7 +48,7 @@ a:visited {
 }
 
 
-/* Apply the .box class on the immediate parent of any grid element (yui3-u-*) to apply some padding. */
+/* Apply the .box class on the immediate parent of any grid element (k-u-*) to apply some padding. */
 .l-box {
     padding: 1.3em;
 }
@@ -65,7 +65,7 @@ a:visited {
     text-align: center;
 }
 
-a.yui3-button {
+a.k-button {
     color: inherit;
 }
 
@@ -194,26 +194,26 @@ aside {
         padding: 0.6em 0 0.6em 0.6em;
     }
 
-    #menu .yui3-menu-open {
+    #menu .k-menu-open {
         background: transparent;
         border: 0;
     }
 
-    #menu .yui3-menu ul {
+    #menu .k-menu ul {
         border: none;
         background: transparent;
     }
 
-    #menu .yui3-menu ul,
-    #menu .yui3-menu .menu-item-yui {
+    #menu .k-menu ul,
+    #menu .k-menu .menu-item-yui {
         border-top: 1px solid #333;
     }
 
-        #menu .yui3-menu li a:hover {
+        #menu .k-menu li a:hover {
             background: #333;
         }
 
-    #menu .yui3-menu-link {
+    #menu .k-menu-link {
         display: none; /* show this only on small screens */
         top: 0;
         left: 150px; /* "#menu width" */
@@ -222,24 +222,24 @@ aside {
         padding: 0.75em 1em;
     }
 
-        #menu .yui3-menu-link:hover {
+        #menu .k-menu-link:hover {
             background: #000;
         }
 
-    #menu .yui3-menu-heading {
+    #menu .k-menu-heading {
         font-size:110%;
         color: #fff;
     }
 
-    #menu .yui3-menu-selected {
+    #menu .k-menu-selected {
         background: rgb(23, 218, 255);
     }
 
-        #menu .yui3-menu-selected a {
+        #menu .k-menu-selected a {
             color: rgb(4, 119, 141);
         }
 
-        #menu li.yui3-menu-selected a:hover {
+        #menu li.k-menu-selected a:hover {
             background: none;
         }
 
@@ -285,13 +285,13 @@ aside {
                 width: 150px;
             }
 
-    #menu .yui3-menu-link {
+    #menu .k-menu-link {
         position: fixed;
         left: 0;
         display: block;
     }
 
-    #menu.active .yui3-menu-link {
+    #menu.active .k-menu-link {
         left: 150px;
     }
 }

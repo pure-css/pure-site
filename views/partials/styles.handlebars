@@ -1,10 +1,6 @@
 {{! Common styles used across multiple layouts }}
 
-{{addCdnCSS yui.version "cssnormalize" prepend=true}}
-{{addCdnCSS yui.version "cssgrids-responsive"}}
-{{addCdnCSS yui.version "cssbutton"}}
-
-{{addCdnCSS yui.gallery "gallerycss-csslist"}}
+{{addLocalCSS "/css/kimono/build/kimono-min.css"}}
 
 {{#cdnCSS}}
 <link rel="stylesheet" href="{{{.}}}">
