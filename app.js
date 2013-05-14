@@ -33,7 +33,8 @@ app.locals({
     min: config.isProduction ? '-min' : '',
 
     yui    : config.yui,
-    typekit: config.typekit
+    typekit: config.typekit,
+    kimono : config.kimono
 });
 
 // -- Middleware ---------------------------------------------------------------
