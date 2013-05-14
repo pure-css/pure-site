@@ -2,24 +2,23 @@
 {{setSubTitle  "Simple CSS for HTML Tables"}}
 {{setActiveNav "tables"}}
 
-{{addCdnCSS yui.gallery "gallerycss-csstable"}}
 
 {{> header}}
 
 <div class="content">
     <h2 class="content-subhead">Include the CSS on your page</h2>
     <p>
-        You can pull down CSSTable from the YUI Gallery. Just include this {{code "<link>"}} element in your {{code "<head>"}}.
+        Include this {{code "<link>"}} element in your {{code "<head>"}}.
     </p>
 
   {{#code}}
-    <link rel="stylesheet" href="http://yui.yahooapis.com/{{yui.gallery}}/build/gallerycss-csstable/gallerycss-csstable-min.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/kimono/{{kimono.version}}/tables-min.css">
   {{/code}}
 
 
     <h2 class="content-subhead">Default Table</h2>
     <p>
-        Add the {{code "yui3-table"}} classname to a table to style an HTML table similar to how a YUI3 Datatable would be styled. This class adds appropriate padding and borders to table elements, and increases the emphasis on the header.
+        Add the {{code "k-table"}} classname to a table to style an HTML table. This class adds appropriate padding and borders to table elements, and increases the emphasis on the header.
     </p>
 
     {{> tables/default}}
@@ -31,7 +30,7 @@
 
     <h2 class="content-subhead">Bordered Table</h2>
     <p>
-        To add horizontal and vertical borders to all cells, add the {{code "yui3-table-bordered"}} classname to the {{code "<table>"}} element.
+        To add horizontal and vertical borders to all cells, add the {{code "k-table-bordered"}} classname to the {{code "<table>"}} element.
     </p>
 
     {{> tables/bordered}}
@@ -43,7 +42,7 @@
 
     <h2 class="content-subhead">Table with Horizontal Borders</h2>
     <p>
-        If you prefer to just have horizontal lines, add the {{code "yui3-table-horizontal"}} classname to the {{code "<table>"}} element.
+        If you prefer to just have horizontal lines, add the {{code "k-table-horizontal"}} classname to the {{code "<table>"}} element.
     </p>
 
     {{> tables/horizontal}}
@@ -55,7 +54,7 @@
 
     <h2 class="content-subhead">Striped Table</h2>
     <p>
-        Large tables are easier to parse visually if rows are easily distinguishable. Adding the {{code "yui3-table-odd"}} class name to every other {{code "<tr>"}} element changes the background of the row and creates a zebra-styled effect.
+        Large tables are easier to parse visually if rows are easily distinguishable. Adding the {{code "k-table-odd"}} class name to every other {{code "<tr>"}} element changes the background of the row and creates a zebra-styled effect.
     </p>
 
     {{> tables/striped}}
