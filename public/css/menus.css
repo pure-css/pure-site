@@ -1,7 +1,7 @@
-.content .yui3-menu {
+.content .k-menu.k-menu-open {
     width: 40%;
     margin-top: 2em;
 }
-.content .yui3-menu.yui3-menu-horizontal {
+.content .k-menu.k-menu-horizontal {
     width: 100%;
 }

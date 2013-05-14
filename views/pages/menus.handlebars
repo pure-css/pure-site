@@ -12,17 +12,17 @@
 <div class="content">
     <h2 class="content-subhead">Include the CSS on your page</h2>
     <p>
-        Menus are contained within the CSSList module. You can pull down CSSList from the YUI Gallery. Just include this {{code "<link>"}} element in your {{code "<head>"}}.
+        Include this {{code "<link>"}} element in your {{code "<head>"}}.
     </p>
 
   {{#code}}
-    <link rel="stylesheet" href="http://yui.yahooapis.com/{{yui.gallery}}/build/gallerycss-csslist/gallerycss-csslist-min.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/kimono/{{kimono.version}}/menus-min.css">
   {{/code}}
 
 
     <h2 class="content-subhead">Horizontal Menu</h2>
     <p>
-        Create horizontal menus by adding the {{code "yui3-menu-horizontal"}} class name. You can mark the active list element by adding the {{code "yui3-menu-selected"}} class to the list element.
+        Create horizontal menus by adding the {{code "k-menu-horizontal"}} class name. You can mark the active list element by adding the {{code "k-menu-selected"}} class to the list element.
     </p>
 
     {{> menus/horizontal}}
@@ -34,7 +34,7 @@
 
     <h2 class="content-subhead">Menu with Headings</h2>
     <p>
-        You can add headings to your menu by adding an {{code "<a>"}} element with the {{code "yui3-menu-heading"}} class name. This element should be inserted outside the {{code "<ul>"}} element.
+        You can add headings to your menu by adding an {{code "<a>"}} element with the {{code "k-menu-heading"}} class name. This element should be inserted outside the {{code "<ul>"}} element.
     </p>
 
     {{> menus/heading}}
@@ -46,7 +46,7 @@
 
     <h2 class="content-subhead">Vertical Menu</h2>
     <p>
-        Menus are vertical by default. Just add the {{code "yui3-menu"}} class to style the menu, and the {{code "yui3-menu-open"}} class to ensure that it is visible.
+        Menus are vertical by default. Just add the {{code "k-menu"}} class to style the menu, and the {{code "k-menu-open"}} class to ensure that it is visible.
     </p>
 
     {{> menus/vertical}}
@@ -58,7 +58,7 @@
 
     <h2 class="content-subhead">Add Dropdowns to Menus</h2>
     <p>
-        Adding dropdowns to menus requires the use of JavaScript. The {{code "Y.Menu"}} module adds dropdown functionality and the ability to create JavaScript menus.
+        Adding dropdowns to menus requires the use of JavaScript. For example, YUI's {{code "Y.Menu"}} module adds dropdown functionality and the ability to create JavaScript menus.
     </p>
 
     {{> menus/dropdown}}
@@ -70,7 +70,7 @@
 
     <h2 class="content-subhead">Menus with Disabled Items</h2>
     <p>
-        You can add disabled links to your menu by adding an {{code "<a>"}} element with the {{code "yui3-menu-disabled"}} class name. Disabled items do not inherit hover styles, and appear faded.
+        You can add disabled links to your menu by adding an {{code "<a>"}} element with the {{code "k-menu-disabled"}} class name. Disabled items do not inherit hover styles, and appear faded.
     </p>
 
     {{> menus/disabled}}
@@ -82,7 +82,7 @@
 
     <h2 class="content-subhead">Paginators</h2>
     <p>
-        You can implement a paginator control by adding the {{code "yui3-paginator"}} classname to a {{code "<ul>"}} element. Paginator controls generally look like buttons, but omit the {{code "yui3-button"}} class name if you want simple paginators.
+        You can implement a paginator control by adding the {{code "k-paginator"}} classname to a {{code "<ul>"}} element. Paginator controls generally look like buttons, but omit the {{code "k-button"}} class name if you want simple paginators.
     </p>
 
     {{> menus/paginator}}
