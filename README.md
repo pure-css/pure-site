@@ -1,7 +1,7 @@
 Kimono Website
 ===============
 
-The website which showcases YUI's CSS offering.
+The website which showcases Kimono.
 
 Running Locally
 ---------------
