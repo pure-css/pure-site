@@ -8,7 +8,7 @@ a {
 
 /* LAYOUT CSS */
 #layout {
-    padding-left:500px; /* "left col (nav + list)" width */ 
+    padding-left:500px; /* "left col (nav + list)" width */
     position: relative;
 }
 
@@ -58,19 +58,19 @@ a.secondary-button {
 
 
 /* Vertical Navigation Styles */
-#nav .yui3-menu {
+#nav .k-menu {
     background: transparent;
     border: none;
     text-align: left;
 }
-    #nav .yui3-menu a:hover {
+    #nav .k-menu a:hover {
         background: rgb(55, 60, 90);
     }
-    #nav .yui3-menu a {
+    #nav .k-menu a {
         color: #fff;
         margin-left: 0.5em;
     }
-    #nav .yui3-menu-heading {
+    #nav .k-menu-heading {
         border-bottom: none;
         font-size:110%;
         color: rgb(75, 113, 151);

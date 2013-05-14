@@ -11,11 +11,11 @@ body {
     margin: 0 0;
 }
 
-    .header .yui3-menu {
+    .header .k-menu {
         padding: 0.5em;
     }
 
-        .header .yui3-menu li a:hover {
+        .header .k-menu li a:hover {
             background: none;
             border: none;
             color: #aaa;

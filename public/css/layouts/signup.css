@@ -1,0 +1,40 @@
+
+
+h1,h2,h3,h4,h5,h6 {
+    font-weight: normal;
+}
+
+h1 {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+h2 {
+    margin-top: 0;
+    color: rgb(132, 144, 151);
+}
+
+a {
+    text-decoration: none;
+    color: rgb(92, 92, 92);
+}
+.box {
+    padding: 2em;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+}
+
+.content {
+    background: #f3f5f8;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 70px 70px 30px;
+}
+
+.social {
+    border-right: 1px solid #ddd;
+}
+
+
