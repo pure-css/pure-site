@@ -2,18 +2,16 @@
 {{setSubTitle  "A fully-customizable responsive grid"}}
 {{setActiveNav "grids"}}
 
-{{addCdnCSS yui.gallery "gallerycss-csstable"}}
-
 {{> header}}
 
 <div class="content">
     <h2 class="content-subhead">Include the CSS on your page</h2>
     <p>
-        You can pull down Responsive Grids from the YUI CDN. Just include this {{code "<link>"}} element in your {{code "<head>"}}.
+        You can pull down Responsive Grids from the Yahoo CDN. Just include this {{code "<link>"}} element in your {{code "<head>"}}.
     </p>
 
   {{#code}}
-    <link rel="stylesheet" href="http://yui.yahooapis.com/{{yui.version}}/build/cssgrids-responsive/cssgrids-responsive-min.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/kimono/{{kimono.version}}/grids.css">
   {{/code}}
 
     <aside>
@@ -23,13 +21,13 @@
     </aside>
 
 
-    <h2 class="content-subhead">How do YUI Grids work?</h2>
+    <h2 class="content-subhead">How do Kimono Grids work?</h2>
     <p>
-        YUI Grids are very easy to work with. Consider <code>yui3-g</code> to be a row or "grid", and {{code "yui3-u-*-*"}} to be columns, or "units". Each {{code "yui3-g"}} can contain many units. Units have various class names that represent their widths. For example, {{code "yui3-u-1-2"}} has a width of 50%, whereas {{code "yui3-u-1-5"}} would have a width of 20%.
+        Kimono Grids are very easy to work with. Consider <code>k-g</code> to be a row or "grid", and {{code "k-u-*-*"}} to be columns, or "units". Each {{code "k-g"}} can contain many units. Units have various class names that represent their widths. For example, {{code "k-u-1-2"}} has a width of 50%, whereas {{code "k-u-1-5"}} would have a width of 20%.
     </p>
 
     <p>
-        The only constraints for YUI3 Grids are that all "units" are children of a "grid". All you need to do is define a grid, one or more units inside it, and specify widths for them. Then stack and nest as required. Here's an example of a grid with three columns:
+        The only constraints for Kimono Grids are that all "units" are children of a "grid". In other words, if you have an element with a {{code "k-u-*"}} class name, it needs to be within a parent element with a {{code "k-g"}} or {{code "k-g-r"}} class name. Here's an example of a grid with three columns:
     </p>
 
   {{#code}}
@@ -45,13 +43,13 @@
 
     <h2 class="content-subhead">How do responsive grids work?</h2>
     <p>
-        YUI3 Responsive Grids builds on top of the existing YUI3 Grids implementation. It adds a single new class name called {{code "yui3-g-r"}} (the "r" stands for responsive, you see). You can use this instead of using {{code "yui3-g"}} as you normally do. All elements with a class name of {{code "yui3-u-*-*"}} will automatically become responsive if they are direct descendents of a {{code "yui3-g-r"}}.
+        Kimono Responsive Grids builds on top of the existing grids implementation. It adds a single new class name called {{code "k-g-r"}} (the "r" stands for responsive, you see). You can use this instead of using {{code "k-g"}} as you normally do. All elements with a class name of {{code "k-u-*-*"}} will automatically become responsive if they are direct descendents of a {{code "k-g-r"}}.
     </p>
 
 
     <h2 class="content-subhead">The HTML</h2>
     <p>
-        The first gist shows how regular YUI3 grids are written. These grids are unresponsive. They'll always be one-thirds irrespective of the width of the screen. The second gist replaces the {{code "yui3-g"}} with {{code "yui3-g-r"}}, thereby making the one-third columns collapse to full width on lower screen widths.
+        The first gist shows how regular Kimono Grids are written. These grids are unresponsive. They'll always be one-thirds irrespective of the width of the screen. The second gist replaces the {{code "k-g"}} with {{code "k-g-r"}}, thereby making the one-third columns collapse to full width on lower screen widths.
     </p>
 
 
@@ -74,7 +72,7 @@
 
     <h2 class="content-subhead">Grids on Mobile</h2>
     <p>
-        Putting the {{code "yui3-g"}} classname on the wrapper instead of {{code "yui3-g-r"}} will ensure that grid units will not collapse on small screens. This is a good way to make grids on smaller screens like phones.
+        Putting the {{code "k-g"}} classname on the wrapper instead of {{code "k-g-r"}} will ensure that grid units will not collapse on small screens. This is a good way to make grids on smaller screens like phones.
     </p>
 
     {{> grids/mobile-col}}
