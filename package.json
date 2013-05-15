@@ -21,14 +21,14 @@
 
     "yahoo": {
         "bugzilla": {
-            "product": "yui utilities",
-            "component": "Kimono"
+            "product"       : "yui utilities",
+            "component"     : "Kimono"
         },
         "custodian": {
-            "email": "tilo@yahoo-inc.com",
-            "url": "http://yo/yuicss"
+            "email"         : "tilo@yahoo-inc.com",
+            "url"           : "http://yo/kimono"
         }
     },
-    "main": "server.js",
-    "directories": {"lib": "./lib"}
+    "main"          : "server.js",
+    "directories"   : {"lib": "./lib"}
 }

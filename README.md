@@ -1,5 +1,5 @@
 Kimono Website
-===============
+==============
 
 The website which showcases Kimono.
 

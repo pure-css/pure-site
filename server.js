@@ -1,5 +1,5 @@
-//Required for express to work in Manhattan
-//Shouldn't not be required!!
+// Required for express to work in Manhattan
+// Shouldn't not be required!!
 process.chdir(__dirname);
 
 var http = require('http'),
