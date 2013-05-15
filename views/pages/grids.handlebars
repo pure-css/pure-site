@@ -5,21 +5,6 @@
 {{> header}}
 
 <div class="content">
-    <h2 class="content-subhead">Include the CSS on your page</h2>
-    <p>
-        You can pull down Responsive Grids from the Yahoo CDN. Just include this {{code "<link>"}} element in your {{code "<head>"}}.
-    </p>
-
-  {{#code}}
-    <link rel="stylesheet" href="http://yui.yahooapis.com/kimono/{{kimono.version}}/grids.css">
-  {{/code}}
-
-    <aside>
-        <p>
-            Optionally, you can head over to the <a href="http://yui.github.com/gridbuilder/">GridBuilder</a> to make your very own custom grid. Save the outputted CSS in a file and you're good to go!
-        </p>
-    </aside>
-
 
     <h2 class="content-subhead">How do Kimono Grids work?</h2>
     <p>
@@ -76,4 +61,20 @@
     </p>
 
     {{> grids/mobile-col}}
+
+
+      <h2 class="content-subhead">Want to just use Grids?</h2>
+      <p>
+          Grids is part of the Kimono CSS file. However, if you just want Grids and not the other modules, you can pull it down separately. Just include this {{code "<link>"}} element in your {{code "<head>"}}.
+      </p>
+
+    {{#code}}
+      <link rel="stylesheet" href="http://yui.yahooapis.com/kimono/{{kimono.version}}/grids-min.css">
+    {{/code}}
+
+      <aside>
+          <p>
+              Optionally, you can head over to the <a href="http://yui.github.com/gridbuilder/">GridBuilder</a> to make your very own custom grid. Save the outputted CSS in a file and you're good to go!
+          </p>
+      </aside>
 </div>
