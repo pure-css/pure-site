@@ -7,6 +7,21 @@
 <div class="hero">
     <h1 class="k-u-1">{{title}}</h1>
     <h2 class="k-u-3-4 l-centered">{{subTitle}}</h2>
+
+    <div class="hero-cta k-u-3-4">
+    {{#code}}
+        <link rel="stylesheet" href="http://yui.yahooapis.com/kimono/{{kimono.version}}/kimono-min.css">
+    {{/code}}
+
+    <p>
+        <a class="k-button k-button-cta" href="{{pages.customize}}">Get Started</a>
+    </p>
+    <p>
+        <a href="https://github.com/yui/kimono/">View on Github</a>
+        <span class="muted">|</span>
+        <span class="muted">Version {{kimono.version}}</span>
+    </p>
+    </div>
 </div>
 
 <div class="k-g-r marketing-ribbon">

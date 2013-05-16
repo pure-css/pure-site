@@ -258,8 +258,13 @@ aside {
     color: white;
 }
 
-.k-button, a.k-button {
+.k-button {
     font-family: inherit;
+    color: auto;
+}
+
+.muted {
+    color: #ccc;
 }
 
 /* --------------------------
