@@ -20,6 +20,18 @@ p {
         color: #666;
     }
 
+.hero-cta pre {
+    padding: 1em;
+    font-size: 100%;
+}
+
+a.k-button-cta {
+    font-size: 120%;
+    background: rgb(23, 218, 255);
+    color: white;
+    font-weight: bold;
+}
+
 .size-chart {
     width: 100%;
 }

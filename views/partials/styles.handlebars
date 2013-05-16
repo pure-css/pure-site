@@ -1,6 +1,6 @@
 {{! Common styles used across multiple layouts }}
 
-{{addLocalCSS "/css/kimono/build/kimono-min.css"}}
+{{addCdnCSS "0.0.1" "kimono" base="kimono" min=true prepend=true}}
 
 {{#cdnCSS}}
 <link rel="stylesheet" href="{{{.}}}">
@@ -13,3 +13,7 @@
 {{#localCSS}}
 <link rel="stylesheet" href="{{{.}}}">
 {{/localCSS}}
+
+{{#customCSS}}
+<link rel="stylesheet" href="{{{.}}}">
+{{/customCSS}}
