@@ -26,12 +26,12 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 a {
-    color: #81d9e9; /* blocpure-mine-text-low */
+    color: #81d9e9; /* block-mine-text-low */
     text-decoration: none;
 }
 
 a:visited {
-    color: #22abc3; /* blocpure-mine-text-normal */
+    color: #22abc3; /* block-mine-text-normal */
 }
 
 
@@ -95,7 +95,7 @@ aside {
     background: #d4f1f7; /* normal color palette when primary color palette is at #00d4ff */
     padding: 0.3em 1em;
     border-radius: 3px;
-    color: #0c3941; /* blocpure-high-text-normal */
+    color: #0c3941; /* block-high-text-normal */
 }
 
  /* --------------------------
