@@ -58,19 +58,19 @@ a.secondary-button {
 
 
 /* Vertical Navigation Styles */
-#nav .k-menu {
+#nav .pure-menu {
     background: transparent;
     border: none;
     text-align: left;
 }
-    #nav .k-menu a:hover {
+    #nav .pure-menu a:hover {
         background: rgb(55, 60, 90);
     }
-    #nav .k-menu a {
+    #nav .pure-menu a {
         color: #fff;
         margin-left: 0.5em;
     }
-    #nav .k-menu-heading {
+    #nav .pure-menu-heading {
         border-bottom: none;
         font-size:110%;
         color: rgb(75, 113, 151);

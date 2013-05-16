@@ -1,6 +1,6 @@
 {
     "name"       : "yuilib-css",
-    "description": "Kimono website.",
+    "description": "Pure website.",
     "homepage"   : "http://css.yuilibrary.com/",
     "version"    : "0.0.1",
     "private"    : true,
@@ -22,7 +22,7 @@
     "yahoo": {
         "bugzilla": {
             "product"       : "yui utilities",
-            "component"     : "Kimono"
+            "component"     : "Pure"
         },
         "custodian": {
             "email"         : "tilo@yahoo-inc.com",

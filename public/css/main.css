@@ -5,7 +5,7 @@ body {
 
 
 /* Add transition to containers so they can push in and out */
-#layout, #menu, #menu .k-menu-link {
+#layout, #menu, #menu .pure-menu-link {
     -webkit-transition: all 0.2s ease-out;
     -moz-transition: all 0.2s ease-out;
     -ms-transition: all 0.2s ease-out;
@@ -26,12 +26,12 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 a {
-    color: #81d9e9; /* block-mine-text-low */
+    color: #81d9e9; /* blocpure-mine-text-low */
     text-decoration: none;
 }
 
 a:visited {
-    color: #22abc3; /* block-mine-text-normal */
+    color: #22abc3; /* blocpure-mine-text-normal */
 }
 
 
@@ -49,7 +49,7 @@ a:visited {
 }
 
 
-/* Apply the .box class on the immediate parent of any grid element (k-u-*) to apply some padding. */
+/* Apply the .box class on the immediate parent of any grid element (pure-u-*) to apply some padding. */
 .l-box {
     padding: 1.3em;
 }
@@ -95,7 +95,7 @@ aside {
     background: #d4f1f7; /* normal color palette when primary color palette is at #00d4ff */
     padding: 0.3em 1em;
     border-radius: 3px;
-    color: #0c3941; /* block-high-text-normal */
+    color: #0c3941; /* blocpure-high-text-normal */
 }
 
  /* --------------------------
@@ -190,26 +190,26 @@ aside {
         padding: 0.6em 0 0.6em 0.6em;
     }
 
-    #menu .k-menu-open {
+    #menu .pure-menu-open {
         background: transparent;
         border: 0;
     }
 
-    #menu .k-menu ul {
+    #menu .pure-menu ul {
         border: none;
         background: transparent;
     }
 
-    #menu .k-menu ul,
-    #menu .k-menu .menu-item-yui {
+    #menu .pure-menu ul,
+    #menu .pure-menu .menu-item-yui {
         border-top: 1px solid #333;
     }
 
-        #menu .k-menu li a:hover {
+        #menu .pure-menu li a:hover {
             background: #333;
         }
 
-    #menu .k-menu-link {
+    #menu .pure-menu-link {
         display: none; /* show this only on small screens */
         top: 0;
         left: 150px; /* "#menu width" */
@@ -218,24 +218,24 @@ aside {
         padding: 0.75em 1em;
     }
 
-        #menu .k-menu-link:hover {
+        #menu .pure-menu-link:hover {
             background: #000;
         }
 
-    #menu .k-menu-heading {
+    #menu .pure-menu-heading {
         font-size:110%;
         color: #fff;
     }
 
-    #menu .k-menu-selected {
+    #menu .pure-menu-selected {
         background: rgb(23, 218, 255);
     }
 
-        #menu .k-menu-selected a {
+        #menu .pure-menu-selected a {
             color: rgb(4, 119, 141);
         }
 
-        #menu li.k-menu-selected a:hover {
+        #menu li.pure-menu-selected a:hover {
             background: none;
         }
 
@@ -258,7 +258,7 @@ aside {
     color: white;
 }
 
-.k-button {
+.pure-button {
     font-family: inherit;
     color: auto;
 }
@@ -289,13 +289,13 @@ aside {
                 width: 150px;
             }
 
-    #menu .k-menu-link {
+    #menu .pure-menu-link {
         position: fixed;
         left: 0;
         display: block;
     }
 
-    #menu.active .k-menu-link {
+    #menu.active .pure-menu-link {
         left: 150px;
     }
 }

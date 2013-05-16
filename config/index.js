@@ -17,7 +17,7 @@ module.exports = Object.freeze({
 
     typekit: 'ajf8ggy',
     yui    : require('./yui'),
-    kimono : {
-        version: '0.0.1'
+    pure   : {
+        version: '0.0.2'
     }
 });

@@ -1,15 +1,15 @@
-<div class="k-u" id="menu">
-    <div class="k-menu k-menu-open">
-        <a class="k-menu-heading" href="{{pages.home}}">Kimono</a>
+<div class="pure-u" id="menu">
+    <div class="pure-menu pure-menu-open">
+        <a class="pure-menu-heading" href="{{pages.home}}">Pure</a>
 
-        <a href="#menu" id="menuLink" class="k-menu-link">
+        <a href="#menu" id="menuLink" class="pure-menu-link">
             <img src="/img/navicon-png2x.png" width="20"
                  alt="Menu toggle">
         </a>
 
         <ul>
           {{#each nav}}
-            <li class="{{#if isActive}}k-menu-selected{{/if}}">
+            <li class="{{#if isActive}}pure-menu-selected{{/if}}">
                 <a href="{{url}}">{{label}}</a>
             </li>
           {{/each}}

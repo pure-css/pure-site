@@ -11,7 +11,7 @@ var express = require('express'),
 
 // -- Config -------------------------------------------------------------------
 
-app.set('name', 'Kimono');
+app.set('name', 'Pure');
 app.set('env', config.env);
 app.set('port', config.port);
 app.enable('strict routing');
@@ -21,7 +21,7 @@ app.set('view engine', hbs.extname);
 app.set('views', config.dirs.views);
 
 app.locals({
-    site          : 'Kimono',
+    site          : 'Pure',
     copyright_year: '2013',
 
     nav  : [],
@@ -32,9 +32,9 @@ app.locals({
 
     min: config.isProduction ? '-min' : '',
 
-    yui    : config.yui,
-    typekit: config.typekit,
-    kimono : config.kimono
+    yui     : config.yui,
+    typekit : config.typekit,
+    pure    : config.pure
 });
 
 // -- Middleware ---------------------------------------------------------------

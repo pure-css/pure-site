@@ -1,6 +1,6 @@
 {{! Common styles used across multiple layouts }}
 
-{{addCdnCSS "0.0.1" "kimono" base="kimono" min=true prepend=true}}
+{{addCdnCSS "0.0.2" "pure" base="pure" min=true prepend=true}}
 
 {{#cdnCSS}}
 <link rel="stylesheet" href="{{{.}}}">
@@ -14,6 +14,6 @@
 <link rel="stylesheet" href="{{{.}}}">
 {{/localCSS}}
 
-{{#customCSS}}
+{{#remoteCSS}}
 <link rel="stylesheet" href="{{{.}}}">
-{{/customCSS}}
+{{/remoteCSS}}

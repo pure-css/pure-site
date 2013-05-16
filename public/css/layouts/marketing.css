@@ -11,11 +11,11 @@ body {
     margin: 0 0;
 }
 
-    .header .k-menu {
+    .header .pure-menu {
         padding: 0.5em;
     }
 
-        .header .k-menu li a:hover {
+        .header .pure-menu li a:hover {
             background: none;
             border: none;
             color: #aaa;

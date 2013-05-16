@@ -1,7 +1,7 @@
-Kimono Website
-==============
+Pure CSS Website
+================
 
-The website which showcases Kimono.
+The website which showcases Pure CSS.
 
 Running Locally
 ---------------

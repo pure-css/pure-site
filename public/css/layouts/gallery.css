@@ -10,7 +10,7 @@ h1,h2,h3,h4,h5,h6 {
     padding: 2em;
 }
 
-.header .k-menu {
+.header .pure-menu {
     border-bottom-color: black;
     border-radius: 0;
 }
@@ -77,7 +77,7 @@ h1,h2,h3,h4,h5,h6 {
     border-bottom: 1px solid #eee;
 }
 
-    .form-box .k-button {
+    .form-box .pure-button {
         background-color: #61B842;
         color: white;
         vertical-align: top;
