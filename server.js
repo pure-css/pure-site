@@ -1,5 +1,5 @@
-// Required for express to work in Manhattan
-// Shouldn't not be required!!
+// TODO: Remove this when it is no longer required for Express to work in the
+// Manhattan Node.js hosting environment.
 process.chdir(__dirname);
 
 var http = require('http'),
