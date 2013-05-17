@@ -24,6 +24,7 @@
         "combohandler"       : "0.2.x",
         "express"            : "3.x",
         "express3-handlebars": "0.4.x",
+        "express-state"      : "0.0.x",
         "handlebars"         : "1.x"
     },
 

@@ -2,6 +2,7 @@ var combo   = require('combohandler'),
     express = require('express'),
     exphbs  = require('express3-handlebars'),
     path    = require('path'),
+    state   = require('express-state'),
 
     config     = require('./config'),
     hbs        = require('./lib/hbs'),
@@ -20,6 +21,8 @@ app.enable('strict routing');
 app.engine(hbs.extname, hbs.engine);
 app.set('view engine', hbs.extname);
 app.set('views', config.dirs.views);
+
+app.expose(config.yui.config, 'YUI_config');
 
 app.locals({
     site          : 'Pure',

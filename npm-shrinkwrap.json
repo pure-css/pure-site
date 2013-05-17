@@ -128,6 +128,10 @@
         }
       }
     },
+    "express-state": {
+      "version": "0.0.2",
+      "from": "express-state@"
+    },
     "handlebars": {
       "version": "1.0.11",
       "from": "handlebars@1.x",
