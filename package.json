@@ -16,7 +16,7 @@
         "views" : "./views"
     },
 
-    "main": "server",
+    "main": "server.js",
 
     "engines": {
         "node": ">=0.8.x",
