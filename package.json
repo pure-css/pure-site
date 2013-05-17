@@ -5,7 +5,10 @@
     "version"    : "0.0.1",
     "private"    : true,
 
-    "author": "Eric Ferraiuolo <eferraiuolo@gmail.com> (http://ericf.me/)",
+    "contributors": [
+        "Eric Ferraiuolo <eferraiuolo@gmail.com> (http://ericf.me/)",
+        "Tilo Mitra <tilomitra@gmail.com> (http://www.tilomitra.com/)"
+    ],
 
     "directories": {
         "lib"   : "./lib",
