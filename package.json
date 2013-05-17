@@ -1,34 +1,41 @@
 {
-    "name"       : "yuilib-css",
-    "description": "Pure website.",
-    "homepage"   : "http://css.yuilibrary.com/",
+    "name"       : "pure-site",
+    "description": "The Pure CSS website.",
+    "homepage"   : "http://purecss.io/",
     "version"    : "0.0.1",
     "private"    : true,
 
     "author": "Eric Ferraiuolo <eferraiuolo@gmail.com> (http://ericf.me/)",
 
+    "directories": {
+        "lib"   : "./lib",
+        "public": "./public",
+        "views" : "./views"
+    },
+
+    "main": "server",
+
     "engines": {
-        "node": "0.8.x",
+        "node": ">=0.8.x",
         "npm" : ">=1.1.2"
     },
 
     "dependencies": {
         "combohandler"       : "0.2.x",
         "express"            : "3.x",
-        "express3-handlebars": "0.3.x",
+        "express3-handlebars": "0.4.x",
         "handlebars"         : "1.x"
     },
 
     "yahoo": {
         "bugzilla": {
-            "product"       : "yui utilities",
-            "component"     : "Pure"
+            "product"  : "yui utilities",
+            "component": "Pure"
         },
+
         "custodian": {
-            "email"         : "tilo@yahoo-inc.com",
-            "url"           : "http://yo/kimono"
+            "email": "tilo@yahoo-inc.com",
+            "url"  : "http://purecss.io/"
         }
-    },
-    "main"          : "server.js",
-    "directories"   : {"lib": "./lib"}
+    }
 }
