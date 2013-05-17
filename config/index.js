@@ -15,9 +15,10 @@ module.exports = Object.freeze({
         partials: path.resolve('views/partials/')
     }),
 
+    version: require('../package').version,
+
+    pure   : {version: '0.0.2'},
     typekit: 'ajf8ggy',
-    yui    : require('./yui'),
-    pure   : {
-        version: '0.0.2'
-    }
+    yui    : require('./yui')
+
 });

@@ -1,4 +1,5 @@
-var express = require('express'),
+var combo   = require('combohandler'),
+    express = require('express'),
     exphbs  = require('express3-handlebars'),
     path    = require('path'),
 
@@ -24,6 +25,10 @@ app.locals({
     site          : 'Pure',
     copyright_year: '2013',
 
+    version     : config.version,
+    pure_version: config.pure.version,
+    yui_version : config.yui.version,
+
     nav  : [],
     pages: {},
 
@@ -32,9 +37,7 @@ app.locals({
 
     min: config.isProduction ? '-min' : '',
 
-    yui     : config.yui,
-    typekit : config.typekit,
-    pure    : config.pure
+    typekit: config.typekit
 });
 
 // -- Middleware ---------------------------------------------------------------
@@ -91,8 +94,10 @@ routePage('layoutsGallery',   '/layouts/gallery/',   routes.render('layouts/gall
 routePage('layoutsMarketing', '/layouts/marketing/', routes.render('layouts/marketing', 'blank'));
 routePage('layoutsEmail',     '/layouts/email/',     routes.render('layouts/email', 'blank'));
 
-
-app.get('/combo', routes.combo);
+app.get('/combo/:version', [
+    combo.combine({rootPath: config.dirs.pub}),
+    combo.respond
+]);
 
 // -- Exports ------------------------------------------------------------------
 module.exports = app;
