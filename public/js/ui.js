@@ -17,11 +17,12 @@ var menu = document.getElementById('menu'),
         if (length === classes.length) {
             classes.push(className);
         }
-        element.className = classes.join(" ");
+
+        element.className = classes.join(' ');
     };
 
     menuLink.onclick = function (e) {
         var active = 'active';
         toggleClass(layout, active);
         toggleClass(menu, active);
-    } 
+    };
