@@ -34,6 +34,12 @@ a:visited {
     color: #22abc3; /* block-mine-text-normal */
 }
 
+dt {
+    font-weight: bold;
+}
+dd {
+    margin: 0 0 10px 0;
+}
 
 /* --------------------------
  * Layout Styles

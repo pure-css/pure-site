@@ -90,6 +90,7 @@ routePage('buttons',   '/buttons/',   'Buttons',   routes.render('buttons'));
 routePage('tables',    '/tables/',    'Tables',    routes.render('tables'));
 routePage('menus',     '/menus/',     'Menus',     routes.render('menus'));
 routePage('customize', '/customize/', 'Customize', routes.render('customize'));
+routePage('extend',    '/extend/',    'Extend',    routes.render('extend'));
 routePage('layouts',   '/layouts/',   'Layouts',   routes.render('layouts'));
 
 routePage('layoutsGallery',   '/layouts/gallery/',   routes.render('layouts/gallery', 'blank'));
