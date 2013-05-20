@@ -10,7 +10,7 @@ p {
         font-size: 800%;
         margin: 0;
         padding: 0;
-        color: rgb(23, 218, 255);
+        color: #1f8dd6;
         font-weight: 100;
     }
     .hero h2 {
@@ -27,7 +27,7 @@ p {
 
 a.pure-button-cta {
     font-size: 120%;
-    background: rgb(23, 218, 255);
+    background: #156499;
     color: white;
     font-weight: bold;
 }

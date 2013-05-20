@@ -26,12 +26,12 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 a {
-    color: #81d9e9; /* block-mine-text-low */
+    color: #0639a7;
     text-decoration: none;
 }
 
 a:visited {
-    color: #22abc3; /* block-mine-text-normal */
+    color: #0669a7; /* block-mine-text-normal */
 }
 
 
@@ -182,6 +182,8 @@ aside {
     bottom: 0;
     z-index: 1000; /* so the menu or its navicon stays above all content */
     background: #191818;
+    overflow-y: auto;
+    -webkit-overflow-scroll: touch;
 }
     #menu a {
         color: #999;
@@ -228,11 +230,11 @@ aside {
     }
 
     #menu .pure-menu-selected {
-        background: rgb(23, 218, 255);
+        background: #1f8dd6;
     }
 
         #menu .pure-menu-selected a {
-            color: rgb(4, 119, 141);
+            color: white;
         }
 
         #menu li.pure-menu-selected a:hover {
