@@ -123,11 +123,11 @@
                     <h2>Creating a Photo Gallery Layout</h2>
 
                     <p>
-                        This page shows how to make a photo gallery using <a href="{{pages.grids}}">YUI Grids</a>. Using Pure, we can create interesting layouts such as this photo gallery. This layout is fully responsive. We've added a bit of custom media queries on top of the responsive grid provided by YUI.
+                        This page shows how to make a photo gallery using <a href="{{pages.grids}}">Kimono Grids</a>. Using Pure, we can create interesting layouts such as this photo gallery. This layout is fully responsive. We've added a bit of custom media queries on top of the responsive grid provided by Kimono.
                     </p>
 
                     <p>
-                        We've also taken advantage of <a href="{{pages.forms}}">Forms</a> and <a href="{{pages.lists}}">Navigation lists</a>. This example uses a form with the <code>pure-form-inline</code> classname. We use <a href="{{pages.forms}}#button">CSSButton</a> for the button styling.
+                        We've also taken advantage of <a href="{{pages.forms}}">Kimono Forms</a> and <a href="{{pages.menus}}">Kimono Menus</a>. This example uses a form with the <code>pure-form-inline</code> classname. We use <a href="{{pages.buttons}}">Kimono Buttons</a> for the button styling.
                     </p>
                 </div>
             </div>
@@ -138,3 +138,16 @@
         View the source of this layout to learn more. Made with love by the YUI Team.
     </div>
 </div>
+
+<script src="http://yui.yahooapis.com/{{yui_version}}/build/yui/yui{{min}}.js"></script>
+<script>
+    YUI().use('node-base', 'node-event-delegate', function (Y) {
+        /*
+            This just makes sure that the href="#" attached to the <a> elements
+            don't scroll you back up the page.
+        */
+        Y.one('.pure-menu').delegate('click', function (e) {
+            e.preventDefault();
+        }, 'a');
+    });
+</script>

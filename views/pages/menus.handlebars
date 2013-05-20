@@ -84,4 +84,18 @@
   {{#code}}
     {{> menus/paginator}}
   {{/code}}
+
+
+  <script>
+    YUI().use('node-base', 'node-event-delegate', function (Y) {
+
+        /*
+            This just makes sure that the href="#" attached to the <a> elements
+            on the menu don't scroll you back up the page.
+        */
+        Y.one('.content').delegate('click', function (e) {
+            e.preventDefault();
+        }, '.pure-menu a, .pure-paginator a');
+    });
+  </script>
 </div>
