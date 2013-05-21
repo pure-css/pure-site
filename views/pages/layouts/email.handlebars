@@ -178,14 +178,13 @@
             nav.toggleClass('active');
         });
 
-        // Your application code goes here...
-
-        /*
-            This just makes sure that the href="#" attached to the <a> elements
-            don't scroll you back up the page.
-        */
+        // This just makes sure that the href="#" attached to the <a> elements
+        // don't scroll you back up the page.
         Y.one('#layout').delegate('click', function (e) {
             e.preventDefault();
         }, 'a');
+
+        // Your application code goes here...
+
     });
 </script>

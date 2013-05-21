@@ -127,7 +127,7 @@
                     </p>
 
                     <p>
-                        We've also taken advantage of <a href="{{pages.forms}}">Pure Forms</a> and <a href="{{pages.menus}}">Pure Menus</a>. This example uses a form with the <code>pure-form-inline</code> classname. We use <a href="{{pages.buttons}}">Pure Buttons</a> for the button styling.
+                        We've also taken advantage of <a href="{{pages.forms}}">Pure Forms</a> and <a href="{{pages.menus}}">Pure Menus</a>. This example uses a form with the {{code "pure-form"}} class name to create an inline form. We use <a href="{{pages.buttons}}">Pure Buttons</a> for the button styling.
                     </p>
                 </div>
             </div>
@@ -142,12 +142,15 @@
 <script src="http://yui.yahooapis.com/{{yui_version}}/build/yui/yui{{min}}.js"></script>
 <script>
     YUI().use('node-base', 'node-event-delegate', function (Y) {
-        /*
-            This just makes sure that the href="#" attached to the <a> elements
-            don't scroll you back up the page.
-        */
+
+
+        // This just makes sure that the href="#" attached to the <a> elements
+        // don't scroll you back up the page.
         Y.one('.pure-menu').delegate('click', function (e) {
             e.preventDefault();
         }, 'a');
+
+        // Your application code goes here...
+
     });
 </script>

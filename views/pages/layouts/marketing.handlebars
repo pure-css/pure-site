@@ -139,10 +139,9 @@
 <script src="http://yui.yahooapis.com/{{yui_version}}/build/yui/yui{{min}}.js"></script>
 <script>
     YUI().use('node-base', 'node-event-delegate', function (Y) {
-        /*
-            This just makes sure that the href="#" attached to the <a> elements
-            don't scroll you back up the page.
-        */
+
+        // This just makes sure that the href="#" attached to the <a> elements
+        // don't scroll you back up the page.
         Y.one('.wrapper').delegate('click', function (e) {
             e.preventDefault();
         }, '.pure-menu a, a.pure-button');
