@@ -1,6 +1,6 @@
 {{addLocalCSS "/css/layouts/email.css"}}
 
-<div class="pure-g-r" id="layout">
+<div class="pure-g-r content" id="layout">
     <div class="pure-u" id="nav">
         <a href="#nav" class="nav-menu-button">Menu</a>
 
@@ -132,7 +132,7 @@
                     <div class="pure-u-1-2">
                         <h1 class="email-content-title">Hello from Toronto</h1>
                         <p class="email-content-subtitle">
-                            From <a href="#">Tilo Mitra</a> at <span>3:56pm, April 3, 2012</span>
+                            From <a>Tilo Mitra</a> at <span>3:56pm, April 3, 2012</span>
                         </p>
                     </div>
 
@@ -168,7 +168,7 @@
 
 <script src="http://yui.yahooapis.com/{{yui_version}}/build/yui/yui{{min}}.js"></script>
 <script>
-    YUI().use('node-base', function (Y) {
+    YUI().use('node-base', 'node-event-delegate', function (Y) {
 
         var menuButton = Y.one('.nav-menu-button'),
             nav        = Y.one('#nav');
@@ -179,5 +179,8 @@
         });
 
         // Your application code goes here...
+
     });
 </script>
+
+{{> prevent-scroll}}

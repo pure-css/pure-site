@@ -3,6 +3,10 @@
     padding: 1.3em 0;
     border-top: 1px solid #eee;
 }
+
+.layout-item img {
+    height: auto;
+}
 .layout-item .layout-item-head {
   margin-top: 0; /* so that the .layout-item-head lines up with the image */
 }

@@ -26,12 +26,12 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 a {
-    color: #81d9e9; /* block-mine-text-low */
+    color: #3b8bba; /* block-background-text-normal */
     text-decoration: none;
 }
 
 a:visited {
-    color: #22abc3; /* block-mine-text-normal */
+    color: #265778; /* block-normal-text-normal */
 }
 
 
@@ -92,11 +92,14 @@ a:visited {
      }
 
 aside {
-    background: #d4f1f7; /* normal color palette when primary color palette is at #00d4ff */
+    background: #cce1ef; /* normal color palette when primary color palette is at #1f8dd6 */
     padding: 0.3em 1em;
     border-radius: 3px;
-    color: #0c3941; /* block-high-text-normal */
+    color: #163246; /* block-normal-text-high */
 }
+    .aside a, .aside a:visited {
+        color: #1f8dd6;
+    }
 
  /* --------------------------
   * Content Module Styles
@@ -182,6 +185,8 @@ aside {
     bottom: 0;
     z-index: 1000; /* so the menu or its navicon stays above all content */
     background: #191818;
+    overflow-y: auto;
+    -webkit-overflow-scroll: touch;
 }
     #menu a {
         color: #999;
@@ -228,11 +233,11 @@ aside {
     }
 
     #menu .pure-menu-selected {
-        background: rgb(23, 218, 255);
+        background: #1f8dd6;
     }
 
         #menu .pure-menu-selected a {
-            color: rgb(4, 119, 141);
+            color: white;
         }
 
         #menu li.pure-menu-selected a:hover {

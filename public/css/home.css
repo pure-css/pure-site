@@ -10,7 +10,7 @@ p {
         font-size: 800%;
         margin: 0;
         padding: 0;
-        color: rgb(23, 218, 255);
+        color: #1f8dd6;
         font-weight: 100;
     }
     .hero h2 {
@@ -27,7 +27,7 @@ p {
 
 a.pure-button-cta {
     font-size: 120%;
-    background: rgb(23, 218, 255);
+    background: #1f8dd6;
     color: white;
     font-weight: bold;
 }
@@ -45,18 +45,44 @@ a.pure-button-cta {
     .size-chart-base {
         background: #0e90d2;
     }
+        .size-chart-base span {
+            color: rgb(103, 194, 240);
+        }
+
     .size-chart-grids {
         background: rgb(128, 88, 165);
     }
+        .size-chart-grids span {
+            color: rgb(200, 131, 255);
+        }
     .size-chart-forms {
         background: #5eb95e;
     }
-    .size-chart-menus {
-        background: #faa732;;
-    }
-    .size-chart-tables {
+
+        .size-chart-forms span {
+            color: rgb(161, 240, 137);
+        }
+
+    .size-chart-buttons {
         background: #dd514c;
     }
+
+        .size-chart-buttons span {
+            color: rgb(236, 164, 154);
+        }
+
+    .size-chart-menus {
+        background: rgb(250, 210, 50);
+    }
+        .size-chart-menus span {
+            color: rgb(255, 240, 134);
+        }
+    .size-chart-tables {
+        background: rgb(243, 123, 29);
+    }
+        .size-chart-tables span {
+            color: rgb(255, 190, 129);
+        }
 
     a.size-chart-label {
         display: block;
