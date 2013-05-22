@@ -67,9 +67,9 @@ if (config.isDevelopment) {
 
 // -- Routes -------------------------------------------------------------------
 
-function routePage(id, path, label, callbacks) {
-    if (typeof label !== 'string') {
-        callbacks = label;
+function routePage(id, path, label, divider, callbacks) {
+    if (typeof label === "boolean") {
+        callbacks = divider;
         label     = null;
     }
 
@@ -78,24 +78,24 @@ function routePage(id, path, label, callbacks) {
     app.locals.pages[id] = path;
 
     if (label) {
-        app.locals.nav.push({id: id, url: path, label: label});
+        app.locals.nav.push({id: id, url: path, label: label, divider: divider});
     }
 }
 
-routePage('home',      '/',                        routes.render('home'));
-routePage('base',      '/base/',      'Base',      routes.render('base'));
-routePage('grids',     '/grids/',     'Grids',     routes.render('grids'));
-routePage('forms',     '/forms/',     'Forms',     routes.render('forms'));
-routePage('buttons',   '/buttons/',   'Buttons',   routes.render('buttons'));
-routePage('tables',    '/tables/',    'Tables',    routes.render('tables'));
-routePage('menus',     '/menus/',     'Menus',     routes.render('menus'));
-routePage('customize', '/customize/', 'Customize', routes.render('customize'));
-routePage('extend',    '/extend/',    'Extend',    routes.render('extend'));
-routePage('layouts',   '/layouts/',   'Layouts',   routes.render('layouts'));
+routePage('home',      '/',                        false, routes.render('home'));
+routePage('base',      '/base/',      'Base',      false, routes.render('base'));
+routePage('grids',     '/grids/',     'Grids',     false, routes.render('grids'));
+routePage('forms',     '/forms/',     'Forms',     false, routes.render('forms'));
+routePage('buttons',   '/buttons/',   'Buttons',   false, routes.render('buttons'));
+routePage('tables',    '/tables/',    'Tables',    false, routes.render('tables'));
+routePage('menus',     '/menus/',     'Menus',     false, routes.render('menus'));
+routePage('customize', '/customize/', 'Customize', true, routes.render('customize'));
+routePage('extend',    '/extend/',    'Extend',    false, routes.render('extend'));
+routePage('layouts',   '/layouts/',   'Layouts',   false, routes.render('layouts'));
 
-routePage('layoutsGallery',   '/layouts/gallery/',   routes.render('layouts/gallery', 'blank'));
-routePage('layoutsMarketing', '/layouts/marketing/', routes.render('layouts/marketing', 'blank'));
-routePage('layoutsEmail',     '/layouts/email/',     routes.render('layouts/email', 'blank'));
+routePage('layoutsGallery',   '/layouts/gallery/',   false, routes.render('layouts/gallery', 'blank'));
+routePage('layoutsMarketing', '/layouts/marketing/', false, routes.render('layouts/marketing', 'blank'));
+routePage('layoutsEmail',     '/layouts/email/',     false, routes.render('layouts/email', 'blank'));
 
 app.get('/combo/:version', [
     combo.combine({rootPath: config.dirs.pub}),

@@ -9,12 +9,12 @@
 
         <ul>
           {{#each nav}}
-            <li class="{{#if isActive}}pure-menu-selected{{/if}}">
+            <li class="{{#if isActive}}pure-menu-selected{{/if}} {{#if divider}}menu-item-divided{{/if}}">
                 <a href="{{url}}">{{label}}</a>
             </li>
           {{/each}}
 
-            <li class="menu-item-yui">
+            <li class="menu-item-divided">
                 <a href="https://git.corp.yahoo.com/pages/yui/skinbuilder/">Skin Builder</a>
             </li>
 
