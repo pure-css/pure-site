@@ -1,6 +1,6 @@
 {{addLocalCSS "/css/layouts/email.css"}}
 
-<div class="pure-g-r" id="layout">
+<div class="pure-g-r content" id="layout">
     <div class="pure-u" id="nav">
         <a href="#nav" class="nav-menu-button">Menu</a>
 
@@ -132,7 +132,7 @@
                     <div class="pure-u-1-2">
                         <h1 class="email-content-title">Hello from Toronto</h1>
                         <p class="email-content-subtitle">
-                            From <a href="#">Tilo Mitra</a> at <span>3:56pm, April 3, 2012</span>
+                            From <a>Tilo Mitra</a> at <span>3:56pm, April 3, 2012</span>
                         </p>
                     </div>
 
@@ -178,13 +178,9 @@
             nav.toggleClass('active');
         });
 
-        // This just makes sure that the href="#" attached to the <a> elements
-        // don't scroll you back up the page.
-        Y.one('#layout').delegate('click', function (e) {
-            e.preventDefault();
-        }, 'a');
-
         // Your application code goes here...
 
     });
 </script>
+
+{{> prevent-scroll}}
