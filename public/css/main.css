@@ -34,6 +34,12 @@ a:visited {
     color: #265778; /* block-normal-text-normal */
 }
 
+dt {
+    font-weight: bold;
+}
+dd {
+    margin: 0 0 10px 0;
+}
 
 /* --------------------------
  * Layout Styles
@@ -206,7 +212,7 @@ aside {
     }
 
     #menu .pure-menu ul,
-    #menu .pure-menu .menu-item-yui {
+    #menu .pure-menu .menu-item-divided {
         border-top: 1px solid #333;
     }
 

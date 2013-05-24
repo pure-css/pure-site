@@ -73,12 +73,20 @@ function routePage(id, path, label, callbacks) {
         label     = null;
     }
 
+    var navItem;
+
     app.get(path, callbacks);
 
     app.locals.pages[id] = path;
 
     if (label) {
-        app.locals.nav.push({id: id, url: path, label: label});
+        navItem = {id: id, url: path, label: label};
+
+        if (id === 'customize') {
+            navItem.divider = true;
+        }
+
+        app.locals.nav.push(navItem);
     }
 }
 
@@ -90,6 +98,7 @@ routePage('buttons',   '/buttons/',   'Buttons',   routes.render('buttons'));
 routePage('tables',    '/tables/',    'Tables',    routes.render('tables'));
 routePage('menus',     '/menus/',     'Menus',     routes.render('menus'));
 routePage('customize', '/customize/', 'Customize', routes.render('customize'));
+routePage('extend',    '/extend/',    'Extend',    routes.render('extend'));
 routePage('layouts',   '/layouts/',   'Layouts',   routes.render('layouts'));
 
 routePage('layoutsGallery',   '/layouts/gallery/',   routes.render('layouts/gallery', 'blank'));
