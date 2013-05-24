@@ -20,20 +20,6 @@
   {{/code}}
 
 
-    <h2 class="content-subhead">Multi-Column Form (with Pure Grids)</h2>
-    <p>
-        Multi-column forms such as the one below can be created by pulling down Pure Grids. In this example, we're using Pure Grids with a stacked form.
-    </p>
-
-  {{#prefixIds "multi"}}
-    {{> forms/multi}}
-  {{/prefixIds}}
-
-  {{#code}}
-    {{> forms/multi}}
-  {{/code}}
-
-
     <h2 class="content-subhead">Stacked Form</h2>
     <p>
         A stacked form has its input elements below the labels. Apply this style by adding the {{code "pure-form-stacked"}} class-name on a {{code "<form>"}} element in addition to {{code "pure-form"}}.
@@ -50,7 +36,7 @@
 
     <h2 class="content-subhead">Aligned Form</h2>
     <p>
-        Aligned forms are great for standard forms that look well-aligned. The labels are right-aligned against the form input controls, but re-align to be standard left-aligned forms on smaller screens. Apply the {{code "pure-form-aligned"}} class to your {{code "<form>"}} element.
+        Aligned forms are great for standard forms that look well-aligned. The labels are right-aligned against the form input controls, but re-align to be standard stacked forms on smaller screens. Apply the {{code "pure-form-aligned"}} class to your {{code "<form>"}} element.
     </p>
 
   {{#prefixIds "aligned"}}
@@ -61,10 +47,22 @@
     {{> forms/aligned}}
   {{/code}}
 
+    <h2 class="content-subhead">Multi-Column Form (with Pure Grids)</h2>
+    <p>
+        Multi-column forms such as the one below can be created by using Pure Grids. In this example, we're using Pure Grids with a stacked form.
+    </p>
+
+  {{#prefixIds "multi"}}
+    {{> forms/multi}}
+  {{/prefixIds}}
+
+  {{#code}}
+    {{> forms/multi}}
+  {{/code}}
 
     <h2 class="content-subhead">Grouped Inputs</h2>
     <p>
-        Grouped inputs are great for grouping small sets of text-based input elements. They work well for sign-up forms, and look natural on mobile devices.
+        Grouped inputs are great for grouping small sets of text-based input elements. They work well for sign-up forms and look natural on mobile devices.
     </p>
 
   {{#prefixIds "grouped"}}
@@ -102,7 +100,7 @@
   {{/code}}
 
 
-    <h2 class="content-subhead">Invalid Inputs</h2>
+    <h2 class="content-subhead">Required Inputs</h2>
     <p>
         Add the {{code "required"}} attribute to any form control.
     </p>

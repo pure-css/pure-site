@@ -7,12 +7,16 @@
 <div class="content">
     <h2 class="content-subhead">The Foundation</h2>
     <p>
-        All modules in Pure build on top of <a href="http://necolas.github.com/normalize.css/">Normalize.css</a>. It's our foundational layer to maintain some degree of cross-browser consistency. We use Normalize v1.10 because it supports older versions of Internet Explorer. We like Normalize so much that we put it on our CDN. You can pull in Normalize.css by adding this {{code "<link>"}} element on your page:
+        All modules in Pure build on top of <a href="http://necolas.github.com/normalize.css/">Normalize.css</a>. It's our foundational layer to maintain some degree of cross-browser consistency. We use Normalize v1.x because it supports older versions of Internet Explorer. We like Normalize so much that we put it on our CDN. You can pull in Normalize.css by adding this {{code "<link>"}} element on your page:
     </p>
+
+    {{#code}}
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure_version}}/base-min.css">
+    {{/code}}
 
     <h3>A bit about Normalize.css</h3>
     <p>
-        <a href="http://necolas.github.com/normalize.css/">Normalize.css</a> is an open-source project by <a href="http://twitter.com/necolas">Nicolas Gallagher</a> and <a href="http://twitter.com/jon_neal">Jonathan Neal</a>. In their own words:
+        <a href="http://necolas.github.com/normalize.css/">Normalize.css</a> is an open-source project by <a href="http://twitter.com/necolas">Nicolas Gallagher</a> and <a href="http://twitter.com/jon_neal">Jonathan Neal</a>. <a href="http://nicolasgallagher.com/about-normalize-css/">In their own words</a>:
     </p>
 
     <blockquote class="content-quote">
@@ -20,12 +24,12 @@
     </blockquote>
 
     <p>
-        Normalize.css comes with <a href="https://github.com/necolas/normalize.css/wiki">great documentation</a> and a <a href="http://nicolasgallagher.com/about-normalize-css/">thorough guide</a> explaining how it differs from a traditional reset. You can also check out YUI's <a href="http://yuilibrary.com/yui/docs/cssnormalize/">CSSNormalize</a> module, which includes the generic Normalize along with a <a href="http://yuilibrary.com/yui/docs/cssnormalize/#context">contextual version</a>. The contextual version of Normalize only applies normalized styles to elements that are a children of an element with the class name {{code "yui3-normalized"}}.
+        Normalize.css comes with <a href="https://github.com/necolas/normalize.css/wiki">great documentation</a> and a <a href="http://nicolasgallagher.com/about-normalize-css/">thorough guide</a> explaining how it differs from a traditional reset. You can also check out YUI's <a href="http://yuilibrary.com/yui/docs/cssnormalize/">CSSNormalize</a> module, which includes the generic Normalize along with a <a href="http://yuilibrary.com/yui/docs/cssnormalize/#context">contextual version</a>. The contextual version of Normalize only applies normalized styles to elements that are children of an element with the class name {{code "yui3-normalized"}}.
     </p>
 
     <h2 class="content-subhead">Typography</h2>
     <p>
-        To keep Pure lean and extensible, we do not add any typographic styles over the foundational layer provided by Normalize. This means that you get headings with different sizes, blockquotes, lists, definition lists and more, but their styles are minimal and easy to override.
+        To keep Pure lean and extensible, we do not add any typographic styles over the foundational layer provided by Normalize. This means that you get headings with different sizes, blockquotes, lists, definition lists, and more, but their styles are minimal and easy to override.
     </p>
 
 
@@ -39,7 +43,7 @@
 
     <h2 class="content-subhead">Lists</h2>
     <p>
-        Lists come in different forms. There are unordered lists, ordered lists and description lists. Normalize provides basic styling and cross-browser consistency for these lists. You can style these further in your specific application. If you're looking to use lists to make menus, check out <a href="{{pages.menus}}">Menu CSS</a>.
+        Lists come in different forms. There are unordered lists, ordered lists, and description lists. Normalize provides basic styling and cross-browser consistency for these lists. You can style these further in your specific application. If you're looking to use lists to make menus, check out <a href="{{pages.menus}}">Menu CSS</a>.
     </p>
 
     {{> base/lists}}
@@ -99,7 +103,7 @@
 
     <h2 class="content-subhead">Moving beyond Normalize</h2>
     <p>
-        Normalize.css is a great starting piece for your project, but some HTML elements such as forms, tables and menus require more styling than what's provided by Normalize.
+        Normalize.css is a great starting place for your project, but some HTML elements such as forms, tables, and menus require more styling than what's provided by Normalize.
     </p>
 
     <p>

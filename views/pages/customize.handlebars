@@ -36,8 +36,12 @@
 
     <h2 class="content-subhead">Individual Modules</h2>
     <p>
-        You can also pull in the modules individually. The Yahoo CDN supports combo handling, so you can combo your requests and get a single CSS file back.
+        You can also pull in the modules individually. The Yahoo! CDN supports combo handling, so you can combo your requests and get a single CSS file back. Here's an example of a combo URL that only includes CSS for <a href="{{pages.base}}">Base</a>, <a href="{{pages.grids}}">Grids</a>, and <a href="{{pages.forms}}">Forms</a>:
     </p>
+
+{{#code}}
+<link rel="stylesheet" href="http://yui.yahooapis.com/combo?pure/{{pure_version}}/base-min.css&pure/{{pure_version}}/grids-min.css&pure/{{pure_version}}/forms-min.css">
+{{/code}}
 
     <table class="pure-table pure-table-bordered">
         <thead>

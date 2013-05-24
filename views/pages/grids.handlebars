@@ -1,5 +1,5 @@
 {{setTitle     "Responsive Grids"}}
-{{setSubTitle  "A fully-customizable responsive grid"}}
+{{setSubTitle  "A fully customizable responsive grid"}}
 {{setActiveNav "grids"}}
 
 {{> header}}
@@ -26,7 +26,7 @@
     </aside>
 
 
-    <h2 class="content-subhead">How do responsive grids work?</h2>
+    <h2 class="content-subhead">How do Pure Responsive Grids work?</h2>
     <p>
         Pure Responsive Grids builds on top of the existing grids implementation. It adds a single new class name called {{code "pure-g-r"}} (the "r" stands for responsive, you see). You can use this instead of using {{code "pure-g"}} as you normally do. All elements with a class name of {{code "pure-u-*-*"}} will automatically become responsive if they are direct descendents of a {{code "pure-g-r"}}.
     </p>
@@ -34,9 +34,16 @@
 
     <h2 class="content-subhead">The HTML</h2>
     <p>
-        The first gist shows how regular Pure Grids are written. These grids are unresponsive. They'll always be one-thirds irrespective of the width of the screen. The second gist replaces the {{code "pure-g"}} with {{code "pure-g-r"}}, thereby making the one-third columns collapse to full width on lower screen widths.
+        The first snippet below shows how regular Pure Grids are written. These grids are unresponsive. They'll always be one-thirds, irrespective of the width of the screen. The second snippet replaces the {{code "pure-g"}} with {{code "pure-g-r"}}, thereby making the one-third columns collapse to full width on lower screen widths.
     </p>
 
+    {{#code}}
+    {{> grids/compare-nr}}
+    {{/code}}
+
+    {{#code}}
+    {{> grids/compare-r}}
+    {{/code}}
 
     <h2 class="content-subhead">Features</h2>
 
@@ -45,7 +52,7 @@
         <li>Collapses elements to 100% if smaller than a certain width (767px by default)</li>
         <li>Adjusts images to fit on smaller screens</li>
         <li>Works with as many columns as you want (or as few)</li>
-        <li>Configure prefixes (as we've done on this page)</li>
+        <li>Supports configurable prefixes</li>
     </ul>
 
 
@@ -74,7 +81,7 @@
 
       <aside>
           <p>
-              Optionally, you can head over to the <a href="http://yui.github.io/gridbuilder/">GridBuilder</a> to make your very own custom grid. Save the outputted CSS in a file and you're good to go!
+              Optionally, you can head over to the <a href="http://yui.github.io/gridbuilder/">Grid Builder</a> to make your very own custom grid. Save the outputted CSS in a file and you're good to go!
           </p>
       </aside>
 </div>
