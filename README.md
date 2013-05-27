@@ -7,7 +7,7 @@ Running Locally
 ---------------
 
 This is a node.js site which uses Express.js, which means it's very easy to get
-running locally. **No Dev VM required!**
+running locally.
 
 ```shell
 $ npm i
