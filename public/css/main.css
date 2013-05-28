@@ -189,7 +189,7 @@ aside {
     width: 150px;
     position: fixed;
     top: 0;
-    left: 0;
+    left: 150px;
     bottom: 0;
     z-index: 1000; /* so the menu or its navicon stays above all content */
     background: #191818;
@@ -301,6 +301,10 @@ aside {
                 left: 150px;
                 width: 150px;
             }
+
+    #menu {
+        left: 0;
+    }
 
     .pure-menu-link {
         position: fixed;
