@@ -5,7 +5,7 @@ body {
 
 
 /* Add transition to containers so they can push in and out */
-#layout, #menu, #menu .pure-menu-link {
+#layout, #menu, .pure-menu-link {
     -webkit-transition: all 0.2s ease-out;
     -moz-transition: all 0.2s ease-out;
     -ms-transition: all 0.2s ease-out;
@@ -48,6 +48,7 @@ dd {
 
 #layout {
     padding-left: 150px; /* left col width "#menu" */
+    left: 0;
 }
 
 #main {
@@ -188,6 +189,7 @@ aside {
     width: 150px;
     position: fixed;
     top: 0;
+    left: 0;
     bottom: 0;
     z-index: 1000; /* so the menu or its navicon stays above all content */
     background: #191818;
@@ -220,7 +222,7 @@ aside {
             background: #333;
         }
 
-    #menu .pure-menu-link {
+    .pure-menu-link {
         display: none; /* show this only on small screens */
         top: 0;
         left: 150px; /* "#menu width" */
@@ -229,7 +231,7 @@ aside {
         padding: 0.75em 1em;
     }
 
-        #menu .pure-menu-link:hover {
+        .pure-menu-link:hover {
             background: #000;
         }
 
@@ -300,13 +302,13 @@ aside {
                 width: 150px;
             }
 
-    #menu .pure-menu-link {
+    .pure-menu-link {
         position: fixed;
         left: 0;
         display: block;
     }
 
-    #menu.active .pure-menu-link {
+    #layout.active .pure-menu-link {
         left: 150px;
     }
 }
