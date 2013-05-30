@@ -1,45 +1,38 @@
 {
-    "name"       : "pure-site",
+    "name": "pure-site",
     "description": "The Pure CSS website.",
-    "homepage"   : "http://purecss.io/",
-    "version"    : "1.0.2",
-    "private"    : true,
-
+    "homepage": "http://purecss.io/",
+    "version": "1.0.3",
+    "private": true,
     "contributors": [
         "Eric Ferraiuolo <eferraiuolo@gmail.com> (http://ericf.me/)",
         "Tilo Mitra <tilomitra@gmail.com> (http://www.tilomitra.com/)"
     ],
-
     "directories": {
-        "lib"   : "./lib",
+        "lib": "./lib",
         "public": "./public",
-        "views" : "./views"
+        "views": "./views"
     },
-
     "main": "server.js",
-
     "engines": {
         "node": ">=0.8.x",
-        "npm" : ">=1.1.2"
+        "npm": ">=1.1.2"
     },
-
     "dependencies": {
-        "combohandler"       : "0.2.x",
-        "express"            : "3.x",
+        "combohandler": "0.2.x",
+        "express": "3.x",
         "express3-handlebars": "0.4.x",
-        "express-state"      : "0.0.2",
-        "handlebars"         : "1.x"
+        "express-state": "0.0.2",
+        "handlebars": "1.x"
     },
-
     "yahoo": {
         "bugzilla": {
-            "product"  : "yui utilities",
+            "product": "yui utilities",
             "component": "Pure"
         },
-
         "custodian": {
             "email": "tilo@yahoo-inc.com",
-            "url"  : "http://purecss.io/"
+            "url": "http://purecss.io/"
         }
     }
 }
