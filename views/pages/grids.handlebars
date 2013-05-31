@@ -61,6 +61,38 @@
 
     {{> grids/four-col}}
 
+    <h2 class="content-subhead">Applying padding and borders to Grid units</h2>
+
+    <p>
+        To add borders and padding to Pure Grids, you have two options.
+        The first option is to nest a {{code "<div>"}} inside each Grid unit
+        and style the child container:
+    </p>
+
+    {{#code}}
+    {{> grids/padding-nested}}
+    {{/code}}
+
+    <p>
+        The second option is to add borders and padding directly to a Grid unit.
+        This would ordinarily risk breaking the layout,
+        but you can easily avoid this problem
+        by augmenting the behavior of the Grid itself
+        with a {{code "box-sizing: border-box"}} rule: 
+    </p>
+
+    {{#code}}
+    {{> grids/padding-box-sizing}}
+    {{/code}}
+
+    <p>
+        Using {{code "box-sizing: border-box"}} keeps your markup cleaner,
+        but has two minor drawbacks. Legacy browsers such as IE7 and below
+        lack support for {{code "box-sizing"}}, and setting this property 
+        on all Grid units makes it harder to override or unset the value later on. 
+        As an unopinionated library, Pure lets {{code "box-sizing"}} remain at the default
+        value of {{code "content-box"}} and leaves the choice up to you.
+    </p>
 
     <h2 class="content-subhead">Grids on Mobile</h2>
     <p>
