@@ -2,7 +2,7 @@
     "name": "pure-site",
     "description": "The Pure CSS website.",
     "homepage": "http://purecss.io/",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "private": true,
     "contributors": [
         "Eric Ferraiuolo <eferraiuolo@gmail.com> (http://ericf.me/)",
