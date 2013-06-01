@@ -17,12 +17,14 @@ code {
     margin: 0 2px;
     font-size: 0.8em;
     padding: 0.4em 0.6em;
+    white-space: nowrap;
 }
 
 pre code {
     padding: 0;
     margin: 0;
     font-size: 0.95em;
+    white-space: pre-wrap;
 }
 
 pre, code {
