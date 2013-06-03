@@ -218,7 +218,8 @@ aside {
         border-top: 1px solid #333;
     }
 
-        #menu .pure-menu li a:hover {
+        #menu .pure-menu li a:hover,
+        #menu .pure-menu li a:focus {
             background: #333;
         }
 
