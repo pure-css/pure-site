@@ -2,8 +2,9 @@
     "name": "pure-site",
     "description": "The Pure CSS website.",
     "homepage": "http://purecss.io/",
-    "version": "1.0.10",
+    "version": "1.1.0",
     "private": true,
+    "repository": "git://github.com/yui/pure-site.git",
     "contributors": [
         "Eric Ferraiuolo <eferraiuolo@gmail.com> (http://ericf.me/)",
         "Tilo Mitra <tilomitra@gmail.com> (http://www.tilomitra.com/)"
