@@ -5,7 +5,9 @@ body {
 
 
 /* Add transition to containers so they can push in and out */
-#layout, #menu, .pure-menu-link {
+#layout,
+#menu,
+.pure-menu-link {
     -webkit-transition: all 0.2s ease-out;
     -moz-transition: all 0.2s ease-out;
     -ms-transition: all 0.2s ease-out;
@@ -20,7 +22,7 @@ body {
 */
 
 
-h1,h2,h3,h4,h5,h6 {
+h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
     color: rgb(75, 75, 75);
 }
@@ -93,10 +95,10 @@ dd {
         font-weight: 300;
     }
      .header h2 {
-         font-weight: 300;
-         margin: 0;
-         color: #ccc;
-     }
+        font-weight: 300;
+        margin: 0;
+        color: #ccc;
+    }
 
 aside {
     background: #cce1ef; /* normal color palette when primary color palette is at #1f8dd6 */
@@ -162,11 +164,13 @@ aside {
     background: rgb(250, 250, 250);
 }
 
-    .legal-license, .legal-copyright {
+    .legal-license,
+    .legal-copyright {
         margin: 0;
     }
 
-    .legal-copyright, .legal-links {
+    .legal-copyright,
+    .legal-links {
         text-align: right;
     }
 
@@ -278,7 +282,7 @@ aside {
 
 .pure-button {
     font-family: inherit;
-    color: auto;
+    color: inherit;
 }
 
 .muted {
@@ -301,7 +305,6 @@ aside {
             position: relative;
             left: 150px;
         }
-
             #layout.active #menu {
                 left: 150px;
                 width: 150px;
@@ -332,7 +335,10 @@ aside {
     .legal-links {
         padding:1em 0;
     }
-    .legal-license, .legal-copyright, .legal-links, .legal-links li {
+    .legal-license,
+    .legal-copyright,
+    .legal-links,
+    .legal-links li {
         text-align: center;
     }
 
