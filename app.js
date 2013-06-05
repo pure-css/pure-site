@@ -37,6 +37,7 @@ app.locals({
 
     isDevelopment: config.isDevelopment,
     isProduction : config.isProduction,
+    isPureLocal  : !!config.pure.local,
 
     min: config.isProduction ? '-min' : '',
 
@@ -54,6 +55,11 @@ app.use(express.compress());
 app.use(express.favicon(path.join(config.dirs.pub, 'favicon.ico')));
 app.use(app.router);
 app.use(middleware.slash);
+
+if (config.pure.local) {
+    app.use('/css/pure/', express.static(config.pure.local));
+}
+
 app.use(express.static(config.dirs.pub));
 app.use(middleware.errors.notfound);
 

@@ -18,7 +18,7 @@ module.exports = Object.freeze({
     version: require('../package').version,
 
     ga     : 'UA-41480445-1',
-    pure   : {version: '0.1.0'},
+    pure   : require('./pure'),
     typekit: 'ajf8ggy',
     yui    : require('./yui')
 });
