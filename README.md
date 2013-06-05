@@ -22,8 +22,8 @@ $ node server
 
 Since this website dogfoods [`pure`][pure] it's a great testbed to try out local
 changes you're making to Pure. The following steps explain how to run the
-website which Pure being served locally, this assumes you have [Bower][]
-installed.
+website with Pure being served locally, and the instruction assume you have
+[Bower][] installed (if not do so now: `sudo npm -g i bower`).
 
 Move into where you have the `pure` project checked out locally, build it via
 `grunt`, then create a global link using Bower:
@@ -49,8 +49,8 @@ The `--pure-local` flag is what will serve the Pure CSS locally instead of from
 the CDN.
 
 **Note:** The steps to install the npm dependencies and link pure using Bower do
-*note* have to be run each time you start the server. Also, you can clean the
-server running and rebuilt `pure` via `grunt` and you'll see the changes in your
+*not* have to be run each time you start the server. Also, you can leave the
+server running and rebuild `pure` via `grunt` and you'll see the changes in your
 browser after refreshing!
 
 
