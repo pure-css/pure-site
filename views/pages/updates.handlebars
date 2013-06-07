@@ -1,13 +1,47 @@
 {{setTitle     "Updates"}}
-{{setSubTitle  "Pure project updates"}}
+{{setSubTitle  "The latest from the Pure project"}}
 {{setActiveNav "updates"}}
+
+{{addLocalCSS "/css/updates.css"}}
 
 {{> header}}
 
 <div class="content">
 
-    <h2 class="content-subhead">Some Title</h2>
-    <p>
-        [Stuff]
-    </p>
+
+
+    <div class="post pure-u-1">
+        <h2 class="content-subhead">Releasing Pure 0.2.0</h2>
+        <div class="post-meta">
+            June 10, 2013 | <a href="#">View Changelog</a>
+        </div>
+        <p>
+            Two short weeks after initially launching Pure, we're excited to release Pure 0.2.0, the
+            next version of Pure! You can start using it today by pasting this {{code "<link>"}} tag into your {{code "<head>"}}, or getting it from <a href="http://github.com/yui/pure/">GitHub</a>.
+        </p>
+
+    {{#code}}
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.2.0/pure-min.css">
+    {{/code}}
+
+        <h3>What's new?</h3>
+
+        <p>
+            A full list of the changes in this release can be found in Pure's <a href="#">{{code "HISTORY.md"}}</a>. Most of the components within Pure have been improved. In addition, <a href="http://twitter.com/ericf/" alt="Eric's Twitter">@ericf</a> has done some great work on improving developer workflow, making it easier for us to build and test Pure going forward.
+        <p>
+
+        <p><a href="#" class="pure-button pure-button-primary">View 0.2.0 Changelog</a></p>
+
+        <h3>Thanks to the community</h3>
+
+        <p>
+            We've been overwhelmed by the feedback and the support that we've got since launching Pure. Although Pure is very young, it already has a vibrant community building up around it. Thanks to everyone who has been <a href="https://github.com/yui/pure/issues?state=open">filing bugs</a> and <a href="https://github.com/yui/pure/pulls?direction=desc&page=1&sort=created&state=closed">sending pull requests</a>. A special shout-out to <a href="https://github.com/dannytatom">dannytatom</a>, <a href="https://github.com/rcbdev">rcbdev</a>, and <a href="https://github.com/codepb">codepb</a>, whose pull requests were merged into the 0.2.0 release. Keep 'em coming!
+        </p>
+    </div>
+
+    <aside>
+        <p>
+            If you have questions regarding Pure, you can tweet us at <a href="http://twitter.com/ericf/" alt="Eric's Twitter">@ericf</a> and <a href="http://twitter.com/tilomitra/" alt="Tilo's Twitter">@tilomitra</a>.
+        </p>
+    </aside>
 </div>
