@@ -101,14 +101,15 @@ dd {
     }
 
 aside {
-    background: #cce1ef; /* normal color palette when primary color palette is at #1f8dd6 */
+    background: #1f8dd6; /* same color as selected state on site menu */
     padding: 0.3em 1em;
     border-radius: 3px;
-    color: #163246; /* block-normal-text-high */
+    color: #fff;
 }
-    .aside a, .aside a:visited {
-        color: #1f8dd6;
+    aside a, aside a:visited {
+        color: rgb(169, 226, 255);
     }
+
 
  /* --------------------------
   * Content Module Styles
