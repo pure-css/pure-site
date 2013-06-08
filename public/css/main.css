@@ -26,6 +26,12 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
     color: rgb(75, 75, 75);
 }
+h3 {
+    font-size: 1.25em;
+}
+h4 {
+    font-size: 1.125em;
+}
 
 a {
     color: #3b8bba; /* block-background-text-normal */
@@ -124,7 +130,7 @@ aside {
 }
     .content p {
         line-height: 1.6em;
-        font-size: 115%;
+        font-size: 1.125em;
     }
 
     .content .content-subhead {
