@@ -1,4 +1,5 @@
-.post .content-subhead, .post h3 {
+.post .content-subhead,
+.post h3 {
     margin-bottom: 0;
 }
 .post-meta {
