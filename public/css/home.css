@@ -29,11 +29,13 @@ a.pure-button-cta,
 a.pure-button-secondary {
     font-size: 120%;
     font-weight: bold;
+    margin: 0.25em 0;
 }
 
 a.pure-button-cta {
     background: #1f8dd6;
     color: white;
+    border: 1px solid #1f8dd6;
 }
 
 a.pure-button-secondary {
