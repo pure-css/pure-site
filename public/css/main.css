@@ -236,7 +236,8 @@ aside {
         padding: 0.75em 1em;
     }
 
-        .pure-menu-link:hover {
+        .pure-menu-link:hover,
+        .pure-menu-link:focus {
             background: #000;
         }
 
@@ -257,7 +258,8 @@ aside {
             color: #fff;
         }
 
-        #menu li.pure-menu-selected a:hover {
+        #menu li.pure-menu-selected a:hover,
+        #menu li.pure-menu-selected a:focus {
             background: none;
         }
 

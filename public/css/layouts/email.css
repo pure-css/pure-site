@@ -63,7 +63,8 @@ a.secondary-button {
     border: none;
     text-align: left;
 }
-    #nav .pure-menu a:hover {
+    #nav .pure-menu a:hover,
+    #nav .pure-menu a:focus {
         background: rgb(55, 60, 90);
     }
     #nav .pure-menu a {
