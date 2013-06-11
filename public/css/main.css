@@ -26,6 +26,12 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
     color: rgb(75, 75, 75);
 }
+h3 {
+    font-size: 1.25em;
+}
+h4 {
+    font-size: 1.125em;
+}
 
 a {
     color: #3b8bba; /* block-background-text-normal */
@@ -101,14 +107,15 @@ dd {
     }
 
 aside {
-    background: #cce1ef; /* normal color palette when primary color palette is at #1f8dd6 */
+    background: #1f8dd6; /* same color as selected state on site menu */
     padding: 0.3em 1em;
     border-radius: 3px;
-    color: #163246; /* block-normal-text-high */
+    color: #fff;
 }
-    .aside a, .aside a:visited {
-        color: #1f8dd6;
+    aside a, aside a:visited {
+        color: rgb(169, 226, 255);
     }
+
 
  /* --------------------------
   * Content Module Styles
@@ -123,7 +130,7 @@ aside {
 }
     .content p {
         line-height: 1.6em;
-        font-size: 115%;
+        font-size: 1.125em;
     }
 
     .content .content-subhead {
