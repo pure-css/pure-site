@@ -292,6 +292,9 @@ aside {
 .pure-button {
     font-family: inherit;
 }
+a.pure-button-primary {
+    color: white;
+}
 
 .muted {
     color: #ccc;
