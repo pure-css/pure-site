@@ -4,7 +4,7 @@ var path  = require('path'),
     isProduction = process.env.NODE_ENV === 'production',
     isPureLocal, bowerrc, bower;
 
-exports.version = '0.1.0';
+exports.version = '0.2.0';
 
 // We always want to serve from the CDN in production.
 if (isProduction) { return; }
