@@ -10,7 +10,9 @@
 <script>
     {{{state}}}
 </script>
+
 <script src="http://yui.yahooapis.com/{{yui_version}}/build/yui/yui{{min}}.js"></script>
+{{> prevent-scroll}}
 
 <div class="content">
 
@@ -85,6 +87,4 @@
     {{> menus/paginator}}
   {{/code}}
 
-
-  {{> prevent-scroll}}
 </div>
