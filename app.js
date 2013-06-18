@@ -41,6 +41,9 @@ app.locals({
 
     min: config.isProduction ? '-min' : '',
 
+    modules  : config.pure.modules,
+    filesizes: config.pure.filesizes,
+
     ga     : config.isProduction && config.ga,
     typekit: config.typekit
 });
