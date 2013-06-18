@@ -3,11 +3,13 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+
 a {
     text-decoration: none;
     color: rgb(142, 142, 214);
 }
-a:hover {
+a:hover,
+a:focus {
     text-decoration: underline;
 }
 
@@ -27,33 +29,45 @@ a:hover {
     color: #fff;
 }
 
-.sidebar-content {
+.header {
     margin: 50% 2em 0;
     text-align: right;
 }
-.sidebar-content h1, .sidebar-content h2 {
+
+.brand-title,
+.brand-tagline {
     margin: 0;
 }
-.sidebar-content h1 {
+.brand-title {
     text-transform: uppercase;
 }
-.sidebar-content h2 {
+.brand-tagline {
     font-weight: 300;
     color: rgb(142, 142, 214);
 }
 
-.sidebar-button {
+.nav-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.nav-item {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+}
+.nav-item a {
     background: transparent;
     border: 3px solid rgb(103, 103, 180);
     color: #fff;
     margin-top: 1em;
 }
-    .sidebar-button:hover {
-        border: 3px solid rgb(142, 142, 214);
-        color: rgb(142, 142, 214);
-        text-decoration: none;
-    }
-
+.nav-item a:hover,
+.nav-item a:focus {
+    border: 3px solid rgb(142, 142, 214);
+    color: rgb(142, 142, 214);
+    text-decoration: none;
+}
 
 .content-subhead {
     text-transform: uppercase;
@@ -69,16 +83,18 @@ a:hover {
     padding: 2em 3em 0;
 }
 
-.blog-post {
+.post {
     padding-bottom: 2em;
 }
-.post-header {
+.post-title {
+    font-size: 2em;
     color: #222;
     margin-bottom: 0.2em;
 }
 .post-avatar {
     border-radius: 50px;
     float: right;
+    margin-left: 1em;
 }
 .post-description {
     font-family: Georgia, "Cambria", serif;
@@ -88,6 +104,7 @@ a:hover {
 .post-meta {
     color: #999;
     font-size: 90%;
+    margin: 0;
 }
 
 .post-category {
@@ -110,23 +127,26 @@ a:hover {
         background: #df2d4f;
     }
 
-.image-meta {
+.post-images {
+    margin: 1em 0;
+}
+.post-image-meta {
     margin-top: -3.5em;
     margin-left: 1em;
     color: #fff;
-    text-shadow: 0px 1px 1px #333;
+    text-shadow: 0 1px 1px #333;
 }
 
-.blog-footer {
+.footer {
     text-align: center;
     padding: 1em 0;
 }
-
-.blog-footer a {
+.footer a {
     color: #ccc;
     font-size: 80%;
 }
-.blog-footer li a:hover {
+.footer .pure-menu a:hover,
+.footer .pure-menu a:focus {
     background: none;
 }
 
@@ -136,7 +156,8 @@ a:hover {
         position: relative;
         margin: 0;
     }
-    .sidebar-content {
+
+    .header {
         text-align: center;
         top: auto;
         margin: 3em auto;

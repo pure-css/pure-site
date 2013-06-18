@@ -1,115 +1,146 @@
 {{addLocalCSS "/css/layouts/blog.css"}}
 
 <div class="pure-g-r" id="layout">
-    <div class="pure-u sidebar">
-        <div class="pure-u-1 sidebar-content">
-            <h1>A Sample Blog</h1>
-            <h2>Creating a blog layout using Pure</h2>
+    <div class="sidebar pure-u">
+        <header class="header pure-u-1">
+            <hgroup>
+                <h1 class="brand-title">A Sample Blog</h1>
+                <h2 class="brand-tagline">Creating a blog layout using Pure</h2>
+            </hgroup>
 
-            <div class="sidebar-meta">
-                <a class="pure-button sidebar-button" href="http://purecss.io">Pure</a>
-                <a class="pure-button sidebar-button" href="http://yuilibrary.com">YUI Library</a>
-            </div>
-        </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a class="pure-button" href="http://purecss.io">Pure</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="http://yuilibrary.com">YUI Library</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
     </div>
 
-    <div class="pure-u-1 content">
-
+    <div class="content pure-u-1">
         <!-- A wrapper for all the blog posts -->
-        <div class="pure-g posts">
-
-            <h3 class="pure-u-1 content-subhead">Pinned Post</h3>
+        <div class="posts pure-g">
+            <h1 class="content-subhead pure-u-1">Pinned Post</h1>
 
             <!-- A single blog post -->
-            <section class="pure-u-1 blog-post pinned-post">
-                <img class="post-avatar" alt="Tilo Mitra's avatar" src="/img/common/tilo-avatar.png" height="48" width="48">
-                <h1 class="pure-u-1 post-header ">Introducing Pure</h1>
-                <div class="pure-u-1 post-meta">
-                    By <a href="#" class="post-author">Tilo Mitra</a> under <a class="post-category post-category-design" href="#">CSS</a><a class="post-category post-category-pure" href="#">Pure</a>
+            <section class="post pure-u-1">
+                <header class="post-header">
+                    <img class="post-avatar"
+                         alt="Tilo Mitra's avatar" src="/img/common/tilo-avatar.png"
+                         height="48" width="48">
+
+                    <h2 class="post-title pure-u-1">Introducing Pure</h2>
+
+                    <p class="post-meta pure-u-1">
+                        By <a href="#" class="post-author">Tilo Mitra</a> under <a class="post-category post-category-design" href="#">CSS</a> <a class="post-category post-category-pure" href="#">Pure</a>
+                    </p>
+                </header>
+
+                <div class="post-description pure-u-1">
+                    <p>
+                        Yesterday at CSSConf, we launched Pure – a new CSS library. Phew! Here are the <a href="https://speakerdeck.com/tilomitra/pure-bliss">slides from the presentation</a>. Although it looks pretty minimalist, we’ve been working on Pure for several months. After many iterations, we have released Pure as a set of small, responsive, CSS modules that you can use in every web project.
+                    </p>
                 </div>
-
-                <p class="post-description pure-u-1">
-                    Yesterday at CSSConf, we launched Pure – a new CSS library. Phew! Here are the <a href="https://speakerdeck.com/tilomitra/pure-bliss">slides from the presentation</a>. Although it looks pretty minimalist, we’ve been working on Pure for several months. After many iterations, we have released Pure as a set of small, responsive, CSS modules that you can use in every web project.
-                </p>
             </section>
-
         </div>
 
-        <div class="pure-g posts">
+        <div class="posts pure-g">
+            <h1 class="pure-u-1 content-subhead">Recent Posts</h1>
 
-            <h3 class="pure-u-1 content-subhead">Recent Posts</h3>
+            <section class="post pure-u-1">
+                <header class="post-header">
+                    <img class="post-avatar"
+                         alt="Eric Ferraiuolo's avatar" src="/img/common/ericf-avatar.png"
+                         height="48" width="48">
 
+                    <h2 class="post-title pure-u-1">Everything You Need to Know About Grunt</h2>
 
-            <section class="pure-u-1 blog-post">
-                <img class="post-avatar" alt="Eric Ferraiuolo's avatar" src="/img/common/ericf-avatar.png" height="48" width="48">
-                <h1 class="pure-u-1 post-header ">Everything you need to know about grunt</h1>
-                <div class="pure-u-1 post-meta">
-                    By <a class="post-author" href="#">Eric Ferraiuolo</a> under <a class="post-category post-category-js" href="#">JavaScript</a>
+                    <p class="post-meta pure-u-1">
+                        By <a class="post-author" href="#">Eric Ferraiuolo</a> under <a class="post-category post-category-js" href="#">JavaScript</a>
+                    </p>
+                </header>
+
+                <div class="post-description pure-u-1">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    </p>
                 </div>
-
-                <p class="pure-u-1 post-description">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur.
-                </p>
             </section>
 
+            <section class="post pure-u-1">
+                <header class="post-header">
+                    <img class="post-avatar" alt="Reid Burke's avatar"
+                         src="/img/common/reid-avatar.png"
+                         height="48" width="48">
 
-            <section class="pure-u-1 blog-post image-post">
-                <img class="post-avatar" alt="Reid Burke's avatar" src="/img/common/reid-avatar.png" height="48" width="48"/>
-                <h1 class="pure-u-1 post-header">Photos from CSSConf and JSConf</h1>
-                <div class="pure-u-1 post-meta">
-                    By <a class="post-author" href="#">Reid Burke</a> under <a class="post-category" href="#">Uncategorized</a>
-                </div>
+                    <h2 class="post-title pure-u-1">Photos from CSSConf and JSConf</h2>
 
-                <p class="pure-u-1 post-description">
-                    <div class="pure-g-r">
+                    <p class="post-meta pure-u-1">
+                        By <a class="post-author" href="#">Reid Burke</a> under <a class="post-category" href="#">Uncategorized</a>
+                    </p>
+                </header>
+
+                <div class="post-description pure-u-1">
+                    <div class="post-images pure-g-r">
                         <div class="pure-u-1-2">
                             <a href="http://www.flickr.com/photos/uberlife/8915936174/">
-                                <img src="http://farm8.staticflickr.com/7448/8915936174_8d54ec76c6.jpg">
+                                <img alt="Photo of someone working poolside at a resort"
+                                     src="http://farm8.staticflickr.com/7448/8915936174_8d54ec76c6.jpg">
                             </a>
-                            <div class="pure-u-1 image-meta">
+
+                            <div class="post-image-meta pure-u-1">
                                 <h3>CSSConf Photos</h3>
                             </div>
                         </div>
+
                         <div class="pure-u-1-2">
                             <a href="http://www.flickr.com/photos/uberlife/8907351301/">
-                                <img src="http://farm8.staticflickr.com/7382/8907351301_bd7460cffb.jpg">
+                                <img alt="Photo of the sunset on the beach"
+                                     src="http://farm8.staticflickr.com/7382/8907351301_bd7460cffb.jpg">
                             </a>
-                            <div class="pure-u-1 image-meta">
+
+                            <div class="post-image-meta pure-u-1">
                                 <h3>JSConf Photos</h3>
                             </div>
                         </div>
                     </div>
-                </p>
-            </section>
-
-
-
-            <section class="pure-u-1 blog-post">
-                <img class="post-avatar" alt="Andrew Wooldridge's avatar" src="/img/common/andrew-avatar.png" height="48" width="48"/>
-                <h1 class="pure-u-1 post-header ">YUI 3.10.2 Released</h1>
-                <div class="pure-u-1 post-meta">
-                    By <a class="post-author" href="#">Andrew Wooldridge</a> under <a class="post-category post-category-yui" href="#">YUI</a>
                 </div>
-
-                <p class="pure-u-1 post-description">
-                    We are happy to announce the release of YUI 3.10.2! You can find it now on the Yahoo! CDN, download it directly, or pull it in via npm. We’ve also updated the YUI Library website with the latest documentation.
-                </p>
             </section>
 
+            <section class="post pure-u-1">
+                <header class="post-header">
+                    <img class="post-avatar"
+                         alt="Andrew Wooldridge's avatar" src="/img/common/andrew-avatar.png"
+                         height="48" width="48">
 
+                    <h2 class="post-title pure-u-1">YUI 3.10.2 Released</h2>
+
+                    <p class="post-meta pure-u-1">
+                        By <a class="post-author" href="#">Andrew Wooldridge</a> under <a class="post-category post-category-yui" href="#">YUI</a>
+                    </p>
+                </header>
+
+                <div class="post-description pure-u-1">
+                    <p>
+                        We are happy to announce the release of YUI 3.10.2! You can find it now on the Yahoo! CDN, download it directly, or pull it in via npm. We’ve also updated the YUI Library website with the latest documentation.
+                    </p>
+                </div>
+            </section>
         </div>
 
-        <div class="pure-menu pure-menu-horizontal pure-menu-open blog-footer">
-            <ul>
-                <li><a href="http://purecss.io">About</a></li>
-                <li><a href="http://twitter.com/yuilibrary/">Twitter</a></li>
-                <li><a href="http://github.com/yui/pure/">Github</a></li>
-            </ul>
-        </div>
+        <footer class="footer">
+            <div class="pure-menu pure-menu-horizontal pure-menu-open">
+                <ul>
+                    <li><a href="http://purecss.io/">About</a></li>
+                    <li><a href="http://twitter.com/yuilibrary/">Twitter</a></li>
+                    <li><a href="http://github.com/yui/pure/">Github</a></li>
+                </ul>
+            </div>
+        </footer>
     </div>
 </div>
 
