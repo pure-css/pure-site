@@ -113,6 +113,7 @@ routePage('updates',   '/updates/',   'Updates',   routes.render('updates'));
 routePage('layoutsGallery',   '/layouts/gallery/',   routes.render('layouts/gallery', 'blank'));
 routePage('layoutsMarketing', '/layouts/marketing/', routes.render('layouts/marketing', 'blank'));
 routePage('layoutsEmail',     '/layouts/email/',     routes.render('layouts/email', 'blank'));
+routePage('layoutsBlog',      '/layouts/blog/',      routes.render('layouts/blog', 'blank'));
 
 app.get('/combo/:version', [
     combo.combine({rootPath: config.dirs.pub}),
