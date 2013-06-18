@@ -62,7 +62,7 @@ if (config.pure.local) {
 }
 
 app.use(express.static(config.dirs.pub));
-app.use(middleware.errors.notfound);
+app.use(middleware.notfound);
 
 if (config.isDevelopment) {
     app.use(express.errorHandler({
@@ -70,7 +70,7 @@ if (config.isDevelopment) {
         showStack     : true
     }));
 } else {
-    app.use(middleware.errors.server);
+    app.use(middleware.error);
 }
 
 // -- Routes -------------------------------------------------------------------
