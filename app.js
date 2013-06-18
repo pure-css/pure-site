@@ -57,6 +57,7 @@ app.use(app.router);
 app.use(middleware.slash);
 
 if (config.pure.local) {
+    console.log('Serving Pure from:', config.pure.local);
     app.use('/css/pure/', express.static(config.pure.local));
 }
 
