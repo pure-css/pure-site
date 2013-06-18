@@ -44,7 +44,7 @@
 
     <h2 class="content-subhead">Striped Table</h2>
     <p>
-        Large tables are easier to parse visually if rows are easily distinguishable. Adding the {{code "pure-table-odd"}} class name to every other {{code "<tr>"}} element changes the background of the row and creates a zebra-styled effect.
+        Large tables are easier to parse visually if rows are easily distinguishable. So, you can change the background of the odd rows and creates a zebra-styled effect. To achieve this goal, you have to possibilities. The first will work on browsers that support {{code "nth-child"}} and consists in applying the {{code "pure-table-striped"}} class name to the {{code "<table>"}} element. The second, instead, work on all the browsers, including Internet Explorer 8 and lower, but is more verbose. It consists in adding the {{code "pure-table-odd"}} class name to every other {{code "<tr>"}} element.
     </p>
 
     {{> tables/striped}}
