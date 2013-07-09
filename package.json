@@ -2,7 +2,7 @@
     "name": "pure-site",
     "description": "The Pure CSS website.",
     "homepage": "http://purecss.io/",
-    "version": "1.3.9",
+    "version": "1.3.10",
     "private": true,
     "repository": "git://github.com/yui/pure-site.git",
     "contributors": [
