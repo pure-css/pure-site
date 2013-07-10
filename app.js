@@ -111,7 +111,6 @@ routePage('menus',     '/menus/',     'Menus',     routes.render('menus'));
 routePage('customize', '/customize/', 'Customize', routes.render('customize'));
 routePage('extend',    '/extend/',    'Extend',    routes.render('extend'));
 routePage('layouts',   '/layouts/',   'Layouts',   routes.render('layouts'));
-routePage('updates',   '/updates/',   'Updates',   routes.render('updates'));
 
 routePage('layoutsGallery',   '/layouts/gallery/',   routes.render('layouts/gallery', 'blank'));
 routePage('layoutsMarketing', '/layouts/marketing/', routes.render('layouts/marketing', 'blank'));
@@ -122,6 +121,9 @@ app.get('/combo/:version', [
     combo.combine({rootPath: config.dirs.pub}),
     combo.respond
 ]);
+
+// Redirects
+app.get('/updates/', routes.redirect('https://github.com/yui/pure/releases', 301));
 
 // -- Exports ------------------------------------------------------------------
 module.exports = app;
