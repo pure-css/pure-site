@@ -123,7 +123,7 @@ app.get('/combo/:version', [
 ]);
 
 // Redirects
-app.get('/updates/', routes.redirect('https://github.com/yui/pure/releases', 301));
+app.get('/updates/', routes.redirect('https://github.com/yui/pure/releases'));
 
 // -- Exports ------------------------------------------------------------------
 module.exports = app;
