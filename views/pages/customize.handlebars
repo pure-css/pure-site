@@ -15,7 +15,7 @@
         <thead>
             <tr>
                 <th>Name</th>
-                <th>CSS URL</th>
+                <th>URL</th>
                 <th>Size (gzipped)</th>
             </tr>
         </thead>
@@ -33,6 +33,34 @@
         </tbody>
     </table>
 
+    <h3>Alternate CDNs</h3>
+    <p>
+        The main host for Pure is the Yahoo! CDN where Pure is available over HTTP and individual modules can be combined together in a single combo request. The following table lists alternate CDNs where Pure is hosted.
+    </p>
+
+    <table class="pure-table pure-table-bordered">
+        <thead>
+            <tr>
+                <th>CDN</th>
+                <th>URL</th>
+                <th>HTTPS</th>
+                <th>Combo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><a href="http://cdnjs.com/">cdnjs</a></td>
+                <td>//cdnjs.cloudflare.com/ajax/libs/pure/{{pure_version}}/pure-min.css</td>
+                <td>Yes</td>
+                <td>No</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <p>
+        <b>Note:</b> If the latest version of Pure is not yet on one of the alternate CDNs, please contact them to update to the latest vesion of Pure: <b>{{pure_version}}</b>.
+    </p>
+
 
     <h2 class="content-subhead">Individual Modules</h2>
     <p>
@@ -47,7 +75,7 @@
         <thead>
             <tr>
                 <th>Name</th>
-                <th>CSS URL</th>
+                <th>URL</th>
             </tr>
         </thead>
         <tbody>
