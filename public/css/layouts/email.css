@@ -32,10 +32,6 @@ a {
     border-right: 1px solid #ddd;
 }
 
-#main {
-    width: 100%;
-}
-
 /* HELPER CLASSES */
 .primary-button,
 .secondary-button {
@@ -118,15 +114,14 @@ a {
         border-radius: 3px;
         margin-right: 0.5em;
     }
-    .email-name, .email-subject {
+    .email-name,
+    .email-subject {
         margin: 0;
     }
-
     .email-name {
         text-transform: uppercase;
         color: #999;
     }
-
     .email-desc {
         font-size: 80%;
         margin: 0.4em 0;
@@ -169,15 +164,16 @@ a {
 
 @media (max-width: 867px) {
 
-    #list, #main {
-        width: auto;
+    #list,
+    #main {
+        width: 100%;
     }
     #layout {
         padding-left: -150px;
     }
     #list {
-        width: auto;
         height: 33%;
+        border-right: 0;
         border-bottom: 1px solid #ddd;
     }
     #main {
