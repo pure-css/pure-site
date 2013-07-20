@@ -127,6 +127,18 @@
     {{> forms/disabled}}
   {{/code}}
 
+    <h2 class="content-subhead">Readonly Inputs</h2>
+    <p>
+        To make a readonly form control, add the {{code "readonly"}} attribute. The difference between disabled and readonly is that read-only controls are still focusable, so the user can still select the text and interact with it, whereas disabled controls are entirely non-interactive. (For this reason, only text controls can be made read-only: it wouldn't make sense for checkboxes or buttons, for instances.)
+    </p>
+
+  {{#prefixIds "readonly"}}
+    {{> forms/readonly}}
+  {{/prefixIds}}
+
+  {{#code}}
+    {{> forms/readonly}}
+  {{/code}}
 
     <h2 class="content-subhead">Rounded Inputs</h2>
     <p>
