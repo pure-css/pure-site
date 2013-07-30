@@ -5,7 +5,9 @@ body {
 
 
 /* Add transition to containers so they can push in and out */
-#layout, #menu, .pure-menu-link {
+#layout,
+#menu,
+.pure-menu-link {
     -webkit-transition: all 0.2s ease-out;
     -moz-transition: all 0.2s ease-out;
     -ms-transition: all 0.2s ease-out;
@@ -20,9 +22,15 @@ body {
 */
 
 
-h1,h2,h3,h4,h5,h6 {
+h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
     color: rgb(75, 75, 75);
+}
+h3 {
+    font-size: 1.25em;
+}
+h4 {
+    font-size: 1.125em;
 }
 
 a {
@@ -49,10 +57,6 @@ dd {
 #layout {
     padding-left: 150px; /* left col width "#menu" */
     left: 0;
-}
-
-#main {
-    width: 100%;
 }
 
 
@@ -93,20 +97,21 @@ dd {
         font-weight: 300;
     }
      .header h2 {
-         font-weight: 300;
-         margin: 0;
-         color: #ccc;
-     }
+        font-weight: 300;
+        margin: 0;
+        color: #ccc;
+    }
 
 aside {
-    background: #cce1ef; /* normal color palette when primary color palette is at #1f8dd6 */
+    background: #1f8dd6; /* same color as selected state on site menu */
     padding: 0.3em 1em;
     border-radius: 3px;
-    color: #163246; /* block-normal-text-high */
+    color: #fff;
 }
-    .aside a, .aside a:visited {
-        color: #1f8dd6;
+    aside a, aside a:visited {
+        color: rgb(169, 226, 255);
     }
+
 
  /* --------------------------
   * Content Module Styles
@@ -121,7 +126,7 @@ aside {
 }
     .content p {
         line-height: 1.6em;
-        font-size: 115%;
+        font-size: 1.125em;
     }
 
     .content .content-subhead {
@@ -162,11 +167,13 @@ aside {
     background: rgb(250, 250, 250);
 }
 
-    .legal-license, .legal-copyright {
+    .legal-license,
+    .legal-copyright {
         margin: 0;
     }
 
-    .legal-copyright, .legal-links {
+    .legal-copyright,
+    .legal-links {
         text-align: right;
     }
 
@@ -218,7 +225,8 @@ aside {
         border-top: 1px solid #333;
     }
 
-        #menu .pure-menu li a:hover {
+        #menu .pure-menu li a:hover,
+        #menu .pure-menu li a:focus {
             background: #333;
         }
 
@@ -231,13 +239,18 @@ aside {
         padding: 0.75em 1em;
     }
 
-        .pure-menu-link:hover {
+        .pure-menu-link:hover,
+        .pure-menu-link:focus {
             background: #000;
         }
 
     #menu .pure-menu-heading {
-        font-size:110%;
+        font-size: 110%;
         color: #fff;
+    }
+    #menu .pure-menu-heading:hover,
+    #menu .pure-menu-heading:focus {
+        color: #999;
     }
 
     #menu .pure-menu-selected {
@@ -245,10 +258,11 @@ aside {
     }
 
         #menu .pure-menu-selected a {
-            color: white;
+            color: #fff;
         }
 
-        #menu li.pure-menu-selected a:hover {
+        #menu li.pure-menu-selected a:hover,
+        #menu li.pure-menu-selected a:focus {
             background: none;
         }
 
@@ -273,7 +287,9 @@ aside {
 
 .pure-button {
     font-family: inherit;
-    color: auto;
+}
+a.pure-button-primary {
+    color: white;
 }
 
 .muted {
@@ -296,7 +312,6 @@ aside {
             position: relative;
             left: 150px;
         }
-
             #layout.active #menu {
                 left: 150px;
                 width: 150px;
@@ -327,7 +342,10 @@ aside {
     .legal-links {
         padding:1em 0;
     }
-    .legal-license, .legal-copyright, .legal-links, .legal-links li {
+    .legal-license,
+    .legal-copyright,
+    .legal-links,
+    .legal-links li {
         text-align: center;
     }
 

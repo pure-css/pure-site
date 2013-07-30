@@ -10,13 +10,15 @@
 <script>
     {{{state}}}
 </script>
+
 <script src="http://yui.yahooapis.com/{{yui_version}}/build/yui/yui{{min}}.js"></script>
+{{> prevent-scroll}}
 
 <div class="content">
 
     <h2 class="content-subhead">Horizontal Menu</h2>
     <p>
-        Horizontal menus can be created by adding the {{code "pure-menu-horizontal"}} class name. You can mark the active list element by adding the {{code "pure-menu-selected"}} class to the list element.
+        To create a horizontal menu, add the {{code "pure-menu-horizontal"}} class name. You can mark the active list element by adding the {{code "pure-menu-selected"}} class to the list element.
     </p>
 
     {{> menus/horizontal}}
@@ -28,7 +30,7 @@
 
     <h2 class="content-subhead">Menu with Headings</h2>
     <p>
-        You can add headings to your menu by adding an {{code "<a>"}} element with the {{code "pure-menu-heading"}} class name. This element should be inserted outside the {{code "<ul>"}} element.
+        To add headings to your menu, place some content outside the {{code "<ul>"}} element and wrap it in an {{code "<a>"}} element with the {{code "pure-menu-heading"}} class name.
     </p>
 
     {{> menus/heading}}
@@ -40,7 +42,7 @@
 
     <h2 class="content-subhead">Vertical Menu</h2>
     <p>
-        Menus are vertical by default. Just add the {{code "pure-menu"}} class to style the menu, and the {{code "pure-menu-open"}} class to ensure that it is visible.
+        Menus are vertical by default. You need only add the {{code "pure-menu"}} class to style the menu, and the {{code "pure-menu-open"}} class to ensure that it is visible.
     </p>
 
     {{> menus/vertical}}
@@ -64,7 +66,7 @@
 
     <h2 class="content-subhead">Menus with Disabled Items</h2>
     <p>
-        You can add disabled links to your menu by adding an {{code "<a>"}} element with the {{code "pure-menu-disabled"}} class name. Disabled items do not inherit hover styles, and appear faded.
+        To mark a link as disabled, add an {{code "<a>"}} element with the {{code "pure-menu-disabled"}} class name. Disabled items appear faded and do not inherit hover styles.
     </p>
 
     {{> menus/disabled}}
@@ -76,7 +78,7 @@
 
     <h2 class="content-subhead">Paginators</h2>
     <p>
-        You can implement a paginator control by adding the {{code "pure-paginator"}} classname to a {{code "<ul>"}} element. Paginator controls generally look like buttons, but omit the {{code "pure-button"}} class name if you want simple paginators.
+        To create a paginator control, add the {{code "pure-paginator"}} classname to a {{code "<ul>"}} element. For paginator controls that look like buttons, add the {{code "pure-button"}} class name. For a plainer paginator, you can omit this class.
     </p>
 
     {{> menus/paginator}}
@@ -85,6 +87,4 @@
     {{> menus/paginator}}
   {{/code}}
 
-
-  {{> prevent-scroll}}
 </div>

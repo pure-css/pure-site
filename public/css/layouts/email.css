@@ -32,22 +32,19 @@ a {
     border-right: 1px solid #ddd;
 }
 
-#main {
-    width: 100%;
-}
-
 /* HELPER CLASSES */
-a.primary-button, a.secondary-button {
+.primary-button,
+.secondary-button {
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
 }
-a.primary-button {
+.primary-button {
     color: #fff;
     background: #1b98f8;
     margin: 1em 0;
 }
-a.secondary-button {
+.secondary-button {
     background: #fff;
     border: 1px solid #ddd;
     color: #666;
@@ -63,7 +60,8 @@ a.secondary-button {
     border: none;
     text-align: left;
 }
-    #nav .pure-menu a:hover {
+    #nav .pure-menu a:hover,
+    #nav .pure-menu a:focus {
         background: rgb(55, 60, 90);
     }
     #nav .pure-menu a {
@@ -116,15 +114,14 @@ a.secondary-button {
         border-radius: 3px;
         margin-right: 0.5em;
     }
-    .email-name, .email-subject {
+    .email-name,
+    .email-subject {
         margin: 0;
     }
-
     .email-name {
         text-transform: uppercase;
         color: #999;
     }
-
     .email-desc {
         font-size: 80%;
         margin: 0.4em 0;
@@ -167,15 +164,16 @@ a.secondary-button {
 
 @media (max-width: 867px) {
 
-    #list, #main {
-        width: auto;
+    #list,
+    #main {
+        width: 100%;
     }
     #layout {
         padding-left: -150px;
     }
     #list {
-        width: auto;
         height: 33%;
+        border-right: 0;
         border-bottom: 1px solid #ddd;
     }
     #main {

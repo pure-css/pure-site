@@ -25,11 +25,23 @@ p {
     font-size: 100%;
 }
 
-a.pure-button-cta {
+a.pure-button-cta,
+a.pure-button-secondary {
     font-size: 120%;
+    font-weight: bold;
+    margin: 0.25em 0;
+}
+
+a.pure-button-cta {
     background: #1f8dd6;
     color: white;
-    font-weight: bold;
+    border: 1px solid #1f8dd6;
+}
+
+a.pure-button-secondary {
+    background: #fff;
+    color: #666;
+    border: 1px solid #ddd;
 }
 
 .size-chart {
@@ -107,6 +119,66 @@ a.pure-button-cta {
         font-size: 1.47em;
         font-weight: normal;
     }
+
+.sample-buttons .pure-button {
+    width: 30%;
+    margin: 0.2em;
+}
+.sample-buttons p {
+    margin: 0.5em;
+}
+
+
+.pure-button-a {
+    background: #e1f2fa;
+    color: #5992aa;
+}
+
+.pure-button-b {
+    background: #fcebbd;
+    color: #af9540;
+}
+
+.pure-button-c,
+.pure-button-d,
+.pure-button-e {
+    border-radius: 8px;
+}
+
+.pure-button-f,
+.pure-button-g,
+.pure-button-h {
+    border-radius: 20px;
+}
+
+.pure-button-c {
+    background: #333;
+    color: #fff;
+}
+.pure-button-d {
+    background: #d3eda3;
+    color: #72962e;
+}
+
+.pure-button-e {
+    background: #f5ab9e;
+    color: #8c3a2b;
+}
+.pure-button-f {
+    background: #ddaeff;
+    color: #8156a7;
+}
+
+.pure-button-g {
+    background: #f57b00;
+    color: #ffca95;
+}
+
+.pure-button-h {
+    background: #008ed4;
+    color: #fff;
+}
+
 
 @media (max-width: 767px) {
     .hero {

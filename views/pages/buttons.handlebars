@@ -11,7 +11,7 @@
 
     <h2 class="content-subhead">Default Buttons</h2>
     <p>
-        A Pure Button can be created by adding the {{code "pure-button"}} class name to any {{code "<a>"}} or {{code "<button>"}} element.
+        To create a Pure Button, add the {{code "pure-button"}} classname to any {{code "<a>"}} or {{code "<button>"}} element.
     </p>
 
   {{#prefixIds "default"}}
@@ -25,7 +25,7 @@
 
     <h2 class="content-subhead">Disabled Buttons</h2>
     <p>
-        You can style a button to be disabled by adding the {{code "pure-button-disabled"}} class name to any {{code "<a>"}} or {{code "<button>"}} element that has the {{code "pure-button"}} class name.
+        To mark a button as disabled, add the {{code "pure-button-disabled"}} classname alongside {{code "pure-button"}}.
     </p>
 
   {{#prefixIds "disabled"}}
@@ -38,7 +38,7 @@
 
     <h2 class="content-subhead">Active Buttons</h2>
     <p>
-        You can style a button to appear "pressed" by adding the {{code "pure-button-active"}} class name to any {{code "<a>"}} or {{code "<button>"}} element that has the {{code "pure-button"}} class name.
+        To style a button so that it appears "pressed", add the {{code "pure-button-active"}} classname alongside {{code "pure-button"}}.
     </p>
 
   {{#prefixIds "active"}}
@@ -51,7 +51,7 @@
 
     <h2 class="content-subhead">Primary Buttons</h2>
     <p>
-        Make a primary button by adding the {{code "pure-button-primary"}} class name to any {{code "<a>"}} or {{code "<button>"}} element that has the {{code "pure-button"}} class name.
+        To indicate that a button represents a primary action, add the {{code "pure-button-primary"}} classname alongside {{code "pure-button"}}.
     </p>
 
   {{#prefixIds "primary"}}
@@ -66,11 +66,11 @@
 
     <h2 class="content-subhead">Customizing Buttons</h2>
     <p>
-        Pure Buttons makes it easy for your buttons to look identical, whether they are defined using {{code "<a>"}} or {{code "<button>"}} elements. By keeping the styles minimal, we make it easy for you to customize buttons for your own application.
+        Thanks to Pure's minimal styling, it is easy to build off of the generic Pure button and create customized buttons for your own application.
     </p>
 
     <p>
-        To customize button styles, we recommend grouping your styles into a class such as {{code "pure-button-foo"}}. Then, append this class name to an element that already has the {{code "pure-button"}} class name. Here are some examples.
+        To customize button styles, you should group your custom CSS into a class such as {{code "pure-button-foo"}}, which you can then append to an element that already has the {{code "pure-button"}} classname. Here are some examples.
     </p>
 
     <h3 class="content-subhead">Colored buttons with rounded corners</h3>
@@ -96,6 +96,9 @@
 
 
     <h3 class="content-subhead">Buttons with icons</h3>
+    <p>
+        Pure doesn't ship with icon fonts, but we play nice with existing ones. Incorporating icon fonts with Pure Buttons is easy. In the example below, we're using icon fonts from <a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a>. Put the <a href="http://fortawesome.github.io/Font-Awesome/get-started/">Font Awesome CSS file</a> on your page and use an {{code "<i>"}} element within a {{code "pure-button"}} element.
+    </p>
 
   {{#prefixIds "primary"}}
     {{> buttons/icons}}
@@ -105,6 +108,7 @@
     {{> buttons/icons}}
   {{/code}}
 
-
-
 </div>
+
+<script src="http://yui.yahooapis.com/{{yui_version}}/build/yui/yui{{min}}.js"></script>
+{{> prevent-scroll}}
