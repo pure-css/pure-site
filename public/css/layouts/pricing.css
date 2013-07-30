@@ -183,3 +183,12 @@ p {
 	}
 
 }
+
+@media (max-width: 480px) {
+	.banner {
+		height: 200px;
+	}
+	.banner-head {
+		font-size: 2em;
+	}
+}
