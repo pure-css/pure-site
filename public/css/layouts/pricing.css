@@ -69,7 +69,8 @@ p {
  * -- PRICING TABLE WRAPPER --
  * This element wraps up all the pricing table elements
  */
- .pricing-tables, .information {
+ .pricing-tables,
+ .information {
     max-width: 980px;
     margin: 0 auto;
  }
