@@ -14,7 +14,6 @@ p {
 
 /* Layout Classes */
 .l-content {
-	max-width: 980px;
 	margin: 0 auto;
 }
 
@@ -52,8 +51,11 @@ p {
  * -- PRICING TABLE WRAPPER --
  * This element wraps up all the pricing table elements
  */
+ .pricing-tables, .information {
+ 	max-width: 980px;
+ 	margin: 0 auto;
+ }
 .pricing-tables {
-	margin: 0 auto;
 	margin-bottom: 3.125em;
 	text-align: center;
 }
@@ -156,21 +158,17 @@ p {
 	bottom: -1.5em;
 }
 
-.information {
-	margin: 2em 0;
-}
-
 .information-head {
 	color: black;
 	font-weight: 500;
 }
 
-footer {
+.footer {
 	background: black;
 	color: #888;
 	text-align: center;
 }
-	footer a {
+	.footer a {
 		color: #ddd;
 	}
 
@@ -183,11 +181,5 @@ footer {
 	.pricing-table {
 		margin-bottom: 2em;
 	}
-
-}
-
-@media(max-width: 480px) {
-
-
 
 }
