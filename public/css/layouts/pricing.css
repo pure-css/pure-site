@@ -1,126 +1,193 @@
 body {
-	margin-bottom: 3.125em;
+	color: #526066;
 }
 
-#header {
-	border-bottom: solid 1px #ccc;
-	padding-top: 0.625em;
-	padding-bottom: 0.625em;
+h2, h3 {
+	letter-spacing: 0.25em;
+	text-transform: uppercase;
+	font-weight: 600;
 }
 
+p {
+	line-height: 1.6em;
+}
+
+/* Layout Classes */
+.l-content {
+	max-width: 980px;
+	margin: 0 auto;
+}
+
+.l-box {
+	padding: 0.5em 2em;
+}
+
+/*
+ * ---------- BANNER --------------
+ * The top banner with the headings
+ */
 .banner {
-	margin-bottom: 3.125em;
+	background: transparent url('http://24.media.tumblr.com/ccb268832580ac12951828a1c179de69/tumblr_mo2xbk8JUK1st5lhmo1_1280.jpg') 0 0 no-repeat fixed;
    	text-align: center;
+   	background-size: cover;
+   	height: 350px;
+   	width: 100%;
+   	margin-bottom: 3em;
+   	display: table;
 }
 
-.banner h2 {
-	margin-bottom: 0;
-}
+	.banner-head {
+		display: table-cell;
+		vertical-align: middle;
+		margin-bottom: 0;
+		font-size: 4em;
+		color: white;
+		font-weight: 500;
+		text-shadow: 0 1px 1px black;
+	}
 
-.banner p {
-	margin-top: 0;
-	color: #777;
-}
 
-.pricing-table{
+
+/*
+ * -- PRICING TABLE WRAPPER --
+ * This element wraps up all the pricing table elements
+ */
+.pricing-tables {
 	margin: 0 auto;
 	margin-bottom: 3.125em;
 	text-align: center;
 }
 
-.left, .mid, .right {
-	width: 18.75em;
-	background: #fff;
-	position: relative;
-	display: inline-block;
-	vertical-align: top;
-	border-radius: 10px;
+/*
+ * -- PRICING TABLE  --
+ * Every pricing table has the .pricing-table class
+ */
+.pricing-table {
+	border: 1px solid #ddd;
+	margin: 0 0.5em;
+	padding: 0 0 3em;
 }
 
-.mid {
-	margin: 0 -3.75em 0 -3.75em;
-	z-index: 1;
-	box-shadow: 0 2px 15px #bbb;
+/*
+ * -- PRICING TABLE HEADER COLORS --
+ * Choose a different color based on the type of pricing table.
+ */
+.pricing-table-free .pricing-table-header {
+	background: #519251;
 }
 
-.left, .right {
-	margin-top: 3.625em;
-	position: relative;
-	z-index: 0;
-	box-shadow: 0 2px 5px #ccc;
+.pricing-table-biz .pricing-table-header {
+	background: #2c4985;
 }
 
-.left ul, .mid ul, .right ul {
+/*
+ * -- PRICING TABLE HEADER --
+ * By default, a header is black/white, and has some styles for its <h2> name.
+ */
+.pricing-table-header {
+	background: #111;
+	color: #fff;
+}
+	.pricing-table-header h2 {
+		margin: 0;
+		padding-top: 2em;
+		font-size: 1em;
+		font-weight: normal;
+
+	}
+
+
+/*
+ * -- PRICING TABLE PRICE --
+ * Styles for the price and the corresponding <span>per month</span>
+ */
+.pricing-table-price {
+	font-size: 6em;
+	margin: 0.2em 0 0;
+	font-weight: 100;
+}
+	.pricing-table-price span {
+		display: block;
+		text-transform: uppercase;
+		font-size: 0.2em;
+		padding-bottom: 2em;
+		font-weight: 300;
+		color: rgba(255, 255, 255, 0.5);
+		*color: #fff;
+	}
+
+
+
+/*
+ * -- PRICING TABLE LIST --
+ * Each pricing table has a <ul> which is denoted by the .pricing-table-list class
+ */
+.pricing-table-list {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 	text-align: center;
 }
 
-.pricing-table .left .header, .pricing-table .mid .header, .pricing-table .right .header {
-	background: #ccc;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
+
+/*
+ * -- PRICING TABLE LIST ELEMENTS --
+ * Styles for the individual list elements within each pricing table
+ */
+.pricing-table-list li {
+	padding: 0.8em 0;
+	background: #f7f7f7;
+	border-bottom: 1px solid #e7e7e7;
 }
 
-.pricing-table .left li, .pricing-table .mid li, .pricing-table .right li {
-	padding: 1.25em 0;
-}
 
+/*
+ * -- PRICING TABLE BUTTON --
+ * Styles for the "Choose" button at the bottom of a pricing table.
+ * This inherits from Pure Button.
+ */
 .pure-button-choose {
-	width: 9.375em;
-	background: #fe9028;
-	color: #fff;
-	border-radius: 5px;
+	border: 1px solid #ccc;
+	background: #fff;
+	color: #333;
+	border-radius: 2em;
+	font-weight: bold;
+	position: relative;
+	bottom: -1.5em;
 }
 
-.even {
-	background: #f9f9f9;
-	border-top: solid 1px #ccc;
-	border-bottom: solid 1px #ccc;
+.information {
+	margin: 2em 0;
 }
 
-.column-content {
-	width: 960px;
-	margin: 0 auto;
-	padding: 0 0.625em;
+.information-head {
+	color: black;
+	font-weight: 500;
 }
 
-.column-content p {
-	background: #f9f9f9;
-	margin: 0 0.625em;
-	padding: 0.9375em;
-	border: solid 1px #ccc;
+footer {
+	background: black;
+	color: #888;
+	text-align: center;
 }
-
-@media(max-width: 965px) {
-	
-	.column-content {
-		width: 95%;
+	footer a {
+		color: #ddd;
 	}
-	
-	.column-content p {
-		margin-bottom: 1.25em;
+
+
+@media(max-width: 767px) {
+
+	.banner-head {
+		font-size: 3em;
+	}
+	.pricing-table {
+		margin-bottom: 2em;
 	}
 
 }
 
 @media(max-width: 480px) {
-	
-	.left {
-		margin-top: 0;
-	}
-	
-	.pricing-table .mid {
-		margin-top: 3.625em;
-	}
-	
-	.column-content {
-		width: 360px;
-	}
-	
-	.column-content p {
-		margin-bottom: 1.25em;
-	}
-	
+
+
+
 }
