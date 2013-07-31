@@ -1,6 +1,6 @@
 {
   "name": "pure-site",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "dependencies": {
     "combohandler": {
       "version": "0.2.2",
@@ -87,15 +87,15 @@
       }
     },
     "express3-handlebars": {
-      "version": "0.4.1",
-      "from": "express3-handlebars@0.4.x",
+      "version": "0.5.0",
+      "from": "express3-handlebars@0.5.0",
       "dependencies": {
         "async": {
-          "version": "0.2.8",
+          "version": "0.2.9",
           "from": "async@~0.2"
         },
         "glob": {
-          "version": "3.2.1",
+          "version": "3.2.6",
           "from": "glob@3.x",
           "dependencies": {
             "minimatch": {
@@ -112,25 +112,22 @@
                 }
               }
             },
-            "graceful-fs": {
-              "version": "1.2.1",
-              "from": "graceful-fs@~1.2.0"
-            },
             "inherits": {
-              "version": "1.0.0",
-              "from": "inherits@1"
+              "version": "2.0.0",
+              "from": "inherits@2"
             }
           }
         },
         "semver": {
-          "version": "1.1.4",
-          "from": "semver@1.x"
+          "version": "2.1.0",
+          "from": "semver@2.x",
+          "resolved": "https://registry.npmjs.org/semver/-/semver-2.1.0.tgz"
         }
       }
     },
     "express-state": {
-      "version": "0.0.2",
-      "from": "express-state@"
+      "version": "0.0.4",
+      "from": "express-state@0.0.4"
     },
     "handlebars": {
       "version": "1.0.11",
