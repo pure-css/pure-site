@@ -123,7 +123,7 @@ app.get('/combo/:version', [
 ]);
 
 // Redirects
-app.get('/updates/', routes.redirect('https://github.com/yui/pure/releases'));
+app.get('/updates/', routes.redirect('http://blog.purecss.io/', 301));
 
 // -- Exports ------------------------------------------------------------------
 module.exports = app;
