@@ -120,8 +120,7 @@
         },
         "semver": {
           "version": "2.1.0",
-          "from": "semver@2.x",
-          "resolved": "https://registry.npmjs.org/semver/-/semver-2.1.0.tgz"
+          "from": "semver@2.x"
         }
       }
     },
