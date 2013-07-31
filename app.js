@@ -115,6 +115,7 @@ routePage('layouts',   '/layouts/',   'Layouts',   routes.render('layouts'));
 routePage('layoutsGallery',   '/layouts/gallery/',   routes.render('layouts/gallery', 'blank'));
 routePage('layoutsMarketing', '/layouts/marketing/', routes.render('layouts/marketing', 'blank'));
 routePage('layoutsEmail',     '/layouts/email/',     routes.render('layouts/email', 'blank'));
+routePage('layoutsPricing',   '/layouts/pricing/',   routes.render('layouts/pricing', 'blank'));
 routePage('layoutsBlog',      '/layouts/blog/',      routes.render('layouts/blog', 'blank'));
 
 app.get('/combo/:version', [
