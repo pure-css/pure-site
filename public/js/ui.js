@@ -26,4 +26,5 @@ var menu = document.getElementById('menu'),
         var active = 'active';
         toggleClass(layout, active);
         toggleClass(menu, active);
+        toggleClass(menuLink, active);
     };

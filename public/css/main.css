@@ -236,13 +236,66 @@ aside {
         left: 150px; /* "#menu width" */
         background: #000;
         background: rgba(0,0,0,0.7);
-        padding: 0.75em 1em;
+        font-size: 10px; /* change this value to increase/decrease button size */
+        z-index: 10;
+        width: 2em;
+        height: auto;
+        padding: 2.1em 1.6em;
     }
 
         .pure-menu-link:hover,
         .pure-menu-link:focus {
             background: #000;
         }
+
+        .pure-menu-link span {
+            position: relative;
+            display: block;
+        }
+
+        .pure-menu-link span,
+        .pure-menu-link span:before,
+        .pure-menu-link span:after {
+            background-color: #fff;
+            width: 100%;
+            height: .2em;
+            -webkit-transition: all 0.8s;
+               -moz-transition: all 0.8s;
+                -ms-transition: all 0.8s;
+                 -o-transition: all 0.8s;
+                    transition: all 0.8s;
+        }
+
+            .pure-menu-link span:before,
+            .pure-menu-link span:after {
+                position: absolute;
+                margin-top: -.6em;
+                content: " ";
+            }
+
+            .pure-menu-link span:after {
+                margin-top: .6em;
+            }
+
+        .pure-menu-link.active span {
+            background: transparent;
+        }
+
+            .pure-menu-link.active span:before {
+                -webkit-transform: rotate(45deg) translate(.5em, .4em);
+                   -moz-transform: rotate(45deg) translate(.5em, .4em);
+                    -ms-transform: rotate(45deg) translate(.5em, .4em);
+                     -o-transform: rotate(45deg) translate(.5em, .4em);
+                        transform: rotate(45deg) translate(.5em, .4em);
+            }
+
+            .pure-menu-link.active span:after {
+                -webkit-transform: rotate(-45deg) translate(.45em, -.35em);
+                   -moz-transform: rotate(-45deg) translate(.45em, -.35em);
+                    -ms-transform: rotate(-45deg) translate(.45em, -.35em);
+                     -o-transform: rotate(-45deg) translate(.45em, -.35em);
+                        transform: rotate(-45deg) translate(.45em, -.35em);
+            }
 
     #menu .pure-menu-heading {
         font-size: 110%;
