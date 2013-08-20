@@ -30,20 +30,19 @@
         </dd>
     </dl>
 
+    <aside>
+        <p>
+            If you're using custom fonts in your project, be sure to check out the section on <a href="#custom-fonts">using grids with custom fonts</a>.
+        </p>
+    </aside>
+
     <p>
-        For example, here's an example of a grid with three columns:
+        Let's start with a simple example. Here's a grid with three columns:
     </p>
 
   {{#code}}
     {{> grids/intro}}
   {{/code}}
-
-    <aside>
-        <p>
-            For a more detailed guide, check out the <a href="http://yuilibrary.com/yui/docs/cssgrids/">CSS Grids documentation</a> on the YUI website.
-        </p>
-    </aside>
-
 
     <h2 class="content-subhead">Pure Responsive Grids</h2>
     <p>
@@ -64,7 +63,6 @@
     {{> grids/compare-r}}
     {{/code}}
 
-
     <h2 class="content-subhead">Responsive Grid: An Example</h2>
     <p>Resize the page to see the grid collapse.</p>
 
@@ -76,6 +74,36 @@
     </p>
 
     {{> grids/mobile-col}}
+
+    <h2 class="content-subhead">Grid Helper Classes</h2>
+
+    <p>
+        Pure's responsive grids also comes with the following helper classes to show or hide content at different screen widths. Remember that to optimize performance and page load time, you should ideally determine what to show and hide on the server, instead of on the client.
+    </p>
+
+    <table class="pure-table pure-table-bordered">
+        <thead>
+            <tr>
+                <th>Helper Class Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{code "pure-hidden-phone"}}</td>
+                <td>Content marked with this class will be hidden below {{code "768px"}}</td>
+            </tr>
+            <tr>
+                <td>{{code "pure-hidden-tablet"}}</td>
+                <td>Content marked with this class will be hidden between {{code "768px"}} and {{code "979px"}}</td>
+            </tr>
+            <tr>
+                <td>{{code "pure-hidden-desktop"}}</td>
+                <td>Content marked with this class will be hidden above {{code "980px"}}</td>
+            </tr>
+        </tbody>
+    </table>
+
 
     <h2 class="content-subhead">Applying padding and borders to Grid units</h2>
 
@@ -107,7 +135,7 @@
         value of {{code "content-box"}} and leaves the choice up to you.
     </p>
 
-    <h2 class="content-subhead">Using grids with custom fonts</h2>
+    <h2 id="custom-fonts" class="content-subhead">Using grids with custom fonts</h2>
     <p>
         Sometimes, the use of custom fonts can break the grid. If this happens, it is because the custom font has a larger letter-spacing than usual. Fortunately, it's quite easy to fix this. Instead of applying your custom font to the {{code "<body>"}} element, apply it to the grid units:
     </p>
