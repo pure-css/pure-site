@@ -2,39 +2,61 @@
 {{setSubTitle  "A fully customizable responsive grid"}}
 {{setActiveNav "grids"}}
 
+{{addLocalCSS "/css/grids.css"}}
+
 {{> header}}
 
 <div class="content">
 
-    {{sectionHeading "How do Pure Grids work?"}}
-    <p>
-        Pure Grids are very easy to work with. Consider <code>pure-g</code> to be a row or "grid", and {{code "pure-u-*-*"}} to be columns, or "units". Each {{code "pure-g"}} can contain many units. Units have various class names that represent their widths. For example, {{code "pure-u-1-2"}} has a width of 50%, whereas {{code "pure-u-1-5"}} would have a width of 20%.
-    </p>
+    {{sectionHeading "Introduction to Pure Grids"}}
 
     <p>
-        The only constraints for Pure Grids are that all "units" are children of a "grid". In other words, if you have an element with a {{code "pure-u-*"}} class name, it needs to be within a parent element with a {{code "pure-g"}} or {{code "pure-g-r"}} class name. Here's an example of a grid with three columns:
+        Pure Grids are easy to work with, and very powerful. There are a few simple concepts to keep in mind:
     </p>
 
-  {{#code}}
-    {{> grids/intro}}
-  {{/code}}
+    <dl>
+        <dt>Grid classes vs. unit classes</dt>
+        <dd>
+            Pure Grids consist of two types of classes: grid classes ({{code "pure-g"}} or {{code "pure-g-r"}}) and unit classes ({{code "pure-u-*"}})
+        </dd>
+
+        <dt>The widths of the units are fractions</dt>
+        <dd>
+            Units have various class names that represent their widths. For example, {{code "pure-u-1-2"}} has a width of 50%, whereas {{code "pure-u-1-5"}} would have a width of 20%.
+        </dd>
+
+        <dt>Units are children of a grid</dt>
+        <dd>
+            Units <em>must</em> be contained within an element with a {{code "pure-g"}} class. Each {{code "pure-g"}} can contain many units.
+        </dd>
+    </dl>
 
     <aside>
         <p>
-            For a more detailed guide, check out the <a href="http://yuilibrary.com/yui/docs/cssgrids/">CSS Grids documentation</a> on the YUI website.
+            If you're using custom fonts in your project, be sure to check out the section on <a href="#custom-fonts">using Grids with custom fonts</a>.
         </p>
     </aside>
 
-
-    {{sectionHeading "How do Pure Responsive Grids work?"}}
     <p>
-        Pure Responsive Grids builds on top of the existing grids implementation. It adds a single new class name called {{code "pure-g-r"}} (the "r" stands for responsive, you see). You can use this instead of using {{code "pure-g"}} as you normally do. All elements with a class name of {{code "pure-u-*-*"}} will automatically become responsive if they are direct descendents of a {{code "pure-g-r"}}.
+        Let's start with a simple example. Here's a grid with three columns:
+    </p>
+
+    {{#code}}
+    {{> grids/intro}}
+    {{/code}}
+
+
+    {{sectionHeading "Pure Responsive Grids"}}
+
+    <p>
+        Pure Responsive Grids builds on top of the base Grids. It adds a single new classname called {{code "pure-g-r"}} (the "r" stands for responsive, you see). You can use this instead of using {{code "pure-g"}} as you normally do. All elements with a classname of {{code "pure-u-*-*"}} will automatically become responsive and collapse to {{code "width: 100%;"}} when the viewport's width is {{code "767px"}} or lower.
     </p>
 
 
-    {{sectionHeading "The HTML"}}
+    {{sectionHeading "Regular Grid vs. Responsive Grid"}}
+
     <p>
-        The first snippet below shows how regular Pure Grids are written. These grids are unresponsive. They'll always be one-thirds, irrespective of the width of the screen. The second snippet replaces the {{code "pure-g"}} with {{code "pure-g-r"}}, thereby making the one-third columns collapse to full width on lower screen widths.
+        The first snippet below shows how regular Pure Grids are written. These grids are unresponsive. They'll always be one-thirds, irrespective of the width of the screen. The second snippet replaces the {{code "pure-g"}} with {{code "pure-g-r"}}, thereby making the one-third columns collapse to {{code "width: 100%;"}} on lower screen widths ({{code "767px"}} by default).
     </p>
 
     {{#code}}
@@ -45,56 +67,18 @@
     {{> grids/compare-r}}
     {{/code}}
 
-    {{sectionHeading "Features"}}
 
-    <ul class="content-spaced">
-        <li>Adds configurable media queries for different screen widths (Desktops, Landscape Tablets, Portrait Tablets, Phones)</li>
-        <li>Collapses elements to 100% if smaller than a certain width (767px by default)</li>
-        <li>Adjusts images to fit on smaller screens</li>
-        <li>Works with as many columns as you want (or as few)</li>
-        <li>Supports configurable prefixes</li>
-    </ul>
+    {{sectionHeading "Responsive Grid: An Example"}}
 
-
-    <h2 class="l-centered">See it in action below!"</h2>
-    <h3 class="l-centered">Resize the page to see the grid collapse.</h3>
+    <p>
+        Resize the page to see the grid collapse.
+    </p>
 
     {{> grids/four-col}}
 
-    {{sectionHeading "Applying padding and borders to Grid units"}}
-
-    <p>
-        To add borders and padding to Pure Grids, you have two options.
-        The first option is to nest a {{code "<div>"}} inside each Grid unit
-        and style the child container:
-    </p>
-
-    {{#code}}
-    {{> grids/padding-nested}}
-    {{/code}}
-
-    <p>
-        The second option is to add borders and padding directly to a Grid unit.
-        This would ordinarily risk breaking the layout,
-        but you can easily avoid this problem
-        by augmenting the behavior of the Grid itself
-        with a {{code "box-sizing: border-box"}} rule:
-    </p>
-
-    {{#code}}
-    {{> grids/padding-box-sizing}}
-    {{/code}}
-
-    <p>
-        Using {{code "box-sizing: border-box"}} keeps your markup cleaner,
-        but has two minor drawbacks. Legacy browsers such as IE7 and below
-        lack support for {{code "box-sizing"}}, and setting this property
-        on all Grid units makes it harder to override or unset the value later on.
-        As an unopinionated library, Pure lets {{code "box-sizing"}} remain at the default
-        value of {{code "content-box"}} and leaves the choice up to you.
-    </p>
 
     {{sectionHeading "Grids on Mobile"}}
+
     <p>
         Putting the {{code "pure-g"}} classname on the wrapper instead of {{code "pure-g-r"}} will ensure that grid units will not collapse on small screens. This is a good way to make grids on smaller screens like phones.
     </p>
@@ -102,18 +86,93 @@
     {{> grids/mobile-col}}
 
 
-      {{sectionHeading "Want to just use Grids?"}}
-      <p>
-          Grids is part of the Pure CSS file. However, if you just want Grids and not the other modules, you can pull it down separately. Just include this {{code "<link>"}} element in your {{code "<head>"}}.
-      </p>
+    {{sectionHeading "Grid Helper Classes"}}
+
+    <p>
+        Pure's Responsive Grids also comes with the following helper classes to show or hide content at different screen widths.
+    </p>
+
+    <table class="pure-table pure-table-bordered">
+        <thead>
+            <tr>
+                <th>Helper Class Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>{{code "pure-hidden-phone"}}</td>
+                <td>
+                    Content marked with this class will be hidden below {{code "768px"}}
+                </td>
+            </tr>
+
+            <tr>
+                <td>{{code "pure-hidden-tablet"}}</td>
+                <td>
+                    Content marked with this class will be hidden between {{code "768px"}} and {{code "979px"}}
+                </td>
+            </tr>
+
+            <tr>
+                <td>{{code "pure-hidden-desktop"}}</td>
+                <td>
+                    Content marked with this class will be hidden above {{code "980px"}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    {{sectionHeading "Applying Padding and Borders to Grid Units"}}
+
+    <p>
+        To add borders and padding to Pure Grids, you have two options. The first option is to nest a {{code "<div>"}} inside each Grid unit and style the child container:
+    </p>
 
     {{#code}}
-      <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure_version}}/grids-min.css">
+    {{> grids/padding-nested}}
     {{/code}}
 
-      <aside>
-          <p>
-              Optionally, you can head over to the <a href="http://yui.github.io/gridbuilder/">Grid Builder</a> to make your very own custom grid. Save the outputted CSS in a file and you're good to go!
-          </p>
-      </aside>
+    <p>
+        The second option is to add borders and padding directly to a grid unit. This would ordinarily risk breaking the layout, but you can easily avoid this problem by augmenting the behavior of the grid itself with a {{code "box-sizing: border-box"}} rule:
+    </p>
+
+    {{#code}}
+    {{> grids/padding-box-sizing}}
+    {{/code}}
+
+    <p>
+        Using {{code "box-sizing: border-box"}} keeps your markup cleaner, but has two minor drawbacks. Legacy browsers such as IE 7 and below <a href="http://caniuse.com/#search=box-sizing">lack support</a> for {{code "box-sizing"}}, and setting this property on all grid units makes it harder to override or unset the value later on. As an unopinionated library, Pure lets {{code "box-sizing"}} remain at the default value of {{code "content-box"}} and leaves the choice up to you.
+    </p>
+
+
+    {{sectionHeading "Using Grids with Custom Fonts"}}
+
+    <p>
+        Sometimes, the use of custom fonts can break Pure Girds. If this happens, it is because the custom font has a larger {{code "letter-spacing"}} than the browser default fonts. Fortunately, it's quite easy to fix this through CSS. Instead of applying your custom font to the {{code "<body>"}} element, apply it to the grid units:
+    </p>
+
+    {{#code}}
+    {{> grids/custom-font}}
+    {{/code}}
+
+
+    {{sectionHeading "Want to just use Grids?"}}
+
+    <p>
+        Grids is part of the Pure CSS file. However, if you just want Grids and not the other modules, you can pull it down separately. Just include this {{code "<link>"}} element in your {{code "<head>"}}.
+    </p>
+
+  {{#code}}
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure_version}}/grids-min.css">
+  {{/code}}
+
+    <aside>
+        <p>
+            Optionally, you can head over to the <a href="http://yui.github.io/gridbuilder/">Grid Builder</a> to make your very own grid with custom media query breakpoints and column sizes. Save the outputted CSS in a file and you're good to go!
+        </p>
+    </aside>
+
 </div>
