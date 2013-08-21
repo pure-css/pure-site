@@ -154,7 +154,21 @@ aside {
         padding-left: 1.5em;
     }
 
+    .content-link {
+        background: transparent url('../img/link-icon.png') no-repeat 0 0;
+        height: 20px;
+        width: 20px;
+        background-size: 20px 20px;
+        float: right;
+        margin-top: 52px; /* same as margin-top for .content-subhead + 2px for image alignment */
+        margin-right: 1em;
+    }
 
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        .content-link {
+            background-image: url('../img/link-icon@2x.png');
+        }
+    }
 
 /* --------------------------
  * Footer Module Styles
