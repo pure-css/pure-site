@@ -133,6 +133,7 @@ aside {
         margin: 50px 0 20px 0;
         font-weight: 300;
         color: #888;
+        position: relative;
     }
 
     .content .content-spaced {
@@ -155,18 +156,19 @@ aside {
     }
 
     .content-link {
-        background: transparent url('../img/link-icon.png') no-repeat 0 0;
-        height: 20px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: block;
+        height: 100%;
         width: 20px;
+        background: transparent url('/img/link-icon.png') no-repeat center center;
         background-size: 20px 20px;
-        float: right;
-        margin-top: 52px; /* same as margin-top for .content-subhead + 2px for image alignment */
-        margin-right: 1em;
     }
 
     @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
         .content-link {
-            background-image: url('../img/link-icon@2x.png');
+            background-image: url('/img/link-icon@2x.png');
         }
     }
 
