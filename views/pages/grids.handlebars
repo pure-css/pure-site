@@ -10,13 +10,13 @@
 
     <h2 class="content-subhead">Introduction to Pure Grids</h2>
     <p>
-        Pure Grids are very easy to work with, and very powerful. There are a few simple concepts to keep in mind:
+        Pure Grids are easy to work with, and very powerful. There are a few simple concepts to keep in mind:
     </p>
 
     <dl>
         <dt>Grid classes vs. unit classes</dt>
         <dd>
-            Pure grids consist of two types of classes: grid classes ({{code "pure-g"}} or {{code "pure-g-r"}}) and unit classes ({{code "pure-u-*"}})
+            Pure Grids consist of two types of classes: grid classes ({{code "pure-g"}} or {{code "pure-g-r"}}) and unit classes ({{code "pure-u-*"}})
         </dd>
 
         <dt>The widths of the units are fractions</dt>
@@ -32,7 +32,7 @@
 
     <aside>
         <p>
-            If you're using custom fonts in your project, be sure to check out the section on <a href="#custom-fonts">using grids with custom fonts</a>.
+            If you're using custom fonts in your project, be sure to check out the section on <a href="#custom-fonts">using Grids with custom fonts</a>.
         </p>
     </aside>
 
@@ -46,7 +46,7 @@
 
     <h2 class="content-subhead">Pure Responsive Grids</h2>
     <p>
-        Pure Responsive Grids builds on top of the existing grids. It adds a single new class name called {{code "pure-g-r"}} (the "r" stands for responsive, you see). You can use this instead of using {{code "pure-g"}} as you normally do. All elements with a class name of {{code "pure-u-*-*"}} will automatically become responsive and collapse to {{code "width: 100%;"}} at {{code "767px"}} if they are direct descendents of a {{code "pure-g-r"}}.
+        Pure Responsive Grids builds on top of the base Grids. It adds a single new classname called {{code "pure-g-r"}} (the "r" stands for responsive, you see). You can use this instead of using {{code "pure-g"}} as you normally do. All elements with a classname of {{code "pure-u-*-*"}} will automatically become responsive and collapse to {{code "width: 100%;"}} when the viewport's width is {{code "767px"}} or lower.
     </p>
 
 
@@ -78,7 +78,7 @@
     <h2 class="content-subhead">Grid Helper Classes</h2>
 
     <p>
-        Pure's responsive grids also comes with the following helper classes to show or hide content at different screen widths. Remember that to optimize performance and page load time, you should ideally determine what to show and hide on the server, instead of on the client.
+        Pure's Responsive Grids also comes with the following helper classes to show or hide content at different screen widths.
     </p>
 
     <table class="pure-table pure-table-bordered">
@@ -105,7 +105,7 @@
     </table>
 
 
-    <h2 class="content-subhead">Applying padding and borders to Grid units</h2>
+    <h2 class="content-subhead">Applying Padding and Borders to Grid Units</h2>
 
     <p>
         To add borders and padding to Pure Grids, you have two options.
@@ -118,8 +118,8 @@
     {{/code}}
 
     <p>
-        The second option is to add borders and padding directly to a Grid unit.
-        This would ordinarily risk breaking the layout, but you can easily avoid this problem by augmenting the behavior of the Grid itself with a {{code "box-sizing: border-box"}} rule:
+        The second option is to add borders and padding directly to a grid unit.
+        This would ordinarily risk breaking the layout, but you can easily avoid this problem by augmenting the behavior of the grid itself with a {{code "box-sizing: border-box"}} rule:
     </p>
 
     {{#code}}
@@ -128,16 +128,16 @@
 
     <p>
         Using {{code "box-sizing: border-box"}} keeps your markup cleaner,
-        but has two minor drawbacks. Legacy browsers such as IE7 and below
+        but has two minor drawbacks. Legacy browsers such as IE 7 and below
         <a href="http://caniuse.com/#search=box-sizing">lack support</a> for {{code "box-sizing"}}, and setting this property
-        on all Grid units makes it harder to override or unset the value later on.
+        on all grid units makes it harder to override or unset the value later on.
         As an unopinionated library, Pure lets {{code "box-sizing"}} remain at the default
         value of {{code "content-box"}} and leaves the choice up to you.
     </p>
 
-    <h2 id="custom-fonts" class="content-subhead">Using grids with custom fonts</h2>
+    <h2 id="custom-fonts" class="content-subhead">Using Grids with Custom Fonts</h2>
     <p>
-        Sometimes, the use of custom fonts can break the grid. If this happens, it is because the custom font has a larger letter-spacing than usual. Fortunately, it's quite easy to fix this. Instead of applying your custom font to the {{code "<body>"}} element, apply it to the grid units:
+        Sometimes, the use of custom fonts can break Pure Girds. If this happens, it is because the custom font has a larger {{code "letter-spacing"}} than the browser default fonts. Fortunately, it's quite easy to fix this through CSS. Instead of applying your custom font to the {{code "<body>"}} element, apply it to the grid units:
     </p>
 
     {{#code}}
