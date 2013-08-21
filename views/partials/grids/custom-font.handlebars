@@ -1,14 +1,17 @@
 <style>
-
-/* Putting the font-family to serif makes sure the
-letter and word spacing collapsing works */
+/*
+Setting the `font-family` to `serif` makes sure the letter and word spacing
+collapsing works properly.
+*/
 .pure-g,
 .pure-g-r {
     font-family: serif;
 }
 
-/* Declaring the font-family on the children ensures
-that the grid doesn't flow to a new line. */
+/*
+Declaring the `font-family` for a custom font on the  grid units ensures
+that the grid won't overlap or flow to the next line.
+*/
 .pure-g [class *= "pure-u"],
 .pure-g-r [class *= "pure-u"] {
     font-family: "YOUR_CUSTOM_FONT";
