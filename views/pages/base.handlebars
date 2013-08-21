@@ -5,7 +5,7 @@
 {{> header}}
 
 <div class="content">
-    <h2 class="content-subhead">The Foundation</h2>
+    {{sectionHeading "The Foundation"}}
     <p>
         All modules in Pure build on top of <a href="http://necolas.github.com/normalize.css/">Normalize.css</a>. It's our foundational layer to maintain some degree of cross-browser consistency. We use Normalize v1.x because it supports older versions of Internet Explorer. We like Normalize so much that we put it on our CDN. You can pull in Normalize.css by adding this {{code "<link>"}} element on your page:
     </p>
@@ -27,13 +27,13 @@
         Normalize.css comes with <a href="https://github.com/necolas/normalize.css/wiki">great documentation</a> and a <a href="http://nicolasgallagher.com/about-normalize-css/">thorough guide</a> explaining how it differs from a traditional reset. You can also check out YUI's <a href="http://yuilibrary.com/yui/docs/cssnormalize/">CSSNormalize</a> module, which includes the generic Normalize along with a <a href="http://yuilibrary.com/yui/docs/cssnormalize/#context">contextual version</a>. The contextual version of Normalize only applies normalized styles to elements that are children of an element with the class name {{code "yui3-normalized"}}.
     </p>
 
-    <h2 class="content-subhead">Typography</h2>
+    {{sectionHeading "Typography"}}
     <p>
         To keep Pure lean and extensible, we do not add any typographic styles over the foundational layer provided by Normalize. This means that you get headings with different sizes, blockquotes, lists, definition lists, and more, but their styles are minimal and easy to override.
     </p>
 
 
-    <h2 class="content-subhead">Headings</h2>
+    {{sectionHeading "Headings"}}
     <p>
         Headings run from 1 to 6 in decreasing size. Font sizes are defined in {{code "em"}}.
     </p>
@@ -41,7 +41,7 @@
     {{> base/headings}}
 
 
-    <h2 class="content-subhead">Lists</h2>
+    {{sectionHeading "Lists"}}
     <p>
         Lists come in different forms. There are unordered lists, ordered lists, and definition lists. Normalize provides basic styling and cross-browser consistency for these lists. You can style these further in your specific application. If you're looking to use lists to make menus, check out <a href="{{pages.menus}}">Menu CSS</a>.
     </p>
@@ -49,7 +49,7 @@
     {{> base/lists}}
 
 
-    <h2 class="content-subhead">Blockquotes</h2>
+    {{sectionHeading "Blockquotes"}}
     <p>
         Blockquotes encompass text that is meant to represent a quotation. By default, blockquotes look like regular text, except that they are indented. This gives you the freedom to set your own styles on top. Here's a default one:
     </p>
@@ -69,7 +69,7 @@
     </blockquote>
 
 
-    <h2 class="content-subhead">Abbreviations</h2>
+    {{sectionHeading "Abbreviations"}}
     <p>
         The {{code "<abbr>"}} represents an abbreviation. If a {{code "title"}} attribute is provided, it'll show up on hover. Abbreviations generally have a small dotted underline.
     </p>
@@ -81,7 +81,7 @@
   {{/code}}
 
 
-    <h2 class="content-subhead">Addresses</h2>
+    {{sectionHeading "Addresses"}}
     <p>
         The {{code "<address>"}} is used to reference contact information. By default, addresses have no specific styling. However, they can be styled using the various inline styles available through Normalize.
     </p>
@@ -93,7 +93,7 @@
   {{/code}}
 
 
-    <h2 class="content-subhead">Inline Styles</h2>
+    {{sectionHeading "Inline Styles"}}
     <p>
         There are numerous other inline styles that can be used. Here's a quick list from the <a href="http://github.com/necolas/normalize.css">Normalize documentation</a>:
     </p>
@@ -101,7 +101,7 @@
     {{> base/inline}}
 
 
-    <h2 class="content-subhead">Moving beyond Normalize</h2>
+    {{sectionHeading "Moving beyond Normalize"}}
     <p>
         Normalize.css is a great starting place for your project, but some HTML elements such as forms, tables, and menus require more styling than what's provided by Normalize.
     </p>

@@ -6,7 +6,7 @@
 
 <div class="content">
 
-    <h2 class="content-subhead">Default Form</h2>
+    {{sectionHeading "Default Form"}}
     <p>
         To create a default inline form, add the {{code "pure-form"}} classname to any {{code "<form>"}} element.
     </p>
@@ -20,7 +20,7 @@
   {{/code}}
 
 
-    <h2 class="content-subhead" id="stacked-form">Stacked Form</h2>
+    {{sectionHeading "Stacked Form"}}
     <p>
         To create a stacked form with input elements below the labels, add the {{code "pure-form-stacked"}} classname to a {{code "<form>"}} element alongside {{code "pure-form"}}.
     </p>
@@ -34,7 +34,7 @@
   {{/code}}
 
 
-    <h2 class="content-subhead">Aligned Form</h2>
+    {{sectionHeading "Aligned Form"}}
     <p>
         To create an aligned form, add the {{code "pure-form-aligned"}} classname to a {{code "<form>"}} element alongside {{code "pure-form"}}. In an aligned form, the labels are right-aligned against the form input controls, but on smaller screens revert to a <a href="#stacked-form">stacked form</a>.
     </p>
@@ -47,7 +47,7 @@
     {{> forms/aligned}}
   {{/code}}
 
-    <h2 class="content-subhead">Multi-Column Form (with Pure Grids)</h2>
+    {{sectionHeading "Multi-Column Form (with Pure Grids)"}}
     <p>
         To create multi-column forms, include your form elements within a <a href="{{pages.grids}}">Pure Grid</a>. The following example uses Pure Grids with a stacked form.
     </p>
@@ -60,7 +60,7 @@
     {{> forms/multi}}
   {{/code}}
 
-    <h2 class="content-subhead">Grouped Inputs</h2>
+    {{sectionHeading "Grouped Inputs"}}
     <p>
         To group sets of text-based input elements, wrap them in a {{code "<fieldset>"}} element with a {{code "pure-group"}} classname. Grouped inputs work well for sign-up forms and look natural on mobile devices.
     </p>
@@ -74,7 +74,7 @@
   {{/code}}
 
 
-    <h2 class="content-subhead">Input Sizing</h2>
+    {{sectionHeading "Input Sizing"}}
     <p>
         Input elements have fluid width sizes in a syntax that is similar to <a href="{{pages.grids}}">Pure Grids</a>. You can apply a {{code "pure-input-*"}} class to these elements.
     </p>
@@ -100,7 +100,7 @@
   {{/code}}
 
 
-    <h2 class="content-subhead">Required Inputs</h2>
+    {{sectionHeading "Required Inputs"}}
     <p>
         To mark a form control as required, add the {{code "required"}} attribute.
     </p>
@@ -114,7 +114,7 @@
   {{/code}}
 
 
-    <h2 class="content-subhead">Disabled Inputs</h2>
+    {{sectionHeading "Disabled Inputs"}}
     <p>
         To disable a form control, add the {{code "disabled"}} attribute.
     </p>
@@ -128,7 +128,7 @@
   {{/code}}
 
 
-    <h2 class="content-subhead">Read-Only Inputs</h2>
+    {{sectionHeading "Read-Only Inputs"}}
     <p>
         To make a form input read-only, add the {{code "readonly"}} attribute. The difference between {{code "disabled"}} and {{code "readonly"}} is read-only inputs are still focusable. This allows people to interact with the input and select its text, whereas disabled controls are not interactive.
     </p>
@@ -142,7 +142,7 @@
   {{/code}}
 
 
-    <h2 class="content-subhead">Rounded Inputs</h2>
+    {{sectionHeading "Rounded Inputs"}}
     <p>
         To display a form control with rounded corners, add the {{code "pure-input-rounded"}} classname.
     </p>
@@ -156,7 +156,7 @@
   {{/code}}
 
 
-    <h2 class="content-subhead">Checkboxes and Radios</h2>
+    {{sectionHeading "Checkboxes and Radios"}}
     <p>
         To normalize and align checkboxes and radio inputs, add the {{code "pure-checkbox"}} or {{code "pure-radio"}} classname.
     </p>

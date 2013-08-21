@@ -6,7 +6,7 @@
 
 <div class="content">
 
-    <h2 class="content-subhead">How do Pure Grids work?</h2>
+    {{sectionHeading "How do Pure Grids work?"}}
     <p>
         Pure Grids are very easy to work with. Consider <code>pure-g</code> to be a row or "grid", and {{code "pure-u-*-*"}} to be columns, or "units". Each {{code "pure-g"}} can contain many units. Units have various class names that represent their widths. For example, {{code "pure-u-1-2"}} has a width of 50%, whereas {{code "pure-u-1-5"}} would have a width of 20%.
     </p>
@@ -26,13 +26,13 @@
     </aside>
 
 
-    <h2 class="content-subhead">How do Pure Responsive Grids work?</h2>
+    {{sectionHeading "How do Pure Responsive Grids work?"}}
     <p>
         Pure Responsive Grids builds on top of the existing grids implementation. It adds a single new class name called {{code "pure-g-r"}} (the "r" stands for responsive, you see). You can use this instead of using {{code "pure-g"}} as you normally do. All elements with a class name of {{code "pure-u-*-*"}} will automatically become responsive if they are direct descendents of a {{code "pure-g-r"}}.
     </p>
 
 
-    <h2 class="content-subhead">The HTML</h2>
+    {{sectionHeading "The HTML"}}
     <p>
         The first snippet below shows how regular Pure Grids are written. These grids are unresponsive. They'll always be one-thirds, irrespective of the width of the screen. The second snippet replaces the {{code "pure-g"}} with {{code "pure-g-r"}}, thereby making the one-third columns collapse to full width on lower screen widths.
     </p>
@@ -45,7 +45,7 @@
     {{> grids/compare-r}}
     {{/code}}
 
-    <h2 class="content-subhead">Features</h2>
+    {{sectionHeading "Features"}}
 
     <ul class="content-spaced">
         <li>Adds configurable media queries for different screen widths (Desktops, Landscape Tablets, Portrait Tablets, Phones)</li>
@@ -56,12 +56,12 @@
     </ul>
 
 
-    <h2 class="l-centered">See it in action below!</h2>
+    <h2 class="l-centered">See it in action below!"</h2>
     <h3 class="l-centered">Resize the page to see the grid collapse.</h3>
 
     {{> grids/four-col}}
 
-    <h2 class="content-subhead">Applying padding and borders to Grid units</h2>
+    {{sectionHeading "Applying padding and borders to Grid units"}}
 
     <p>
         To add borders and padding to Pure Grids, you have two options.
@@ -78,7 +78,7 @@
         This would ordinarily risk breaking the layout,
         but you can easily avoid this problem
         by augmenting the behavior of the Grid itself
-        with a {{code "box-sizing: border-box"}} rule: 
+        with a {{code "box-sizing: border-box"}} rule:
     </p>
 
     {{#code}}
@@ -88,13 +88,13 @@
     <p>
         Using {{code "box-sizing: border-box"}} keeps your markup cleaner,
         but has two minor drawbacks. Legacy browsers such as IE7 and below
-        lack support for {{code "box-sizing"}}, and setting this property 
-        on all Grid units makes it harder to override or unset the value later on. 
+        lack support for {{code "box-sizing"}}, and setting this property
+        on all Grid units makes it harder to override or unset the value later on.
         As an unopinionated library, Pure lets {{code "box-sizing"}} remain at the default
         value of {{code "content-box"}} and leaves the choice up to you.
     </p>
 
-    <h2 class="content-subhead">Grids on Mobile</h2>
+    {{sectionHeading "Grids on Mobile"}}
     <p>
         Putting the {{code "pure-g"}} classname on the wrapper instead of {{code "pure-g-r"}} will ensure that grid units will not collapse on small screens. This is a good way to make grids on smaller screens like phones.
     </p>
@@ -102,7 +102,7 @@
     {{> grids/mobile-col}}
 
 
-      <h2 class="content-subhead">Want to just use Grids?</h2>
+      {{sectionHeading "Want to just use Grids?"}}
       <p>
           Grids is part of the Pure CSS file. However, if you just want Grids and not the other modules, you can pull it down separately. Just include this {{code "<link>"}} element in your {{code "<head>"}}.
       </p>
