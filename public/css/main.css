@@ -190,27 +190,25 @@ aside {
  * --------------------------
 */
 .legal {
-    font-size: 80%;
+    font-size: 87.5%;
     border-top: 1px solid #eee;
     padding: 0.5em 0;
     background: rgb(250, 250, 250);
 }
 
-    .legal-license,
-    .legal-copyright {
+    .legal-license {
         margin: 0;
     }
-
     .legal-copyright,
     .legal-links {
         text-align: right;
-    }
-
-    .legal-links {
-        list-style: none;
         margin: 0;
     }
-
+    .legal-links {
+        list-style: none;
+        padding: 0;
+        line-height: 1.6em;
+    }
     .legal-logo {
         text-align: center;
     }
@@ -421,9 +419,6 @@ a.pure-button-primary {
         font-size: 90%;
     }
 
-    .legal-links {
-        padding:1em 0;
-    }
     .legal-license,
     .legal-copyright,
     .legal-links,
