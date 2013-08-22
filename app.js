@@ -87,7 +87,7 @@ function routePage(name, path, label, callbacks) {
         label     = null;
     }
 
-    app.get(path, callbacks);
+    app.get(path, callbacks || routes.render());
     app.map(path, name);
 
     if (label) {
@@ -96,16 +96,16 @@ function routePage(name, path, label, callbacks) {
 }
 
 // Basic docs pages.
-routePage('home',      '/',                        routes.render());
-routePage('base',      '/base/',      'Base',      routes.render());
-routePage('grids',     '/grids/',     'Grids',     routes.render());
-routePage('forms',     '/forms/',     'Forms',     routes.render());
-routePage('buttons',   '/buttons/',   'Buttons',   routes.render());
-routePage('tables',    '/tables/',    'Tables',    routes.render());
-routePage('menus',     '/menus/',     'Menus',     routes.render());
-routePage('customize', '/customize/', 'Customize', routes.render());
-routePage('extend',    '/extend/',    'Extend',    routes.render());
-routePage('layouts',   '/layouts/',   'Layouts',   routes.render());
+routePage('home',      '/');
+routePage('base',      '/base/',      'Base');
+routePage('grids',     '/grids/',     'Grids');
+routePage('forms',     '/forms/',     'Forms');
+routePage('buttons',   '/buttons/',   'Buttons');
+routePage('tables',    '/tables/',    'Tables');
+routePage('menus',     '/menus/',     'Menus');
+routePage('customize', '/customize/', 'Customize');
+routePage('extend',    '/extend/',    'Extend');
+routePage('layouts',   '/layouts/',   'Layouts');
 
 // Layout examples.
 app.get('/layouts/:layout/', routes.layout('layouts/'));
