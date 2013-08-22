@@ -14,7 +14,7 @@
     {{/code}}
 
     <p>
-        <a class="pure-button pure-button-cta" href="{{pages.customize}}">Get Started</a>
+        <a class="pure-button pure-button-cta" href="{{pathTo 'customize'}}">Get Started</a>
         <a class="pure-button pure-button-secondary" href="https://github.com/yui/pure/">View on GitHub</a>
     </p>
     </div>
@@ -23,32 +23,32 @@
 <div class="marketing-ribbon">
     <div class="size-chart l-vbox pure-g">
         <div class="size-chart-item size-chart-base pure-u" style="width: {{filePercent 'base'}};">
-            <a class="size-chart-label" href="{{pages.base}}">
+            <a class="size-chart-label" href="{{pathTo 'base'}}">
                 Base <span class="size-chart-size">{{fileSize "base"}}</span>
             </a>
         </div>
         <div class="size-chart-item size-chart-grids pure-u" style="width: {{filePercent 'grids'}};">
-            <a class="size-chart-label" href="{{pages.grids}}">
+            <a class="size-chart-label" href="{{pathTo 'grids'}}">
                 Grids <span class="size-chart-size">{{fileSize "grids"}}</span>
             </a>
         </div>
         <div class="size-chart-item size-chart-forms pure-u" style="width: {{filePercent 'forms'}};">
-            <a class="size-chart-label" href="{{pages.forms}}">
+            <a class="size-chart-label" href="{{pathTo 'forms'}}">
                 Forms <span class="size-chart-size">{{fileSize "forms"}}</span>
             </a>
         </div>
         <div class="size-chart-item size-chart-buttons pure-u" style="width: {{filePercent 'buttons'}};">
-            <a class="size-chart-label" href="{{pages.buttons}}">
+            <a class="size-chart-label" href="{{pathTo 'buttons'}}">
                 Buttons <span class="size-chart-size">{{fileSize "buttons"}}</span>
             </a>
         </div>
         <div class="size-chart-item size-chart-tables pure-u" style="width: {{filePercent 'tables'}};">
-            <a class="size-chart-label" href="{{pages.tables}}">
+            <a class="size-chart-label" href="{{pathTo 'tables'}}">
                 Tables <span class="size-chart-size">{{fileSize "tables"}}</span>
             </a>
         </div>
         <div class="size-chart-item size-chart-menus pure-u" style="width: {{filePercent 'menus'}};">
-            <a class="size-chart-label" href="{{pages.menus}}">
+            <a class="size-chart-label" href="{{pathTo 'menus'}}">
                 Menus <span class="size-chart-size">{{fileSize "menus"}}</span>
             </a>
         </div>
@@ -99,7 +99,7 @@
 <div class="pure-g-r marketing-ribbon">
     <div class="pure-u-1-2">
         <div class="l-box">
-            <a href="{{pages.layouts}}">
+            <a href="{{pathTo 'layouts'}}">
                 <img src="img/layout-icon.jpg" alt="Diagram of a sample layout.">
             </a>
         </div>
@@ -109,11 +109,11 @@
         <div class="l-hbox">
             <h3>Create responsive layouts.</h3>
             <p>
-                By using <a href="{{pages.grids}}">Grids</a>, <a href="{{pages.menus}}">Menus</a>, and more, it's easy to create beautiful responsive layouts for all screen sizes. We've made it easy for you to get started. Take a look at a few different <a href="{{pages.layouts}}">layouts</a> and start your next web project with a rock-solid foundation.
+                By using <a href="{{pathTo 'grids'}}">Grids</a>, <a href="{{pathTo 'menus'}}">Menus</a>, and more, it's easy to create beautiful responsive layouts for all screen sizes. We've made it easy for you to get started. Take a look at a few different <a href="{{pathTo 'layouts'}}">layouts</a> and start your next web project with a rock-solid foundation.
             </p>
 
             <p>
-                <a href="{{pages.layouts}}" class="pure-button">View Layouts</a>
+                <a href="{{pathTo 'layouts'}}" class="pure-button">View Layouts</a>
             </p>
         </div>
     </div>
@@ -128,7 +128,7 @@
             </p>
 
             <p>
-                <a href="{{pages.extend}}" class="pure-button">Extend Pure</a>
+                <a href="{{pathTo 'extend'}}" class="pure-button">Extend Pure</a>
             </p>
         </div>
     </div>
