@@ -149,7 +149,7 @@
     {{sectionHeading "Using Grids with Custom Fonts"}}
 
     <p>
-        Sometimes, the use of custom fonts can break Pure Girds. If this happens, it is because the custom font has a larger {{code "letter-spacing"}} than the browser default fonts. Fortunately, it's quite easy to fix this through CSS. Instead of applying your custom font to the {{code "<body>"}} element, apply it to the grid units:
+        Pure Grids use a specific font stack to ensure the greatest OS/browser compatibility, and by default grid units will have {{code "font-family: sans-serif;"}} applied — this is the default font stack Pure's Base (Normalize.css) applies to the {{code "<body>"}}. Fortunately, it's quite easy to make sure your custom font stacks apply to content within Pure Girds. Instead of applying your custom font to only the {{code "<body>"}} element, apply it to the grid units as well:
     </p>
 
     {{#code}}

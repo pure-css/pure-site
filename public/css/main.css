@@ -1,6 +1,19 @@
 body {
-    font-family: "proxima-nova", sans-serif;
     color: #777;
+}
+
+/*
+TODO: Remove after Pure 0.2.2 release.
+*/
+.pure-g,
+.pure-g-r {
+    font-family: Helvetica, Arial, "DejaVu Sans", sans-serif;
+}
+
+body,
+.pure-g [class *= "pure-u"],
+.pure-g-r [class *= "pure-u"] {
+    font-family: "proxima-nova", sans-serif;
 }
 
 
@@ -75,22 +88,6 @@ dd {
 
 .l-centered {
     text-align: center;
-}
-
-/* Putting the font-family to Arial makes sure the
-letter and word spacing collapsing works
-https://github.com/yui/pure/issues/41#issuecomment-22147419 */
-
-.pure-g,
-.pure-g-r {
-    font-family: serif;
-}
-
-/* Declaring the font-family on the children ensures
-that the grid doesn't flow to a new line. */
-.pure-g [class *= "pure-u"],
-.pure-g-r [class *= "pure-u"] {
-    font-family: "proxima-nova", sans-serif;
 }
 
 

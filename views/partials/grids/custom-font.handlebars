@@ -1,19 +1,13 @@
 <style>
 /*
-Setting the `font-family` to `serif` makes sure the letter and word spacing
-collapsing works properly.
+When setting the primary font stack, apply it to the Pure grid units along with
+the `body`. Pure Grids use specific font stacks to ensure the greatest
+OS/browser compatibility.
 */
-.pure-g,
-.pure-g-r {
-    font-family: serif;
-}
-
-/*
-Declaring the `font-family` for a custom font on the  grid units ensures
-that the grid won't overlap or flow to the next line.
-*/
+body,
 .pure-g [class *= "pure-u"],
 .pure-g-r [class *= "pure-u"] {
-    font-family: "YOUR_CUSTOM_FONT";
+    /* Set you're content font stack here: */
+    font-family: Georgia, Times, "Times New Roman", serif;
 }
 </style>
