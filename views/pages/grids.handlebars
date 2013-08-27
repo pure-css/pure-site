@@ -17,7 +17,7 @@
     <dl>
         <dt>Grid classes vs. unit classes</dt>
         <dd>
-            Pure Grids consist of two types of classes: grid classes ({{code "pure-g"}} or {{code "pure-g-r"}}) and unit classes ({{code "pure-u-*"}})
+            Pure Grids consist of two types of classes: grid classes ({{code "pure-g"}} or {{code "pure-g-r"}}) and unit classes ({{code "pure-u"}} or {{code "pure-u-*"}})
         </dd>
 
         <dt>The widths of the units are fractions</dt>
@@ -25,9 +25,14 @@
             Units have various class names that represent their widths. For example, {{code "pure-u-1-2"}} has a width of 50%, whereas {{code "pure-u-1-5"}} would have a width of 20%.
         </dd>
 
-        <dt>Units are children of a grid</dt>
+        <dt>All child elements of a grid must be units</dt>
         <dd>
-            Units <em>must</em> be contained within an element with a {{code "pure-g"}} class. Each {{code "pure-g"}} can contain many units.
+            Child elements contained within an element with a {{code "pure-g"}} classname <em>must</em> be a grid unit with a {{code "pure-u"}} or {{code "pure-u-*"}} classname.
+        </dd>
+
+        <dt>Content goes inside grid units<dt>
+        <dd>
+            All content which is visible to people needs to be contained inside a grid unit. This ensures that the content will be rendered properly.
         </dd>
     </dl>
 
