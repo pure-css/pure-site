@@ -2,14 +2,6 @@ body {
     color: #777;
 }
 
-/*
-TODO: Remove after Pure 0.2.2 release.
-*/
-.pure-g,
-.pure-g-r {
-    font-family: Helvetica, Arial, "DejaVu Sans", sans-serif;
-}
-
 body,
 .pure-g [class *= "pure-u"],
 .pure-g-r [class *= "pure-u"] {
