@@ -99,7 +99,7 @@ dd {
      min-height: 80px;
      margin: 0;
      color: #333;
-     padding: 1em;
+     padding: 1em 2em;
      text-align: center;
      border-bottom: 1px solid #eee;
      background: #fff;
@@ -134,8 +134,9 @@ aside {
 /* The content div is placed as a wrapper around all the docs */
 .content {
     margin: 0 auto;
-    width: 70%;
-    margin-bottom:50px;
+    padding: 0 2em;
+    max-width: 800px;
+    margin-bottom: 50px;
 }
     .content p {
         line-height: 1.6em;
@@ -192,7 +193,7 @@ aside {
 .legal {
     font-size: 87.5%;
     border-top: 1px solid #eee;
-    padding: 0.5em 0;
+    padding: 0.5em 1.1429em;
     background: rgb(250, 250, 250);
 }
 
@@ -414,9 +415,16 @@ a.pure-button-primary {
 
 @media (max-width: 767px) {
 
+    .header,
     .content {
-        width: 95%;
-        font-size: 90%;
+        font-size: 87.5%;
+    }
+
+    .header,
+    .content,
+    .legal {
+        padding-left: 1.1429em;
+        padding-right: 1.1429em;
     }
 
     .legal-license,
