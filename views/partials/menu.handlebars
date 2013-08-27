@@ -4,12 +4,12 @@
 
 <div class="pure-u" id="menu">
     <div class="pure-menu pure-menu-open">
-        <a class="pure-menu-heading" href="{{pages.home}}">Pure</a>
+        <a class="pure-menu-heading" href="{{pathTo 'home'}}">Pure</a>
 
         <ul>
           {{#each nav}}
             <li class="{{#if isActive}}pure-menu-selected{{/if}} {{#if divider}}menu-item-divided{{/if}}">
-                <a href="{{url}}">{{label}}</a>
+                <a href="{{pathTo name}}">{{label}}</a>
             </li>
           {{/each}}
 

@@ -1,17 +1,22 @@
-var combo   = require('combohandler'),
-    express = require('express'),
-    exphbs  = require('express3-handlebars'),
-    path    = require('path'),
-    state   = require('express-state'),
+var combo    = require('combohandler'),
+    express  = require('express'),
+    expmap   = require('express-map'),
+    expstate = require('express-state'),
+    exphbs   = require('express3-handlebars'),
+    path     = require('path'),
 
     config     = require('./config'),
     hbs        = require('./lib/hbs'),
     middleware = require('./lib/middleware'),
     routes     = require('./lib/routes'),
 
-    app = express();
+    app = express(),
+    pathTo;
 
-// -- Config -------------------------------------------------------------------
+// -- Configure App ------------------------------------------------------------
+
+expmap.extend(app);
+expstate.extend(app);
 
 app.set('name', 'Pure');
 app.set('env', config.env);
@@ -22,8 +27,6 @@ app.engine(hbs.extname, hbs.engine);
 app.set('view engine', hbs.extname);
 app.set('views', config.dirs.views);
 
-app.expose(config.yui.config, 'YUI_config');
-
 app.locals({
     site          : 'Pure',
     copyright_year: '2013',
@@ -31,9 +34,6 @@ app.locals({
     version     : config.version,
     pure_version: config.pure.version,
     yui_version : config.yui.version,
-
-    nav  : [],
-    pages: {},
 
     isDevelopment: config.isDevelopment,
     isProduction : config.isProduction,
@@ -47,6 +47,8 @@ app.locals({
     ga     : config.isProduction && config.ga,
     typekit: config.typekit
 });
+
+app.expose(config.yui.config, 'YUI_config');
 
 // -- Middleware ---------------------------------------------------------------
 
@@ -78,46 +80,38 @@ if (config.isDevelopment) {
 
 // -- Routes -------------------------------------------------------------------
 
-function routePage(id, path, label, callbacks) {
+// Sugar to route pages and add them to the nav menu.
+function routePage(path, name, label, callbacks) {
     if (typeof label !== 'string') {
         callbacks = label;
         label     = null;
     }
 
-    var navItem;
-
-    app.get(path, callbacks);
-
-    app.locals.pages[id] = path;
+    app.get(path, callbacks || routes.render());
+    app.map(path, name);
 
     if (label) {
-        navItem = {id: id, url: path, label: label};
-
-        if (id === 'customize') {
-            navItem.divider = true;
-        }
-
-        app.locals.nav.push(navItem);
+        app.annotate(path, {label: label});
     }
 }
 
-routePage('home',      '/',                        routes.render('home'));
-routePage('base',      '/base/',      'Base',      routes.render('base'));
-routePage('grids',     '/grids/',     'Grids',     routes.render('grids'));
-routePage('forms',     '/forms/',     'Forms',     routes.render('forms'));
-routePage('buttons',   '/buttons/',   'Buttons',   routes.render('buttons'));
-routePage('tables',    '/tables/',    'Tables',    routes.render('tables'));
-routePage('menus',     '/menus/',     'Menus',     routes.render('menus'));
-routePage('customize', '/customize/', 'Customize', routes.render('customize'));
-routePage('extend',    '/extend/',    'Extend',    routes.render('extend'));
-routePage('layouts',   '/layouts/',   'Layouts',   routes.render('layouts'));
+// Basic docs pages.
+routePage('/',           'home');
+routePage('/base/',      'base',      'Base');
+routePage('/grids/',     'grids',     'Grids');
+routePage('/forms/',     'forms',     'Forms');
+routePage('/buttons/',   'buttons',   'Buttons');
+routePage('/tables/',    'tables',    'Tables');
+routePage('/menus/',     'menus',     'Menus');
+routePage('/customize/', 'customize', 'Customize');
+routePage('/extend/',    'extend',    'Extend');
+routePage('/layouts/',   'layouts',   'Layouts');
 
-routePage('layoutsGallery',   '/layouts/gallery/',   routes.render('layouts/gallery', 'blank'));
-routePage('layoutsMarketing', '/layouts/marketing/', routes.render('layouts/marketing', 'blank'));
-routePage('layoutsEmail',     '/layouts/email/',     routes.render('layouts/email', 'blank'));
-routePage('layoutsBlog',      '/layouts/blog/',      routes.render('layouts/blog', 'blank'));
-routePage('layoutsPricing',   '/layouts/pricing/',   routes.render('layouts/pricing', 'blank'));
+// Layout examples.
+app.get('/layouts/:layout/', routes.layout('layouts/'));
+app.map('/layouts/:layout/', 'layout');
 
+// Static asset combo.
 app.get('/combo/:version', [
     combo.combine({rootPath: config.dirs.pub}),
     combo.respond
@@ -125,6 +119,22 @@ app.get('/combo/:version', [
 
 // Redirects
 app.get('/updates/', routes.redirect('http://blog.purecss.io/', 301));
+
+// Create Handlebars `pathTo` helper using the routes map.
+pathTo = expmap.pathTo(app.getRouteMap());
+hbs.helpers.pathTo = function (name, options) {
+    return pathTo(name, options.hash);
+};
+
+// Create `nav` local with all labeled routes.
+app.locals.nav = app.findAll('label').map(function (route) {
+    return {
+        path   : route.path,
+        name   : route.annotations.name,
+        label  : route.annotations.label,
+        divider: route.annotations.name === 'customize'
+    };
+});
 
 // -- Exports ------------------------------------------------------------------
 module.exports = app;
