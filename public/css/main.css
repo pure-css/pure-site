@@ -97,6 +97,7 @@ dd {
      background: #fff;
  }
     .header h1 {
+        font-family: "omnes-pro", sans-serif;
         margin: 0.2em 0;
         font-size: 3em;
         font-weight: 300;
@@ -187,6 +188,7 @@ aside {
     border-top: 1px solid #eee;
     padding: 0.5em 1.1429em;
     background: rgb(250, 250, 250);
+    line-height: 1.6em;
 }
 
     .legal-license {
@@ -200,7 +202,6 @@ aside {
     .legal-links {
         list-style: none;
         padding: 0;
-        line-height: 1.6em;
     }
     .legal-logo {
         text-align: center;
