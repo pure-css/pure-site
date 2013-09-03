@@ -5,18 +5,20 @@
 {{addLocalCSS "/css/home.css"}}
 
 <div class="hero">
-    <h1 class="pure-u-1">{{title}}</h1>
-    <h2 class="pure-u-3-4 l-centered">{{subTitle}}</h2>
+    <div class="hero-titles">
+        <h1>{{title}}</h1>
+        <h2>{{subTitle}}</h2>
+    </div>
 
-    <div class="hero-cta pure-u-3-4">
-    {{#code}}
+    <div class="hero-cta">
+      {{#code}}
         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure_version}}/pure-min.css">
-    {{/code}}
+      {{/code}}
 
-    <p>
-        <a class="pure-button pure-button-cta" href="{{pathTo 'customize'}}">Get Started</a>
-        <a class="pure-button pure-button-secondary" href="https://github.com/yui/pure/">View on GitHub</a>
-    </p>
+        <p>
+            <a class="pure-button pure-button-cta" href="{{pathTo 'customize'}}">Get Started</a>
+            <a class="pure-button pure-button-secondary" href="https://github.com/yui/pure/">View on GitHub</a>
+        </p>
     </div>
 </div>
 
@@ -54,15 +56,17 @@
         </div>
     </div>
 
-    <div class="l-box pure-u">
-        <h3>CSS with a minimal footprint.</h3>
-        <p>
-            Pure is ridiculously tiny. The entire set of modules clocks in at <b>{{fileSize "pure"}}* minified and gzipped</b>, without forgoing responsive styles, design, or ease of use. Crafted with mobile devices in mind, it was important to us to keep our file sizes small, and every line of CSS was carefully considered. If you decide to only use a subset of these modules, you'll save even more bytes.
-        </p>
+    <div class="content">
+        <div class="l-box pure-u">
+            <h3>CSS with a minimal footprint.</h3>
+            <p>
+                Pure is ridiculously tiny. The entire set of modules clocks in at <b>{{fileSize "pure"}}* minified and gzipped</b>, without forgoing responsive styles, design, or ease of use. Crafted with mobile devices in mind, it was important to us to keep our file sizes small, and every line of CSS was carefully considered. If you decide to only use a subset of these modules, you'll save even more bytes.
+            </p>
 
-        <p style="font-size:small;">
-            * We can add correctly :) the numbers above are individual module sizes; when grouped together gzipping compresses them even more.
-        </p>
+            <p style="font-size:small;">
+                * We can add correctly :) the numbers above are individual module sizes; when grouped together gzipping compresses them even more.
+            </p>
+        </div>
     </div>
 </div>
 
