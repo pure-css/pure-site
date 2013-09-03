@@ -3,6 +3,7 @@
     margin: 6em auto 3em;
 }
     .hero-titles {
+        font-family: "omnes-pro", sans-serif;
         padding: 0 2em;
     }
     .hero h1 {
