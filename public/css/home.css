@@ -23,6 +23,8 @@
 .hero-cta pre {
     padding: 1em;
     font-size: 100%;
+    border-left: 0;
+    border-right: 0;
 }
 
 a.pure-button-cta,
