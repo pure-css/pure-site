@@ -1,14 +1,14 @@
 {
   "name": "pure-site",
-  "version": "1.5.16",
+  "version": "1.5.17",
   "dependencies": {
     "combohandler": {
       "version": "0.2.2",
-      "from": "combohandler@0.2.2",
+      "from": "combohandler@0.2.x",
       "dependencies": {
         "express": {
           "version": "3.2.6",
-          "from": "express@3.2.6",
+          "from": "express@3.2.x",
           "dependencies": {
             "connect": {
               "version": "2.7.11",
@@ -101,12 +101,12 @@
       }
     },
     "express": {
-      "version": "3.3.7",
-      "from": "express@3.3.7",
+      "version": "3.3.8",
+      "from": "express@3.x",
       "dependencies": {
         "connect": {
-          "version": "2.8.7",
-          "from": "connect@2.8.7",
+          "version": "2.8.8",
+          "from": "connect@2.8.8",
           "dependencies": {
             "qs": {
               "version": "0.6.5",
@@ -186,85 +186,85 @@
     },
     "express-map": {
       "version": "0.0.1-beta-3",
-      "from": "express-map@0.0.1-beta-3",
+      "from": "express-map@latest",
       "dependencies": {
         "express-annotations": {
           "version": "0.0.1-beta-2",
-          "from": "express-annotations@0.0.1-beta-2"
+          "from": "express-annotations@*"
         }
       }
     },
     "express-state": {
       "version": "1.0.0",
-      "from": "express-state@1.0.0"
+      "from": "express-state@1.x"
     },
     "express3-handlebars": {
       "version": "0.5.0",
-      "from": "express3-handlebars@0.5.0",
+      "from": "express3-handlebars@0.5.x",
       "dependencies": {
         "async": {
           "version": "0.2.9",
-          "from": "async@0.2.9"
+          "from": "async@~0.2"
         },
         "glob": {
           "version": "3.2.6",
-          "from": "glob@3.2.6",
+          "from": "glob@3.x",
           "dependencies": {
             "minimatch": {
               "version": "0.2.12",
-              "from": "minimatch@0.2.12",
+              "from": "minimatch@~0.2.11",
               "dependencies": {
                 "lru-cache": {
                   "version": "2.3.1",
-                  "from": "lru-cache@2.3.1"
+                  "from": "lru-cache@2"
                 },
                 "sigmund": {
                   "version": "1.0.0",
-                  "from": "sigmund@1.0.0"
+                  "from": "sigmund@~1.0.0"
                 }
               }
             },
             "inherits": {
               "version": "2.0.1",
-              "from": "inherits@2.0.1"
+              "from": "inherits@2"
             }
           }
         },
         "semver": {
           "version": "2.1.0",
-          "from": "semver@2.1.0"
+          "from": "semver@2.x"
         }
       }
     },
     "handlebars": {
       "version": "1.0.12",
-      "from": "handlebars@1.0.12",
+      "from": "handlebars@1.x",
       "dependencies": {
         "optimist": {
           "version": "0.3.7",
-          "from": "optimist@0.3.7",
+          "from": "optimist@~0.3",
           "dependencies": {
             "wordwrap": {
               "version": "0.0.2",
-              "from": "wordwrap@0.0.2"
+              "from": "wordwrap@~0.0.2"
             }
           }
         },
         "uglify-js": {
           "version": "2.3.6",
-          "from": "uglify-js@2.3.6",
+          "from": "uglify-js@~2.3",
           "dependencies": {
             "async": {
               "version": "0.2.9",
-              "from": "async@0.2.9"
+              "from": "async@~0.2.6"
             },
             "source-map": {
               "version": "0.1.29",
-              "from": "source-map@0.1.29",
+              "from": "source-map@~0.1.7",
               "dependencies": {
                 "amdefine": {
                   "version": "0.0.8",
-                  "from": "amdefine@0.0.8"
+                  "from": "amdefine@>=0.0.4"
                 }
               }
             }
