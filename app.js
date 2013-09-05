@@ -103,12 +103,12 @@ routePage('/forms/',     'forms',     'Forms');
 routePage('/buttons/',   'buttons',   'Buttons');
 routePage('/tables/',    'tables',    'Tables');
 routePage('/menus/',     'menus',     'Menus');
+routePage('/layouts/',   'layouts',   'Layouts', routes.layouts.index);
 routePage('/customize/', 'customize', 'Customize');
 routePage('/extend/',    'extend',    'Extend');
-routePage('/layouts/',   'layouts',   'Layouts');
 
 // Layout examples.
-app.get('/layouts/:layout/', routes.layout('layouts/'));
+app.get('/layouts/:layout/', routes.layouts.layout);
 app.map('/layouts/:layout/', 'layout');
 
 // Static asset combo.
@@ -132,7 +132,7 @@ app.locals.nav = app.findAll('label').map(function (route) {
         path   : route.path,
         name   : route.annotations.name,
         label  : route.annotations.label,
-        divider: route.annotations.name === 'customize'
+        divider: route.annotations.name === 'layouts'
     };
 });
 

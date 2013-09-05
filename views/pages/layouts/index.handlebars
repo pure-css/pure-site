@@ -18,113 +18,38 @@
         </p>
     </aside>
 
-
+  {{#each layouts}}
     <div class="layout-item pure-g-r">
-        <div class="pure-u-1-2">
-            <a href="{{pathTo 'layout' layout='marketing'}}">
-                <img src="/img/layouts/marketing@2x.jpg" class="bordered" width="400" height="214"
-                     alt="Screenshot of Landing Page example layout.">
-            </a>
+        <div class="layout-item-screenshot pure-u-1-2">
+            <div class="l-hbox">
+                <a href="{{pathTo 'layout' layout=name}}">
+                    <img src="/img/layouts/{{name}}@2x.jpg" class="bordered" width="400" height="214"
+                         alt="Screenshot of {{label}} example layout.">
+                </a>
+            </div>
         </div>
 
-        <div class="pure-u-1-2">
+        <div class="layout-item-content pure-u-1-2">
             <div class="l-hbox">
-                <h3 class="layout-item-head">Landing Page</h3>
+                <h3 class="layout-item-head">{{label}}</h3>
+                <p>{{description}}</p>
+
+              {{#if tags}}
+                <ul class="layout-item-modules pure-g">
+                  {{#each tags}}
+                    <li class="layout-item-module layout-item-module-{{.}} pure-u">
+                        <a href="{{pathTo .}}">{{.}}</a>
+                    </li>
+                  {{/each}}
+                </ul>
+              {{/if}}
 
                 <p>
-                    This layout shows off a responsive product landing page. It leverages <a href="{{pathTo 'grids'}}">Grids</a> and <a href="{{pathTo 'menus'}}">Menus</a>.
+                    <a href="{{pathTo 'layout' layout=name}}"
+                       class="pure-button pure-button-primary">Launch</a>
                 </p>
-
-                <p><a href="{{pathTo 'layout' layout='marketing'}}" class="pure-button">View Layout</a></p>
             </div>
         </div>
     </div>
-
-
-    <div class="layout-item pure-g-r">
-        <div class="pure-u-1-2">
-            <a href="{{pathTo 'layout' layout='gallery'}}">
-                <img src="/img/layouts/gallery@2x.jpg" class="bordered" width="400" height="214"
-                     alt="Screenshot of Photo Gallery example layout.">
-            </a>
-        </div>
-
-        <div class="pure-u-1-2">
-            <div class="l-hbox">
-                <h3 class="layout-item-head">Photo Gallery</h3>
-
-                <p>
-                    This layout shows off a responsive photo gallery. It leverages <a href="{{pathTo 'grids'}}">Grids</a>, <a href="{{pathTo 'menus'}}">Menus</a>, and <a href="{{pathTo 'forms'}}">Forms</a>.
-                </p>
-
-                <p><a href="{{pathTo 'layout' layout='gallery'}}" class="pure-button">View Layout</a></p>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="layout-item pure-g-r">
-        <div class="pure-u-1-2">
-            <a href="{{pathTo 'layout' layout='email'}}">
-                <img src="/img/layouts/email@2x.jpg" class="bordered" width="400" height="214"
-                     alt="Screenshot of an example Email app layout.">
-            </a>
-        </div>
-
-        <div class="pure-u-1-2">
-            <div class="l-hbox">
-                <h3 class="layout-item-head">Email</h3>
-
-                <p>
-                    This layout shows off a responsive email layout. It leverages <a href="{{pathTo 'grids'}}">Grids</a> and <a href="{{pathTo 'menus'}}">Menus</a>.
-                </p>
-
-                <p><a href="{{pathTo 'layout' layout='email'}}" class="pure-button">View Layout</a></p>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="layout-item pure-g-r">
-        <div class="pure-u-1-2">
-            <a href="{{pathTo 'layout' layout='blog'}}">
-                <img src="/img/layouts/blog@2x.jpg" class="bordered" width="400" height="214"
-                     alt="Screenshot of a blog example layout.">
-            </a>
-        </div>
-
-        <div class="pure-u-1-2">
-            <div class="l-hbox">
-                <h3 class="layout-item-head">Blog</h3>
-
-                <p>
-                    This layout shows off a blog page with a list of posts. It leverages <a href="{{pathTo 'grids'}}">Grids</a>, <a href="{{pathTo 'menus'}}">Menus</a>, and <a href="{{pathTo 'buttons'}}">Buttons</a>.
-                </p>
-
-                <p><a href="{{pathTo 'layout' layout='blog'}}" class="pure-button">View Layout</a></p>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="layout-item pure-g-r">
-        <div class="pure-u-1-2">
-            <a href="{{pathTo 'layout' layout='pricing'}}">
-                <img src="/img/layouts/pricing@2x.jpg" class="bordered" width="400" height="214"
-                     alt="Screenshot of a pricing table layout.">
-            </a>
-        </div>
-
-        <div class="pure-u-1-2">
-            <div class="l-hbox">
-                <h3 class="layout-item-head">Pricing Table</h3>
-
-                <p>
-                    This layout shows off a responsive pricing table. It leverages <a href="{{pathTo 'grids'}}">Grids</a>, <a href="{{pathTo 'menus'}}">Menus</a>, and <a href="{{pathTo 'buttons'}}">Buttons</a>.
-                </p>
-
-                <p><a href="{{pathTo 'layout' layout='pricing'}}" class="pure-button">View Layout</a></p>
-            </div>
-        </div>
-    </div>
+  {{/each}}
 </div>
