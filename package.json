@@ -38,8 +38,5 @@
       "email": "tilo@yahoo-inc.com",
       "url": "http://purecss.io/"
     }
-  },
-  "devDependencies": {
-    "url-to-screenshot": "~0.4.1"
   }
 }
