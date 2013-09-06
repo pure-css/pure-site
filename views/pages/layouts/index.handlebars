@@ -1,0 +1,55 @@
+{{setTitle     "Layouts"}}
+{{setSubTitle  "Quickstart your next web project with these example layouts."}}
+{{setActiveNav "layouts"}}
+
+{{addLocalCSS "/css/layouts.css"}}
+
+{{> header}}
+
+<div class="content">
+    {{sectionHeading "Common Layouts"}}
+    <p>
+        Pure was crafted with the goal that it can be used in every web project. To showcase this, we've made some common layouts that leverage Pure. These layouts are responsive and don't use any JavaScript.
+    </p>
+
+    <aside>
+        <p>
+            When viewing these layouts, view or copy the source to get a good understanding of what's happening.
+        </p>
+    </aside>
+
+  {{#each layouts}}
+    <div class="layout-item pure-g-r">
+        <div class="layout-item-screenshot pure-u-1-2">
+            <div class="l-hbox">
+                <a href="{{pathTo 'layout' layout=name}}">
+                    <img src="/img/layouts/{{name}}@2x.jpg" class="bordered" width="400" height="214"
+                         alt="Screenshot of {{label}} example layout.">
+                </a>
+            </div>
+        </div>
+
+        <div class="layout-item-content pure-u-1-2">
+            <div class="l-hbox">
+                <h3 class="layout-item-head">{{label}}</h3>
+                <p>{{description}}</p>
+
+              {{#if tags}}
+                <ul class="layout-item-modules pure-g">
+                  {{#each tags}}
+                    <li class="layout-item-module layout-item-module-{{.}} pure-u">
+                        <a href="{{pathTo .}}">{{.}}</a>
+                    </li>
+                  {{/each}}
+                </ul>
+              {{/if}}
+
+                <p>
+                    <a href="{{pathTo 'layout' layout=name}}"
+                       class="pure-button pure-button-primary">Launch</a>
+                </p>
+            </div>
+        </div>
+    </div>
+  {{/each}}
+</div>

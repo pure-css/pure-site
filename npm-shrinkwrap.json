@@ -1,6 +1,6 @@
 {
   "name": "pure-site",
-  "version": "1.5.17",
+  "version": "1.5.19",
   "dependencies": {
     "combohandler": {
       "version": "0.2.2",
@@ -271,6 +271,34 @@
           }
         }
       }
+    },
+    "glob": {
+      "version": "3.2.6",
+      "from": "glob@",
+      "dependencies": {
+        "minimatch": {
+          "version": "0.2.12",
+          "from": "minimatch@~0.2.11",
+          "dependencies": {
+            "lru-cache": {
+              "version": "2.3.1",
+              "from": "lru-cache@2"
+            },
+            "sigmund": {
+              "version": "1.0.0",
+              "from": "sigmund@~1.0.0"
+            }
+          }
+        },
+        "inherits": {
+          "version": "2.0.1",
+          "from": "inherits@2"
+        }
+      }
+    },
+    "async": {
+      "version": "0.2.9",
+      "from": "async@"
     }
   }
 }

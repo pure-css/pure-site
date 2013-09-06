@@ -1,40 +1,42 @@
 {
-    "name": "pure-site",
-    "description": "The Pure CSS website.",
-    "homepage": "http://purecss.io/",
-    "version": "1.5.19",
-    "private": true,
-    "repository": "git://github.com/yui/pure-site.git",
-    "contributors": [
-        "Eric Ferraiuolo <eferraiuolo@gmail.com> (http://ericf.me/)",
-        "Tilo Mitra <tilomitra@gmail.com> (http://www.tilomitra.com/)"
-    ],
-    "directories": {
-        "lib": "./lib",
-        "public": "./public",
-        "views": "./views"
+  "name": "pure-site",
+  "description": "The Pure CSS website.",
+  "homepage": "http://purecss.io/",
+  "version": "1.5.19",
+  "private": true,
+  "repository": "git://github.com/yui/pure-site.git",
+  "contributors": [
+    "Eric Ferraiuolo <eferraiuolo@gmail.com> (http://ericf.me/)",
+    "Tilo Mitra <tilomitra@gmail.com> (http://www.tilomitra.com/)"
+  ],
+  "directories": {
+    "lib": "./lib",
+    "public": "./public",
+    "views": "./views"
+  },
+  "main": "server.js",
+  "engines": {
+    "node": ">=0.8.x",
+    "npm": ">=1.1.2"
+  },
+  "dependencies": {
+    "combohandler": "0.2.x",
+    "express": "3.x",
+    "express-map": "latest",
+    "express-state": "1.x",
+    "express3-handlebars": "0.5.x",
+    "handlebars": "1.x",
+    "glob": "~3.2.6",
+    "async": "~0.2.9"
+  },
+  "yahoo": {
+    "bugzilla": {
+      "product": "yui utilities",
+      "component": "Pure"
     },
-    "main": "server.js",
-    "engines": {
-        "node": ">=0.8.x",
-        "npm": ">=1.1.2"
-    },
-    "dependencies": {
-        "combohandler": "0.2.x",
-        "express": "3.x",
-        "express-map": "latest",
-        "express-state": "1.x",
-        "express3-handlebars": "0.5.x",
-        "handlebars": "1.x"
-    },
-    "yahoo": {
-        "bugzilla": {
-            "product": "yui utilities",
-            "component": "Pure"
-        },
-        "custodian": {
-            "email": "tilo@yahoo-inc.com",
-            "url": "http://purecss.io/"
-        }
+    "custodian": {
+      "email": "tilo@yahoo-inc.com",
+      "url": "http://purecss.io/"
     }
+  }
 }
