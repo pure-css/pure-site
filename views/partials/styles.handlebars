@@ -1,7 +1,7 @@
 {{! Common styles used across multiple layouts }}
 
 {{#if isPureLocal}}
-{{addLocalCSS "/css/pure/pure-min.css" prepend=true}}
+{{addLocalCSS "/css/pure/pure.css" min=isProduction prepend=true}}
 {{else}}
 {{addCdnCSS pure_version "pure" min=true prepend=true}}
 {{/if}}
