@@ -23,6 +23,7 @@
         "combohandler": "0.2.x",
         "express": "3.x",
         "express-map": "latest",
+        "express-slash": "0.2.x",
         "express-state": "1.x",
         "express3-handlebars": "0.5.x",
         "handlebars": "1.x",

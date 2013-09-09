@@ -59,7 +59,7 @@ if (config.isDevelopment) {
 app.use(express.compress());
 app.use(express.favicon(path.join(config.dirs.pub, 'favicon.ico')));
 app.use(app.router);
-app.use(middleware.slash);
+app.use(middleware.slash());
 
 if (config.pure.local) {
     console.log('Serving Pure from:', config.pure.local);
