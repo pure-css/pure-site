@@ -4,5 +4,6 @@ node_js:
 deploy:
   provider: heroku
   app: purecss-stage
+  strategy: git
   api_key:
     secure: KhQ03Crt1NiviprKBm1TDR4cs4sXFe6pHaODiywIJSJwfd04PckgV2NZTyU6Vxe5HOzQK6E/ElKuT1s4gN7jY5v64DwKdwTMfYON8m98RaCHl8W4DRgUrA0KAWMR3IFiCmZTgtJ1xeVXU/IDgORbpYTy/20/A9jEPiKAO6c/vDs=
