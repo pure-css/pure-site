@@ -4,7 +4,7 @@ var path  = require('path'),
     isProduction = process.env.NODE_ENV === 'production',
     isPureLocal, bowerrc, bower;
 
-exports.version   = '0.3.0-rc-3';
+exports.version   = '0.3.0';
 exports.filesizes = require('./filesizes');
 exports.modules   = ['base', 'grids', 'forms', 'buttons', 'tables', 'menus'];
 
