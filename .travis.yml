@@ -1,8 +1,0 @@
-language: node_js
-node_js:
-- "0.10"
-deploy:
-  provider: heroku
-  app: purecss-stage
-  api_key:
-    secure: 1KFBDq483esmdnJp2XFoY4zO9DqHfETK0Y/JK9EG2Tpu5wxxQ+KdL2zbJjzVrfPBlasGRDObYIsWOYQoX8TrVzinIYjst1pfqT3WJKyq4FoaKarUdwTeOpbyJryiw+No49mfYGBlB1RzFc6JmF52OUuDjYP99JjB27twn0Gc4rQ=
