@@ -3,6 +3,6 @@ node_js:
   - "0.10"
 deploy:
   provider: heroku
-  api_key:
-    secure: b23MfUOoyMSGrG6MaBi50jjKNkt3Gmtm7H217UtZNnFKSE499dHU6S1j5tjn/F7qDcEVHbjlc45XID1LIBxsq9m1sri2rxTO/l/8M9mrgMJcS9K1akQ5MHuvQ0LtJ7w/egn0XwUBcKLa0VCAHdRJ6Cr+mITTwPHaNVUEB3pBDdI=
   app: purecss-stage
+  api_key:
+    secure: KhQ03Crt1NiviprKBm1TDR4cs4sXFe6pHaODiywIJSJwfd04PckgV2NZTyU6Vxe5HOzQK6E/ElKuT1s4gN7jY5v64DwKdwTMfYON8m98RaCHl8W4DRgUrA0KAWMR3IFiCmZTgtJ1xeVXU/IDgORbpYTy/20/A9jEPiKAO6c/vDs=
