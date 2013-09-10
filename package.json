@@ -22,7 +22,8 @@
     "dependencies": {
         "combohandler": "0.2.x",
         "express": "3.x",
-        "express-map": "latest",
+        "express-annotations": "~0.0.1",
+        "express-map": "~0.0.1",
         "express-slash": "0.2.x",
         "express-state": "1.x",
         "express3-handlebars": "0.5.x",

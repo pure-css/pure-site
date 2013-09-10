@@ -87,7 +87,7 @@ function routePage(path, name, label, callbacks) {
         label     = null;
     }
 
-    app.get(path, callbacks || routes.render());
+    app.get(path, callbacks || routes.render(name));
     app.map(path, name);
 
     if (label) {
@@ -127,12 +127,14 @@ hbs.helpers.pathTo = function (name, options) {
 };
 
 // Create `nav` local with all labeled routes.
-app.locals.nav = app.findAll('label').map(function (route) {
+app.locals.nav = app.findAll('label').get.map(function (route) {
+    var annotations = app.annotations[route.path];
+
     return {
         path   : route.path,
-        name   : route.annotations.name,
-        label  : route.annotations.label,
-        divider: route.annotations.name === 'layouts'
+        name   : annotations.name,
+        label  : annotations.label,
+        divider: annotations.name === 'layouts'
     };
 });
 
