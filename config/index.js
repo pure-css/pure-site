@@ -20,5 +20,5 @@ module.exports = Object.freeze({
     pure   : require('./pure'),
     yui    : require('./yui'),
     ga     : 'UA-41480445-1',
-    typekit: 'ajf8ggy'
+    typekit: 'gis6vng'
 });
