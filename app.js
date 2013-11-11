@@ -108,8 +108,10 @@ routePage('/customize/', 'customize', 'Customize');
 routePage('/extend/',    'extend',    'Extend');
 
 // Layout examples.
-app.get('/layouts/:layout/', routes.layouts.layout);
 app.map('/layouts/:layout/', 'layout');
+app.get('/layouts/:layout/', routes.layouts.layout);
+app.map('/layouts/:layout/download', 'layout-download');
+app.get('/layouts/:layout/download', routes.layouts.download);
 
 // Static asset combo.
 app.get('/combo/:version', [
