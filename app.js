@@ -9,10 +9,9 @@ var combo     = require('combohandler'),
     config     = require('./config'),
     hbs        = require('./lib/hbs'),
     middleware = require('./lib/middleware'),
-    routes     = require('./lib/routes'),
+    routes     = require('./lib/routes');
 
-    app = express(),
-    pathTo;
+var app = module.exports = express();
 
 // -- Configure App ------------------------------------------------------------
 
@@ -137,9 +136,9 @@ app.get('/combo/:version', [
 app.get('/updates/', routes.redirect('http://blog.purecss.io/', 301));
 
 // Create Handlebars `pathTo` helper using the routes map.
-pathTo = expmap.pathTo(app.getRouteMap());
+app.pathTo = expmap.pathTo(app.getRouteMap());
 hbs.helpers.pathTo = function (name, options) {
-    return pathTo(name, options.hash);
+    return app.pathTo(name, options.hash);
 };
 
 // Create `nav` local with all labeled routes.
@@ -153,6 +152,3 @@ app.locals.nav = app.findAll('label').get.map(function (route) {
         divider: annotations.name === 'layouts'
     };
 });
-
-// -- Exports ------------------------------------------------------------------
-module.exports = app;
