@@ -1,27 +1,29 @@
-var combo    = require('combohandler'),
-    express  = require('express'),
-    expmap   = require('express-map'),
-    expstate = require('express-state'),
-    exphbs   = require('express3-handlebars'),
-    path     = require('path'),
+var combo     = require('combohandler'),
+    express   = require('express'),
+    expparams = require('express-params'),
+    expmap    = require('express-map'),
+    expstate  = require('express-state'),
+    exphbs    = require('express3-handlebars'),
+    path      = require('path'),
 
     config     = require('./config'),
     hbs        = require('./lib/hbs'),
     middleware = require('./lib/middleware'),
-    routes     = require('./lib/routes'),
+    routes     = require('./lib/routes');
 
-    app = express(),
-    pathTo;
+var app = module.exports = express();
 
 // -- Configure App ------------------------------------------------------------
 
 expmap.extend(app);
+expparams.extend(app);
 expstate.extend(app);
 
 app.set('name', 'Pure');
 app.set('env', config.env);
 app.set('port', config.port);
 app.enable('strict routing');
+app.enable('case sensitive routing');
 
 app.engine(hbs.extname, hbs.engine);
 app.set('view engine', hbs.extname);
@@ -108,8 +110,21 @@ routePage('/customize/', 'customize', 'Customize');
 routePage('/extend/',    'extend',    'Extend');
 
 // Layout examples.
-app.get('/layouts/:layout/', routes.layouts.layout);
+
+app.param('layout', function (val) {
+    var valLowerCase = val.toLowerCase();
+
+    if (app.enabled('case sensitive routing')) {
+        return valLowerCase === val && val;
+    }
+
+    return valLowerCase;
+});
+
 app.map('/layouts/:layout/', 'layout');
+app.get('/layouts/:layout/', routes.layouts.layout);
+app.map('/layouts/:layout/download', 'layout-download');
+app.get('/layouts/:layout/download', routes.layouts.download);
 
 // Static asset combo.
 app.get('/combo/:version', [
@@ -121,9 +136,9 @@ app.get('/combo/:version', [
 app.get('/updates/', routes.redirect('http://blog.purecss.io/', 301));
 
 // Create Handlebars `pathTo` helper using the routes map.
-pathTo = expmap.pathTo(app.getRouteMap());
+app.pathTo = expmap.pathTo(app.getRouteMap());
 hbs.helpers.pathTo = function (name, options) {
-    return pathTo(name, options.hash);
+    return app.pathTo(name, options.hash);
 };
 
 // Create `nav` local with all labeled routes.
@@ -137,6 +152,3 @@ app.locals.nav = app.findAll('label').get.map(function (route) {
         divider: annotations.name === 'layouts'
     };
 });
-
-// -- Exports ------------------------------------------------------------------
-module.exports = app;
