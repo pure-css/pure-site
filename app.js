@@ -1,9 +1,10 @@
-var combo    = require('combohandler'),
-    express  = require('express'),
-    expmap   = require('express-map'),
-    expstate = require('express-state'),
-    exphbs   = require('express3-handlebars'),
-    path     = require('path'),
+var combo     = require('combohandler'),
+    express   = require('express'),
+    expparams = require('express-params'),
+    expmap    = require('express-map'),
+    expstate  = require('express-state'),
+    exphbs    = require('express3-handlebars'),
+    path      = require('path'),
 
     config     = require('./config'),
     hbs        = require('./lib/hbs'),
@@ -16,12 +17,14 @@ var combo    = require('combohandler'),
 // -- Configure App ------------------------------------------------------------
 
 expmap.extend(app);
+expparams.extend(app);
 expstate.extend(app);
 
 app.set('name', 'Pure');
 app.set('env', config.env);
 app.set('port', config.port);
 app.enable('strict routing');
+app.enable('case sensitive routing');
 
 app.engine(hbs.extname, hbs.engine);
 app.set('view engine', hbs.extname);
@@ -108,6 +111,17 @@ routePage('/customize/', 'customize', 'Customize');
 routePage('/extend/',    'extend',    'Extend');
 
 // Layout examples.
+
+app.param('layout', function (val) {
+    var valLowerCase = val.toLowerCase();
+
+    if (app.enabled('case sensitive routing')) {
+        return valLowerCase === val && val;
+    }
+
+    return valLowerCase;
+});
+
 app.map('/layouts/:layout/', 'layout');
 app.get('/layouts/:layout/', routes.layouts.layout);
 app.map('/layouts/:layout/download', 'layout-download');
