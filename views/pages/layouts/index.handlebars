@@ -49,7 +49,10 @@
                        class="pure-button pure-button-primary">View</a>
 
                     <a href="{{pathTo 'layout-download' layout=name}}"
-                       class="pure-button">Download</a>
+                       class="pure-button"
+                       {{#if ../ga}}onclick="ga('send', 'event', 'layouts', 'download', '{{name}}');"{{/if}}>
+                       Download
+                    </a>
                 </p>
             </div>
         </div>
