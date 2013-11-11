@@ -1,8 +1,10 @@
-var menu = document.getElementById('menu'),
-    menuLink = document.getElementById('menuLink'),
-    layout = document.getElementById('layout'),
+(function (window, document) {
 
-    toggleClass = function (element, className) {
+    var layout   = document.getElementById('layout'),
+        menu     = document.getElementById('menu'),
+        menuLink = document.getElementById('menuLink');
+
+    function toggleClass(element, className) {
         var classes = element.className.split(/\s+/),
             length = classes.length,
             i = 0;
@@ -19,12 +21,15 @@ var menu = document.getElementById('menu'),
         }
 
         element.className = classes.join(' ');
-    };
+    }
 
     menuLink.onclick = function (e) {
-        e.preventDefault();
         var active = 'active';
+
+        e.preventDefault();
         toggleClass(layout, active);
         toggleClass(menu, active);
         toggleClass(menuLink, active);
     };
+
+}(this, this.document));
