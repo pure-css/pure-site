@@ -96,7 +96,8 @@ By using the combination of "position: fixed, top: 0; bottom:0;", we can make th
         }
 
     /* This styles the selected menu item <li> */
-    #menu .pure-menu-selected {
+    #menu .pure-menu-selected,
+    #menu .pure-menu-heading {
         background: #1f8dd6;
     }
         /* This styles a link within a selected menu item <li> */
@@ -108,7 +109,6 @@ By using the combination of "position: fixed, top: 0; bottom:0;", we can make th
     #menu .pure-menu-heading {
         font-size: 110%;
         color: #fff;
-        background: rgb(0, 163, 255);
         margin: 0;
     }
 
