@@ -3,6 +3,7 @@
 {{setActiveNav "layouts"}}
 
 {{addLocalCSS "/css/layouts.css"}}
+{{addLocalJS  "/js/layouts.js"}}
 
 {{> header}}
 
@@ -48,11 +49,9 @@
                     <a href="{{pathTo 'layout' layout=name}}"
                        class="pure-button pure-button-primary">View</a>
 
-                    <a href="{{pathTo 'layout-download' layout=name}}"
-                       class="pure-button"
-                       {{#if ../ga}}onclick="ga('send', 'event', 'layouts', 'download', '{{name}}');"{{/if}}>
-                       Download
-                    </a>
+                    <a href="{{pathTo 'layout-download' layout=name}}" download
+                       onclick="return Pure.trackLayoutDownload.call(this, '{{name}}');"
+                       class="pure-button">Download</a>
                 </p>
             </div>
         </div>
