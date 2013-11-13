@@ -2,7 +2,9 @@ body {
     color: #777;
 }
 
-/* Add transition to containers so they can push in and out */
+/*
+Add transition to containers so they can push in and out.
+*/
 #layout,
 #menu,
 .pure-menu-link {
@@ -13,13 +15,17 @@ body {
     transition: all 0.2s ease-out;
 }
 
-/* This is the parent div that contains the menu and the content area */
+/*
+This is the parent `<div>` that contains the menu and the content area.
+*/
 #layout {
     padding-left: 150px; /* left col width "#menu" */
     left: 0;
 }
 
-/* The content div is where all your content goes */
+/*
+The content `<div>` is where all your content goes.
+*/
 .content {
     margin: 0 auto;
     padding: 0 2em;
@@ -28,13 +34,6 @@ body {
     line-height: 1.6em;
 }
 
-/* The content-subhead just applies some styles to headers within the content div */
-.content-subhead {
-    margin: 50px 0 20px 0;
-    font-weight: 300;
-    color: #888;
-}
-/* This is the header for the page, and has the title and subtitle of the page */
 .header {
      margin: 0;
      color: #333;
@@ -54,10 +53,19 @@ body {
         margin-top: 0;
     }
 
-/* The #menu div is the parent div that contains the pure-menu that appears on the left side of the page.
+.content-subhead {
+    margin: 50px 0 20px 0;
+    font-weight: 300;
+    color: #888;
+}
 
-By using the combination of "position: fixed, top: 0; bottom:0;", we can make the menu have 100% height and be fixed on the page as the rest of it scrolls.
- */
+/*
+The `#menu` `<div>` is the parent `<div>` that contains the `.pure-menu` that
+appears on the left side of the page.
+
+By using the combination of `position: fixed; top: 0; bottom:0;`, we can make
+the menu have 100% height and be fixed on the page as the rest of it scrolls.
+*/
 #menu {
     margin-left: -150px; /* this should be "#menu" width */
     width: 150px;
@@ -70,59 +78,77 @@ By using the combination of "position: fixed, top: 0; bottom:0;", we can make th
     overflow-y: auto;
     -webkit-overflow-scroll: touch; /* for smooth scrolling on mobile */
 }
-    /* All anchors inside the menu should be styled like this */
+    /*
+    All anchors inside the menu should be styled like this.
+    */
     #menu a {
         color: #999;
         border: none;
         padding: 0.6em 0 0.6em 0.6em;
     }
 
-    /* Remove all background/borders, since we are applying them to #menu */
+    /*
+    Remove all background/borders, since we are applying them to #menu.
+    */
      #menu .pure-menu,
      #menu .pure-menu ul {
         border: none;
         background: transparent;
     }
 
-    /* Add that light border to separate items into groups */
+    /*
+    Add that light border to separate items into groups.
+    */
     #menu .pure-menu ul,
     #menu .pure-menu .menu-item-divided {
         border-top: 1px solid #333;
     }
-        /* Change color of the anchor links on hover/focus */
+        /*
+        Change color of the anchor links on hover/focus.
+        */
         #menu .pure-menu li a:hover,
         #menu .pure-menu li a:focus {
             background: #333;
         }
 
-    /* This styles the selected menu item <li> */
+    /*
+    This styles the selected menu item `<li>`.
+    */
     #menu .pure-menu-selected,
     #menu .pure-menu-heading {
         background: #1f8dd6;
     }
-        /* This styles a link within a selected menu item <li> */
+        /*
+        This styles a link within a selected menu item `<li>`.
+        */
         #menu .pure-menu-selected a {
             color: #fff;
         }
 
-    /* This styles the menu heading */
+    /*
+    This styles the menu heading.
+    */
     #menu .pure-menu-heading {
         font-size: 110%;
         color: #fff;
         margin: 0;
     }
 
-/* ---------------------------------- *
- * Dynamic Button For Responsive Menu *
- * ---------------------------------- */
+/* -- Dynamic Button For Responsive Menu -------------------------------------*/
 
-/* The button to open/close the Menu is custom-made and not part of Pure. Here's how it works */
+/*
+The button to open/close the Menu is custom-made and not part of Pure. Here's
+how it works:
+*/
 
-/* pure-menu-link represents the responsive button that shows/hides on small screens */
+/*
+`.pure-menu-link` represents the responsive menu toggle that shows/hides on
+small screens.
+*/
 .pure-menu-link {
     display: none; /* show this only on small screens */
     top: 0;
-    left: 150px; /* "#menu width" */
+    left: 150px; /* `#menu`'s width */
     background: #000;
     font-size: 10px; /* change this value to increase/decrease button size */
     z-index: 10;
@@ -146,33 +172,35 @@ By using the combination of "position: fixed, top: 0; bottom:0;", we can make th
     .pure-menu-link span:after {
         background-color: #fff;
         width: 100%;
-        height: .2em;
+        height: 0.2em;
     }
 
         .pure-menu-link span:before,
         .pure-menu-link span:after {
             position: absolute;
-            margin-top: -.6em;
+            margin-top: -0.6em;
             content: " ";
         }
 
         .pure-menu-link span:after {
-            margin-top: .6em;
+            margin-top: 0.6em;
         }
 
 
-/* --------------------------------- *
- * Responsive Styles (Media Queries) *
- * --------------------------------- */
+/* -- Responsive Styles (Media Queries) ------------------------------------- */
 
-/* We hide the menu at `767px` and below. Since an iPad's width is 768px, this makes the menu appear on iPads, but hides it on smaller tablets. Feel free to modify this based on your application's needs. */
+/*
+Hides the menu at `767px`, but modify this based on your app's needs.
+*/
 @media (max-width: 767px) {
 
     .header {
         text-align: left;
     }
 
-    /* Navigation Push Styles */
+    /*
+    Navigation Push styles.
+    */
     #layout {
         position: relative;
         padding-left: 0;
@@ -200,4 +228,3 @@ By using the combination of "position: fixed, top: 0; bottom:0;", we can make th
         left: 150px;
     }
 }
-
