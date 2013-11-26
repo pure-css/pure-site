@@ -8,8 +8,8 @@ var combo     = require('combohandler'),
 
     config     = require('./config'),
     hbs        = require('./lib/hbs'),
-    middleware = require('./lib/middleware'),
-    routes     = require('./lib/routes');
+    middleware = require('./middleware'),
+    routes     = require('./routes');
 
 var app = module.exports = express();
 

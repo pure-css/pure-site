@@ -1,8 +1,8 @@
 var path = require('path'),
 
-    config     = require('../../config'),
-    liblayouts = require('../layouts'),
-    error      = require('../utils').error;
+    config     = require('../config'),
+    liblayouts = require('../lib/layouts'),
+    error      = require('../lib/utils').error;
 
 exports.index    = [loadLayouts, showIndex];
 exports.layout   = showLayout;

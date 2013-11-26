@@ -1,5 +1,5 @@
 var path  = require('path'),
-    error = require('../utils').error;
+    error = require('../lib/utils').error;
 
 exports.render   = render;
 exports.redirect = redirect;

@@ -1,4 +1,4 @@
-var error = require('../utils').error;
+var error = require('../lib/utils').error;
 
 module.exports = function (req, res, next) {
     if (!res.locals.message) {
