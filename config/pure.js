@@ -1,32 +1,26 @@
-var path  = require('path'),
-    fs    = require('fs'),
+var fs   = require('fs'),
+    path = require('path');
 
-    isProduction = process.env.NODE_ENV === 'production',
-    isPureLocal, bowerrc, bower, localPure;
+var bowerrc      = path.join(process.cwd(), '.bowerrc'),
+    bower        = JSON.parse(fs.readFileSync(bowerrc, 'utf8')),
+    bowerPureDir = path.join(process.cwd(), bower.directory, 'pure');
 
-exports.version   = '0.3.0';
-exports.filesizes = require('./filesizes');
-exports.modules   = ['base', 'grids', 'forms', 'buttons', 'tables', 'menus'];
+exports.version = require(path.join(bowerPureDir, 'bower.json')).version;
+exports.modules = ['base', 'grids', 'forms', 'buttons', 'tables', 'menus'];
+exports.local   = getLocalPureDir(bowerPureDir);
 
-// We always want to serve from the CDN in production.
-if (isProduction) { return; }
+// -----------------------------------------------------------------------------
 
-isPureLocal = process.argv.slice(2).some(function (arg) {
-    return arg === '--pure-local';
-});
+function getLocalPureDir(bowerPureDir) {
+    var localPureDir = null;
 
-// Export the path at which to serve Pure from the locally-linked Bower package.
-if (isPureLocal) {
-    bowerrc   = path.join(process.cwd(), '.bowerrc');
-    bower     = JSON.parse(fs.readFileSync(bowerrc));
-    localPure = path.join(process.cwd(), bower.directory, 'pure');
-
-    // Handle `pure` and `pure-release` repo structures.
-    if (fs.existsSync(path.join(localPure, 'pure.css'))) {
-        exports.local = localPure;
-    } else if (fs.existsSync(path.join(localPure, 'build', 'pure.css'))) {
-        exports.local = path.join(localPure, 'build');
-    } else {
-        console.warn('Your setup to serve Pure locally is wrong!');
+    // Find the Pure's code in the Bower component. This supports both `pure`
+    // and `pure-release` repo structures.
+    if (fs.existsSync(path.join(bowerPureDir, 'pure.css'))) {
+        localPureDir = bowerPureDir;
+    } else if (fs.existsSync(path.join(bowerPureDir, 'build', 'pure.css'))) {
+        localPureDir = path.join(bowerPureDir, 'build');
     }
+
+    return localPureDir;
 }

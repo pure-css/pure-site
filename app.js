@@ -33,18 +33,13 @@ app.locals({
     site          : 'Pure',
     copyright_year: '2013',
 
-    version     : config.version,
-    pure_version: config.pure.version,
-    yui_version : config.yui.version,
+    version    : config.version,
+    yui_version: config.yui.version,
 
     isDevelopment: config.isDevelopment,
     isProduction : config.isProduction,
-    isPureLocal  : !!config.pure.local,
 
     min: config.isProduction ? '-min' : '',
-
-    modules  : config.pure.modules,
-    filesizes: config.pure.filesizes,
 
     ga     : config.isProduction && config.ga,
     typekit: config.typekit
@@ -60,12 +55,14 @@ if (config.isDevelopment) {
 
 app.use(express.compress());
 app.use(express.favicon(path.join(config.dirs.pub, 'favicon.ico')));
+app.use(middleware.pure(config.pure));
 app.use(app.router);
 app.use(middleware.slash());
 
-if (config.pure.local) {
-    console.log('Serving Pure from:', config.pure.local);
+if (config.isDevelopment) {
+    app.locals.isPureLocal = true;
     app.use('/css/pure/', express.static(config.pure.local));
+    console.log('Serving Pure', config.pure.version, 'from:', config.pure.local);
 }
 
 app.use(express.static(config.dirs.pub));
