@@ -8,8 +8,8 @@ var combo     = require('combohandler'),
 
     config     = require('./config'),
     hbs        = require('./lib/hbs'),
-    middleware = require('./lib/middleware'),
-    routes     = require('./lib/routes');
+    middleware = require('./middleware'),
+    routes     = require('./routes');
 
 var app = module.exports = express();
 
@@ -33,18 +33,13 @@ app.locals({
     site          : 'Pure',
     copyright_year: '2013',
 
-    version     : config.version,
-    pure_version: config.pure.version,
-    yui_version : config.yui.version,
+    version    : config.version,
+    yui_version: config.yui.version,
 
     isDevelopment: config.isDevelopment,
     isProduction : config.isProduction,
-    isPureLocal  : !!config.pure.local,
 
     min: config.isProduction ? '-min' : '',
-
-    modules  : config.pure.modules,
-    filesizes: config.pure.filesizes,
 
     ga     : config.isProduction && config.ga,
     typekit: config.typekit
@@ -60,12 +55,14 @@ if (config.isDevelopment) {
 
 app.use(express.compress());
 app.use(express.favicon(path.join(config.dirs.pub, 'favicon.ico')));
+app.use(middleware.pure(config.pure));
 app.use(app.router);
 app.use(middleware.slash());
 
-if (config.pure.local) {
-    console.log('Serving Pure from:', config.pure.local);
+if (config.isDevelopment) {
+    app.locals.isPureLocal = true;
     app.use('/css/pure/', express.static(config.pure.local));
+    console.log('Serving Pure', config.pure.version, 'from:', config.pure.local);
 }
 
 app.use(express.static(config.dirs.pub));
@@ -83,7 +80,7 @@ if (config.isDevelopment) {
 // -- Routes -------------------------------------------------------------------
 
 // Sugar to route pages and add them to the nav menu.
-function routePage(path, name, label, callbacks) {
+function page(path, name, label, callbacks) {
     if (typeof label !== 'string') {
         callbacks = label;
         label     = null;
@@ -98,16 +95,17 @@ function routePage(path, name, label, callbacks) {
 }
 
 // Basic docs pages.
-routePage('/',           'home');
-routePage('/base/',      'base',      'Base');
-routePage('/grids/',     'grids',     'Grids');
-routePage('/forms/',     'forms',     'Forms');
-routePage('/buttons/',   'buttons',   'Buttons');
-routePage('/tables/',    'tables',    'Tables');
-routePage('/menus/',     'menus',     'Menus');
-routePage('/layouts/',   'layouts',   'Layouts', routes.layouts.index);
-routePage('/customize/', 'customize', 'Customize');
-routePage('/extend/',    'extend',    'Extend');
+
+page('/',           'home');
+page('/base/',      'base',      'Base');
+page('/grids/',     'grids',     'Grids');
+page('/forms/',     'forms',     'Forms');
+page('/buttons/',   'buttons',   'Buttons');
+page('/tables/',    'tables',    'Tables');
+page('/menus/',     'menus',     'Menus');
+page('/layouts/',   'layouts',   'Layouts', routes.layouts.index);
+page('/customize/', 'customize', 'Customize');
+page('/extend/',    'extend',    'Extend');
 
 // Layout examples.
 
@@ -121,10 +119,8 @@ app.param('layout', function (val) {
     return valLowerCase;
 });
 
-app.map('/layouts/:layout/', 'layout');
-app.get('/layouts/:layout/', routes.layouts.layout);
-app.map('/layouts/:layout/download', 'layout-download');
-app.get('/layouts/:layout/download', routes.layouts.download);
+page('/layouts/:layout/',         'layout',          routes.layouts.layout);
+page('/layouts/:layout/download', 'layout-download', routes.layouts.download);
 
 // Static asset combo.
 app.get('/combo/:version', [

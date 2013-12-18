@@ -1,0 +1,9 @@
+{
+    "name"   : "pure-site",
+    "version": "1.8.0",
+    "private": true,
+
+    "dependencies": {
+        "pure": "latest"
+    }
+}

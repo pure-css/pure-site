@@ -3,6 +3,7 @@
 {{setActiveNav "grids"}}
 
 {{addLocalCSS "/css/grids.css"}}
+{{!addLocalJS  "/js/grids.js"}}
 
 {{> header}}
 
@@ -49,6 +50,39 @@
     {{#code}}
     {{> grids/intro}}
     {{/code}}
+
+
+    {{sectionHeading "Grids Units Sizes"}}
+
+    <p>
+        Pure ships with both a <b>5ths</b> and <b>24ths</b> based grid. Depicted below are the avilable units that can be appended to the <b>{{code "pure-u-*"}}</b> classname where {{code "*"}} is one of the unit factions listed below. For example the unit classname for 50% width is: {{code "pure-u-1-2"}}.
+    </p>
+
+  {{!
+    <p class="pure-form">
+        <label>
+            <input class="grids-show-all" type="checkbox" checked>
+            Show All Grids Units
+        </label>
+    </p>
+  }}
+
+    <h3>5ths-Based Units</h3>
+
+  {{#each pure.gridunits.n5}}
+    {{> grids/grids-unit}}
+  {{/each}}
+
+    <h3>24ths-Based Units</h3>
+
+  {{#each pure.gridunits.n24}}
+    {{> grids/grids-unit}}
+  {{/each}}
+
+    <h3>Custom Unit Sizes</h3>
+    <p>
+        We are working on building tools to allow people to customize Pure Grids. The first low-level tools, the <b><a href="https://github.com/ericf/rework-pure-grids">Pure Grids Rework Plugin</a></b>, is available to use today&mdash;we use this tool to generate Pure's built-in unit sizes.
+    </p>
 
 
     {{sectionHeading "Pure Responsive Grids"}}
@@ -169,7 +203,7 @@
     </p>
 
   {{#code}}
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure_version}}/grids-min.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure.version}}/grids-min.css">
   {{/code}}
 
     <aside>

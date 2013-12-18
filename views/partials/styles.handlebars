@@ -3,7 +3,7 @@
 {{#if isPureLocal}}
 {{addLocalCSS "/css/pure/pure.css" min=isProduction prepend=true}}
 {{else}}
-{{addCdnCSS pure_version "pure" min=true prepend=true}}
+{{addCdnCSS pure.version "pure" min=true prepend=true}}
 {{/if}}
 
 {{#cdnCSS}}
