@@ -12,7 +12,7 @@ body,
 /* Add transition to containers so they can push in and out */
 #layout,
 #menu,
-.pure-menu-link {
+.menu-link {
     -webkit-transition: all 0.2s ease-out;
     -moz-transition: all 0.2s ease-out;
     -ms-transition: all 0.2s ease-out;
@@ -251,7 +251,7 @@ aside {
             background: #333;
         }
 
-    .pure-menu-link {
+    .menu-link {
         display: none; /* show this only on small screens */
         top: 0;
         left: 150px; /* "#menu width" */
@@ -264,19 +264,19 @@ aside {
         padding: 2.1em 1.6em;
     }
 
-        .pure-menu-link:hover,
-        .pure-menu-link:focus {
+        .menu-link:hover,
+        .menu-link:focus {
             background: #000;
         }
 
-        .pure-menu-link span {
+        .menu-link span {
             position: relative;
             display: block;
         }
 
-        .pure-menu-link span,
-        .pure-menu-link span:before,
-        .pure-menu-link span:after {
+        .menu-link span,
+        .menu-link span:before,
+        .menu-link span:after {
             background-color: #fff;
             width: 100%;
             height: .2em;
@@ -287,22 +287,22 @@ aside {
                     transition: all 0.4s;
         }
 
-            .pure-menu-link span:before,
-            .pure-menu-link span:after {
+            .menu-link span:before,
+            .menu-link span:after {
                 position: absolute;
                 margin-top: -.6em;
                 content: " ";
             }
 
-            .pure-menu-link span:after {
+            .menu-link span:after {
                 margin-top: .6em;
             }
 
-        .pure-menu-link.active span {
+        .menu-link.active span {
             background: transparent;
         }
 
-            .pure-menu-link.active span:before {
+            .menu-link.active span:before {
                 -webkit-transform: rotate(45deg) translate(.5em, .4em);
                    -moz-transform: rotate(45deg) translate(.5em, .4em);
                     -ms-transform: rotate(45deg) translate(.5em, .4em);
@@ -310,7 +310,7 @@ aside {
                         transform: rotate(45deg) translate(.5em, .4em);
             }
 
-            .pure-menu-link.active span:after {
+            .menu-link.active span:after {
                 -webkit-transform: rotate(-45deg) translate(.45em, -.35em);
                    -moz-transform: rotate(-45deg) translate(.45em, -.35em);
                     -ms-transform: rotate(-45deg) translate(.45em, -.35em);
@@ -395,13 +395,13 @@ a.pure-button-primary {
         left: 0;
     }
 
-    .pure-menu-link {
+    .menu-link {
         position: fixed;
         left: 0;
         display: block;
     }
 
-    #layout.active .pure-menu-link {
+    #layout.active .menu-link {
         left: 150px;
     }
 }
