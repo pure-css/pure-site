@@ -42,11 +42,8 @@ link `pure` in `pure-site` using Bower, then start up the server:
 $ cd ../pure-site
 $ npm i
 $ bower link pure
-$ node server --pure-local
+$ npm start
 ```
-
-The `--pure-local` flag is what will serve the Pure CSS locally instead of from
-the CDN.
 
 **Note:** The steps to install the npm dependencies and link pure using Bower do
 *not* have to be run each time you start the server. Also, you can leave the
