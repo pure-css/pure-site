@@ -80,7 +80,7 @@ if (config.isDevelopment) {
 // -- Routes -------------------------------------------------------------------
 
 // Sugar to route pages and add them to the nav menu.
-function routePage(path, name, label, callbacks) {
+function page(path, name, label, callbacks) {
     if (typeof label !== 'string') {
         callbacks = label;
         label     = null;
@@ -95,16 +95,17 @@ function routePage(path, name, label, callbacks) {
 }
 
 // Basic docs pages.
-routePage('/',           'home');
-routePage('/base/',      'base',      'Base');
-routePage('/grids/',     'grids',     'Grids');
-routePage('/forms/',     'forms',     'Forms');
-routePage('/buttons/',   'buttons',   'Buttons');
-routePage('/tables/',    'tables',    'Tables');
-routePage('/menus/',     'menus',     'Menus');
-routePage('/layouts/',   'layouts',   'Layouts', routes.layouts.index);
-routePage('/customize/', 'customize', 'Customize');
-routePage('/extend/',    'extend',    'Extend');
+
+page('/',           'home');
+page('/base/',      'base',      'Base');
+page('/grids/',     'grids',     'Grids');
+page('/forms/',     'forms',     'Forms');
+page('/buttons/',   'buttons',   'Buttons');
+page('/tables/',    'tables',    'Tables');
+page('/menus/',     'menus',     'Menus');
+page('/layouts/',   'layouts',   'Layouts', routes.layouts.index);
+page('/customize/', 'customize', 'Customize');
+page('/extend/',    'extend',    'Extend');
 
 // Layout examples.
 
@@ -118,10 +119,8 @@ app.param('layout', function (val) {
     return valLowerCase;
 });
 
-app.map('/layouts/:layout/', 'layout');
-app.get('/layouts/:layout/', routes.layouts.layout);
-app.map('/layouts/:layout/download', 'layout-download');
-app.get('/layouts/:layout/download', routes.layouts.download);
+page('/layouts/:layout/',         'layout',          routes.layouts.layout);
+page('/layouts/:layout/download', 'layout-download', routes.layouts.download);
 
 // Static asset combo.
 app.get('/combo/:version', [
