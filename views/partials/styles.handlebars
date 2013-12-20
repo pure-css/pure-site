@@ -15,7 +15,16 @@
 {{/githubCSS}}
 
 {{#localCSS}}
-<link rel="stylesheet" href="{{{.}}}">
+  {{#if this.oldIE}}
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="{{{this.oldIE}}}">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="{{{this.path}}}">
+    <!--<![endif]-->
+  {{else}}
+    <link rel="stylesheet" href="{{{this.path}}}">
+  {{/if}}
 {{/localCSS}}
 
 {{#remoteCSS}}
