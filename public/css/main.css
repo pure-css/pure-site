@@ -59,10 +59,20 @@ dd {
  * --------------------------
 */
 
+
+/* Navigation Push Styles */
 #layout {
-    padding-left: 150px; /* left col width "#menu" */
-    left: 0;
+    position: relative;
+    padding-left: 0;
 }
+    #layout.active {
+        position: relative;
+        left: 150px;
+    }
+        #layout.active #menu {
+            left: 150px;
+            width: 150px;
+        }
 
 
 /* Apply the .box class on the immediate parent of any grid element (pure-u-*) to apply some padding. */
@@ -74,8 +84,9 @@ dd {
     padding: 1.3em 0;
 }
 
+/* normalize paddings on small screens*/
 .l-hbox {
-    padding: 0 1.3em;
+    padding: 1.3em;
 }
 
 .l-centered {
@@ -91,7 +102,7 @@ dd {
      min-height: 80px;
      margin: 0;
      color: #333;
-     padding: 1em 2em;
+     padding: 1em 1.1429em;
      text-align: center;
      border-bottom: 1px solid #eee;
      background: #fff;
@@ -127,7 +138,7 @@ aside {
 /* The content div is placed as a wrapper around all the docs */
 .content {
     margin: 0 auto;
-    padding: 0 2em;
+    padding: 0 1.1429em;
     max-width: 800px;
     margin-bottom: 50px;
 }
@@ -190,34 +201,36 @@ aside {
     background: rgb(250, 250, 250);
     line-height: 1.6em;
 }
-
-    .legal-license {
-        margin: 0;
-    }
-    .legal-copyright,
-    .legal-links {
-        text-align: right;
-        margin: 0;
-    }
     .legal-links {
         list-style: none;
         padding: 0;
     }
-    .legal-logo {
+
+    .legal-license,
+    .legal-copyright,
+    .legal-logo,
+    .legal-links,
+    .legal-links li {
         text-align: center;
     }
+
 
 /* --------------------------
  * Main Navigation Bar Styles
  * --------------------------
 */
 
+
+#layout.active .menu-link {
+    left: 150px;
+}
+
 #menu {
     margin-left: -150px; /* "#menu" width */
     width: 150px;
     position: fixed;
     top: 0;
-    left: 150px;
+    left: 0;
     bottom: 0;
     z-index: 1000; /* so the menu or its navicon stays above all content */
     background: #191818;
@@ -252,9 +265,10 @@ aside {
         }
 
     .menu-link {
-        display: none; /* show this only on small screens */
+        position: fixed;
+        display: block; /* show this only on small screens */
         top: 0;
-        left: 150px; /* "#menu width" */
+        left: 0; /* "#menu width" */
         background: #000;
         background: rgba(0,0,0,0.7);
         font-size: 10px; /* change this value to increase/decrease button size */
@@ -375,60 +389,49 @@ a.pure-button-primary {
  * --------------------------
 */
 
-@media (max-width: 870px) {
 
-    /* Navigation Push Styles */
-    #layout {
-        position: relative;
-        padding-left: 0;
+@media (min-width: 767px) {
+
+    .header,
+    .content {
+        padding-left: 2em;
+        padding-right: 2em;
     }
-        #layout.active {
-            position: relative;
-            left: 150px;
-        }
-            #layout.active #menu {
-                left: 150px;
-                width: 150px;
-            }
 
-    #menu {
+    .legal-license {
+        text-align: left;
+        margin: 0;
+    }
+    .legal-copyright,
+    .legal-links,
+    .legal-links li {
+        text-align: right;
+        margin: 0;
+    }
+    .legal-logo {
+        text-align: center;
+    }
+
+    .l-hbox {
+        padding: 0 1.3em;
+    }
+
+    #layout {
+        padding-left: 150px; /* left col width "#menu" */
         left: 0;
+    }
+    #menu {
+        left: 150px;
     }
 
     .menu-link {
         position: fixed;
-        left: 0;
-        display: block;
+        left: 150px;
+        display: none;
     }
 
     #layout.active .menu-link {
         left: 150px;
     }
-}
 
-@media (max-width: 767px) {
-
-    .header,
-    .content {
-        font-size: 87.5%;
-    }
-
-    .header,
-    .content,
-    .legal {
-        padding-left: 1.1429em;
-        padding-right: 1.1429em;
-    }
-
-    .legal-license,
-    .legal-copyright,
-    .legal-links,
-    .legal-links li {
-        text-align: center;
-    }
-
-    /* normalize paddings on small screens*/
-    .l-hbox {
-        padding: 1.3em;
-    }
 }
