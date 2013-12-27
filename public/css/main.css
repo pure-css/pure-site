@@ -3,8 +3,7 @@ body {
 }
 
 body,
-.pure-g [class *= "pure-u"],
-.pure-g-r [class *= "pure-u"] {
+.pure-g [class *= "pure-u"] {
     font-family: "proxima-nova", sans-serif;
 }
 
