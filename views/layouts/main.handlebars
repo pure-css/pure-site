@@ -3,7 +3,7 @@
 <head>
     {{> meta}}
     {{> title}}
-
+    {{addLocalCSS "/css/responsive-grid.css"}}
     {{addLocalCSS "/css/main.css" prepend=true}}
     {{addLocalCSS "/css/rainbow/baby-blue.css"}}
     {{> styles}}
@@ -13,7 +13,7 @@
 </head>
 <body>
 
-    <div class="pure-g-r" id="layout">
+    <div class="pure-g" id="layout">
         {{> menu}}
 
         <div class="pure-u-1" id="main">
