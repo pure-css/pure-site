@@ -1,5 +1,5 @@
 {{setTitle     "Grids"}}
-{{setSubTitle  "Mobile-first CSS grids."}}
+{{setSubTitle  "Fully customizable and responsive CSS grids."}}
 {{setActiveNav "grids"}}
 
 {{addLocalCSS "/css/grids.css"}}
@@ -12,13 +12,13 @@
     {{sectionHeading "Introduction to Pure Grids"}}
 
     <p>
-        Pure has a responsive, mobile-first grid system. It's easy to work with and is very powerful.There are a few simple concepts to keep in mind:
+        Pure Grids are easy to work with, and very powerful. There are a few simple concepts to keep in mind:
     </p>
 
     <dl>
         <dt>Grid classes vs. unit classes</dt>
         <dd>
-            Pure Grids consist of two types of classes: grid classes ({{code "pure-g"}} and unit classes ({{code "pure-u"}} or {{code "pure-u-*"}})
+            Pure Grids consist of two types of classes: grid classes ({{code "pure-g"}} or {{code "pure-g-r"}}) and unit classes ({{code "pure-u"}} or {{code "pure-u-*"}})
         </dd>
 
         <dt>The widths of the units are fractions</dt>
@@ -28,7 +28,7 @@
 
         <dt>All child elements of a grid must be units</dt>
         <dd>
-            Child elements contained within an element with a {{code "pure-g"}} classname <em>must</em> be a grid unit with a {{code "pure-u"}} or {{code "pure-u-*"}} classname. However, you can have a {{code "pure-g"}} inside a {{code "pure-u-*"}} if you want to create nested grids.
+            Child elements contained within an element with a {{code "pure-g"}} classname <em>must</em> be a grid unit with a {{code "pure-u"}} or {{code "pure-u-*"}} classname.
         </dd>
 
         <dt>Content goes inside grid units<dt>
@@ -85,128 +85,82 @@
     </p>
 
 
-    {{sectionHeading "Mobile-first Grids"}}
+    {{sectionHeading "Pure Responsive Grids"}}
 
     <p>
-        Pure Grids are mobile-first. When writing your HTML, you should start with the mobile layout in mind, and build up your tablet and desktop experience from it.
-    </p>
-    <p>
-        We realize that different applications need grids at different media query breakpoints, so we don't bundle media queries directly into Pure. Instead, you can define your own media queries, and generate a custom grid using our <a href="https://github.com/ericf/rework-pure-grids">Pure Grids Rework plugin</a>.
+        Pure Responsive Grids builds on top of the base Grids. It adds a single new classname called {{code "pure-g-r"}} (the "r" stands for responsive, you see). You can use this instead of using {{code "pure-g"}} as you normally do. All elements with a classname of {{code "pure-u-*-*"}} will automatically become responsive and collapse to {{code "width: 100%;"}} when the viewport's width is {{code "767px"}} or lower.
     </p>
 
-    <h3>Generate Mobile-first Grid Units</h3>
+    <h3>Regular Grid vs. Responsive Grid</h3>
 
     <p>
-        To generate Mobile-first grid units, you need to have <a href="http://nodejs.org" alt="NodeJS">NodeJS and <a href="http://npmjs.org" alt="npm">npm</a> installed. Then, run the following:
+        The first snippet below shows how regular Pure Grids are written. These grids are unresponsive. They'll always be one-thirds, irrespective of the width of the screen. The second snippet replaces the {{code "pure-g"}} with {{code "pure-g-r"}}, thereby making the one-third columns collapse to {{code "width: 100%;"}} on lower screen widths ({{code "767px"}} by default).
     </p>
 
     {{#code}}
-        $ npm i rework rework-pure-grids
+    {{> grids/compare-nr}}
     {{/code}}
-
-    <p>
-        To create a mobile-first grid, pass in the media queries that you want to work with, and provide a class name for the grid at each media query:
-    </p>
-
-    {{#code "js"}}
-    var fs = require('fs'),
-    rework = require('rework'),
-    pureGrids = require('rework-pure-grids');
-
-    //Generate a 12-column grid, which responds to the following 2 media query breakpoints.
-    var css = rework('').use(pureGrids.units([5,24], {
-        mediaQueries: {
-            med  : 'screen and (min-width: 48em)',
-            lrg  : 'screen and (min-width: 75em)'
-        }
-    })).toString();
-
-    fs.writeFile('mobile-first-grid.css', css, function (err) {
-        if (err) throw err;
-        console.log('File saved to mobile-first-grid.css');
-    });
-    {{/code}}
-
-    <p>
-        The table above will create a 24-column mobile-first grid with the following characteristics:
-    </p>
-
-    <p>
-        <table class="pure-table pure-table-bordered">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Small Devices <br><small>(< 48em)</small></th>
-                    <th>Medium Devices <br><small>(≥ 48em)</small></th>
-                    <th>Large Devices <br><small>(≥ 75em)</small></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td style="font-weight: bold;">Class Prefix</td>
-                    <td>none ({{code "pure-u-*"}})</td>
-                    <td>{{code "pure-u-med-*"}}</td>
-                    <td>{{code "pure-u-lrg-*"}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </p>
-
-    <p>
-        This responsive grid that we just created is actually the same grid that this site is built on! You can <a href="/css/responsive-grid.css" alt="Grid CSS">check out the CSS here</a>.
-    </p>
-
-    <aside>
-        <p>
-            When using our Rework plugin, you can customize your grid in various ways, such as changing the number of columns or modifying grid class names.
-        </p>
-    </aside>
-
-
-    <h3>Using Mobile-first Grids</h3>
-    <p>
-        After generating our mobile-first grid, we can start creating some dynamic layouts that look great irrespective of the width of a device. For example, if you want your columns to be full-width on mobile, half-width on medium devices (like tablets), and quarter-width on large devices (like desktops), you would write this:
-    </p>
 
     {{#code}}
-    <!-- Columns are 100% wide on mobile, 50% on tablets, and 25% on desktops  -->
-    <div class="pure-g">
-      <div class="pure-u-1 pure-u-med-1-2 pure-u-lrg-1-4">Some content</div>
-      <div class="pure-u-1 pure-u-med-1-2 pure-u-lrg-1-4">Some content/div>
-      <div class="pure-u-1 pure-u-med-1-2 pure-u-lrg-1-4">Some content</div>
-      <div class="pure-u-1 pure-u-med-1-2 pure-u-lrg-1-4">Some content</div>
-    </div>
+    {{> grids/compare-r}}
     {{/code}}
 
-    <aside>
-        <p>
-           You don't need to add all the grid classes to each of your elements. The grid classes work with widths that are greater than or equal to the media query width that you defined. For example, a {{code "pure-u-med-1-2"}} will be {{code "width: 50%"}} at all screen sizes which are {{code "≥ 768px"}}, unless you specify an explicit {{code "pure-u-lrg-*"}} class.
-        </p>
-    </aside>
-
-    <h3>Adding Mobile-first Grids to your Site</h3>
+    <h3>Responsive Grid: An Example</h3>
 
     <p>
-        Once you have your responsive grid CSS, you can add it below the {{code "pure-min.css"}} file on your page.
-    </p>
-
-    {{#code}}
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure.version}}/pure-min.css">
-<link rel="stylesheet" href="your-mobile-first-grid.css">
-    {{/code}}
-
-
-    <h3>Mobile-first Grid: An Example</h3>
-
-    <p>
-        Resize the page to see the content switch from a single column layout to a four-column layout.
+        Resize the page to see the grid collapse.
     </p>
 
     {{> grids/four-col}}
 
-    {{sectionHeading "Fluid Images"}}
 
-    {{> grids/fluid-images}}
+    {{sectionHeading "Grids on Mobile"}}
+
+    <p>
+        Putting the {{code "pure-g"}} classname on the wrapper instead of {{code "pure-g-r"}} will ensure that grid units will not collapse on small screens. This is a good way to make grids on smaller screens like phones.
+    </p>
+
+    {{> grids/mobile-col}}
+
+
+    {{sectionHeading "Grid Helper Classes"}}
+
+    <p>
+        Pure's Responsive Grids also comes with the following helper classes to show or hide content at different screen widths.
+    </p>
+
+    <table class="pure-table pure-table-bordered">
+        <thead>
+            <tr>
+                <th>Helper Class Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>{{code "pure-hidden-phone"}}</td>
+                <td>
+                    Content marked with this class will be hidden below {{code "768px"}}
+                </td>
+            </tr>
+
+            <tr>
+                <td>{{code "pure-hidden-tablet"}}</td>
+                <td>
+                    Content marked with this class will be hidden between {{code "768px"}} and {{code "979px"}}
+                </td>
+            </tr>
+
+            <tr>
+                <td>{{code "pure-hidden-desktop"}}</td>
+                <td>
+                    Content marked with this class will be hidden above {{code "980px"}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
 
     {{sectionHeading "Applying Padding and Borders to Grid Units"}}
 
@@ -251,5 +205,11 @@
   {{#code}}
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure.version}}/grids-min.css">
   {{/code}}
+
+    <aside>
+        <p>
+            Optionally, you can head over to the <a href="http://yui.github.io/gridbuilder/">Grid Builder</a> to make your very own grid with custom media query breakpoints and column sizes. Save the outputted CSS in a file and you're good to go!
+        </p>
+    </aside>
 
 </div>
