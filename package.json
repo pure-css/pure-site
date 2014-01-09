@@ -53,6 +53,6 @@
     "rework": "~0.18.3",
     "rework-pure-grids": "~0.3.0",
     "grunt": "~0.4.2",
-    "grunt-stripmq": "0.0.2"
+    "grunt-stripmq": "git@github.com:tilomitra/grunt-stripmq.git#css-mediaquery"
   }
 }
