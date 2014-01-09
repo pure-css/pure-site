@@ -1,25 +1,26 @@
+'use strict';
+
 module.exports = function (grunt) {
     grunt.initConfig({
         grid_units: {
-            dest : 'public/css/responsive-grid.css',
+            dest : 'build/css/responsive-grid.css',
             options: {
                 mediaQueries: {
                     med : 'screen and (min-width: 40em)', //approx 767px at 16px base font
                     lrg : 'screen and (min-width: 75em)' //approx 1200px at 16px base font
                 }
-
             }
         },
 
         stripmq: {
             all: {
                 files: {
-                    'public/css/responsive-grid-old-ie.css': ['public/css/responsive-grid.css'],
-                    'public/css/main-old-ie.css': ['public/css/main.css']
+                    'build/css/responsive-grid-old-ie.css': ['build/css/responsive-grid.css'],
+                    'build/css/main-old-ie.css': ['public/css/main.css']
                 }
             }
         }
-    })
+    });
 
     // Local tasks.
     grunt.loadTasks('lib/tasks/');
@@ -27,4 +28,3 @@ module.exports = function (grunt) {
 
     grunt.registerTask('default', ['grid_units', 'stripmq']);
 };
-

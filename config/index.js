@@ -9,6 +9,7 @@ module.exports = Object.freeze({
     port: env.PORT || 5000,
 
     dirs: Object.freeze({
+        build   : path.resolve('build/'),
         pub     : path.resolve('public/'),
         views   : path.resolve('views/pages/'),
         layouts : path.resolve('views/layouts/'),
