@@ -52,6 +52,7 @@
   "devDependencies": {
     "rework": "~0.18.3",
     "rework-pure-grids": "~0.2.0",
-    "grunt": "~0.4.2"
+    "grunt": "~0.4.2",
+    "grunt-stripmq": "0.0.2"
   }
 }
