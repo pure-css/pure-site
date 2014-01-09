@@ -39,7 +39,7 @@
     "rework-pure-grids": "~0.3.2"
   },
   "scripts": {
-    "install": "bower install"
+    "install": "bower install && grunt"
   },
   "yahoo": {
     "bugzilla": {
