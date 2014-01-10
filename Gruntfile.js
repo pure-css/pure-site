@@ -22,13 +22,26 @@ module.exports = function (grunt) {
         },
 
         grid_units: {
-            dest : 'build/public/css/main-grid.css',
-            options: {
-                mediaQueries: {
-                    med : 'screen and (min-width: 48em)', // 768px
-                    lrg : 'screen and (min-width: 75em)'  // 1200px
+            main: {
+                dest : 'build/public/css/main-grid.css',
+                options: {
+                    mediaQueries: {
+                        med : 'screen and (min-width: 48em)', // 768px
+                        lrg : 'screen and (min-width: 75em)'  // 1200px
+                    }
                 }
-            }
+            },
+
+            // blog: {
+            //     dest : 'build/public/css/layouts/blog-grid.css',
+            //     options: {
+            //         units: [12],
+            //         mediaQueries: {
+            //             med : 'screen and (min-width: 48em)', // 768px
+            //             lrg : 'screen and (min-width: 75em)'  // 1200px
+            //         }
+            //     }
+            // }
         },
 
         stripmq: {
