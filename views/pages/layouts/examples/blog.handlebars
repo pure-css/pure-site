@@ -1,11 +1,12 @@
 {{setTitle    "Blog"}}
 {{setSubTitle "A layout example that shows off a blog page with a list of posts."}}
 {{setTags     "base" "grids" "buttons" "menus"}}
-{{addLocalCSS "/css/layouts/blog.css"}}
+{{addLocalCSS "/css/responsive-grid.css" hasOldIE=true}}
+{{addLocalCSS "/css/layouts/blog.css" hasOldIE=true}}
 
-<div class="pure-g-r" id="layout">
-    <div class="sidebar pure-u">
-        <header class="header">
+<div class="pure-g" id="layout">
+    <div class="sidebar pure-u-1 pure-u-med-1-4">
+        <div class="header">
             <hgroup>
                 <h1 class="brand-title">A Sample Blog</h1>
                 <h2 class="brand-tagline">Creating a blog layout using Pure</h2>
@@ -21,11 +22,11 @@
                     </li>
                 </ul>
             </nav>
-        </header>
+        </div>
     </div>
 
-    <div class="pure-u-1">
-        <div class="content">
+    <div class="content pure-u-1 pure-u-med-3-4">
+        <div>
             <!-- A wrapper for all the blog posts -->
             <div class="posts">
                 <h1 class="content-subhead">Pinned Post</h1>
@@ -92,10 +93,11 @@
                     </header>
 
                     <div class="post-description">
-                        <div class="post-images pure-g-r">
-                            <div class="pure-u-1-2">
+                        <div class="post-images pure-g">
+                            <div class="pure-u-1 pure-u-med-1-2">
                                 <a href="http://www.flickr.com/photos/uberlife/8915936174/">
                                     <img alt="Photo of someone working poolside at a resort"
+                                         class="pure-img-responsive"
                                          src="http://farm8.staticflickr.com/7448/8915936174_8d54ec76c6.jpg">
                                 </a>
 
@@ -104,9 +106,10 @@
                                 </div>
                             </div>
 
-                            <div class="pure-u-1-2">
+                            <div class="pure-u-1 pure-u-med-1-2">
                                 <a href="http://www.flickr.com/photos/uberlife/8907351301/">
                                     <img alt="Photo of the sunset on the beach"
+                                         class="pure-img-responsive"
                                          src="http://farm8.staticflickr.com/7382/8907351301_bd7460cffb.jpg">
                                 </a>
 
@@ -140,7 +143,7 @@
                 </section>
             </div>
 
-            <footer class="footer">
+            <div class="footer">
                 <div class="pure-menu pure-menu-horizontal pure-menu-open">
                     <ul>
                         <li><a href="http://purecss.io/">About</a></li>
@@ -148,7 +151,7 @@
                         <li><a href="http://github.com/yui/pure/">Github</a></li>
                     </ul>
                 </div>
-            </footer>
+            </div>
         </div>
     </div>
 </div>

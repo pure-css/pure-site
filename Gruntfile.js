@@ -16,7 +16,10 @@ module.exports = function (grunt) {
             all: {
                 files: {
                     'build/css/responsive-grid-old-ie.css': ['build/css/responsive-grid.css'],
-                    'build/css/main-old-ie.css': ['public/css/main.css']
+                    'build/css/main-old-ie.css': ['public/css/main.css'],
+
+                    // Layout Files
+                    'build/css/layouts/blog-old-ie.css': ['public/css/layouts/blog.css']
                 }
             }
         }
