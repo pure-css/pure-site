@@ -17,8 +17,9 @@ module.exports = Object.freeze({
 
     version: require('../package').version,
 
-    pure   : require('./pure'),
-    yui    : require('./yui'),
-    ga     : 'UA-41480445-1',
-    typekit: 'gis6vng'
+    pure     : require('./pure'),
+    yui      : require('./yui'),
+    ga       : 'UA-41480445-1',
+    typekit  : 'gis6vng',
+    html5shiv: '3.7'
 });

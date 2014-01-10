@@ -54,16 +54,33 @@ module.exports = function (grunt) {
                     'build/public/css/layouts/blog-old-ie.css': ['build/public/css/layouts/blog.css']
                 }
             }
+        },
+
+        observe: {
+            bower: {
+                files: ['bower_components/**', '!bower_components/pure/**'],
+                tasks: ['copy:bower']
+            },
+
+            pub: {
+                files: 'public/**',
+                tasks: ['default']
+            }
         }
     });
 
     // npm tasks.
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-stripmq');
 
     // Local tasks.
     grunt.loadTasks('lib/tasks/');
 
     grunt.registerTask('default', ['clean', 'copy', 'grid_units', 'stripmq']);
+
+    // Makes the `watch` task run a build first.
+    grunt.renameTask('watch', 'observe');
+    grunt.registerTask('watch', ['default', 'observe']);
 };
