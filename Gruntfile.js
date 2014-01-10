@@ -2,8 +2,21 @@
 
 module.exports = function (grunt) {
     grunt.initConfig({
+        clean: {
+            build: ['build/']
+        },
+
+        copy : {
+            pub: {
+                src    : 'public/**',
+                dest   : 'build/',
+                expand : true
+
+            }
+        },
+
         grid_units: {
-            dest : 'build/css/responsive-grid.css',
+            dest : 'build/public/css/main-grid.css',
             options: {
                 mediaQueries: {
                     med : 'screen and (min-width: 48em)', // 768px
@@ -15,19 +28,23 @@ module.exports = function (grunt) {
         stripmq: {
             all: {
                 files: {
-                    'build/css/responsive-grid-old-ie.css': ['build/css/responsive-grid.css'],
-                    'build/css/main-old-ie.css': ['public/css/main.css'],
+                    'build/public/css/main-grid-old-ie.css': ['build/public/css/main-grid.css'],
+                    'build/public/css/main-old-ie.css'     : ['build/public/css/main.css'],
 
                     // Layout Files
-                    'build/css/layouts/blog-old-ie.css': ['public/css/layouts/blog.css']
+                    'build/public/css/layouts/blog-old-ie.css': ['build/public/css/layouts/blog.css']
                 }
             }
         }
     });
 
-    // Local tasks.
-    grunt.loadTasks('lib/tasks/');
+    // npm tasks.
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-stripmq');
 
-    grunt.registerTask('default', ['grid_units', 'stripmq']);
+    // Local tasks.
+    grunt.loadTasks('lib/tasks/');
+
+    grunt.registerTask('default', ['clean', 'copy', 'grid_units', 'stripmq']);
 };
