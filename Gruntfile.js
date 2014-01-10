@@ -2,32 +2,68 @@
 
 module.exports = function (grunt) {
     grunt.initConfig({
-        grid_units: {
-            dest : 'build/css/responsive-grid.css',
-            options: {
-                mediaQueries: {
-                    med : 'screen and (min-width: 40em)', //approx 767px at 16px base font
-                    lrg : 'screen and (min-width: 75em)' //approx 1200px at 16px base font
-                }
+        clean: {
+            build: ['build/']
+        },
+
+        copy : {
+            pub: {
+                src    : 'public/**',
+                dest   : 'build/',
+                expand : true
+            },
+
+            bower: {
+                cwd   : 'bower_components/',
+                expand: true,
+                dest  : 'build/public/vendor/',
+                src   : ['rainbow/js/**']
             }
+        },
+
+        grid_units: {
+            main: {
+                dest : 'build/public/css/main-grid.css',
+                options: {
+                    mediaQueries: {
+                        med : 'screen and (min-width: 48em)', // 768px
+                        lrg : 'screen and (min-width: 75em)'  // 1200px
+                    }
+                }
+            },
+
+            // blog: {
+            //     dest : 'build/public/css/layouts/blog-grid.css',
+            //     options: {
+            //         units: [12],
+            //         mediaQueries: {
+            //             med : 'screen and (min-width: 48em)', // 768px
+            //             lrg : 'screen and (min-width: 75em)'  // 1200px
+            //         }
+            //     }
+            // }
         },
 
         stripmq: {
             all: {
                 files: {
-                    'build/css/responsive-grid-old-ie.css': ['build/css/responsive-grid.css'],
-                    'build/css/main-old-ie.css': ['public/css/main.css'],
+                    'build/public/css/main-grid-old-ie.css': ['build/public/css/main-grid.css'],
+                    'build/public/css/main-old-ie.css'     : ['build/public/css/main.css'],
 
                     // Layout Files
-                    'build/css/layouts/blog-old-ie.css': ['public/css/layouts/blog.css']
+                    'build/public/css/layouts/blog-old-ie.css': ['build/public/css/layouts/blog.css']
                 }
             }
         }
     });
 
-    // Local tasks.
-    grunt.loadTasks('lib/tasks/');
+    // npm tasks.
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-stripmq');
 
-    grunt.registerTask('default', ['grid_units', 'stripmq']);
+    // Local tasks.
+    grunt.loadTasks('lib/tasks/');
+
+    grunt.registerTask('default', ['clean', 'copy', 'grid_units', 'stripmq']);
 };

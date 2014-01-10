@@ -1,9 +1,7 @@
 var fs   = require('fs'),
     path = require('path');
 
-var bowerrc      = path.join(process.cwd(), '.bowerrc'),
-    bower        = JSON.parse(fs.readFileSync(bowerrc, 'utf8')),
-    bowerPureDir = path.join(process.cwd(), bower.directory, 'pure');
+var bowerPureDir = path.resolve('bower_components', 'pure');
 
 exports.version = require(path.join(bowerPureDir, 'bower.json')).version;
 exports.modules = ['base', 'grids', 'forms', 'buttons', 'tables', 'menus'];

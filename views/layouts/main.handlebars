@@ -3,8 +3,8 @@
 <head>
     {{> meta}}
     {{> title}}
-    {{addLocalCSS "/css/responsive-grid.css" hasOldIE=true}}
     {{addLocalCSS "/css/main.css" prepend=true hasOldIE=true}}
+    {{addLocalCSS "/css/main-grid.css" prepend=true hasOldIE=true}}
     {{addLocalCSS "/css/rainbow/baby-blue.css"}}
     {{> styles}}
 
@@ -26,7 +26,11 @@
     </div>
 
     {{addLocalJS "/js/ui.js"}}
-    {{addLocalJS "/vendor/rainbow/rainbow-min.js"}}
+    {{addLocalJS "/vendor/rainbow/js/rainbow.min.js"}}
+    {{addLocalJS "/vendor/rainbow/js/language/generic.js"}}
+    {{addLocalJS "/vendor/rainbow/js/language/html.js"}}
+    {{addLocalJS "/vendor/rainbow/js/language/css.js"}}
+    {{addLocalJS "/vendor/rainbow/js/language/javascript.js"}}
 
   {{#localJS}}
     <script src="{{{.}}}"></script>

@@ -65,10 +65,7 @@ if (config.isDevelopment) {
     console.log('Serving Pure', config.pure.version, 'from:', config.pure.local);
 }
 
-// Prefer built static assets.
-app.use(express.static(config.dirs.build));
 app.use(express.static(config.dirs.pub));
-
 app.use(middleware.notfound);
 
 if (config.isDevelopment) {
