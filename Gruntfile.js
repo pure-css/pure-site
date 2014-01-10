@@ -11,7 +11,13 @@ module.exports = function (grunt) {
                 src    : 'public/**',
                 dest   : 'build/',
                 expand : true
+            },
 
+            bower: {
+                cwd   : 'bower_components/',
+                expand: true,
+                dest  : 'build/public/vendor/',
+                src   : ['rainbow/js/**']
             }
         },
 
