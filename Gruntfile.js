@@ -6,8 +6,8 @@ module.exports = function (grunt) {
             dest : 'build/css/responsive-grid.css',
             options: {
                 mediaQueries: {
-                    med : 'screen and (min-width: 40em)', //approx 767px at 16px base font
-                    lrg : 'screen and (min-width: 75em)' //approx 1200px at 16px base font
+                    med : 'screen and (min-width: 48em)', // 768px
+                    lrg : 'screen and (min-width: 75em)'  // 1200px
                 }
             }
         },
