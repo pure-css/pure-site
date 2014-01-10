@@ -92,7 +92,10 @@ dd {
     text-align: center;
 }
 
-
+.pure-img-responsive {
+    max-width: 100%;
+    height: auto;
+}
 /* --------------------------
  * Header Module Styles
  * --------------------------

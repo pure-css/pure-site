@@ -53,6 +53,6 @@
   },
   "devDependencies": {
     "grunt": "~0.4.2",
-    "grunt-stripmq": "jtangelder/grunt-stripmq"
+    "grunt-stripmq": "0.0.3"
   }
 }
