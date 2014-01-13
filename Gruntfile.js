@@ -27,31 +27,55 @@ module.exports = function (grunt) {
                 options: {
                     mediaQueries: {
                         med : 'screen and (min-width: 48em)', // 768px
-                        lrg : 'screen and (min-width: 75em)'  // 1200px
+                        lrg : 'screen and (min-width: 61.25em)'  // 980px
                     }
                 }
             },
 
-            // blog: {
-            //     dest : 'build/public/css/layouts/blog-grid.css',
-            //     options: {
-            //         units: [12],
-            //         mediaQueries: {
-            //             med : 'screen and (min-width: 48em)', // 768px
-            //             lrg : 'screen and (min-width: 75em)'  // 1200px
-            //         }
-            //     }
-            // }
+            gallery: {
+                dest : 'build/public/css/layouts/gallery-grid.css',
+                options: {
+                    units: [6],
+                    mediaQueries: {
+                        med : 'screen and (min-width: 30em)',
+                        lrg : 'screen and (min-width: 48em)'
+                    }
+                }
+            }
         },
 
         stripmq: {
             all: {
                 files: {
-                    'build/public/css/main-grid-old-ie.css': ['build/public/css/main-grid.css'],
-                    'build/public/css/main-old-ie.css'     : ['build/public/css/main.css'],
+                    'build/public/css/main-grid-old-ie.css':
+                        ['build/public/css/main-grid.css'],
 
-                    // Layout Files
-                    'build/public/css/layouts/blog-old-ie.css': ['build/public/css/layouts/blog.css']
+                    'build/public/css/main-old-ie.css':
+                        ['build/public/css/main.css'],
+
+
+                    // Layout Grids
+                    'build/public/css/layouts/gallery-grid-old-ie.css':
+                        ['build/public/css/layouts/gallery-grid.css'],
+
+                    //Layout CSS
+                    'build/public/css/layouts/blog-old-ie.css':
+                        ['build/public/css/layouts/blog.css'],
+
+                    'build/public/css/layouts/marketing-old-ie.css':
+                        ['build/public/css/layouts/marketing.css'],
+
+                    'build/public/css/layouts/pricing-old-ie.css':
+                        ['build/public/css/layouts/pricing.css'],
+
+                    'build/public/css/layouts/side-menu-old-ie.css':
+                        ['build/public/css/layouts/side-menu.css'],
+
+                    'build/public/css/layouts/gallery-old-ie.css':
+                        ['build/public/css/layouts/gallery.css'],
+
+                    'build/public/css/layouts/email-old-ie.css':
+                        ['build/public/css/layouts/email.css']
                 }
             }
         },
