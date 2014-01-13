@@ -19,6 +19,10 @@ body,
     transition: all 0.2s ease-out;
 }
 
+.pure-img-responsive {
+    max-width: 100%;
+    height: auto;
+}
 
 /* --------------------------
  * Element Styles
@@ -392,7 +396,7 @@ a.pure-button-primary {
 */
 
 
-@media (min-width: 767px) {
+@media (min-width: 48em) {
 
     .header,
     .content {
