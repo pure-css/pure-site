@@ -161,7 +161,7 @@ h3 {
     background: none;
 }
 
-@media (min-width: 40em) {
+@media (min-width: 48em) {
     .content {
         padding: 2em 3em 0;
         margin-left: 25%;
