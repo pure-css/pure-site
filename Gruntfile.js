@@ -26,8 +26,9 @@ module.exports = function (grunt) {
                 dest : 'build/public/css/main-grid.css',
                 options: {
                     mediaQueries: {
-                        med : 'screen and (min-width: 48em)', // 768px
-                        lrg : 'screen and (min-width: 61.25em)'  // 980px
+                        sm : 'screen and (min-width: 35.5em)', // 568px
+                        med: 'screen and (min-width: 48em)',   // 768px
+                        lrg: 'screen and (min-width: 61.25em)' // 980px
                     }
                 }
             },
@@ -35,7 +36,7 @@ module.exports = function (grunt) {
             gallery: {
                 dest : 'build/public/css/layouts/gallery-grid.css',
                 options: {
-                    units: [6],
+                    units: 6,
                     mediaQueries: {
                         med : 'screen and (min-width: 30em)',
                         lrg : 'screen and (min-width: 48em)'

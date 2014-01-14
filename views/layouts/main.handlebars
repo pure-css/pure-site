@@ -14,15 +14,16 @@
 </head>
 <body>
 
-    <div class="pure-g" id="layout">
+    <div id="layout">
         {{> menu}}
 
-        <div class="pure-u-1" id="main">
+        <div id="main">
 
             {{{body}}}
 
-            {{> legal}}
-
+            <div class="footer">
+                {{> legal}}
+            </div>
         </div>
     </div>
 

@@ -1,4 +1,5 @@
 body {
+    min-width: 320px;
     color: #777;
 }
 
@@ -199,24 +200,37 @@ aside {
  * Footer Module Styles
  * --------------------------
 */
-.legal {
+.footer {
     font-size: 87.5%;
     border-top: 1px solid #eee;
-    padding: 0.5em 1.1429em;
+    padding: 1.1429em;
     background: rgb(250, 250, 250);
-    line-height: 1.6em;
 }
+
+.legal {
+    line-height: 1.6;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+    .legal-wrap {
+        max-width: 800px;
+    }
+
+    .legal-license {
+        margin-top: 0;
+    }
+
     .legal-links {
         list-style: none;
         padding: 0;
+        margin-bottom: 0;
     }
 
-    .legal-license,
-    .legal-copyright,
-    .legal-logo,
-    .legal-links,
-    .legal-links li {
-        text-align: center;
+    .legal-copyright {
+        margin-top: 0;
+        margin-bottom: 0;
     }
 
 
@@ -394,15 +408,7 @@ a.pure-button-primary {
  * --------------------------
 */
 
-
-@media (min-width: 48em) {
-
-    .header,
-    .content {
-        padding-left: 2em;
-        padding-right: 2em;
-    }
-
+@media screen and (min-width: 35.5em) {
     .legal-license {
         text-align: left;
         margin: 0;
@@ -413,8 +419,14 @@ a.pure-button-primary {
         text-align: right;
         margin: 0;
     }
-    .legal-logo {
-        text-align: center;
+}
+
+@media (min-width: 48em) {
+
+    .header,
+    .content {
+        padding-left: 2em;
+        padding-right: 2em;
     }
 
     .l-hbox {
