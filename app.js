@@ -31,7 +31,7 @@ app.set('views', config.dirs.views);
 
 app.locals({
     site          : 'Pure',
-    copyright_year: '2013',
+    copyright_year: '2014',
 
     version    : config.version,
     yui_version: config.yui.version,
