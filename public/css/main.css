@@ -102,7 +102,6 @@ aside {
      font-family: "omnes-pro", sans-serif;
      max-width: 768px;
      margin: 0 auto;
-     color: #333;
      padding: 1em;
      text-align: center;
      border-bottom: 1px solid #eee;
@@ -118,6 +117,7 @@ aside {
         font-weight: 100;
         line-height: 1.5;
         margin: 0;
+        color: #666;
     }
 
 
@@ -465,14 +465,21 @@ a.pure-button-primary {
         margin-right: -2em;
     }
 
-    .content p {
-        font-size: 1.125em;
-    }
-
     .header,
     .content {
         padding-left: 2em;
         padding-right: 2em;
+    }
+
+    .header h1 {
+        font-size: 350%;
+    }
+    .header h2 {
+        font-size: 150%;
+    }
+
+    .content p {
+        font-size: 1.125em;
     }
 
     .code {
