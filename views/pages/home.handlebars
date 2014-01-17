@@ -6,12 +6,12 @@
 
 <div class="hero">
     <div class="hero-titles">
-        <h1>{{title}}</h1>
-        <h2>{{subTitle}}</h2>
+        <h1 class="hero-site">{{title}}</h1>
+        <h2 class="hero-tagline">{{subTitle}}</h2>
     </div>
 
     <div class="hero-cta">
-      {{#code}}
+      {{#code wrap=true}}
         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure.version}}/pure-min.css">
       {{/code}}
 
@@ -22,137 +22,123 @@
     </div>
 </div>
 
-<div class="marketing-ribbon">
-    <div class="size-chart l-vbox pure-g">
-        <div class="size-chart-item size-chart-base pure-u" style="width: {{filePercent 'base'}};">
-            <a class="size-chart-label" href="{{pathTo 'base'}}">
-                Base <span class="size-chart-size">{{fileSize "base"}}</span>
+<div class="marketing">
+    <div class="size-chart pure-g">
+      {{#each pure.modules}}
+        <div class="size-chart-{{this}} pure-u" style="width: {{filePercent this pure=../pure}};">
+            <a class="size-chart-item" href="{{pathTo this}}">
+                <span class="size-chart-label">
+                    <span class="size-chart-mod">{{this}}</span>
+                    <span class="size-chart-size">{{fileSize this pure=../pure}}</span>
+                </span>
             </a>
         </div>
-        <div class="size-chart-item size-chart-grids pure-u" style="width: {{filePercent 'grids'}};">
-            <a class="size-chart-label" href="{{pathTo 'grids'}}">
-                Grids <span class="size-chart-size">{{fileSize "grids"}}</span>
-            </a>
-        </div>
-        <div class="size-chart-item size-chart-forms pure-u" style="width: {{filePercent 'forms'}};">
-            <a class="size-chart-label" href="{{pathTo 'forms'}}">
-                Forms <span class="size-chart-size">{{fileSize "forms"}}</span>
-            </a>
-        </div>
-        <div class="size-chart-item size-chart-buttons pure-u" style="width: {{filePercent 'buttons'}};">
-            <a class="size-chart-label" href="{{pathTo 'buttons'}}">
-                Buttons <span class="size-chart-size">{{fileSize "buttons"}}</span>
-            </a>
-        </div>
-        <div class="size-chart-item size-chart-tables pure-u" style="width: {{filePercent 'tables'}};">
-            <a class="size-chart-label" href="{{pathTo 'tables'}}">
-                Tables <span class="size-chart-size">{{fileSize "tables"}}</span>
-            </a>
-        </div>
-        <div class="size-chart-item size-chart-menus pure-u" style="width: {{filePercent 'menus'}};">
-            <a class="size-chart-label" href="{{pathTo 'menus'}}">
-                Menus <span class="size-chart-size">{{fileSize "menus"}}</span>
-            </a>
-        </div>
+      {{/each}}
     </div>
 
     <div class="content">
-        <div class="l-box">
-            <h3>CSS with a minimal footprint.</h3>
-            <p>
-                Pure is ridiculously tiny. The entire set of modules clocks in at <b>{{fileSize "pure"}}* minified and gzipped</b>, without forgoing responsive styles, design, or ease of use. Crafted with mobile devices in mind, it was important to us to keep our file sizes small, and every line of CSS was carefully considered. If you decide to only use a subset of these modules, you'll save even more bytes.
-            </p>
+        <h3 class="marketing-header">CSS with a minimal footprint.</h3>
+        <p>
+            Pure is ridiculously tiny. The entire set of modules clocks in at <b>{{fileSize "pure"}}* minified and gzipped</b>. Crafted with mobile devices in mind, it was important to us to keep our file sizes small, and every line of CSS was carefully considered. If you decide to only use a subset of these modules, you'll save even more bytes.
+        </p>
 
-            <p style="font-size:small;">
-                * We can add correctly :) the numbers above are individual module sizes; when grouped together gzipping compresses them even more.
-            </p>
-        </div>
+        <p style="font-size:smaller;">
+            * We can add correctly :) the numbers above are individual module sizes; when grouped together gzipping compresses them even more.
+        </p>
     </div>
 </div>
 
-<div class="pure-g marketing-ribbon">
-    <div class="pure-u-1 pure-u-med-1-3">
-        <div class="l-box">
-            <h3>Your CSS foundation.</h3>
-            <p>
-                Pure builds on <a href="http://necolas.github.io/normalize.css/">Normalize.css</a> and provides layout and styling for native HTML elements, plus the most common UI components. It's what you need, without the cruft.
-            </p>
-        </div>
+<div class="marketing l-wrap pure-g">
+    <div class="content pure-u-1 pure-u-sm-1-2 pure-u-xl-1-3">
+        <h3 class="marketing-header">Your CSS foundation.</h3>
+        <p>
+            Pure builds on <a href="http://necolas.github.io/normalize.css/">Normalize.css</a> and provides layout and styling for native HTML elements, plus the most common UI components. It's what you need, without the cruft.
+        </p>
     </div>
 
-    <div class="pure-u-1 pure-u-med-1-3">
-        <div class="l-box">
-            <h3>Made with mobile in mind.</h3>
-            <p>
-                Pure is responsive out of the box, so elements look great on all screen sizes. Customize your styles with the <a href="http://yui.github.io/skinbuilder/?mode=pure">Skin Builder</a> to make your style your own.
-            </p>
-        </div>
+    <div class="content pure-u-1 pure-u-sm-1-2 pure-u-xl-1-3">
+        <h3 class="marketing-header">Made with mobile in mind.</h3>
+        <p>
+            Pure is responsive out of the box, so elements look great on all screen sizes. Customize your styles with the <a href="http://yui.github.io/skinbuilder/?mode=pure">Skin Builder</a> to make your style your own.
+        </p>
     </div>
 
-    <div class="pure-u-1 pure-u-med-1-3">
-        <div class="l-box">
-            <h3>Stays out of your way.</h3>
-            <p>
-                Pure has minimal styles and encourages you to write your application styles on top of it. It's designed to get out of your way and makes it easy to override styles.
-            </p>
-        </div>
+    <div class="content pure-u-1 pure-u-lrg-3-4 pure-u-xl-1-3">
+        <h3 class="marketing-header">Stays out of your way.</h3>
+        <p>
+            Pure has minimal styles and encourages you to write your application styles on top of it. It's designed to get out of your way and makes it easy to override styles.
+        </p>
     </div>
 </div>
 
-
-<div class="pure-g marketing-ribbon">
-    <div class="pure-u-1 pure-u-med-1-2">
-        <div class="l-box">
-            <a href="{{pathTo 'layouts'}}">
-                <img src="img/layout-icon.jpg" class="pure-img-responsive" alt="Diagram of a sample layout.">
-            </a>
-        </div>
+<div class="marketing l-wrap pure-g">
+    <div class="marketing-diagram content pure-u-1 pure-u-sm-2-3 pure-u-med-1-2">
+        <a href="{{pathTo 'layouts'}}">
+            <img src="img/layout-icon.jpg" class="pure-img-responsive" alt="Diagram of a sample layout.">
+        </a>
     </div>
 
-    <div class="pure-u-1 pure-u-med-1-2">
-        <div class="l-hbox">
-            <h3>Create responsive layouts.</h3>
-            <p>
-                By using <a href="{{pathTo 'grids'}}">Grids</a>, <a href="{{pathTo 'menus'}}">Menus</a>, and more, it's easy to create beautiful responsive layouts for all screen sizes. We've made it easy for you to get started. Take a look at a few different <a href="{{pathTo 'layouts'}}">layouts</a> and start your next web project with a rock-solid foundation.
-            </p>
+    <div class="content pure-u-1 pure-u-med-1-2">
+        <h3 class="marketing-header">Create responsive layouts.</h3>
+        <p>
+            By using <a href="{{pathTo 'grids'}}">Grids</a>, <a href="{{pathTo 'menus'}}">Menus</a>, and more, it's easy to create beautiful responsive layouts for all screen sizes. We've made it easy for you to get started. Take a look at a few different <a href="{{pathTo 'layouts'}}">layouts</a> and start your next web project with a rock-solid foundation.
+        </p>
 
-            <p>
-                <a href="{{pathTo 'layouts'}}" class="pure-button">View Layouts</a>
-            </p>
-        </div>
+        <p>
+            <a href="{{pathTo 'layouts'}}" class="pure-button">View Layouts</a>
+        </p>
     </div>
 </div>
 
-<div class="marketing-ribbon pure-g ">
-    <div class="pure-u-1 pure-u-med-1-2">
-        <div class="l-hbox">
-            <h3>Create your own look and feel.</h3>
-            <p>
-                Unlike other frameworks, Pure's design is unopinionated, minimal and flat. We believe that it's much easier to add new CSS rules than to overwrite existing rules. By adding a few lines of CSS, you can customize Pure's appearance to work with your web project.
-            </p>
+<div class="marketing marketing-customize l-wrap pure-g">
+    <div class="content pure-u-1 pure-u-med-1-2">
+        <h3 class="marketing-header">Create your own look and feel.</h3>
+        <p>
+            Unlike other frameworks, Pure's design is unopinionated, minimal and flat. We believe that it's much easier to add new CSS rules than to overwrite existing rules. By adding a few lines of CSS, you can customize Pure's appearance to work with your web project.
+        </p>
 
-            <p>
-                <a href="{{pathTo 'extend'}}" class="pure-button">Extend Pure</a>
-            </p>
-        </div>
+        <p>
+            <a href="{{pathTo 'extend'}}" class="pure-button">Extend Pure</a>
+        </p>
     </div>
-    <div class="pure-u-1 pure-u-med-1-2">
-        <div class="l-box sample-buttons">
-            <p class="pure-g">
-                <button class="pure-button pure-u-1-3">Grey</button>
-                <button class="button-a pure-button pure-u-1-3">Blue</button>
-                <button class="button-b pure-button pure-u-1-3">Yellow</button>
-            </p>
-            <p class="pure-g">
-                <button class="button-c pure-button pure-u-1-3">Black</button>
-                <button class="button-d pure-button pure-u-1-3">Green</button>
-                <button class="button-e pure-button pure-u-1-3">Red</button>
-            </p>
-            <p class="pure-g">
-                <button class="button-f pure-button pure-u-1-3">Purple</button>
-                <button class="button-g pure-button pure-u-1-3">Orange</button>
-                <button class="button-h pure-button pure-u-1-3">Indigo</button>
-            </p>
+
+    <div class="sample-buttons content pure-u-1 pure-u-med-1-2">
+        <div class="pure-g">
+            <span class="sample-button pure-u-1-2 pure-u-sm-1-3">
+                <button class="pure-button">Default</button>
+            </span>
+
+            <span class="sample-button pure-u-1-2 pure-u-sm-1-3">
+                <button class="button-a pure-button">Blue</button>
+            </span>
+
+            <span class="sample-button pure-u-1-2 pure-u-sm-1-3">
+                <button class="button-b pure-button">Yellow</button>
+            </span>
+
+            <span class="sample-button pure-u-1-2 pure-u-sm-1-3">
+                <button class="button-c pure-button">Black</button>
+            </span>
+
+            <span class="sample-button pure-u-1-2 pure-u-sm-1-3">
+                <button class="button-d pure-button">Green</button>
+            </span>
+
+            <span class="sample-button pure-u-1-2 pure-u-sm-1-3">
+                <button class="button-e pure-button">Red</button>
+            </span>
+
+            <span class="sample-button pure-u-1-2 pure-u-sm-1-3">
+                <button class="button-f pure-button">Purple</button>
+            </span>
+
+            <span class="sample-button pure-u-1-2 pure-u-sm-1-3">
+                <button class="button-g pure-button">Orange</button>
+            </span>
+
+            <span class="sample-button pure-u-1 pure-u-sm-1-3">
+                <button class="button-h pure-button">Indigo</button>
+            </span>
         </div>
     </div>
 </div>

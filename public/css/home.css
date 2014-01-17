@@ -1,42 +1,39 @@
 .hero {
     text-align: center;
-    margin: 6em auto 3em;
 }
     .hero-titles {
         font-family: "omnes-pro", sans-serif;
-        padding: 0 2em;
+        padding: 0 1em;
+        margin: 2em auto;
+        max-width: 768px;
     }
-    .hero h1 {
-        font-size: 800%;
+    .hero-site {
+        font-size: 400%;
+        font-weight: 100;
         margin: 0;
-        padding: 0;
         color: #1f8dd6;
-        font-weight: 100;
     }
-    .hero h2 {
+    .hero-tagline {
+        font-size: 150%;
         font-weight: 100;
-        font-size: 260%;
-        margin: 0.02em 0 0.8em;
+        line-height: 1.5;
+        margin: 0 0 1em;
         color: #666;
     }
 
-.hero-cta pre {
-    padding: 1em;
-    font-size: 100%;
-    border-left: 0;
-    border-right: 0;
+.hero-cta .code {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 a.button-cta,
 a.button-secondary {
-    font-size: 120%;
-    font-weight: bold;
-    margin: 0.25em 0;
+    margin: 0.25em;
 }
 
 a.button-cta {
     background: #1f8dd6;
-    color: white;
+    color: #fff;
     border: 1px solid #1f8dd6;
 }
 
@@ -48,32 +45,50 @@ a.button-secondary {
 
 .size-chart {
     width: 100%;
+    font-size: 87.5%;
+    line-height: 1.4;
+    margin-bottom: 2em;
 }
 
-    .size-chart-item {
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
+    a.size-chart-item {
+        display: block;
+        color: #fff;
+        padding: 1.45em 0;
+        text-align: center;
+        text-decoration: none;
+        text-transform: capitalize;
+    }
+
+    .size-chart-label {
+        display: inline-block;
+        -webkit-transform: rotate(-90deg);
+        -moz-transform:    rotate(-90deg);
+        -ms-transform:     rotate(-90deg);
+        -o-transform:      rotate(-90deg);
+    }
+    .size-chart-size {
+        display: none;
     }
 
     .size-chart-base {
         background: #0e90d2;
     }
-        .size-chart-base span {
+        .size-chart-base .size-chart-size {
             color: rgb(103, 194, 240);
         }
 
     .size-chart-grids {
         background: rgb(128, 88, 165);
     }
-        .size-chart-grids span {
+        .size-chart-grids .size-chart-size {
             color: rgb(200, 131, 255);
         }
+
     .size-chart-forms {
         background: #5eb95e;
     }
 
-        .size-chart-forms span {
+        .size-chart-forms .size-chart-size {
             color: rgb(161, 240, 137);
         }
 
@@ -81,138 +96,171 @@ a.button-secondary {
         background: #dd514c;
     }
 
-        .size-chart-buttons span {
+        .size-chart-buttons .size-chart-size {
             color: rgb(236, 164, 154);
         }
 
     .size-chart-menus {
         background: rgb(250, 210, 50);
     }
-        .size-chart-menus span {
+        .size-chart-menus .size-chart-size {
             color: rgb(255, 240, 134);
         }
+
     .size-chart-tables {
         background: rgb(243, 123, 29);
     }
-        .size-chart-tables span {
+        .size-chart-tables .size-chart-label {
+            margin-left: -0.5em;
+        }
+        .size-chart-tables .size-chart-size {
             color: rgb(255, 190, 129);
         }
 
-    a.size-chart-label {
-        display: block;
-        color: #fff;
-        padding: 0.5em;
-        text-decoration: none;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
+.marketing {
+    border-bottom: 1px solid #eee;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 2em;
+}
+.marketing-customize {
+    margin-bottom: 0;
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+    .marketing .content {
+        margin-bottom: 0;
     }
 
+    .marketing-header {
+        font-weight: 400;
+    }
+
+    .marketing-diagram {
+        margin: 2em auto;
+    }
+
+.sample-buttons {
+    margin: 1em auto;
+    padding: 0 0.5em;
+}
+
+    .sample-button {
+        padding: 0.5em;
+        text-align: center;
+    }
+    .sample-button .pure-button {
+        width: 100%;
+    }
+
+    .button-a {
+        background: #e1f2fa;
+        color: #5992aa;
+    }
+
+    .button-b {
+        background: #fcebbd;
+        color: #af9540;
+    }
+
+    .button-c,
+    .button-d,
+    .button-e {
+        border-radius: 8px;
+    }
+
+    .button-f,
+    .button-g,
+    .button-h {
+        border-radius: 20px;
+    }
+
+    .button-c {
+        background: #333;
+        color: #fff;
+    }
+    .button-d {
+        background: #d3eda3;
+        color: #72962e;
+    }
+
+    .button-e {
+        background: #f5ab9e;
+        color: #8c3a2b;
+    }
+    .button-f {
+        background: #ddaeff;
+        color: #8156a7;
+    }
+
+    .button-g {
+        background: #f57b00;
+        color: #ffca95;
+    }
+
+    .button-h {
+        background: #008ed4;
+        color: #fff;
+    }
+    .sample-button .button-h {
+        width: 50%; /* Updated to 80% at sm breakpoint */
+    }
+
+@media screen and (min-width: 30em) {
+    .size-chart-tables .size-chart-label {
+        margin-left: 0;
+    }
+}
+
+@media screen and (min-width: 35.5em) {
+    .hero {
+        margin-bottom: 3em;
+    }
+
+    .sample-button .button-h {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 48em) {
+    .hero-titles {
+        padding: 0 2em;
+    }
+    .hero-site {
+        font-size: 800%;
+    }
+    .hero-tagline {
+        font-size: 250%;
+    }
+
+    a.button-cta,
+    a.button-secondary {
+        font-size: 125%;
+    }
+
+    .size-chart {
+        font-size: 100%;
+    }
+    a.size-chart-item {
+        padding: 0.5em;
+        text-align: left;
+    }
+    .size-chart-label {
+        -webkit-transform: none;
+        -moz-transform:    none;
+        -ms-transform:     none;
+        -o-transform:      none;
+    }
     .size-chart-size {
         display: block;
     }
 
-.marketing-ribbon {
-    border-bottom: 1px solid #eee;
-    padding: 1em 0;
-}
-
-    .marketing-ribbon .content {
-        margin-bottom: 0;
-    }
-    .marketing-ribbon h3 {
-        font-size: 1.47em;
-        font-weight: normal;
-    }
-    .marketing-ribbon p {
-        font-size: 1.125em;
-        line-height: 1.6em;
+    .marketing-header {
+        font-size: 150%;
     }
 
-.sample-buttons .pure-button {
-    width: 30%;
-    margin: 0.2em;
-}
-.sample-buttons p {
-    margin: 0.5em;
-}
-
-
-.button-a {
-    background: #e1f2fa;
-    color: #5992aa;
-}
-
-.button-b {
-    background: #fcebbd;
-    color: #af9540;
-}
-
-.button-c,
-.button-d,
-.button-e {
-    border-radius: 8px;
-}
-
-.button-f,
-.button-g,
-.button-h {
-    border-radius: 20px;
-}
-
-.button-c {
-    background: #333;
-    color: #fff;
-}
-.button-d {
-    background: #d3eda3;
-    color: #72962e;
-}
-
-.button-e {
-    background: #f5ab9e;
-    color: #8c3a2b;
-}
-.button-f {
-    background: #ddaeff;
-    color: #8156a7;
-}
-
-.button-g {
-    background: #f57b00;
-    color: #ffca95;
-}
-
-.button-h {
-    background: #008ed4;
-    color: #fff;
-}
-
-
-@media (max-width: 767px) {
-    .hero {
-        margin: 2em 0 auto;
-    }
-        .hero-titles {
-            padding: 0 1em;
-        }
-        .hero h1 {
-            font-size: 250%;
-            font-weight: 300; /* slightly thicker to compensate for font-size */
-        }
-        .hero h2 {
-            font-size: 165%;
-        }
-
-    /* by default l-hbox becomes padding: 1.3em; at <= 767px. However, this makes the heading
-    too far away from the content, so adding this in here. */
-    h3.l-hbox,
-    p.l-hbox {
-        padding: 0 1.3em;
-    }
-
-    a.size-chart-label {
-        font-size: 0.75em;
-        padding: 0.6667em;
+    .l-wrap .sample-buttons {
+        padding: 0 0.5em;
     }
 }
