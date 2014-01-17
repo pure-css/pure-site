@@ -11,7 +11,7 @@
     </div>
 
     <div class="hero-cta">
-      {{#code}}
+      {{#code wrap=true}}
         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure.version}}/pure-min.css">
       {{/code}}
 
@@ -22,38 +22,18 @@
     </div>
 </div>
 
-<div class="marketing-ribbon">
-    <div class="size-chart l-vbox pure-g">
-        <div class="size-chart-item size-chart-base pure-u" style="width: {{filePercent 'base'}};">
-            <a class="size-chart-label" href="{{pathTo 'base'}}">
-                Base <span class="size-chart-size">{{fileSize "base"}}</span>
+<div class="marketing">
+    <div class="size-chart pure-g">
+      {{#each pure.modules}}
+        <div class="size-chart-{{this}} pure-u" style="width: {{filePercent this pure=../pure}};">
+            <a class="size-chart-item" href="{{pathTo this}}">
+                <span class="size-chart-label">
+                    <span class="size-chart-mod">{{this}}</span>
+                    <span class="size-chart-size">{{fileSize this pure=../pure}}</span>
+                </span>
             </a>
         </div>
-        <div class="size-chart-item size-chart-grids pure-u" style="width: {{filePercent 'grids'}};">
-            <a class="size-chart-label" href="{{pathTo 'grids'}}">
-                Grids <span class="size-chart-size">{{fileSize "grids"}}</span>
-            </a>
-        </div>
-        <div class="size-chart-item size-chart-forms pure-u" style="width: {{filePercent 'forms'}};">
-            <a class="size-chart-label" href="{{pathTo 'forms'}}">
-                Forms <span class="size-chart-size">{{fileSize "forms"}}</span>
-            </a>
-        </div>
-        <div class="size-chart-item size-chart-buttons pure-u" style="width: {{filePercent 'buttons'}};">
-            <a class="size-chart-label" href="{{pathTo 'buttons'}}">
-                Buttons <span class="size-chart-size">{{fileSize "buttons"}}</span>
-            </a>
-        </div>
-        <div class="size-chart-item size-chart-tables pure-u" style="width: {{filePercent 'tables'}};">
-            <a class="size-chart-label" href="{{pathTo 'tables'}}">
-                Tables <span class="size-chart-size">{{fileSize "tables"}}</span>
-            </a>
-        </div>
-        <div class="size-chart-item size-chart-menus pure-u" style="width: {{filePercent 'menus'}};">
-            <a class="size-chart-label" href="{{pathTo 'menus'}}">
-                Menus <span class="size-chart-size">{{fileSize "menus"}}</span>
-            </a>
-        </div>
+      {{/each}}
     </div>
 
     <div class="content">

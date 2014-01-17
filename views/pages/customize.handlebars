@@ -2,6 +2,8 @@
 {{setSubTitle  "Choose the modules that you need."}}
 {{setActiveNav "customize"}}
 
+{{addLocalCSS "/css/customize.css"}}
+
 {{> header}}
 
 <div class="content">
@@ -79,7 +81,7 @@
         You can also pull in the modules individually. The Yahoo! CDN supports combo handling, so you can combo your requests and get a single CSS file back. Here's an example of a combo URL that only includes CSS for <a href="{{pathTo 'base'}}">Base</a>, <a href="{{pathTo 'grids'}}">Grids</a>, and <a href="{{pathTo 'forms'}}">Forms</a>:
     </p>
 
-{{#code}}
+{{#code wrap=true}}
 <link rel="stylesheet" href="http://yui.yahooapis.com/combo?pure/{{pure.version}}/base-min.css&pure/{{pure.version}}/grids-min.css&pure/{{pure.version}}/forms-min.css">
 {{/code}}
 
