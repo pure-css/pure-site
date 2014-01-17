@@ -28,7 +28,8 @@ module.exports = function (grunt) {
                     mediaQueries: {
                         sm : 'screen and (min-width: 35.5em)', // 568px
                         med: 'screen and (min-width: 48em)',   // 768px
-                        lrg: 'screen and (min-width: 61.25em)' // 980px
+                        lrg: 'screen and (min-width: 58em)',   // 928px
+                        xl : 'screen and (min-width: 75em)'    // 1200px
                     }
                 }
             },
