@@ -201,7 +201,7 @@ code {
     border-left-width: 0;
     border-right-width: 0;
     overflow-x: auto;
-    /*-webkit-overflow-scrolling: touch;*/
+    -webkit-overflow-scrolling: touch;
 }
 .code code {
     font-size: 95%;
@@ -279,7 +279,7 @@ code {
     z-index: 1000; /* so the menu or its navicon stays above all content */
     background: #191818;
     overflow-y: auto;
-    /*-webkit-overflow-scrolling: touch;*/
+    -webkit-overflow-scrolling: touch;
 }
     #menu a {
         color: #999;
