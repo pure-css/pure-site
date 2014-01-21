@@ -20,23 +20,23 @@
     "npm": ">=1.1.2"
   },
   "dependencies": {
-    "combohandler": "~0.2.0",
+    "combohandler": "~0.3.8",
     "express": "3.x",
     "express-annotations": "~0.1.0",
     "express-params": "~0.0.3",
     "express-map": "~0.1.0",
-    "express-slash": "~0.2.0",
+    "express-slash": "~1.0.0",
     "express-state": "~1.0.1",
     "express3-handlebars": "~0.5.0",
-    "handlebars": "~1.1.2",
+    "handlebars": "~1.3.0",
     "glob": "~3.2.6",
     "async": "~0.2.9",
-    "archiver": "~0.4.10",
+    "archiver": "~0.5.1",
     "bower": "~1.2.7",
-    "css-parse": "~1.6.0",
+    "css-parse": "~1.7.0",
     "es6-promise": "~0.1.0",
-    "rework": "~0.18.3",
-    "rework-pure-grids": "~0.3.2"
+    "rework": "~0.20.2",
+    "rework-pure-grids": "~0.3.3"
   },
   "scripts": {
     "install": "bower install && grunt"
