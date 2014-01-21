@@ -310,7 +310,7 @@
       "dependencies": {
         "minimatch": {
           "version": "0.2.14",
-          "from": "minimatch@~0.2.11",
+          "from": "minimatch@~0.2.12",
           "dependencies": {
             "lru-cache": {
               "version": "2.5.0",
@@ -412,7 +412,7 @@
             },
             "minimatch": {
               "version": "0.2.14",
-              "from": "minimatch@~0.2.11",
+              "from": "minimatch@~0.2.12",
               "dependencies": {
                 "lru-cache": {
                   "version": "2.5.0",
@@ -1066,7 +1066,7 @@
         },
         "debug": {
           "version": "0.7.4",
-          "from": "debug@*"
+          "from": "debug@>= 0.7.3 < 1"
         },
         "rework-inherit": {
           "version": "0.2.1",
