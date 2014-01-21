@@ -47,38 +47,18 @@ module.exports = function (grunt) {
         },
 
         stripmq: {
-            all: {
-                files: {
-                    'build/public/css/main-grid-old-ie.css':
-                        ['build/public/css/main-grid.css'],
+            site: {
+                expand: true,
+                src   : ['build/public/css/{main,main-grid,home}.css'],
+                des   : 'build/public/css/',
+                ext   : '-old-ie.css'
+            },
 
-                    'build/public/css/main-old-ie.css':
-                        ['build/public/css/main.css'],
-
-
-                    // Layout Grids
-                    'build/public/css/layouts/gallery-grid-old-ie.css':
-                        ['build/public/css/layouts/gallery-grid.css'],
-
-                    //Layout CSS
-                    'build/public/css/layouts/blog-old-ie.css':
-                        ['build/public/css/layouts/blog.css'],
-
-                    'build/public/css/layouts/marketing-old-ie.css':
-                        ['build/public/css/layouts/marketing.css'],
-
-                    'build/public/css/layouts/pricing-old-ie.css':
-                        ['build/public/css/layouts/pricing.css'],
-
-                    'build/public/css/layouts/side-menu-old-ie.css':
-                        ['build/public/css/layouts/side-menu.css'],
-
-                    'build/public/css/layouts/gallery-old-ie.css':
-                        ['build/public/css/layouts/gallery.css'],
-
-                    'build/public/css/layouts/email-old-ie.css':
-                        ['build/public/css/layouts/email.css']
-                }
+            layouts: {
+                expand: true,
+                src   : ['build/public/css/layouts/*.css'],
+                des   : 'build/public/css/layouts/',
+                ext   : '-old-ie.css'
             }
         },
 
