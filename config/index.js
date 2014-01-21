@@ -9,7 +9,7 @@ module.exports = Object.freeze({
     port: env.PORT || 5000,
 
     dirs: Object.freeze({
-        pub     : path.resolve('public/'),
+        pub     : path.resolve('build/public/'),
         views   : path.resolve('views/pages/'),
         layouts : path.resolve('views/layouts/'),
         partials: path.resolve('views/partials/')
@@ -17,8 +17,9 @@ module.exports = Object.freeze({
 
     version: require('../package').version,
 
-    pure   : require('./pure'),
-    yui    : require('./yui'),
-    ga     : 'UA-41480445-1',
-    typekit: 'gis6vng'
+    pure     : require('./pure'),
+    yui      : require('./yui'),
+    ga       : 'UA-41480445-1',
+    typekit  : 'gis6vng',
+    html5shiv: '3.7'
 });

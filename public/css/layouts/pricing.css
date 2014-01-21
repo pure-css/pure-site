@@ -43,11 +43,14 @@ p {
  * of `display: table;` and `display: table-cell;`, we can
  * vertically center the text.
  */
+
 .banner {
     background: transparent url('http://24.media.tumblr.com/ccb268832580ac12951828a1c179de69/tumblr_mo2xbk8JUK1st5lhmo1_1280.jpg') 0 0 no-repeat fixed;
     text-align: center;
     background-size: cover;
-    height: 350px;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://24.media.tumblr.com/ccb268832580ac12951828a1c179de69/tumblr_mo2xbk8JUK1st5lhmo1_1280.jpg', sizingMethod='scale');
+
+    height: 200px;
     width: 100%;
     margin-bottom: 3em;
     display: table;
@@ -57,7 +60,7 @@ p {
         display: table-cell;
         vertical-align: middle;
         margin-bottom: 0;
-        font-size: 4em;
+        font-size: 2em;
         color: white;
         font-weight: 500;
         text-shadow: 0 1px 1px black;
@@ -85,7 +88,7 @@ p {
  */
 .pricing-table {
     border: 1px solid #ddd;
-    margin: 0 0.5em;
+    margin: 0 0.5em 2em;
     padding: 0 0 3em;
 }
 
@@ -183,7 +186,7 @@ p {
 }
 
 .footer {
-    background: black;
+    background: #111;
     color: #888;
     text-align: center;
 }
@@ -198,13 +201,13 @@ p {
  * On tablets, we want to slightly adjust the size of the banner
  * text and add some vertical space between the various pricing tables
  */
-@media(max-width: 767px) {
+@media(min-width: 767px) {
 
     .banner-head {
-        font-size: 3em;
+        font-size: 4em;
     }
     .pricing-table {
-        margin-bottom: 2em;
+        margin-bottom: 0;
     }
 
 }
@@ -213,11 +216,11 @@ p {
  * -- PHONE MEDIA QUERIES --
  * On phones, we want to reduce the height and font-size of the banner further
  */
-@media (max-width: 480px) {
+@media (min-width: 480px) {
     .banner {
-        height: 200px;
+        height: 400px;
     }
     .banner-head {
-        font-size: 2em;
+        font-size: 3em;
     }
 }

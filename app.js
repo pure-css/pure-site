@@ -31,7 +31,7 @@ app.set('views', config.dirs.views);
 
 app.locals({
     site          : 'Pure',
-    copyright_year: '2013',
+    copyright_year: '2014',
 
     version    : config.version,
     yui_version: config.yui.version,
@@ -41,8 +41,9 @@ app.locals({
 
     min: config.isProduction ? '-min' : '',
 
-    ga     : config.isProduction && config.ga,
-    typekit: config.typekit
+    ga       : config.isProduction && config.ga,
+    typekit  : config.typekit,
+    html5shiv: config.html5shiv
 });
 
 app.expose(config.yui.config, 'YUI_config');

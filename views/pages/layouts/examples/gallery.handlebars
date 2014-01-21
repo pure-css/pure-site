@@ -1,7 +1,8 @@
 {{setTitle    "Photo Gallery"}}
 {{setSubTitle "A layout example that shows off a responsive photo gallery."}}
 {{setTags     "base" "grids" "forms" "buttons" "menus"}}
-{{addLocalCSS "/css/layouts/gallery.css"}}
+{{addLocalCSS "/css/layouts/gallery-grid.css" hasOldIE=true}}
+{{addLocalCSS "/css/layouts/gallery.css" hasOldIE=true}}
 
 <div>
     <div class="header">
@@ -16,94 +17,112 @@
         </div>
     </div>
 
-    <div class="pure-g-r">
-        <div class="pure-u-1-3 photo-box">
-            <a href="http://www.flickr.com/photos/95572727@N00/4070581709/">
-                <img src="http://farm3.staticflickr.com/2447/4070581709_1204f25e3b.jpg"
-                     alt="Photo of a Bamboo forest in Kyoto.">
+    <div class="pure-g">
+        <div class="photo-box pure-u-1 pure-u-med-1-3 pure-u-lrg-1-4">
+            <a href="http://www.dillonmcintosh.tumblr.com/">
+                <img src="http://24.media.tumblr.com/d6b9403c704c3e5aa1725c106e8a9430/tumblr_mvyxd9PUpZ1st5lhmo1_1280.jpg"
+                     alt="Beach">
             </a>
 
             <aside class="photo-box-caption">
-                The Bamboo Forest, Kyoto
-                <span>
-                    by <a href="http://www.flickr.com/photos/95572727@N00/4070581709/">Stuck in Customs</a> / <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/">cc</a>
-                </span>
+                <span>by <a href="http://www.dillonmcintosh.tumblr.com/">Dillon McIntosh</a></span>
             </aside>
         </div>
 
-        <div class="pure-u-2-3 text-box">
+        <div class="text-box pure-u-1 pure-u-med-2-3 pure-u-lrg-3-4">
             <div class="l-box">
                 <h1 class="text-box-head">Photos from around the world</h1>
-                <p class="text-box-subhead">A collection of beautiful Flickr photos.</p>
+                <p class="text-box-subhead">A collection of beautiful photos gathered from Unsplash.com.</p>
             </div>
         </div>
 
-        <div class="pure-u-1-3 photo-box">
-            <a href="http://www.flickr.com/photos/ecstaticist/4015614533/">
-                <img src="http://farm3.staticflickr.com/2785/4015614533_3e04ac2c7d.jpg"
-                     alt="Photo of Dahlia taken using an HDR technique.">
+        <div class="photo-box pure-u-1 pure-u-med-1-2 pure-u-lrg-1-3">
+            <a href="http://ngkhanhlinh.dunked.com/">
+                <img src="http://31.media.tumblr.com/aa1779a718c2844969f23c4f5dec86b1/tumblr_mvyxhonf601st5lhmo1_1280.jpg"
+                     alt="Meadow">
             </a>
 
             <aside class="photo-box-caption">
-                HDR Dahlia
                 <span>
-                    by <a href="http://www.flickr.com/photos/ecstaticist/4015614533/">ecstaticist</a> / <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/">cc</a>
+                    by <a href="http://ngkhanhlinh.dunked.com/">Linh Nguyen</a>
                 </span>
             </aside>
         </div>
 
-        <div class="pure-u-1-3 photo-box">
-            <a href="http://www.flickr.com/photos/blmiers2/6159637428/">
-                <img src="http://farm7.staticflickr.com/6151/6159637428_6bffb5bce1.jpg"
-                     alt="Photo of a misty morning sunrise in Alaska.">
+        <div class="photo-box pure-u-1 pure-u-med-1-2 pure-u-lrg-1-3">
+            <a href="http://www.nilssonlee.se/">
+                <img src="http://24.media.tumblr.com/23e3f4bb271b8bdc415275fb7061f204/tumblr_mve3rvxwaP1st5lhmo1_1280.jpg"
+                     alt="City">
             </a>
 
             <aside class="photo-box-caption">
-                Misty Morning Sunrise, Alaska
                 <span>
-                    by <a href="http://www.flickr.com/photos/blmiers2/6159637428/">blmiers2</a> / <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/">cc</a>
+                    by <a href="http://www.nilssonlee.se/">Jonas Nilsson Lee</a>
                 </span>
             </aside>
         </div>
 
-        <div class="pure-u-1-3 photo-box">
-            <a href="http://www.flickr.com/photos/blmiers2/6167391543/">
-                <img src="http://farm7.staticflickr.com/6171/6167391543_395a7cabfd.jpg"
-                     alt="Photo of a mountain in Alaska's Denali.">
+        <div class="photo-box pure-u-1 pure-u-med-1-2 pure-u-lrg-1-3">
+            <a href="http://www.flickr.com/photos/rulasibai/">
+                <img src="http://24.media.tumblr.com/ac840897b5f73fa6bc43f73996f02572/tumblr_mrraat0H431st5lhmo1_1280.jpg"
+                     alt="Flowers">
             </a>
 
             <aside class="photo-box-caption">
-                Mountain, Alaska's Denali
                 <span>
-                    by <a href="http://www.flickr.com/photos/blmiers2/6159637428/">blmiers2</a> / <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/">cc</a>
+                    by <a href="http://www.flickr.com/photos/rulasibai/">Rula Sibai</a>
                 </span>
             </aside>
         </div>
 
-        <div class="pure-u-2-3 photo-box">
-            <a href="http://www.flickr.com/photos/jjjohn/2120309884/">
-                <img src="http://farm3.staticflickr.com/2109/2120309884_de48fdb9fe.jpg"
-                     alt="Photo of Earth's sky.">
+        <div class="photo-box pure-u-1 pure-u-med-1-2 pure-u-lrg-1-3">
+            <a href="http://www.flickr.com/photos/charliefoster/">
+                <img src="http://24.media.tumblr.com/e100564a3e73c9456acddb9f62f96c79/tumblr_mufs8mix841st5lhmo1_1280.jpg"
+                     alt="Bridge">
             </a>
 
             <aside class="photo-box-caption">
-                Fire, Air, Earth and Water
                 <span>
-                    by <a href="http://www.flickr.com/photos/jjjohn/2120309884/">jjjohn</a> / <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/">cc</a>
+                    by <a href="http://www.flickr.com/photos/charliefoster/">Charlie Foster</a>
                 </span>
             </aside>
         </div>
 
-        <div class="pure-u-1-3 photo-box">
-            <a href="http://www.flickr.com/photos/betta_design/2086852016/">
-                <img src="http://farm3.staticflickr.com/2388/2086852016_5a58dd1881.jpg"
-                     alt="Photo of the Taj Mahal at sunset.">
+        <div class="photo-box photo-box-thin pure-u-1 pure-u-lrg-2-3">
+            <a href="http://ngkhanhlinh.dunked.com/">
+                <img src="http://24.media.tumblr.com/c35afcc83e18ea7875160f64c039f471/tumblr_mwhdohfePJ1st5lhmo1_1280.jpg"
+                     alt="Balloons">
             </a>
 
             <aside class="photo-box-caption">
-                Taj Mahal at sunset
                 <span>
-                    by <a href="http://www.flickr.com/photos/betta_design/2086852016/">betta_design</a> / <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/">cc</a>
+                    by <a href="http://ngkhanhlinh.dunked.com/">Linh Nguyen</a>
+                </span>
+            </aside>
+        </div>
+
+        <div class="photo-box photo-box-thin pure-u-1 pure-u-med-2-3">
+            <a href="http://twitter.com/iBoZR">
+                <img src="http://25.media.tumblr.com/95c842c76d60b7bc982d92c76216d037/tumblr_mx3tnm96k81st5lhmo1_1280.jpg"
+                     alt="Rain Drops">
+            </a>
+
+            <aside class="photo-box-caption">
+                <span>
+                    by <a href="http://twitter.com/iBoZR">Thanun Buranapong</a>
+                </span>
+            </aside>
+        </div>
+
+        <div class="photo-box pure-u-1 pure-u-med-1-3">
+            <a href="http://www.goodfreephotos.com/">
+                <img src="http://25.media.tumblr.com/88b812f5f9c3d7b83560fd635435d538/tumblr_mx3tlblmY21st5lhmo1_1280.jpg"
+                     alt="Port">
+            </a>
+
+            <aside class="photo-box-caption">
+                <span>
+                    by <a href="http://www.goodfreephotos.com/">Yinan Chen</a>
                 </span>
             </aside>
         </div>

@@ -1,16 +1,10 @@
 .layout-item {
-    margin: 1.3em 0;
-    padding: 1.3em 0;
+    margin-top: 2em;
+    padding-top: 2em;
     border-top: 1px solid #eee;
 }
-.layout-item img {
-    height: auto;
-}
-.layout-item-screenshot .l-hbox {
-    padding-left: 0;
-}
-.layout-item-content .l-hbox {
-    padding-right: 0;
+.layout-item-screenshot {
+    text-align: center;
 }
 .layout-item-head {
     margin-top: 0; /* so that the .layout-item-head lines up with the image */
@@ -47,13 +41,4 @@
     padding: 0 0.5714em;
     line-height: 1.75;
     display: block;
-}
-
-@media (max-width: 767px) {
-    .layout-item-screenshot .l-hbox {
-        padding-right: 0;
-    }
-    .layout-item-content .l-hbox {
-        padding-left: 0;
-    }
 }

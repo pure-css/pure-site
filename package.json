@@ -1,52 +1,61 @@
 {
-    "name": "pure-site",
-    "description": "The Pure CSS website.",
-    "homepage": "http://purecss.io/",
-    "version": "1.8.2",
-    "private": true,
-    "repository": "git://github.com/yui/pure-site.git",
-    "contributors": [
-        "Eric Ferraiuolo <eferraiuolo@gmail.com> (http://ericf.me/)",
-        "Tilo Mitra <tilomitra@gmail.com> (http://www.tilomitra.com/)"
-    ],
-    "directories": {
-        "lib": "./lib",
-        "public": "./public",
-        "views": "./views"
+  "name": "pure-site",
+  "description": "The Pure CSS website.",
+  "homepage": "http://purecss.io/",
+  "version": "1.9.0",
+  "private": true,
+  "repository": "git://github.com/yui/pure-site.git",
+  "contributors": [
+    "Eric Ferraiuolo <eferraiuolo@gmail.com> (http://ericf.me/)",
+    "Tilo Mitra <tilomitra@gmail.com> (http://www.tilomitra.com/)"
+  ],
+  "directories": {
+    "lib": "./lib",
+    "public": "./public",
+    "views": "./views"
+  },
+  "main": "server.js",
+  "engines": {
+    "node": ">=0.8.x",
+    "npm": ">=1.1.2"
+  },
+  "dependencies": {
+    "combohandler": "~0.2.0",
+    "express": "3.x",
+    "express-annotations": "~0.1.0",
+    "express-params": "~0.0.3",
+    "express-map": "~0.1.0",
+    "express-slash": "~0.2.0",
+    "express-state": "~1.0.1",
+    "express3-handlebars": "~0.5.0",
+    "handlebars": "~1.1.2",
+    "glob": "~3.2.6",
+    "async": "~0.2.9",
+    "archiver": "~0.4.10",
+    "bower": "~1.2.7",
+    "css-parse": "~1.6.0",
+    "es6-promise": "~0.1.0",
+    "rework": "~0.18.3",
+    "rework-pure-grids": "~0.3.2"
+  },
+  "scripts": {
+    "install": "bower install && grunt"
+  },
+  "yahoo": {
+    "bugzilla": {
+      "product": "yui utilities",
+      "component": "Pure"
     },
-    "main": "server.js",
-    "engines": {
-        "node": ">=0.8.x",
-        "npm": ">=1.1.2"
-    },
-    "dependencies": {
-        "combohandler": "~0.2.0",
-        "express": "3.x",
-        "express-annotations": "~0.1.0",
-        "express-params": "~0.0.3",
-        "express-map": "~0.1.0",
-        "express-slash": "~0.2.0",
-        "express-state": "~1.0.1",
-        "express3-handlebars": "~0.5.0",
-        "handlebars": "~1.1.2",
-        "glob": "~3.2.6",
-        "async": "~0.2.9",
-        "archiver": "~0.4.10",
-        "bower": "~1.2.7",
-        "css-parse": "~1.6.0",
-        "es6-promise": "~0.1.0"
-    },
-    "scripts": {
-        "install": "bower install"
-    },
-    "yahoo": {
-        "bugzilla": {
-            "product": "yui utilities",
-            "component": "Pure"
-        },
-        "custodian": {
-            "email": "tilo@yahoo-inc.com",
-            "url": "http://purecss.io/"
-        }
+    "custodian": {
+      "email": "tilo@yahoo-inc.com",
+      "url": "http://purecss.io/"
     }
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-stripmq": "0.0.3",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-watch": "~0.5.3"
+  }
 }

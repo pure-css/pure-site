@@ -20,40 +20,36 @@
     </aside>
 
   {{#each layouts}}
-    <div class="layout-item pure-g-r">
-        <div class="layout-item-screenshot pure-u-1-2">
-            <div class="l-hbox">
-                <a href="{{pathTo 'layout' layout=name}}">
-                    <img src="/img/layouts/{{name}}@2x.jpg" class="bordered" width="400" height="214"
-                         alt="Screenshot of {{label}} example layout.">
-                </a>
-            </div>
+    <div class="layout-item l-wrap pure-g">
+        <div class="layout-item-screenshot content pure-u-1 pure-u-sm-1-2">
+            <a href="{{pathTo 'layout' layout=name}}">
+                <img src="/img/layouts/{{name}}@2x.jpg" class="pure-img-responsive" width="400" height="214"
+                     alt="Screenshot of {{label}} example layout.">
+            </a>
         </div>
 
-        <div class="layout-item-content pure-u-1-2">
-            <div class="l-hbox">
-                <h3 class="layout-item-head">{{label}}</h3>
-                <p>{{description}}</p>
+        <div class="layout-item-content content pure-u-1 pure-u-sm-1-2">
+            <h3 class="layout-item-head">{{label}}</h3>
+            <p>{{description}}</p>
 
-              {{#if tags}}
-                <ul class="layout-item-modules pure-g">
-                  {{#each tags}}
-                    <li class="layout-item-module layout-item-module-{{.}} pure-u">
-                        <a href="{{pathTo .}}">{{.}}</a>
-                    </li>
-                  {{/each}}
-                </ul>
-              {{/if}}
+          {{#if tags}}
+            <ul class="layout-item-modules pure-g">
+              {{#each tags}}
+                <li class="layout-item-module layout-item-module-{{.}} pure-u">
+                    <a href="{{pathTo .}}">{{.}}</a>
+                </li>
+              {{/each}}
+            </ul>
+          {{/if}}
 
-                <p>
-                    <a href="{{pathTo 'layout' layout=name}}"
-                       class="pure-button pure-button-primary">View</a>
+            <p>
+                <a href="{{pathTo 'layout' layout=name}}"
+                   class="pure-button pure-button-primary">View</a>
 
-                    <a href="{{pathTo 'layout-download' layout=name}}" download
-                       onclick="return Pure.trackLayoutDownload.call(this, '{{name}}');"
-                       class="pure-button">Download</a>
-                </p>
-            </div>
+                <a href="{{pathTo 'layout-download' layout=name}}" download
+                   onclick="return Pure.trackLayoutDownload.call(this, '{{name}}');"
+                   class="pure-button">Download</a>
+            </p>
         </div>
     </div>
   {{/each}}

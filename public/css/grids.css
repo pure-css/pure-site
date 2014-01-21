@@ -1,7 +1,7 @@
-dl {
+/*dl {
     line-height: 1.6em;
     font-size: 1.125em;
-}
+}*/
 
 .grid-example {
     background: #333;
@@ -15,11 +15,11 @@ dl {
 
 .grids-unit {
     margin: 0.25em 0;
-    padding-left: 4em;
+    padding-left: 4.5em;
 }
 .grids-unit-width {
-    width: 3.5em;
-    margin-left: -4em;
+    width: 4em;
+    margin-left: -4.5em;
     padding-right: 0.5em;
     line-height: 2em;
     text-align: right;

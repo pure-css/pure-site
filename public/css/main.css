@@ -1,23 +1,18 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 body {
+    min-width: 320px;
     color: #777;
+    line-height: 1.6;
 }
 
 body,
-.pure-g [class *= "pure-u"],
-.pure-g-r [class *= "pure-u"] {
+.pure-g [class *= "pure-u"] {
     font-family: "proxima-nova", sans-serif;
-}
-
-
-/* Add transition to containers so they can push in and out */
-#layout,
-#menu,
-.menu-link {
-    -webkit-transition: all 0.2s ease-out;
-    -moz-transition: all 0.2s ease-out;
-    -ms-transition: all 0.2s ease-out;
-    -o-transition: all 0.2s ease-out;
-    transition: all 0.2s ease-out;
 }
 
 
@@ -25,7 +20,6 @@ body,
  * Element Styles
  * --------------------------
 */
-
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
@@ -54,60 +48,6 @@ dd {
     margin: 0 0 10px 0;
 }
 
-/* --------------------------
- * Layout Styles
- * --------------------------
-*/
-
-#layout {
-    padding-left: 150px; /* left col width "#menu" */
-    left: 0;
-}
-
-
-/* Apply the .box class on the immediate parent of any grid element (pure-u-*) to apply some padding. */
-.l-box {
-    padding: 1.3em;
-}
-
-.l-vbox {
-    padding: 1.3em 0;
-}
-
-.l-hbox {
-    padding: 0 1.3em;
-}
-
-.l-centered {
-    text-align: center;
-}
-
-
-/* --------------------------
- * Header Module Styles
- * --------------------------
-*/
-.header {
-     min-height: 80px;
-     margin: 0;
-     color: #333;
-     padding: 1em 2em;
-     text-align: center;
-     border-bottom: 1px solid #eee;
-     background: #fff;
- }
-    .header h1 {
-        font-family: "omnes-pro", sans-serif;
-        margin: 0.2em 0;
-        font-size: 3em;
-        font-weight: 300;
-    }
-     .header h2 {
-        font-weight: 300;
-        margin: 0;
-        color: #ccc;
-    }
-
 aside {
     background: #1f8dd6; /* same color as selected state on site menu */
     padding: 0.3em 1em;
@@ -119,6 +59,68 @@ aside {
     }
 
 
+/* --------------------------
+ * Layout Styles
+ * --------------------------
+*/
+
+/* Navigation Push Styles */
+#layout {
+    position: relative;
+    padding-left: 0;
+}
+    #layout.active {
+        position: relative;
+        left: 160px;
+    }
+        #layout.active #menu {
+            left: 160px;
+            width: 160px;
+        }
+
+/* Apply the .box class on the immediate parent of any grid element (pure-u-*) to apply some padding. */
+.l-box {
+    padding: 1em;
+}
+
+.l-wrap {
+    margin-left: auto;
+    margin-right: auto;
+}
+.content .l-wrap {
+    margin-left: -1em;
+    margin-right: -1em;
+}
+
+
+/* --------------------------
+ * Header Module Styles
+ * --------------------------
+*/
+
+.header {
+     font-family: "omnes-pro", sans-serif;
+     max-width: 768px;
+     margin: 0 auto;
+     padding: 1em;
+     text-align: center;
+     border-bottom: 1px solid #eee;
+     background: #fff;
+ }
+    .header h1 {
+        font-size: 300%;
+        font-weight: 100;
+        margin: 0;
+    }
+     .header h2 {
+        font-size: 125%;
+        font-weight: 100;
+        line-height: 1.5;
+        margin: 0;
+        color: #666;
+    }
+
+
  /* --------------------------
   * Content Module Styles
   * --------------------------
@@ -126,38 +128,29 @@ aside {
 
 /* The content div is placed as a wrapper around all the docs */
 .content {
-    margin: 0 auto;
-    padding: 0 2em;
-    max-width: 800px;
-    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1em;
+    padding-right: 1em;
+    max-width: 768px;
 }
-    .content p {
-        line-height: 1.6em;
-        font-size: 1.125em;
-    }
 
     .content .content-subhead {
-        margin: 50px 0 20px 0;
+        margin: 2em 0 1em 0;
         font-weight: 300;
         color: #888;
         position: relative;
     }
 
     .content .content-spaced {
-        line-height: 1.8em;
-    }
-
-    /* A code snippet that has been syntax highlighted */
-    .content .snippet {
-        margin: 1.3em 0 1em;
-        padding: 1.3em;
+        line-height: 1.8;
     }
 
     .content .content-quote {
         font-family: "Georgia", serif;
         color: #666;
         font-style: italic;
-        line-height: 1.8em;
+        line-height: 1.8;
         border-left: 5px solid #ddd;
         padding-left: 1.5em;
     }
@@ -179,56 +172,120 @@ aside {
         }
     }
 
+
+/* --------------------------
+ * Code Styles
+ * --------------------------
+*/
+
+pre,
+code {
+    font-family: Consolas, 'Liberation Mono', Courier, monospace;
+    color: #333;
+    background: rgb(250, 250, 250);
+}
+
+code {
+    padding: 0.2em 0.4em;
+    white-space: nowrap;
+}
+.content p code {
+    font-size: 90%;
+}
+
+.code {
+    margin-left: -1em;
+    margin-right: -1em;
+    padding: 1em;
+    border: 1px solid #eee;
+    border-left-width: 0;
+    border-right-width: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.code code {
+    font-size: 95%;
+    white-space: pre;
+    word-wrap: normal;
+    padding: 0;
+    background: none;
+}
+.code-wrap code {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+
 /* --------------------------
  * Footer Module Styles
  * --------------------------
 */
-.legal {
+
+.footer {
     font-size: 87.5%;
     border-top: 1px solid #eee;
-    padding: 0.5em 1.1429em;
+    margin-top: 3.4286em;
+    padding: 1.1429em;
     background: rgb(250, 250, 250);
-    line-height: 1.6em;
+}
+
+.legal {
+    line-height: 1.6;
+    text-align: center;
+    margin: 0 auto;
 }
 
     .legal-license {
-        margin: 0;
-    }
-    .legal-copyright,
-    .legal-links {
-        text-align: right;
-        margin: 0;
+        margin-top: 0;
     }
     .legal-links {
         list-style: none;
         padding: 0;
+        margin-bottom: 0;
     }
-    .legal-logo {
-        text-align: center;
+    .legal-copyright {
+        margin-top: 0;
+        margin-bottom: 0;
     }
+
 
 /* --------------------------
  * Main Navigation Bar Styles
  * --------------------------
 */
 
+/* Add transition to containers so they can push in and out */
+#layout,
+#menu,
+.menu-link {
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+
+#layout.active .menu-link {
+    left: 160px;
+}
+
 #menu {
-    margin-left: -150px; /* "#menu" width */
-    width: 150px;
+    margin-left: -160px; /* "#menu" width */
+    width: 160px;
     position: fixed;
     top: 0;
-    left: 150px;
+    left: 0;
     bottom: 0;
     z-index: 1000; /* so the menu or its navicon stays above all content */
     background: #191818;
     overflow-y: auto;
-    -webkit-overflow-scroll: touch;
+    -webkit-overflow-scrolling: touch;
 }
     #menu a {
         color: #999;
         border: none;
         white-space: normal;
-        padding: 0.6em 0 0.6em 0.6em;
+        padding: 0.625em 1em;
     }
 
     #menu .pure-menu-open {
@@ -252,16 +309,17 @@ aside {
         }
 
     .menu-link {
-        display: none; /* show this only on small screens */
+        position: fixed;
+        display: block; /* show this only on small screens */
         top: 0;
-        left: 150px; /* "#menu width" */
+        left: 0; /* "#menu width" */
         background: #000;
         background: rgba(0,0,0,0.7);
-        font-size: 10px; /* change this value to increase/decrease button size */
+        font-size: 11px; /* change this value to increase/decrease button size */
         z-index: 10;
-        width: 2em;
-        height: auto;
-        padding: 2.1em 1.6em;
+        width: 4em;
+        height: 4em;
+        padding: 1em;
     }
 
         .menu-link:hover,
@@ -272,6 +330,7 @@ aside {
         .menu-link span {
             position: relative;
             display: block;
+            margin-top: 0.9em;
         }
 
         .menu-link span,
@@ -290,12 +349,12 @@ aside {
             .menu-link span:before,
             .menu-link span:after {
                 position: absolute;
-                margin-top: -.6em;
+                top: -.55em;
                 content: " ";
             }
 
             .menu-link span:after {
-                margin-top: .6em;
+                top: .55em;
             }
 
         .menu-link.active span {
@@ -311,16 +370,20 @@ aside {
             }
 
             .menu-link.active span:after {
-                -webkit-transform: rotate(-45deg) translate(.45em, -.35em);
-                   -moz-transform: rotate(-45deg) translate(.45em, -.35em);
-                    -ms-transform: rotate(-45deg) translate(.45em, -.35em);
-                     -o-transform: rotate(-45deg) translate(.45em, -.35em);
-                        transform: rotate(-45deg) translate(.45em, -.35em);
+                -webkit-transform: rotate(-45deg) translate(.4em, -.3em);
+                   -moz-transform: rotate(-45deg) translate(.4em, -.3em);
+                    -ms-transform: rotate(-45deg) translate(.4em, -.3em);
+                     -o-transform: rotate(-45deg) translate(.4em, -.3em);
+                        transform: rotate(-45deg) translate(.4em, -.3em);
             }
 
     #menu .pure-menu-heading {
-        font-size: 110%;
+        font-size: 125%;
+        font-weight: 300;
+        letter-spacing: 0.1em;
         color: #fff;
+        margin-top: 0;
+        padding: 0.5em 0.8em;
     }
     #menu .pure-menu-heading:hover,
     #menu .pure-menu-heading:focus {
@@ -347,16 +410,15 @@ aside {
  * ---------------------
 */
 
-/* example code blocks */
-.example-snippet {
-    margin: 2em 0;
-    font-size: 85%;
+.pure-img-responsive {
+    max-width: 100%;
+    height: auto;
 }
 
-/* green call to action button class */
-.notice {
-    background-color: #61B842;
-    color: white;
+.pure-paginator .pure-button {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
 }
 
 .pure-button {
@@ -366,69 +428,91 @@ a.pure-button-primary {
     color: white;
 }
 
+/* green call to action button class */
+.notice {
+    background-color: #61B842;
+    color: white;
+}
+
 .muted {
     color: #ccc;
 }
+
 
 /* --------------------------
  * Responsive Styles
  * --------------------------
 */
 
-@media (max-width: 870px) {
+@media screen and (min-width: 35.5em) {
 
-    /* Navigation Push Styles */
-    #layout {
-        position: relative;
-        padding-left: 0;
+    .legal-license {
+        text-align: left;
+        margin: 0;
     }
-        #layout.active {
-            position: relative;
-            left: 150px;
-        }
-            #layout.active #menu {
-                left: 150px;
-                width: 150px;
-            }
-
-    #menu {
-        left: 0;
-    }
-
-    .menu-link {
-        position: fixed;
-        left: 0;
-        display: block;
-    }
-
-    #layout.active .menu-link {
-        left: 150px;
-    }
-}
-
-@media (max-width: 767px) {
-
-    .header,
-    .content {
-        font-size: 87.5%;
-    }
-
-    .header,
-    .content,
-    .legal {
-        padding-left: 1.1429em;
-        padding-right: 1.1429em;
-    }
-
-    .legal-license,
     .legal-copyright,
     .legal-links,
     .legal-links li {
-        text-align: center;
+        text-align: right;
+        margin: 0;
     }
 
-    /* normalize paddings on small screens*/
-    .l-hbox {
-        padding: 1.3em;
+}
+
+@media screen and (min-width: 48em) {
+
+    .l-wrap,
+    .l-wrap .content {
+        padding-left: 1em;
+        padding-right: 1em;
     }
+    .content .l-wrap {
+        margin-left: -2em;
+        margin-right: -2em;
+    }
+
+    .header,
+    .content {
+        padding-left: 2em;
+        padding-right: 2em;
+    }
+
+    .header h1 {
+        font-size: 350%;
+    }
+    .header h2 {
+        font-size: 150%;
+    }
+
+    .content p {
+        font-size: 1.125em;
+    }
+
+    .code {
+        margin-left: auto;
+        margin-right: auto;
+        border-left-width: 1px;
+        border-right-width: 1px;
+    }
+
+}
+
+@media (min-width: 58em) {
+
+    #layout {
+        padding-left: 160px; /* left col width "#menu" */
+        left: 0;
+    }
+    #menu {
+        left: 160px;
+    }
+    .menu-link {
+        position: fixed;
+        left: 160px;
+        display: none;
+    }
+    #layout.active .menu-link {
+        left: 160px;
+    }
+
 }

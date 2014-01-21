@@ -4,34 +4,43 @@
     box-sizing: border-box;
 }
 
+body,
+.pure-g [class *= "pure-u"] {
+    font-family: "proxima-nova", sans-serif;
+}
+
 a {
     text-decoration: none;
-    color: rgb(142, 142, 214);
+    color: rgb(61, 146, 201);
 }
 a:hover,
 a:focus {
     text-decoration: underline;
 }
 
-/* LAYOUT CSS */
-#layout {
-    padding-left: 25%; /* "left col (nav + list)" width */
-    position: relative;
+h3 {
+    font-weight: 100;
 }
 
-.sidebar {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    width: 25%;
-    margin-left: -25%;
-    background: rgb(24, 33, 61);
-    color: #fff;
+/* LAYOUT CSS */
+.pure-img-responsive {
+    max-width: 100%;
+    height: auto;
+}
+
+#layout {
+    padding: 0;
 }
 
 .header {
-    margin: 50% 2em 0;
-    text-align: right;
+    text-align: center;
+    top: auto;
+    margin: 3em auto;
+}
+
+.sidebar {
+    background: rgb(61, 79, 93);
+    color: #fff;
 }
 
 .brand-title,
@@ -43,7 +52,7 @@ a:focus {
 }
 .brand-tagline {
     font-weight: 300;
-    color: rgb(142, 142, 214);
+    color: rgb(176, 202, 219);
 }
 
 .nav-list {
@@ -58,14 +67,16 @@ a:focus {
 }
 .nav-item a {
     background: transparent;
-    border: 3px solid rgb(103, 103, 180);
+    border: 2px solid rgb(176, 202, 219);
     color: #fff;
     margin-top: 1em;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 85%;
 }
 .nav-item a:hover,
 .nav-item a:focus {
-    border: 3px solid rgb(142, 142, 214);
-    color: rgb(142, 142, 214);
+    border: 2px solid rgb(61, 146, 201);
     text-decoration: none;
 }
 
@@ -80,7 +91,7 @@ a:focus {
 }
 
 .content {
-    padding: 2em 3em 0;
+    padding: 2em 1em 0;
 }
 
 .post {
@@ -150,27 +161,20 @@ a:focus {
     background: none;
 }
 
-@media (max-width: 767px) {
-    .sidebar {
-        width: 100%;
-        position: relative;
-        margin: 0;
+@media (min-width: 48em) {
+    .content {
+        padding: 2em 3em 0;
+        margin-left: 25%;
     }
 
     .header {
-        text-align: center;
-        top: auto;
-        margin: 3em auto;
-        position: static;
+        margin: 80% 2em 0;
+        text-align: right;
     }
 
-    #layout {
-        padding: 0;
-    }
-}
-
-@media (max-width: 480px) {
-    .content {
-        padding: 2em 1em 0;
+    .sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
     }
 }
