@@ -13,15 +13,6 @@ a {
     color: #1b98f8;
 }
 
-/*
- * -- FONT-FAMILY STYLES --
- * This is the font-family that I want to use for this page
- */
-body,
-.pure-g [class *= "pure-u"] {
-    font-family: "proxima-nova", sans-serif;
-}
-
 
 /*
  * -- HELPER STYLES --
