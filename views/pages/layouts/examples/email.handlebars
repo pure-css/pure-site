@@ -3,12 +3,12 @@
 {{setTags     "base" "grids" "buttons" "menus"}}
 {{addLocalCSS "/css/layouts/email.css" hasOldIE=true}}
 
-<div class="pure-g content" id="layout">
-    <div class="pure-u" id="nav">
+<div id="layout" class="content pure-g">
+    <div id="nav" class="pure-u">
         <a href="#" class="nav-menu-button">Menu</a>
 
         <div class="nav-inner">
-            <button class="pure-button primary-button">Compose</button>
+            <button class="primary-button pure-button">Compose</button>
 
             <div class="pure-menu pure-menu-open">
                 <ul>
@@ -26,7 +26,7 @@
         </div>
     </div>
 
-    <div class="pure-u-1" id="list">
+    <div id="list" class="pure-u-1">
         <div class="email-item email-item-selected pure-g">
             <div class="pure-u">
                 {{addLocalImg "/img/common/tilo-avatar.png"
@@ -147,7 +147,7 @@
         </div>
     </div>
 
-    <div class="pure-u-1" id="main">
+    <div id="main" class="pure-u-1">
         <div class="email-content">
             <div class="email-content-header pure-g">
                 <div class="pure-u-1-2">
@@ -157,10 +157,10 @@
                     </p>
                 </div>
 
-                <div class="pure-u-1-2 email-content-controls">
-                    <button class="pure-button secondary-button">Reply</button>
-                    <button class="pure-button secondary-button">Forward</button>
-                    <button class="pure-button secondary-button">Move to</button>
+                <div class="email-content-controls pure-u-1-2">
+                    <button class="secondary-button pure-button">Reply</button>
+                    <button class="secondary-button pure-button">Forward</button>
+                    <button class="secondary-button pure-button">Move to</button>
                 </div>
             </div>
 
