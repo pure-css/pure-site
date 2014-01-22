@@ -8,7 +8,7 @@
 
         <ul>
           {{#each nav}}
-            <li class="{{#if isActive}}pure-menu-selected{{/if}} {{#if divider}}menu-item-divided{{/if}}">
+            <li class="{{#if divider}}menu-item-divided{{/if}} {{#if isActive}}pure-menu-selected{{/if}}">
                 <a href="{{pathTo name}}">{{label}}</a>
             </li>
           {{/each}}
