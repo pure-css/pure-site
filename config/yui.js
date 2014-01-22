@@ -1,7 +1,7 @@
 var isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = Object.freeze({
-    version: '3.12.0',
+    version: '3.14.1',
 
     config: {
         gallery: 'gallery-2013.03.27-22-06',
