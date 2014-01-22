@@ -14,11 +14,6 @@ body {
     font-size: 13px;
 }
 
-body,
-.pure-g [class *= "pure-u"] {
-    font-family: sans-serif;
-}
-
 h1,
 h2,
 h3,

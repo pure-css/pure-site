@@ -4,11 +4,6 @@
     box-sizing: border-box;
 }
 
-body,
-.pure-g [class *= "pure-u"] {
-    font-family: sans-serif;
-}
-
 a {
     text-decoration: none;
     color: rgb(61, 146, 201);
