@@ -147,7 +147,6 @@ a.pure-button-primary {
     /* absolute center .splash within .splash-container */
     width: 80%;
     height: 50%;
-    overflow: auto;
     margin: auto;
     position: absolute;
     top: 100px; left: 0; bottom: 0; right: 0;
