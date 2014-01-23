@@ -46,7 +46,7 @@ app.locals({
     html5shiv: config.html5shiv
 });
 
-app.expose(config.yui.config, 'YUI_config');
+app.expose(config.yui.config, 'YUI_config', {cache: true});
 
 // -- Middleware ---------------------------------------------------------------
 

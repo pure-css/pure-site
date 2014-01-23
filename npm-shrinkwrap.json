@@ -1,6 +1,6 @@
 {
   "name": "pure-site",
-  "version": "1.9.0",
+  "version": "1.9.5",
   "dependencies": {
     "combohandler": {
       "version": "0.3.8",
@@ -259,8 +259,8 @@
       "from": "express-slash@~1.0.0"
     },
     "express-state": {
-      "version": "1.0.3",
-      "from": "express-state@~1.0.1"
+      "version": "1.1.0",
+      "from": "express-state@1.1.0"
     },
     "express3-handlebars": {
       "version": "0.5.0",
