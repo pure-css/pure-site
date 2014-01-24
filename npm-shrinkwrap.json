@@ -260,7 +260,8 @@
     },
     "express-state": {
       "version": "1.1.0",
-      "from": "express-state@1.1.0"
+      "from": "express-state@1.1.0",
+      "resolved": "https://registry.npmjs.org/express-state/-/express-state-1.1.0.tgz"
     },
     "express3-handlebars": {
       "version": "0.5.0",
@@ -1018,7 +1019,8 @@
     },
     "rework": {
       "version": "0.20.2",
-      "from": "rework@~0.20.2",
+      "from": "git://github.com/reworkcss/rework",
+      "resolved": "git://github.com/reworkcss/rework#c60edd31c32432796cc4e48dac85a935a7e60a28",
       "dependencies": {
         "css": {
           "version": "1.6.0",
@@ -1066,7 +1068,7 @@
         },
         "debug": {
           "version": "0.7.4",
-          "from": "debug@>= 0.7.3 < 1"
+          "from": "debug@*"
         },
         "rework-inherit": {
           "version": "0.2.1",
@@ -1084,7 +1086,13 @@
     },
     "rework-pure-grids": {
       "version": "0.3.3",
-      "from": "rework-pure-grids@~0.3.3"
+      "from": "git://github.com/ericf/rework-pure-grids#umd",
+      "resolved": "git://github.com/ericf/rework-pure-grids#78133f1545fdf8d8173a9eb6e1f80b797e42fb06"
+    },
+    "css-mediaquery": {
+      "version": "0.1.2",
+      "from": "git://github.com/ericf/css-mediaquery#umd",
+      "resolved": "git://github.com/ericf/css-mediaquery#367d0b6c60cda86b574b70ba34c35ba68963a811"
     }
   }
 }
