@@ -27,6 +27,14 @@
         </div>
     </div>
 
+    <script>
+        {{{state}}}
+    </script>
+
+  {{#if loadYUI}}
+    {{> yui-seed}}
+  {{/if}}
+
     {{addLocalJS "/js/ui.js"}}
     {{addLocalJS "/vendor/rainbow/js/rainbow.min.js"}}
     {{addLocalJS "/vendor/rainbow/js/language/generic.js"}}
