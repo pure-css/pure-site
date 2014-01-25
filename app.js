@@ -104,7 +104,8 @@ page('/forms/',     'forms',     'Forms');
 page('/buttons/',   'buttons',   'Buttons');
 page('/tables/',    'tables',    'Tables');
 page('/menus/',     'menus',     'Menus');
-page('/layouts/',   'layouts',   'Layouts', routes.layouts.index);
+page('/start/',     'start',     'Get Started', routes.start);
+page('/layouts/',   'layouts',   'Layouts',     routes.layouts.index);
 page('/customize/', 'customize', 'Customize');
 page('/extend/',    'extend',    'Extend');
 
@@ -146,6 +147,6 @@ app.locals.nav = app.findAll('label').get.map(function (route) {
         path   : route.path,
         name   : annotations.name,
         label  : annotations.label,
-        divider: annotations.name === 'layouts'
+        divider: annotations.name === 'start'
     };
 });

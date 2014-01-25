@@ -1,9 +1,12 @@
+'use strict';
+
 var path  = require('path'),
     error = require('../lib/utils').error;
 
 exports.render   = render;
 exports.redirect = redirect;
 exports.layouts  = require('./layouts');
+exports.start    = require('./start');
 
 // -----------------------------------------------------------------------------
 
