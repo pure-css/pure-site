@@ -35,8 +35,9 @@
     "bower": "~1.2.7",
     "css-parse": "~1.7.0",
     "es6-promise": "~0.1.0",
-    "rework": "~0.20.2",
-    "rework-pure-grids": "~0.3.3"
+    "rework": "reworkcss/rework",
+    "rework-pure-grids": "ericf/rework-pure-grids#umd",
+    "css-mediaquery": "ericf/css-mediaquery#umd"
   },
   "scripts": {
     "install": "bower install && grunt"
