@@ -1,5 +1,6 @@
 'use strict';
-var utils = require('../lib/utils');
+var utils = require('../lib/utils'),
+    mediaquery = require('css-mediaquery');
 /*
     Routes for /start/ could be any of the following:
     * `/start/`
@@ -8,23 +9,76 @@ var utils = require('../lib/utils');
 */
 module.exports = function (req, res, next) {
 
+    var query = utils.extend({}, req.query),
+        mq = hasMQ(query);
 
-    var query = utils.extend({
-        cols: '5,24',
-        fonts: 'sans-serif',
-        prefix: '.pure-u-',
-    }, req.query);
+    //if we have columns, then normalize them into an array.
+    if (query.cols) {
+        query.cols = normalizeCols(query.cols);
+    }
 
-    //If no media queries were specified, we'll create some defaults.
-    if (!hasMQ(query)) {
-        query.med = 'screen and (min-width: 48em)';
-        query.lrg = 'screen and (min-width: 60em)';
+    if (mq) {
+        Object.keys(mq).forEach(function (key) {
+            var validMqStr = isValidMQ(mq[key]);
+            if (!validMqStr) {
+                //remove the media query from `query` if it's not valid.
+                delete query[key];
+            }
+            else {
+                //update the media query in `query` with the legitimate one.
+                query[key] = validMqStr;
+            }
+        });
     }
 
     res.expose(query, 'app.start.query');
     res.render('start');
 };
 
+// Takes in a string input for number of columns and converts it into an array.
+function normalizeCols (cols) {
+    //cols will always be a string, so we can convert the string to an array of 1 or more integers.
+    return cols.split(",").map(function (x) {
+        return parseInt(x);
+    });
+}
+
+
+/*
+Checks to see if media queries are valid, by following these steps:
+    Does the query param value parse as a media query?
+        If yes? return true.
+        If not, then assume it's a width value, so wrap it with "screen and (min-width: " + value + ")"
+    Does it now parse as a media query?
+        If yes, return true.
+        If not, return false.
+*/
+function isValidMQ (mqStr) {
+    //This regex splits up a string that contains a sequences of letters or numbers ("48em", "480px") into an array of grouped letters and numbers (["48", "em"], ["480", "px"])
+    var RE_SEPARATE_NUM_LETTERS = /[a-zA-Z]+|[0-9]+/g,
+        captures;
+    try {
+        mediaquery.parse(mqStr);
+    } catch (e) {
+        //invalid media query, so let's check that there's some floated value in here, and if there is, we will prepend/append some strings
+        captures = mqStr.match(RE_SEPARATE_NUM_LETTERS);
+        if (captures.length === 2 && parseFloat(captures[0])) {
+            mqStr = 'screen and (min-width: ' + mqStr + ')';
+        }
+
+        else {
+            return false;
+        }
+        try {
+            mediaquery.parse(mqStr);
+        } catch (e) {
+            //still not a valid media query
+            return false;
+        }
+    }
+
+    return mqStr;
+}
 
 function hasMQ (obj) {
     var o = utils.extend({}, obj);
