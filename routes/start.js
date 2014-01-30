@@ -9,26 +9,11 @@ var utils = require('../lib/utils'),
 */
 module.exports = function (req, res, next) {
 
-    var query = utils.extend({}, req.query),
-        mq = hasMQ(query);
+    var query = normalizeQuery(utils.extend({}, req.query));
 
     //if we have columns, then normalize them into an array.
     if (query.cols) {
         query.cols = normalizeCols(query.cols);
-    }
-
-    if (mq) {
-        Object.keys(mq).forEach(function (key) {
-            var validMqStr = isValidMQ(mq[key]);
-            if (!validMqStr) {
-                //remove the media query from `query` if it's not valid.
-                delete query[key];
-            }
-            else {
-                //update the media query in `query` with the legitimate one.
-                query[key] = validMqStr;
-            }
-        });
     }
 
     res.expose(query, 'app.start.query');
@@ -80,13 +65,27 @@ function isValidMQ (mqStr) {
     return mqStr;
 }
 
-function hasMQ (obj) {
-    var o = utils.extend({}, obj);
-    delete o.cols;
-    delete o.fonts;
-    delete o.prefix;
-    if (Object.getOwnPropertyNames(o).length === 0) {
-        return false;
-    }
-    return o;
+/*
+    This function takes in a `req.query` object, validates all the media queries within it, removes the incorrect media queries, and then returns a modified `req.query` object, with only valid values within in.
+*/
+function normalizeQuery (obj) {
+    var query = obj,
+        mq = utils.extend({}, query);
+    delete mq.cols;
+    delete mq.fonts;
+    delete mq.prefix;
+
+    Object.keys(mq).forEach(function (key) {
+        var validMqStr = isValidMQ(mq[key]);
+        if (!validMqStr) {
+            //remove the media query from `query` if it's not valid.
+            delete query[key];
+        }
+        else {
+            //update the media query in `query` with the legitimate one.
+            query[key] = validMqStr;
+        }
+    });
+
+    return query;
 }
