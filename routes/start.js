@@ -47,7 +47,7 @@ function isValidMQ (mqStr) {
     } catch (e) {
         //invalid media query, so let's check that there's some floated value in here, and if there is, we will prepend/append some strings
         captures = mqStr.match(RE_SEPARATE_NUM_LETTERS);
-        if (captures.length === 2 && parseFloat(captures[0])) {
+        if (captures.length && captures.length === 2 && parseFloat(captures[0])) {
             mqStr = 'screen and (min-width: ' + mqStr + ')';
         }
 
@@ -71,20 +71,19 @@ function isValidMQ (mqStr) {
 function normalizeQuery (obj) {
     var query = obj,
         mq = utils.extend({}, query);
+
     delete mq.cols;
     delete mq.fonts;
     delete mq.prefix;
 
+    query.mediaQueries = [];
+
+    //remove the media query from `query`, and add it as an array element if it's valid.
     Object.keys(mq).forEach(function (key) {
-        var validMqStr = isValidMQ(mq[key]);
-        if (!validMqStr) {
-            //remove the media query from `query` if it's not valid.
-            delete query[key];
+        if (isValidMQ(mq[key])) {
+            query.mediaQueries.push({key: key, value: mq[key]});
         }
-        else {
-            //update the media query in `query` with the legitimate one.
-            query[key] = validMqStr;
-        }
+        delete query[key];
     });
 
     return query;
