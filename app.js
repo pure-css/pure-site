@@ -104,7 +104,7 @@ page('/forms/',     'forms',     'Forms');
 page('/buttons/',   'buttons',   'Buttons');
 page('/tables/',    'tables',    'Tables');
 page('/menus/',     'menus',     'Menus');
-page('/start/',     'start',     'Get Started', routes.start);
+page('/start/',     'start',     'Get Started', routes.start.index);
 page('/layouts/',   'layouts',   'Layouts',     routes.layouts.index);
 page('/customize/', 'customize', 'Customize');
 page('/extend/',    'extend',    'Extend');
