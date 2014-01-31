@@ -14,7 +14,8 @@ module.exports = {
         pub     : path.resolve('build/public/'),
         views   : path.resolve('views/pages/'),
         layouts : path.resolve('views/layouts/'),
-        partials: path.resolve('views/partials/')
+        partials: path.resolve('views/partials/'),
+        shared  : path.resolve('shared/templates/')
     },
 
     version: require('../package').version,
