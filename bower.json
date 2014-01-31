@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "pure": "latest",
-    "rainbow": "~1.1.9"
+    "rainbow": "~1.1.9",
+    "handlebars": "~1.3.0"
   }
 }
