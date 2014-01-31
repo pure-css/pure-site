@@ -1,13 +1,45 @@
 'use strict';
 var utils = require('../lib/utils'),
-    mediaquery = require('css-mediaquery');
+    mediaquery = require('css-mediaquery'),
+    hbs = require('../lib/hbs');
 /*
     Routes for /start/ could be any of the following:
     * `/start/`
     * `/start/?cols=6&med=48em&lrg=60em`
     * `/start/?cols=6&sm=screen and (min-device-width: 480px)`
 */
-module.exports = function (req, res, next) {
+exports.index = [exposeTemplates, showStart];
+
+function exposeTemplates (req, res, next) {
+    // Uses the `ExpressHandlebars` instance to get the get the **precompiled**
+        // templates which will be shared with the client-side of the app.
+        hbs.loadTemplates('shared/templates/', {
+            precompiled: true
+        }, function (err, templates) {
+            if (err) { return next(err); }
+
+            // RegExp to remove the ".handlebars" extension from the template names.
+            var extRegex = new RegExp(hbs.extname + '$');
+
+            // Creates an array of templates which are exposed via
+            // `res.locals.templates`.
+            templates = Object.keys(templates).map(function (name) {
+                return {
+                    name    : name.replace(extRegex, ''),
+                    template: templates[name]
+                };
+            });
+
+            // Exposes the templates during view rendering.
+            if (templates.length) {
+                res.locals.templates = templates;
+            }
+
+            next();
+        });
+}
+
+function showStart (req, res, next) {
 
     var query = normalizeQuery(utils.extend({}, req.query));
 
