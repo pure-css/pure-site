@@ -1,0 +1,11 @@
+{{! Only needs the Handlebars Runtime, because the exposed templates are precompiled. }}
+<script>
+    (function () {
+        var revive    = Handlebars.template,
+            templates = Handlebars.templates = Handlebars.templates || {};
+
+      {{#templates}}
+        templates['{{{name}}}'] = revive({{{template}}});
+      {{/templates}}
+    }());
+</script>

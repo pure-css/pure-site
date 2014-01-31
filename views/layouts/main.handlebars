@@ -31,9 +31,10 @@
         {{{state}}}
     </script>
 
-  {{#if loadYUI}}
-    {{> yui-seed}}
-  {{/if}}
+    {{#if loadYUI}}
+        {{> yui-seed}}
+    {{/if}}
+
 
     {{addLocalJS "/js/ui.js"}}
     {{addLocalJS "/vendor/rainbow/js/rainbow.min.js"}}
@@ -42,9 +43,21 @@
     {{addLocalJS "/vendor/rainbow/js/language/css.js"}}
     {{addLocalJS "/vendor/rainbow/js/language/javascript.js"}}
 
-  {{#localJS}}
-    <script src="{{{.}}}"></script>
-  {{/localJS}}
+    {{! need to add the local JS before the #localJS call below}}
+    {{#if loadHandlebars}}
+        {{addLocalJS "/vendor/handlebars/handlebars.runtime.min.js"}}
+    {{/if}}
+
+
+    {{#localJS}}
+        <script src="{{{.}}}"></script>
+    {{/localJS}}
+
+    {{! this needs to execute after JS above has been loaded}}
+    {{#if loadHandlebars}}
+        {{> handlebars}}
+    {{/if}}
+
 
 </body>
 </html>
