@@ -35,7 +35,7 @@ $ bower link
 ```
 
 Now you'll need to move into where you have this project checked out locally,
-install the website's npm dependecies (if you haven't done so already),
+install the website's npm dependencies (if you haven't done so already),
 link `pure` in `pure-site` using Bower, then start up the server:
 
 ```shell
