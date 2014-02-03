@@ -31,6 +31,7 @@ module.exports = function (grunt) {
                     'css-mediaquery/index.js',
                     'rework/rework.js',
                     'rework-pure-grids/index.js',
+                    'handlebars/dist/handlebars.runtime.js'
                 ],
 
                 rename: function (dest, src) {

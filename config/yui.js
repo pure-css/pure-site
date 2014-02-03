@@ -21,6 +21,10 @@ exports.config = {
                     path: 'vendor/css-mediaquery.js'
                 },
 
+                'handlebars-runtime': {
+                    path: 'vendor/handlebars.runtime.js'
+                },
+
                 'rework': {
                     path: 'vendor/rework.js'
                 },
