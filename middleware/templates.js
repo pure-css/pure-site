@@ -30,7 +30,10 @@ module.exports = function exposeTemplates(exphbs, templatesDir) {
                         (templatesDir ? templatesDir.replace(/\//g, '.') : '') +
                         name.replace(extRegex, '');
 
-                res.expose(templates[name], namespace);
+                // Evaluate the precompiled template string into a function.
+                var template; eval('template = ' + templates[name]);
+
+                res.expose(template, namespace);
             });
 
             next();
