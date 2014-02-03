@@ -19,10 +19,7 @@ module.exports = function (grunt) {
                 cwd   : 'bower_components/',
                 expand: true,
                 dest  : 'build/public/vendor/',
-                src   : [
-                    'rainbow/js/**',
-                    'handlebars/handlebars.runtime.min.js'
-                ]
+                src   : ['rainbow/js/**']
             },
 
             tooling: {
