@@ -27,7 +27,7 @@ module.exports = function exposeTemplates(exphbs, templatesDir) {
             // Exposes the templates via express-state.
             templates = Object.keys(templates).forEach(function (name) {
                 var namespace = 'templates.' +
-                        (templatesDir ? templatesDir.replace(/\//g, '.') : '') +
+                        templatesDir.replace(/\//g, '.') +
                         name.replace(extRegex, '');
 
                 // Evaluate the precompiled template string into a function.
