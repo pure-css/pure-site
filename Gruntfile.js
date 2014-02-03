@@ -22,7 +22,7 @@ module.exports = function (grunt) {
                 src   : ['rainbow/js/**']
             },
 
-            tooling: {
+            npm: {
                 expand : true,
                 cwd    : 'node_modules/',
                 dest   : 'build/public/vendor/',
