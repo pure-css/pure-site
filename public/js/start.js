@@ -1,4 +1,4 @@
-YUI().use('css-mediaquery', 'rework', 'rework-pure-grids', function (Y) {
+YUI().use('css-mediaquery', 'rework', 'rework-pure-grids', 'handlebars-runtime', function (Y) {
     'use strict';
 
     var exported   = Y.Env._exported,
@@ -15,4 +15,5 @@ YUI().use('css-mediaquery', 'rework', 'rework-pure-grids', function (Y) {
 
     console.log(mediaQuery.parse('screen and (min-width: 48em)'));
     console.log(css);
+    console.log(app.start.query);
 });
