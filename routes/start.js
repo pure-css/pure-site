@@ -1,44 +1,20 @@
 'use strict';
-var utils = require('../lib/utils'),
-    mediaquery = require('css-mediaquery'),
-    hbs = require('../lib/hbs');
+
+var mediaQuery = require('css-mediaquery'),
+    hbs        = require('../lib/hbs'),
+    utils      = require('../lib/utils'),
+    middleware = require('../middleware');
+
+exports.index = [middleware.exposeTemplates(hbs), showStart];
+
+// -----------------------------------------------------------------------------
+
 /*
     Routes for /start/ could be any of the following:
     * `/start/`
     * `/start/?cols=6&med=48em&lrg=60em`
     * `/start/?cols=6&sm=screen and (min-device-width: 480px)`
 */
-exports.index = [exposeTemplates, showStart];
-
-function exposeTemplates (req, res, next) {
-    // Uses the `ExpressHandlebars` instance to get the get the **precompiled**
-        // templates which will be shared with the client-side of the app.
-        hbs.loadTemplates('shared/templates/', {
-            precompiled: true
-        }, function (err, templates) {
-            if (err) { return next(err); }
-
-            // RegExp to remove the ".handlebars" extension from the template names.
-            var extRegex = new RegExp(hbs.extname + '$');
-
-            // Creates an array of templates which are exposed via
-            // `res.locals.templates`.
-            templates = Object.keys(templates).map(function (name) {
-                return {
-                    name    : name.replace(extRegex, ''),
-                    template: templates[name]
-                };
-            });
-
-            // Exposes the templates during view rendering.
-            if (templates.length) {
-                res.locals.templates = templates;
-            }
-
-            next();
-        });
-}
-
 function showStart (req, res, next) {
 
     var query = normalizeQuery(utils.extend({}, req.query));
@@ -48,15 +24,15 @@ function showStart (req, res, next) {
         query.cols = normalizeCols(query.cols);
     }
 
-    res.expose(query, 'app.start.query');
+    res.expose(query, 'start.query');
     res.render('start');
-};
+}
 
 // Takes in a string input for number of columns and converts it into an array.
 function normalizeCols (cols) {
     //cols will always be a string, so we can convert the string to an array of 1 or more integers.
     return cols.split(",").map(function (x) {
-        return parseInt(x);
+        return parseInt(x, 10);
     });
 }
 
@@ -75,7 +51,7 @@ function isValidMQ (mqStr) {
     var RE_SEPARATE_NUM_LETTERS = /[a-zA-Z]+|[0-9]+/g,
         captures;
     try {
-        mediaquery.parse(mqStr);
+        mediaQuery.parse(mqStr);
     } catch (e) {
         //invalid media query, so let's check that there's some floated value in here, and if there is, we will prepend/append some strings
         captures = mqStr.match(RE_SEPARATE_NUM_LETTERS);
@@ -87,7 +63,7 @@ function isValidMQ (mqStr) {
             return false;
         }
         try {
-            mediaquery.parse(mqStr);
+            mediaQuery.parse(mqStr);
         } catch (e) {
             //still not a valid media query
             return false;

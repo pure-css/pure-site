@@ -1,4 +1,4 @@
-YUI().use('css-mediaquery', 'rework', 'rework-pure-grids', function (Y) {
+YUI().use('css-mediaquery', 'rework', 'rework-pure-grids', 'handlebars-runtime', function (Y) {
     'use strict';
 
     var exported   = Y.Env._exported,
