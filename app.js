@@ -22,6 +22,7 @@ expstate.extend(app);
 app.set('name', 'Pure');
 app.set('env', config.env);
 app.set('port', config.port);
+app.set('state namespace', 'app');
 app.enable('strict routing');
 app.enable('case sensitive routing');
 
@@ -46,7 +47,7 @@ app.locals({
     html5shiv: config.html5shiv
 });
 
-app.expose(config.yui.config, 'YUI_config', {cache: true});
+app.expose(config.yui.config, 'window.YUI_config', {cache: true});
 
 // -- Middleware ---------------------------------------------------------------
 
