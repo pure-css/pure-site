@@ -9,5 +9,32 @@
 {{> header}}
 
 <div class="content">
-    {{> rows}}
+    {{sectionHeading "Step 1: Add Pure to your page"}}
+
+    <p>
+        You can add Pure to your page via Yahoo's CDN. Just add this {{code "<link>"}} tag to your {{code "<head>"}}, before your application styles.
+    </p>
+
+    {{#code wrap=true}}
+      <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure.version}}/pure-min.css">
+    {{/code}}
+
+    <p>
+        Alternatively, you can download Pure through Bower, or <a href="/customize/">check out other CDNs</a> that host Pure.
+    </p>
+
+    {{#code wrap=true}}
+        bower install pure --save
+    {{/code}}
+
+
+    {{sectionHeading "Step 2: Customize your Pure Grid"}}
+    <p>
+        Pure ships with a 24-column grid system, but we don't include media queries since they can't be overridden by your website's styles. Instead, you can generate your own mobile-first responsive grid system by telling us a bit more about your site.
+    </p>
+
+
+    {{> start/grid-input-view}}
+
+    {{> start/gridOutputView}}
 </div>
