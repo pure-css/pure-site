@@ -10,28 +10,25 @@
 
 .grid-tab-link,
 .grid-tab-link:visited {
+    font-size: 0.8em;
     font-weight: bold;
-    color: rgb(0, 120, 231);
-    border: 1px solid rgb(0, 120, 231);
-    border-radius: 20px;
+    color: #666;
     padding: 4px 10px;
     margin: 0.3em;
     transition: all 0.3s;
-    font-weight: bold;
     cursor: pointer;
 }
 
-.grid-tab-selected,
-.grid-tab-selected:visited {
-    color: white;
-    background: rgb(0, 120, 231);
+.grid-tab-link-selected,
+.grid-tab-link-selected:visited {
+    color: rgb(0, 120, 231);
+    border-bottom: 2px solid rgb(0, 120, 231);
 }
 
 .grid-content {
     padding: 1em;
     margin-top: 1em;
     border: 1px solid #ccc;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.075);
     border-radius: 3px;
     overflow-y: hidden;
 }
@@ -76,10 +73,9 @@
 .remove-mq {
     background: white;
     border: 1px solid rgb(229, 53, 53);
-    border-radius: 73px;
     font-weight: 500;
     color: rgb(229, 53, 53);
-    padding: 3px 8px;
+    padding: 1px 6px;
     box-shadow: none;
     font-size: 80%;
     margin-left: 0.5em;
@@ -130,5 +126,9 @@
 @media screen and (min-width: 48em) {
     .controls {
         text-align: left;
+    }
+
+    .grid-tab-link {
+        font-size: 1em;
     }
 }
