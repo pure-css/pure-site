@@ -1,11 +1,10 @@
 'use strict';
 
 var mediaQuery = require('css-mediaquery'),
-    hbs        = require('../lib/hbs'),
     utils      = require('../lib/utils'),
     middleware = require('../middleware');
 
-exports.index = [middleware.exposeTemplates(hbs), showStart];
+exports.index = [middleware.exposeTemplates(), showStart];
 
 // -----------------------------------------------------------------------------
 
