@@ -1,0 +1,18 @@
+<div class="mq-observer grid-content">
+    <div class="mq-width">
+        Resize your browser window to see how the grid changes.
+    </div>
+    <div class="mq-markers pure-g">
+        <div class="mq-marker mq-marker-on pure-u-1">
+            .pure-u-*
+        </div>
+
+        {{#if mediaQueries}}
+            {{#each mediaQueries}}
+                <div class="mq-marker pure-u-1-{{length ../mediaQueries}}">
+                    .pure-u-{{this.id}}-* and below
+                </div>
+            {{/each}}
+        {{/if}}
+    </div>
+</div>

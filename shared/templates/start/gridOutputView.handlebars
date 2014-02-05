@@ -1,0 +1,36 @@
+<div class="grid-output">
+    <ul class="grid-tabs pure-g">
+        <li class="grid-tab pure-u">
+            <a class="grid-tab-link grid-tab-selected" href="#demo">Rendered View</a>
+        </li>
+        <li class="grid-tab pure-u">
+            <a class="grid-tab-link" href="#html">index.html</a>
+        </li>
+        <li class="grid-tab pure-u">
+            <a class="grid-tab-link" href="#grid">grid.css</a>
+        </li>
+    </ul>
+
+    {{> start/mqObserver}}
+
+    <div class="grid-content">
+        <div id="demo" class="grid-panel grid-panel-selected">
+            {{> start/demo}}
+        </div>
+        <div id="grid" class="grid-panel grid-panel-selected">
+          {{#if fonts}}
+            {{#code wrap=true}}
+                {{setCustomGridFont fonts}}
+            {{/code}}
+          {{/if}}
+            {{#code wrap=true}}
+                {{css}}
+            {{/code}}
+        </div>
+        <div id="html" class="grid-panel grid-panel-selected">
+            {{#code wrap=true}}
+                {{> start/html}}
+            {{/code}}
+        </div>
+    </div>
+</div>

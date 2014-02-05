@@ -1,0 +1,86 @@
+<div class="grid-input">
+    <ul class="grid-input-tabs pure-g">
+        <li class="grid-input-tab pure-u">
+            <a class="grid-input-tab-link" href="#cols">Columns</a>
+        </li>
+        <li class="grid-input-tab pure-u">
+            <a class="grid-input-tab-link" href="#fonts">Fonts</a>
+        </li>
+        <li class="grid-input-tab pure-u">
+            <a class="grid-input-tab-link" href="#mq">Media Queries</a>
+        </li>
+    </ul>
+
+    <div class="grid-input-content">
+        <div id="cols" class="grid-input-panel pure-form pure-form-stacked">
+            <h3>Columns</h3>
+            <p>
+                Pure has a 5<sup>ths</sup> and 24-column grid system by default. You define an element's width using fractional class names (ex: {{code ".pure-u-2-5"}} for {{code "width: 40%"}}, or {{code ".pure-u-12-24"}} for {{code "width: 50%"}}).
+            </p>
+            <p>
+                If you want to customize the number of columns, you can enter it below.
+            </p>
+            <label for="cols-input">
+                Number of Columns
+            </label>
+            <input id='cols-input' class="blurable pure-u-1 pure-u-med-1-6" type='text' placeholder='24' value="{{query.cols}}">
+
+            <p class="grid-input-meta">
+                <a href="#fonts" class="pure-button">Next</a>
+            </p>
+        </div>
+        <div id="fonts" class="grid-input-panel pure-form pure-form-stacked">
+            <h3>Fonts</h3>
+            <p>
+                Pure Grids use a specific font stack to ensure the greatest OS/browser compatibility, and by default, grid units will have {{code "font-family: sans-serif;"}} applied. If you're using a different font-stack, enter it below.
+            </p>
+            <label for="fonts-input">
+                What's your website's default {{code 'font-family'}}?
+            </label>
+            <input id='fonts-input' class="blurable pure-u-1 pure-u-med-1-2" type='text' placeholder='sans-serif;' value="{{query.fonts}}">
+
+            <p class="grid-input-meta">
+                <a href="#cols" class="pure-button">Previous</a>
+                <a href="#mediaQueries" class="pure-button">Next</a>
+            </p>
+        </div>
+        <div id="mq" class="grid-input-panel pure-form">
+            <h3>Media Queries</h3>
+            <p>
+                By default, Pure's grid system does not include media queries since they can't be overriden. We can generate a mobile-first responsive grid if you provide us with media queries.
+            </p>
+            <p>
+                Pure's generated responsive grid is simple. It provides you with a specific class name prefix for each media query. For example, {{code "pure-u-med-*"}} for devices with {{code "width > 767px"}}, and {{code "pure-u-lrg-*"}} for devices with {{code "width > 980px"}}. You choose the prefix and corresponding media query.
+            </p>
+            <p>
+                What media queries should your grid system respond to?
+            </p>
+
+
+
+            <table id="media-query-table" {{#unless query.mediaQueries}}hidden {{/unless}}>
+                <thead>
+                    <tr>
+                        <th>Prefix</th>
+                        <th>Key</th>
+                        <th>Media Query</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each query.mediaQueries}}
+                        {{> rows}}
+                    {{/each}}
+                </tbody>
+            </table>
+            <div class="controls">
+                <button class="addDefaultMqBtn pure-button pure-button-primary">
+                    Use device media queries
+                </button>
+                <button class="addMqBtn pure-button">
+                    Add custom media query
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
