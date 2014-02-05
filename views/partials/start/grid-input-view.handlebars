@@ -23,7 +23,7 @@
             <label for="cols-input">
                 Number of Columns
             </label>
-            <input id='cols-input' class="pure-u-1 pure-u-med-1-6" type='text' placeholder='24' value="{{cols}}">
+            <input data='cols-input' class="pure-u-1 pure-u-med-1-6" type='text' placeholder='24' value="{{cols}}">
         </div>
         <div id="fonts" class="grid-panel grid-panel-selected pure-form pure-form-stacked">
             <h3>Fonts</h3>
@@ -33,7 +33,7 @@
             <label for="fonts-input">
                 What's your website's default {{code 'font-family'}}?
             </label>
-            <input id='fonts-input' class="pure-u-1 pure-u-med-1-2" type='text' placeholder='sans-serif;' value="{{fonts}}">
+            <input data='fonts-input' class="pure-u-1 pure-u-med-1-2" type='text' placeholder='sans-serif;' value="{{fonts}}">
         </div>
         <div id="mq" class="grid-panel grid-panel-selected pure-form">
             <h3>Media Queries</h3>
@@ -63,10 +63,10 @@
                 </tbody>
             </table>
             <div class="controls">
-                <button class="addDefaultMqBtn pure-button pure-button-primary">
+                <button data="add-default-mq" class="pure-button pure-button-primary">
                     Use device media queries
                 </button>
-                <button class="addMqBtn pure-button">
+                <button data="add-mq" class="pure-button">
                     Add custom media query
                 </button>
             </div>

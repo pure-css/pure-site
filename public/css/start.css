@@ -73,7 +73,7 @@
     margin: 0.2em 0;
 }
 
-.removeMqBtn {
+.remove-mq {
     background: white;
     border: 1px solid rgb(229, 53, 53);
     border-radius: 73px;
@@ -88,8 +88,8 @@
     transition: background 0.3s;
 }
 
-.removeMqBtn:hover,
-.removeMqBtn:active {
+.remove-mq:hover,
+.remove-mq:active {
     color: white;
     background: rgb(249, 114, 114);
     box-shadow: none;
