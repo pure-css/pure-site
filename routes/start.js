@@ -7,8 +7,8 @@ var mediaQuery = require('css-mediaquery'),
     utils      = require('../lib/utils'),
     middleware = require('../middleware');
 
-//exports.index = [middleware.exposeTemplates(hbs), showStart];
-exports.index = showStart;
+exports.index = [middleware.exposeTemplates('start'), showStart];
+//exports.index = showStart;
 
 // -----------------------------------------------------------------------------
 
@@ -22,33 +22,23 @@ function showStart (req, res, next) {
 
     var query = normalizeQuery(utils.extend({}, req.query));
 
-    //if we have columns, then normalize them into an array.
-    if (query.cols) {
-        query.cols = normalizeCols(query.cols);
-    }
-
     query.css = rework('').use(grids.units(query.cols, {
-        mediaQueries: toObject(query.mediaQueries)
+        mediaQueries: query.mediaQueries.reduce(function (prev, curr) {
+            prev[curr.id] = curr.value;
+            return prev;
+        }, {})
     })).toString();
 
-    //res.expose(query, 'start.query');
+    res.expose(query, 'start.query');
     res.render('start', query);
 }
 
 // Takes in a string input for number of columns and converts it into an array.
 function normalizeCols (cols) {
     //cols will always be a string, so we can convert the string to an array of 1 or more integers.
-    return cols.split(",").map(function (x) {
+    return cols.split(',').map(function (x) {
         return parseInt(x, 10);
     });
-}
-
-function toObject(arr) {
-    var o = {};
-    arr.forEach(function (elem) {
-        o[elem.id] = elem.value;
-    });
-    return o;
 }
 
 /*
@@ -109,5 +99,8 @@ function normalizeQuery (obj) {
         delete query[key];
     });
 
+    if (query.cols) {
+        query.cols = normalizeCols(query.cols);
+    }
     return query;
 }
