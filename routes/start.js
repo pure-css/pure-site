@@ -1,11 +1,14 @@
 'use strict';
 
 var mediaQuery = require('css-mediaquery'),
+    rework     = require('rework'),
+    grids      = require('rework-pure-grids'),
     hbs        = require('../lib/hbs'),
     utils      = require('../lib/utils'),
     middleware = require('../middleware');
 
-exports.index = [middleware.exposeTemplates(hbs), showStart];
+//exports.index = [middleware.exposeTemplates(hbs), showStart];
+exports.index = showStart;
 
 // -----------------------------------------------------------------------------
 
@@ -24,8 +27,12 @@ function showStart (req, res, next) {
         query.cols = normalizeCols(query.cols);
     }
 
-    res.expose(query, 'start.query');
-    res.render('start');
+    query.css = rework('').use(grids.units(query.cols, {
+        mediaQueries: toObject(query.mediaQueries)
+    })).toString();
+
+    //res.expose(query, 'start.query');
+    res.render('start', query);
 }
 
 // Takes in a string input for number of columns and converts it into an array.
@@ -36,6 +43,13 @@ function normalizeCols (cols) {
     });
 }
 
+function toObject(arr) {
+    var o = {};
+    arr.forEach(function (elem) {
+        o[elem.id] = elem.value;
+    });
+    return o;
+}
 
 /*
 Checks to see if media queries are valid, by following these steps:
@@ -88,8 +102,9 @@ function normalizeQuery (obj) {
 
     //remove the media query from `query`, and add it as an array element if it's valid.
     Object.keys(mq).forEach(function (key) {
-        if (isValidMQ(mq[key])) {
-            query.mediaQueries.push({key: key, value: mq[key]});
+        var mqStr = isValidMQ(mq[key]);
+        if (mqStr) {
+            query.mediaQueries.push({id: key, value: mqStr});
         }
         delete query[key];
     });
