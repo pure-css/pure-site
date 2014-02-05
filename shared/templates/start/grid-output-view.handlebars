@@ -1,7 +1,7 @@
 <div class="grid-output">
     <ul class="grid-tabs pure-g">
         <li class="grid-tab pure-u">
-            <a class="grid-tab-link grid-tab-selected" href="#demo">Rendered View</a>
+            <a class="grid-tab-link grid-tab-link-selected" href="#demo">Demo</a>
         </li>
         <li class="grid-tab pure-u">
             <a class="grid-tab-link" href="#html">index.html</a>
@@ -23,21 +23,21 @@
         <div id="grid" class="grid-panel grid-panel-selected">
           {{#if fonts}}
             <div class="font-code">
-            {{#code wrap=true}}
+            {{#code}}
                 {{> start/font-css}}
             {{/code}}
             </div>
           {{/if}}
           {{#if css}}
             <div class="grid-code">
-            {{#code wrap=true}}
+            {{#code}}
                 {{css}}
             {{/code}}
             </div>
           {{/if}}
         </div>
         <div id="html" class="grid-panel grid-panel-selected">
-            {{#code wrap=true}}
+            {{#code}}
                 {{> start/html}}
             {{/code}}
         </div>
