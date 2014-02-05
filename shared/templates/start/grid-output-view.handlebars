@@ -15,18 +15,25 @@
 
     <div class="grid-content">
         <div id="demo" class="grid-panel grid-panel-selected">
+            <style class="grid-css" scoped>
+            {{css}}
+            </style>
             {{> start/demo}}
         </div>
         <div id="grid" class="grid-panel grid-panel-selected">
           {{#if fonts}}
+            <div class="font-code">
             {{#code wrap=true}}
                 {{> start/font-css}}
             {{/code}}
+            </div>
           {{/if}}
           {{#if css}}
+            <div class="grid-code">
             {{#code wrap=true}}
                 {{css}}
             {{/code}}
+            </div>
           {{/if}}
         </div>
         <div id="html" class="grid-panel grid-panel-selected">
