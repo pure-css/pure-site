@@ -20,12 +20,14 @@
         <div id="grid" class="grid-panel grid-panel-selected">
           {{#if fonts}}
             {{#code wrap=true}}
-                {{setCustomGridFont fonts}}
+                {{> start/font-css}}
             {{/code}}
           {{/if}}
+          {{#if css}}
             {{#code wrap=true}}
                 {{css}}
             {{/code}}
+          {{/if}}
         </div>
         <div id="html" class="grid-panel grid-panel-selected">
             {{#code wrap=true}}
