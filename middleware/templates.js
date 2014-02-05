@@ -1,15 +1,19 @@
 'use strict';
 
 var path      = require('path'),
-    sharedDir = require('../config').dirs.shared;
+    sharedDir = require('../config').dirs.shared,
+    exphbs    = require('../lib/hbs');
 
-module.exports = function exposeTemplates(exphbs, templatesDir) {
+// RegExp to remove the ".handlebars" extension from the template names.
+var extRegex = new RegExp(exphbs.extname + '$');
+
+module.exports = function exposeTemplates(templatesDir) {
     templatesDir || (templatesDir = '');
 
-    // Make sure dir ends with a "/".
-    if (templatesDir && templatesDir.charAt(templatesDir.length - 1) !== '/') {
-        templatesDir += '/';
-    }
+    var namespace = 'templates.' + templatesDir.replace(/\//g, '.');
+
+    // Make sure namespace does not end with a ".".
+    namespace = namespace.replace(/\.$/, '');
 
     return function (req, res, next) {
         // Uses the `ExpressHandlebars` instance to get the get the
@@ -20,21 +24,15 @@ module.exports = function exposeTemplates(exphbs, templatesDir) {
         }, function (err, templates) {
             if (err) { return next(err); }
 
-            // RegExp to remove the ".handlebars" extension from the template
-            // names.
-            var extRegex = new RegExp(exphbs.extname + '$');
-
-            // Exposes the templates via express-state.
-            templates = Object.keys(templates).forEach(function (name) {
-                var namespace = 'templates.' +
-                        templatesDir.replace(/\//g, '.') +
-                        name.replace(extRegex, '');
-
+            templates = Object.keys(templates).reduce(function (map, name) {
                 // Evaluate the precompiled template string into a function.
                 var template; eval('template = ' + templates[name]);
+                map[name.replace(extRegex, '')] = template;
+                return map;
+            }, {});
 
-                res.expose(template, namespace);
-            });
+            // Exposes the templates via express-state.
+            res.expose(templates, namespace);
 
             next();
         });
