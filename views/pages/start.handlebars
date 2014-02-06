@@ -1,5 +1,5 @@
 {{setTitle     "Get Started"}}
-{{setSubTitle  "bla."}}
+{{setSubTitle  "Start your next web project with Pure."}}
 {{setActiveNav "start"}}
 {{setLoadYUI   true}}
 {{addLocalCSS  "/css/start.css"}}
@@ -9,28 +9,34 @@
 {{> header}}
 
 <div class="content">
-    {{sectionHeading "Step 1: Add Pure to your page"}}
+    {{sectionHeading "Add Pure to Your Page"}}
 
     <p>
-        You can add Pure to your page via Yahoo's CDN. Just add this {{code "<link>"}} tag to your {{code "<head>"}}, before your application styles.
+        You can add Pure to your page via Yahoo's free CDN. Just add the following {{code "<link>"}} element into your page's {{code "<head>"}}, before your project's stylesheets.
     </p>
+</div>
 
-    {{#code wrap=true}}
-      <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure.version}}/pure-min.css">
-    {{/code}}
+<div class="cdn-link">
+  {{#code wrap=true}}
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure.version}}/pure-min.css">
+  {{/code}}
+</div>
+
+<div class="content">
+    <aside>
+        <p>
+            Alternatively, you can <a href="https://github.com/yui/pure-release/archive/v{{pure.version}}.zip">download Pure</a>, or <a href="{{pathTo 'customize'}}">check out other CDNs</a> that host Pure.
+        </p>
+    </aside>
+
+
+    {{sectionHeading "Customize Your Layout Grid"}}
 
     <p>
-        Alternatively, you can download Pure through Bower, or <a href="/customize/">check out other CDNs</a> that host Pure.
+        <b>Pure ships with a 24-column <a href="{{pathTo 'grids'}}">grid system</a>.</b> But your project's design may use a different number of grid columns for layout, no worries you can customize this number.
     </p>
-
-    {{#code wrap=true}}
-        bower install pure --save
-    {{/code}}
-
-
-    {{sectionHeading "Step 2: Customize your Pure Grid"}}
     <p>
-        Pure ships with a 24-column grid system, but we don't include media queries since they can't be overridden by your website's styles. Instead, you can generate your own mobile-first responsive grid system by telling us a bit more about your site.
+        <b>You can create responsive layouts with Pure Grids.</b> By setting a couple options below, CSS rules will be generated, giving you a customized mobile-first responsive grid system for your web project.
     </p>
 
 

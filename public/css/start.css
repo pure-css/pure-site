@@ -2,15 +2,21 @@
     font-size: 100%;
 }
 
+.cdn-link {
+    text-align: center;
+}
+.cdn-link .code {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .grid-tabs,
 .grid-output-tabs {
     padding: 1em 0 0;
 }
 
-
 .grid-tab-link,
 .grid-tab-link:visited {
-    font-size: 0.8em;
     font-weight: bold;
     color: #666;
     padding: 4px 10px;
@@ -34,7 +40,10 @@
 }
 
 .grid-panel {
-    /* by default, we hide these off screen. Not using display:none; to preserve accessibility */
+    /*
+    By default, we hide these off screen. Not using display:none; to preserve
+    accessibility.
+    */
     position: absolute;
     top: -9999px;
     left: -9999px;
