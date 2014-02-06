@@ -7,6 +7,10 @@ exports.version = require(path.join(bowerPureDir, 'bower.json')).version;
 exports.modules = ['base', 'grids', 'forms', 'buttons', 'tables', 'menus'];
 exports.local   = getLocalPureDir(bowerPureDir);
 
+exports.serveLocally = process.argv.slice(2).some(function (arg) {
+    return arg === '--pure-local';
+});
+
 // -----------------------------------------------------------------------------
 
 function getLocalPureDir(bowerPureDir) {

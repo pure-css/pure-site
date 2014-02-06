@@ -1,18 +1,14 @@
 {{! Common styles used across multiple layouts }}
 
-{{#if isPureLocal}}
-{{addLocalCSS "/css/pure/pure.css" min=isProduction prepend=true}}
+{{#if servePureLocally}}
+<link rel="stylesheet" href="/css/pure/pure{{min}}.css">
 {{else}}
-{{addCdnCSS pure.version "pure" min=true prepend=true}}
+{{addCdnCSS pure.version "pure" min=isProduction prepend=true}}
 {{/if}}
 
 {{#cdnCSS}}
 <link rel="stylesheet" href="{{{.}}}">
 {{/cdnCSS}}
-
-{{#githubCSS}}
-<link rel="stylesheet" href="{{{.}}}">
-{{/githubCSS}}
 
 {{#localCSS}}
   {{#if this.oldIE}}
