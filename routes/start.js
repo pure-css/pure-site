@@ -22,15 +22,29 @@ function showStart (req, res, next) {
 
     var query = normalizeQuery(utils.extend({}, req.query));
 
-    query.css = rework('').use(grids.units(query.cols, {
-        mediaQueries: query.mediaQueries.reduce(function (prev, curr) {
-            prev[curr.id] = curr.value;
-            return prev;
-        }, {})
-    })).toString();
 
-    res.expose(query, 'start.query');
-    res.render('start', query);
+    if (isBelowColLimit(query.cols) && isBelowMqLimit(query.mediaQueries)) {
+        query.css = rework('').use(grids.units(query.cols, {
+            mediaQueries: query.mediaQueries.reduce(function (prev, curr) {
+                prev[curr.id] = curr.value;
+                return prev;
+            }, {})
+        })).toString();
+
+        res.expose(query, 'start.query');
+        res.expose({
+            isBelowColLimit: isBelowColLimit,
+            isBelowMqLimit: isBelowMqLimit
+        }, 'start.utils');
+
+        res.render('start', query);
+    }
+    else {
+        if (!res.locals.message) {
+            res.locals.message = 'To protect our servers from being overloaded, our online tool can only generate up to 100 columns and 20 media queries. Try again with a lower number of columns or media queries.';
+        }
+        next(utils.error(400));
+    }
 }
 
 // Takes in a string input for number of columns and converts it into an array.
@@ -39,6 +53,21 @@ function normalizeCols (cols) {
     return cols.split(',').map(function (x) {
         return parseInt(x, 10);
     });
+}
+
+function isBelowColLimit (cols) {
+    if (cols) {
+        return (cols <= 100);
+    }
+    return true;
+
+}
+
+function isBelowMqLimit (mq) {
+    if (mq && mq.length) {
+        return (mq.length <= 20);
+    }
+    return true;
 }
 
 /*
