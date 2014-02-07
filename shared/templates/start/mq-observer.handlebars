@@ -1,15 +1,15 @@
 <div class="mq-observer">
     <div class="mq-width">
-        Resize your browser window to see how the grid changes.
+        Resize your browser window to see which media queries are active.
     </div>
     <div class="mq-markers pure-g">
-        <div class="mq-marker mq-marker-on pure-u-1 pure-u-med-1-2 pure-u-lrg-1-3">
+        <div class="mq-marker mq-marker-on pure-u">
             .pure-u-*
         </div>
 
         {{#if mediaQueries}}
             {{#each mediaQueries}}
-                <div class="mq-marker pure-u-1 pure-u-med-1-2 pure-u-lrg-1-3">
+                <div class="mq-marker pure-u">
                     .pure-u-{{this.id}}-* and below
                 </div>
             {{/each}}

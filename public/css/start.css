@@ -118,34 +118,30 @@
     /* same as grids.css examples */
     background: #333;
     color: #ddd;
+    padding: 1em;
     border-color: #333;
-    border-radius: 3px;
+    text-align: center;
 }
 
 .mq-width {
-    text-align: center;
     padding: 0.5em;
     font-size: 80%;
 }
 
+
 .mq-marker {
     color: #888;
     text-align: center;
-    padding: 0.3em;
+    padding: 0.3em 2em;
     font-size: 0.8em;
+    border-radius: 20px;
+    border: 1px solid #555;
 }
 
 .mq-marker-on {
     background: rgb(0, 120, 231);
     color: white;
-}
-
-.mq-marker:first-child {
-    border-bottom-left-radius: 3px;
-}
-
-.mq-marker:first-child {
-    border-bottom-right-radius: 3px;
+    border-color: rgb(0, 120, 231);
 }
 
 @media screen and (min-width: 48em) {

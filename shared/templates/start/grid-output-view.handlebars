@@ -1,4 +1,4 @@
-<div class="grid-output">
+<div class="content grid-output">
     <ul class="grid-tabs pure-g">
         <li class="grid-tab pure-u">
             <a class="grid-tab-link grid-tab-link-selected" href="#demo">Demo</a>
@@ -10,8 +10,9 @@
             <a class="grid-tab-link" href="#grid">grid.css</a>
         </li>
     </ul>
+</div>
 
-    {{> start/mq-observer}}
+{{> start/mq-observer}}
 
     <div class="grid-content">
         <div id="demo" class="grid-panel grid-panel-selected">
@@ -20,7 +21,7 @@
             </style>
             {{> start/demo}}
         </div>
-        <div id="grid" class="grid-panel grid-panel-selected">
+        <div id="grid" class="content grid-panel grid-panel-selected">
           {{#if fonts}}
             <div class="font-code">
             {{#code}}
@@ -36,7 +37,7 @@
             </div>
           {{/if}}
         </div>
-        <div id="html" class="grid-panel grid-panel-selected">
+        <div id="html" class="content grid-panel grid-panel-selected">
             {{#code}}
                 {{> start/html}}
             {{/code}}
