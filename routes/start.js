@@ -5,7 +5,9 @@ var mediaQuery = require('css-mediaquery'),
     grids      = require('rework-pure-grids'),
     hbs        = require('../lib/hbs'),
     utils      = require('../lib/utils'),
-    middleware = require('../middleware');
+    middleware = require('../middleware'),
+    COL_LIMIT  = 100,
+    MQ_LIMIT   = 10;
 
 exports.index = [middleware.exposeTemplates('start'), showStart];
 
@@ -18,6 +20,8 @@ exports.index = [middleware.exposeTemplates('start'), showStart];
     * `/start/?cols=6&sm=screen and (min-device-width: 480px)`
 */
 function showStart (req, res, next) {
+
+    console.log(req.query);
 
     var query = normalizeQuery(utils.extend({}, req.query));
 
@@ -32,9 +36,9 @@ function showStart (req, res, next) {
 
         res.expose(query, 'start.query');
         res.expose({
-            isBelowColLimit: isBelowColLimit,
-            isBelowMqLimit: isBelowMqLimit
-        }, 'start.utils');
+            colLimit: COL_LIMIT,
+            mqLimit: MQ_LIMIT
+        }, 'start.constants');
 
         res.render('start', query);
     }
@@ -56,7 +60,7 @@ function normalizeCols (cols) {
 
 function isBelowColLimit (cols) {
     if (cols) {
-        return (cols <= 100);
+        return (cols <= COL_LIMIT);
     }
     return true;
 
@@ -64,7 +68,7 @@ function isBelowColLimit (cols) {
 
 function isBelowMqLimit (mq) {
     if (mq && mq.length) {
-        return (mq.length <= 20);
+        return (mq.length <= MQ_LIMIT);
     }
     return true;
 }
