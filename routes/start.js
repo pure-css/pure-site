@@ -2,136 +2,134 @@
 
 var mediaQuery = require('css-mediaquery'),
     rework     = require('rework'),
-    grids      = require('rework-pure-grids'),
-    hbs        = require('../lib/hbs'),
+    grids      = require('rework-pure-grids');
+
+var hbs        = require('../lib/hbs'),
     utils      = require('../lib/utils'),
     middleware = require('../middleware'),
     COL_LIMIT  = 100,
     MQ_LIMIT   = 10;
 
-exports.index = [middleware.exposeTemplates('start'), showStart];
+exports.index = [
+    normalizeOptions,
+    middleware.exposeTemplates('start'),
+    showStart
+];
 
 // -----------------------------------------------------------------------------
 
-/*
-    Routes for /start/ could be any of the following:
-    * `/start/`
-    * `/start/?cols=6&med=48em&lrg=60em`
-    * `/start/?cols=6&sm=screen and (min-device-width: 480px)`
-*/
-function showStart (req, res, next) {
+var LIMITS = {
+    cols        : {min: 2, max: 100},
+    prefix      : {min: 0, max: 80},
+    mediaQueries: {min: 0, max: 10}
+};
 
-    console.log(req.query);
+function normalizeOptions(req, res, next) {
+    var mediaQueries = [],
+        cols, prefix;
 
-    var query = normalizeQuery(utils.extend({}, req.query));
-
-
-    if (isBelowColLimit(query.cols) && isBelowMqLimit(query.mediaQueries)) {
-        query.css = rework('').use(grids.units(query.cols, {
-            mediaQueries: query.mediaQueries.reduce(function (prev, curr) {
-                prev[curr.id] = curr.value;
-                return prev;
-            }, {})
-        })).toString();
-
-        res.expose(query, 'start.query');
-        res.expose({
-            colLimit: COL_LIMIT,
-            mqLimit: MQ_LIMIT
-        }, 'start.constants');
-
-        res.render('start', query);
+    function badRequest(label, message) {
+        res.locals.message = message;
+        throw utils.error(400, 'Bad Request: ' + label);
     }
-    else {
-        if (!res.locals.message) {
-            res.locals.message = 'To protect our servers from being overloaded, our online tool can only generate up to 100 columns and 20 media queries. Try again with a lower number of columns or media queries.';
+
+    Object.keys(req.query).forEach(function (param) {
+        var val = req.query[param];
+
+        if (Array.isArray(val)) {
+            badRequest('Duplicate param',
+                '"' + param + '" must only have a single value.');
         }
-        next(utils.error(400));
-    }
-}
 
-// Takes in a string input for number of columns and converts it into an array.
-function normalizeCols (cols) {
-    //cols will always be a string, so we can convert the string to an array of 1 or more integers.
-    return cols.split(',').map(function (x) {
-        return parseInt(x, 10);
+        switch (param.toLowerCase()) {
+            case 'cols':
+                val = parseInt(val, 10);
+
+                if (val < LIMITS.cols.min || val > LIMITS.cols.max) {
+                    badRequest('Column range',
+                        '"cols" must be between 2—100, inclusively.');
+                }
+
+                cols = val;
+                break;
+
+            case 'prefix':
+                if (val.length > LIMITS.prefix.max) {
+                    badRequest('Prefix length',
+                        '"prefix" must be between 0—80 characters.');
+                }
+
+                prefix = val;
+                break;
+
+            // Assume it's a media query.
+            default:
+                try {
+                    val = normalizeMediaQuery(val);
+                } catch (e) {
+                    badRequest('Media Query',
+                        'Invalid CSS Media Query: "' + val + '".');
+                }
+
+                mediaQueries.push({
+                    id: param,
+                    mq: val
+                });
+
+                break;
+        }
     });
-}
 
-function isBelowColLimit (cols) {
-    if (cols) {
-        return (cols <= COL_LIMIT);
+    if (mediaQueries.length > LIMITS.mediaQueries.max) {
+        badRequest('Media Query',
+            'More than 10 CSS Media Queries were provided.');
     }
-    return true;
 
+    req.startOptions = {
+        cols        : cols,
+        prefix      : prefix,
+        mediaQueries: mediaQueries
+    };
+
+    next();
 }
 
-function isBelowMqLimit (mq) {
-    if (mq && mq.length) {
-        return (mq.length <= MQ_LIMIT);
+function normalizeMediaQuery(mq, options) {
+    mq = mq.trim();
+    var expand = options && options.expand;
+
+    if (expand) {
+        mq = 'screen and (min-width: ' + mq + ')';
     }
-    return true;
-}
 
-/*
-Checks to see if media queries are valid, by following these steps:
-    Does the query param value parse as a media query?
-        If yes? return true.
-        If not, then assume it's a width value, so wrap it with "screen and (min-width: " + value + ")"
-    Does it now parse as a media query?
-        If yes, return true.
-        If not, return false.
-*/
-function isValidMQ (mqStr) {
-    //This regex splits up a string that contains a sequences of letters or numbers ("48em", "480px") into an array of grouped letters and numbers (["48", "em"], ["480", "px"])
-    var RE_SEPARATE_NUM_LETTERS = /[a-zA-Z]+|[0-9]+/g,
-        captures;
     try {
-        mediaQuery.parse(mqStr);
+        mediaQuery.parse(mq);
+        return mq;
     } catch (e) {
-        //invalid media query, so let's check that there's some floated value in here, and if there is, we will prepend/append some strings
-        captures = mqStr.match(RE_SEPARATE_NUM_LETTERS);
-        if (captures.length && captures.length === 2 && parseFloat(captures[0])) {
-            mqStr = 'screen and (min-width: ' + mqStr + ')';
-        }
-
-        else {
-            return false;
-        }
-        try {
-            mediaQuery.parse(mqStr);
-        } catch (e) {
-            //still not a valid media query
-            return false;
+        // When we've already expanded the short-hand MQ syntax, or when the
+        // short-hand form doesn't look like a length value, re-throw the error.
+        if (expand || !/^(\d|\.)/.test(mq)) {
+            throw e;
         }
     }
 
-    return mqStr;
+    // Try again, this time expanding the `mq` assuming it's in the short-hand.
+    return normalizeMediaQuery(mq, {expand: true});
 }
 
-/*
-    This function takes in a `req.query` object, validates all the media queries within it, removes the incorrect media queries, and then returns a modified `req.query` object, with only valid values within in.
-*/
-function normalizeQuery (obj) {
-    var query = obj,
-        mq = utils.extend({}, query);
+function showStart(req, res, next) {
+    var options = req.startOptions;
 
-    delete mq.cols;
-    delete mq.prefix;
+    res.locals(options);
 
-    query.mediaQueries = [];
+    res.locals.css = rework('').use(grids.units(options.cols, {
+        mediaQueries: options.mediaQueries.reduce(function (map, mq) {
+            map[mq.id] = mq.mq;
+            return map;
+        }, {})
+    })).toString({indent: '    '});
 
-    //remove the media query from `query`, and add it as an array element if it's valid.
-    Object.keys(mq).forEach(function (key) {
-        var mqStr = isValidMQ(mq[key]);
-        if (mqStr) {
-            query.mediaQueries.push({id: key, value: mqStr});
-        }
-        delete query[key];
-    });
-
-    if (query.cols) {
-        query.cols = normalizeCols(query.cols);
-    }
-    return query;
+    res.expose(LIMITS, 'start.limits');
+    res.expose(options, 'start.options');
+    res.render('start');
 }
