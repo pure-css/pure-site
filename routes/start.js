@@ -8,7 +8,6 @@ var mediaQuery = require('css-mediaquery'),
     middleware = require('../middleware');
 
 exports.index = [middleware.exposeTemplates('start'), showStart];
-//exports.index = showStart;
 
 // -----------------------------------------------------------------------------
 
@@ -114,7 +113,6 @@ function normalizeQuery (obj) {
         mq = utils.extend({}, query);
 
     delete mq.cols;
-    delete mq.fonts;
     delete mq.prefix;
 
     query.mediaQueries = [];
