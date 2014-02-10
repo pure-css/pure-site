@@ -3,9 +3,11 @@
         <li class="grid-tab pure-u">
             <a class="grid-tab-link grid-tab-link-selected" href="#demo">Demo</a>
         </li>
+
         <li class="grid-tab pure-u">
             <a class="grid-tab-link" href="#html">index.html</a>
         </li>
+
         <li class="grid-tab pure-u">
             <a class="grid-tab-link" href="#grid">grid.css</a>
         </li>
@@ -17,30 +19,26 @@
     <div class="grid-content">
         <div id="demo" class="grid-panel grid-panel-selected">
             <style class="grid-css" scoped>
-            {{css}}
+                {{css}}
             </style>
+
             {{> start/demo}}
         </div>
+
         <div id="grid" class="content grid-panel grid-panel-selected">
-          {{#if fonts}}
-            <div class="font-code">
-            {{#code}}
-                {{> start/font-css}}
-            {{/code}}
-            </div>
-          {{/if}}
           {{#if css}}
             <div class="grid-code">
-            {{#code}}
+              {{#code type="css"}}
                 {{css}}
-            {{/code}}
+              {{/code}}
             </div>
           {{/if}}
         </div>
+
         <div id="html" class="content grid-panel grid-panel-selected">
-            {{#code}}
-                {{> start/html}}
-            {{/code}}
+          {{#code type="html"}}
+            {{> start/html}}
+          {{/code}}
         </div>
     </div>
 </div>
