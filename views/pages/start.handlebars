@@ -76,27 +76,27 @@
             <tr>
                 <th class="th-highlight">Key</th>
                 <th class="th-highlight">Media Query</th>
-                <th>Class name</th>
-                <th>Behavior</th>
+                <th>Applies</th>
+                <th>Classname</th>
+            </tr>
         </thead>
 
         <tbody>
             <tr>
-                <td class="td-highlight">None</td>
-                <td class="td-highlight">None</td>
+                <td class="td-highlight"><i>None</i></td>
+                <td class="td-highlight"><i>None</i></td>
+                <td><i>Always</i></td>
                 <td>{{code ".pure-u-*"}}</td>
-                <td>Applies all the time</td>
             </tr>
-            {{#each gridUnits}}
+
+          {{#each selectedUnits}}
             <tr>
-                <td class="td-highlight">{{code @key}}</td>
-                <td class="td-highlight">
-                    <code>@media {{this.type}} and ({{this.expressions.0.modifier}}-{{this.expressions.0.feature}}: {{this.expressions.0.value}})</code>
-                </td>
-                <td><code>.pure-u-{{@key}}-*</code></td>
-                <td>Applies for ≥ {{this.expressions.0.value}} screens</td>
+                <td class="td-highlight"><b>{{code @key}}</b></td>
+                <td class="td-highlight"><code>@media {{this}}</code></td>
+                <td>≥ <b>{{this.expressions.0.value}}</b></td>
+                <td><code>.pure-u-<b>{{@key}}</b>-*</code></td>
             </tr>
-            {{/each}}
+          {{/each}}
         </tbody>
     </table>
 

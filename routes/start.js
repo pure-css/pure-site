@@ -4,16 +4,10 @@ var mediaQuery = require('css-mediaquery'),
     rework     = require('rework'),
     grids      = require('rework-pure-grids');
 
-var hbs           = require('../lib/hbs'),
-    utils         = require('../lib/utils'),
-    middleware    = require('../middleware'),
-    gridUnits     = require('../config').pure.grid,
-    COL_LIMIT     = 100,
-    MQ_LIMIT      = 10,
-    selectedUnits = {
-        med: mediaQuery.parse(gridUnits.med)[0],
-        lrg: mediaQuery.parse(gridUnits.lrg)[0]
-    };
+var hbs        = require('../lib/hbs'),
+    utils      = require('../lib/utils'),
+    middleware = require('../middleware'),
+    gridUnits  = require('../config').pure.grid;
 
 exports.index = [
     normalizeOptions,
@@ -27,6 +21,19 @@ var LIMITS = {
     cols        : {min: 2, max: 100},
     prefix      : {min: 0, max: 80},
     mediaQueries: {min: 0, max: 10}
+};
+
+var SELECTED_GRIDS_UNITS = {
+    med: new GridUnits(gridUnits.med),
+    lrg: new GridUnits(gridUnits.lrg)
+};
+
+function GridUnits(mq) {
+    utils.extend(this, {mq: mq}, mediaQuery.parse(mq)[0]);
+}
+
+GridUnits.prototype.toString = function () {
+    return this.mq;
 };
 
 function normalizeOptions(req, res, next) {
@@ -91,14 +98,13 @@ function normalizeOptions(req, res, next) {
     }
 
     req.startOptions = {
-        cols        : cols,
-        prefix      : prefix,
-        mediaQueries: mediaQueries,
-        gridUnits   : selectedUnits
+        cols         : cols,
+        prefix       : prefix,
+        mediaQueries : mediaQueries,
+        selectedUnits: SELECTED_GRIDS_UNITS
     };
     next();
 }
-
 
 function normalizeMediaQuery(mq, options) {
     mq = mq.trim();
