@@ -2,14 +2,6 @@
     font-size: 100%;
 }
 
-.cdn-link {
-    text-align: center;
-}
-.cdn-link .code {
-    margin-left: auto;
-    margin-right: auto;
-}
-
 .grid-tabs,
 .grid-output-tabs {
     padding: 1em 0 0;
