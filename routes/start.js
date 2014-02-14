@@ -1,18 +1,28 @@
 'use strict';
 
-var mediaQuery = require('css-mediaquery'),
+var archiver   = require('archiver'),
+    mediaQuery = require('css-mediaquery'),
     rework     = require('rework'),
-    grids      = require('rework-pure-grids');
+    grids      = require('rework-pure-grids'),
+    path       = require('path');
 
-var hbs        = require('../lib/hbs'),
+var config     = require('../config'),
+    hbs        = require('../lib/hbs'),
     utils      = require('../lib/utils'),
-    middleware = require('../middleware'),
-    gridUnits  = require('../config').pure.grid;
+    middleware = require('../middleware');
 
 exports.index = [
     normalizeOptions,
     middleware.exposeTemplates('start'),
+    generateCSS,
     showStart
+];
+
+exports.download = [
+    normalizeOptions,
+    generateHTML,
+    generateCSS,
+    downloadStart
 ];
 
 // -----------------------------------------------------------------------------
@@ -24,8 +34,8 @@ var LIMITS = {
 };
 
 var SELECTED_GRIDS_UNITS = {
-    med: new GridUnits(gridUnits.med),
-    lrg: new GridUnits(gridUnits.lrg)
+    med: new GridUnits(config.pure.grid.med),
+    lrg: new GridUnits(config.pure.grid.lrg)
 };
 
 function GridUnits(mq) {
@@ -98,10 +108,9 @@ function normalizeOptions(req, res, next) {
     }
 
     req.startOptions = {
-        cols         : cols,
-        prefix       : prefix,
-        mediaQueries : mediaQueries,
-        selectedUnits: SELECTED_GRIDS_UNITS
+        cols        : cols,
+        prefix      : prefix,
+        mediaQueries: mediaQueries
     };
     next();
 }
@@ -129,19 +138,49 @@ function normalizeMediaQuery(mq, options) {
     return normalizeMediaQuery(mq, {expand: true});
 }
 
-function showStart(req, res, next) {
+function generateHTML(req, res, next) {
+    var template = path.join(config.dirs.shared, 'start', 'html' + hbs.extname);
+
+    hbs.render(template, {
+        cache: req.app.enabled('view cache')
+    }, function (err, html) {
+        if (err) { return next(err); }
+        res.html = html;
+        next();
+    });
+}
+
+function generateCSS(req, res, next) {
     var options = req.startOptions;
 
-    res.locals(options);
-
-    res.locals.css = rework('').use(grids.units(options.cols, {
+    res.css = rework('').use(grids.units(options.cols, {
         mediaQueries: options.mediaQueries.reduce(function (map, mq) {
             map[mq.id] = mq.mq;
             return map;
         }, {})
     })).toString({indent: '    '});
 
+    next();
+}
+
+function showStart(req, res, next) {
+    var options = req.startOptions;
+
+    res.locals.selectedUnits = SELECTED_GRIDS_UNITS;
+    res.locals.css           = res.css;
+    res.locals(options);
+
     res.expose(LIMITS, 'start.limits');
     res.expose(options, 'start.options');
     res.render('start');
+}
+
+function downloadStart(req, res, next) {
+    var archive = archiver('zip');
+
+    archive.append(res.html,           {name: 'index.html'});
+    archive.append(res.css || '\r\n',  {name: 'grid.css'});
+
+    res.set('Content-Disposition', 'attachment; filename="pure-start.zip"');
+    archive.finalize().pipe(res);
 }

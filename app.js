@@ -125,6 +125,8 @@ app.param('layout', function (val) {
 page('/layouts/:layout/',         'layout',          routes.layouts.layout);
 page('/layouts/:layout/download', 'layout-download', routes.layouts.download);
 
+page('/start/download', 'start-download', routes.start.download);
+
 // Static asset combo.
 app.get('/combo/:version', [
     combo.combine({rootPath: config.dirs.pub}),
