@@ -23,6 +23,6 @@ module.exports = {
     pure     : require('./pure'),
     yui      : require('./yui'),
     ga       : 'UA-41480445-1',
-    typekit  : 'gis6vng',
+    // typekit  : 'gis6vng',
     html5shiv: '3.7'
 };
