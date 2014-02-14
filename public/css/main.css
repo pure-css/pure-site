@@ -4,15 +4,15 @@
     box-sizing: border-box;
 }
 
+html, button, input, select, textarea,
+.pure-g [class *= "pure-u"] {
+    font-family: "proxima-nova", sans-serif;
+}
+
 body {
     min-width: 320px;
     color: #777;
     line-height: 1.6;
-}
-
-body,
-.pure-g [class *= "pure-u"] {
-    font-family: "proxima-nova", sans-serif;
 }
 
 

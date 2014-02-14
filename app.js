@@ -61,8 +61,8 @@ app.use(middleware.pure(config.pure));
 app.use(app.router);
 app.use(middleware.slash());
 
-if (config.isDevelopment) {
-    app.locals.isPureLocal = true;
+if (config.isDevelopment || config.pure.serveLocally) {
+    app.locals.servePureLocally = true;
     app.use('/css/pure/', express.static(config.pure.local));
     console.log('Serving Pure', config.pure.version, 'from:', config.pure.local);
 }
