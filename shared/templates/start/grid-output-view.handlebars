@@ -14,14 +14,14 @@
           {{#if css}}
             <div id="css" class="grid-code">
               {{#code type="css"}}
-                {{css}}
+                {{css wrap="true"}}
               {{/code}}
             </div>
           {{/if}}
         </div>
 
         <div id="html" class="content grid-panel grid-panel-selected">
-          {{#code type="html"}}
+          {{#code type="html" wrap="true"}}
             {{> start/html}}
           {{/code}}
         </div>
