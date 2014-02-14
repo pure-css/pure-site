@@ -100,48 +100,32 @@
     box-shadow: none;
 }
 
-
-.demo-header {
-    background: rgb(250, 243, 176);
-    padding: 1em 0;
-    text-align: center;
-}
-
-.demo-box {
+.grids-example {
+    border-bottom: 1px solid #eee;
     background: rgb(250, 250, 250);
+}
+
+.grids-example [class *= "pure-u"] {
+    font-family: Consolas, 'Liberation Mono', Courier, monospace;
+    text-align: center;
+    padding: 1em 0;
     border: 1px solid #eee;
-    margin: 0.5em;
-    padding: 0.5em;
-}
-
-.mq-observer {
-    /* same as grids.css examples */
-    background: #333;
-    color: #ddd;
-    padding: 1em;
-    border-color: #333;
-    text-align: center;
-}
-
-.mq-width {
-    padding: 0.5em;
-    font-size: 80%;
+    border-right: none;
+    border-bottom: none;
 }
 
 
-.mq-marker {
-    color: #888;
-    text-align: center;
-    padding: 0.3em 2em;
-    font-size: 0.8em;
-    border-radius: 20px;
-    border: 1px solid #555;
+.pure-table .th-highlight {
+    background-color: rgb(255, 234, 133);
 }
 
-.mq-marker-on {
-    background: rgb(0, 120, 231);
-    color: white;
-    border-color: rgb(0, 120, 231);
+.pure-table .td-highlight {
+    background-color: rgb(255, 250, 229);
+}
+
+.pure-table .th-highlight code,
+.pure-table .td-highlight code {
+    background: rgb(255, 255, 243);
 }
 
 @media screen and (min-width: 48em) {
