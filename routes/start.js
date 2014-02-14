@@ -4,11 +4,16 @@ var mediaQuery = require('css-mediaquery'),
     rework     = require('rework'),
     grids      = require('rework-pure-grids');
 
-var hbs        = require('../lib/hbs'),
-    utils      = require('../lib/utils'),
-    middleware = require('../middleware'),
-    COL_LIMIT  = 100,
-    MQ_LIMIT   = 10;
+var hbs           = require('../lib/hbs'),
+    utils         = require('../lib/utils'),
+    middleware    = require('../middleware'),
+    gridUnits     = require('../config').pure.grid,
+    COL_LIMIT     = 100,
+    MQ_LIMIT      = 10,
+    selectedUnits = {
+        med: mediaQuery.parse(gridUnits.med)[0],
+        lrg: mediaQuery.parse(gridUnits.lrg)[0]
+    };
 
 exports.index = [
     normalizeOptions,
@@ -88,11 +93,12 @@ function normalizeOptions(req, res, next) {
     req.startOptions = {
         cols        : cols,
         prefix      : prefix,
-        mediaQueries: mediaQueries
+        mediaQueries: mediaQueries,
+        gridUnits   : selectedUnits
     };
-
     next();
 }
+
 
 function normalizeMediaQuery(mq, options) {
     mq = mq.trim();
