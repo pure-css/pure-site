@@ -29,18 +29,107 @@
         </p>
     </aside>
 
-
-    {{sectionHeading "Customize Your Layout Grid"}}
+    {{sectionHeading "Add the Viewport Meta Tag"}}
 
     <p>
-        <b>Pure ships with a 24-column <a href="{{pathTo 'grids'}}">grid system</a>.</b> But your project's design may use a different number of grid columns for layout, no worries you can customize this number.
-    </p>
-    <p>
-        <b>You can create responsive layouts with Pure Grids.</b> By setting a couple options below, CSS rules will be generated, giving you a customized mobile-first responsive grid system for your web project.
+        The viewport {{code "meta"}} tag lets you control the the width and scale of the viewport on mobile browsers. Since we're building a responsive website, we want the width to be equal to the device's native width. Add this into your page's {{code "<head>"}}.
     </p>
 </div>
+
+<div class="cdn-link">
+    {{#code wrap=true}}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{/code}}
+</div>
+
+<div class="content">
+    {{sectionHeading "Understand Pure Grids"}}
+
+    <h3>Default Grids</h3>
+    <p>
+        Pure's grid system is very simple. You create a row by using the {{code ".pure-g"}} class, and create columns within that row by using the {{code "pure-u-*"}} classes.
+    </p>
+
+    <p>Here's a grid with three columns:</p>
+
+    {{#code}}
+    {{> grids/intro}}
+    {{/code}}
+</div>
+
+<div class="grids-example">
+    {{> grids/intro}}
+</div>
+
+<div class="content">
+
+    <h3>Responsive Grids</h3>
+    <p>
+        Pure Grids can be extended to become a mobile-first responsive grid system. You're able to customize the grid by specifying media query breakpoints and grid classnames. You can <a href="#cols">customize grids below</a>, but let's start off with an example.
+    </p>
+
+    <p>
+        Let's say that you specified the following grid:
+    </p>
+
+    <table class="pure-table pure-table-bordered">
+        <thead>
+            <tr>
+                <th class="th-highlight">Key</th>
+                <th class="th-highlight">Media Query</th>
+                <th>Class name</th>
+                <th>Behavior</th>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td class="td-highlight">None</td>
+                <td class="td-highlight">None</td>
+                <td>{{code ".pure-u-*"}}</td>
+                <td>Applies all the time</td>
+            </tr>
+            {{#each gridUnits}}
+            <tr>
+                <td class="td-highlight">{{code @key}}</td>
+                <td class="td-highlight">
+                    <code>@media {{this.type}} and ({{this.expressions.0.modifier}}-{{this.expressions.0.feature}}: {{this.expressions.0.value}})</code>
+                </td>
+                <td><code>.pure-u-{{@key}}-*</code></td>
+                <td>Applies for ≥ {{this.expressions.0.value}} screens</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    <p>
+        Here's an example of what you'd be able to do. Try resizing your screen to see how the grid responds.
+    </p>
+</div>
+
+<div class="grids-example">
+{{> grids/responsive}}
+</div>
+
+<div class="content">
+
+    <p>
+        The {{code "grid.css"}} that powers the example above is <a href="/start/?med=48em&lrg=60em#css">available here</a>. You can copy and paste it, or modify the keys and media query breakpoints to create your own custom responsive grid!
+    </p>
+</div>
+
+<div class="content">
+
+    {{sectionHeading "Define your Custom Grid"}}
+    <p>
+        Now that you know how grids work, you can define your own by specifying a few class names and media queries. You can also customize the number of columns that your grid needs.
+    </p>
+    <p>
+        We'll generate a {{code "grid.css"}} file for you based on your requirements that you can download and include in your project.
+    </p>
+
 
 {{> start/grid-input-view}}
 
 {{> start/grid-output-view}}
 
+</div>
