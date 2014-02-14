@@ -214,14 +214,6 @@ code {
     white-space: pre-wrap;
     word-wrap: break-word;
 }
-.is-code-full {
-    text-align: center;
-}
-.is-code-full .code {
-    margin-left: auto;
-    margin-right: auto;
-}
-
 
 /* --------------------------
  * Footer Module Styles
@@ -443,6 +435,22 @@ a.pure-button-primary {
 
 .muted {
     color: #ccc;
+}
+
+
+
+/* --------------------------
+ * State Rules
+ * --------------------------
+*/
+
+
+.is-code-full {
+    text-align: center;
+}
+.is-code-full .code {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
