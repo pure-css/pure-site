@@ -21,9 +21,10 @@ module.exports = function (grunt) {
             }
         },
 
-        grid_units: {
+        pure_grids: {
             main: {
-                dest : 'build/public/css/main-grid.css',
+                dest: 'build/public/css/main-grid.css',
+
                 options: {
                     mediaQueries: {
                         sm : 'screen and (min-width: 35.5em)', // 568px
@@ -35,7 +36,8 @@ module.exports = function (grunt) {
             },
 
             gallery: {
-                dest : 'build/public/css/layouts/gallery-grid.css',
+                dest: 'build/public/css/layouts/gallery-grid.css',
+
                 options: {
                     units: 6,
                     mediaQueries: {
@@ -80,11 +82,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-stripmq');
+    grunt.loadNpmTasks('grunt-pure-grids');
 
-    // Local tasks.
-    grunt.loadTasks('lib/tasks/');
-
-    grunt.registerTask('default', ['clean', 'copy', 'grid_units', 'stripmq']);
+    grunt.registerTask('default', ['clean', 'copy', 'pure_grids', 'stripmq']);
 
     // Makes the `watch` task run a build first.
     grunt.renameTask('watch', 'observe');
