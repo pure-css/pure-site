@@ -1,0 +1,131 @@
+.pure-form label {
+    font-size: 100%;
+}
+
+.grid-tabs,
+.grid-output-tabs {
+    padding: 1em 0 0;
+}
+
+.grid-tab-link,
+.grid-tab-link:visited {
+    font-weight: bold;
+    color: #666;
+    padding: 4px 10px;
+    margin: 0.3em;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.grid-tab-link-selected,
+.grid-tab-link-selected:visited {
+    color: rgb(0, 120, 231);
+    border-bottom: 2px solid rgb(0, 120, 231);
+}
+
+.grid-content {
+    padding: 1em;
+    margin-top: 1em;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    overflow-y: hidden;
+}
+
+.grid-panel {
+    /*
+    By default, we hide these off screen. Not using display:none; to preserve
+    accessibility.
+    */
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+
+}
+.grid-panel-selected {
+    /* when a tab is selected, we remove the position: absolute;*/
+    position: static;
+}
+
+.offset-1-12 {
+    margin-left: 8.33%;
+}
+
+#media-query-table {
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+#media-query-table td {
+    padding: 0.3em;
+}
+.mq-val,
+.mq-key {
+    width: 100%;
+}
+
+.controls {
+    text-align: center;
+}
+
+.controls button {
+    margin: 0.2em 0;
+}
+
+.remove-mq {
+    background: white;
+    border: 1px solid rgb(229, 53, 53);
+    font-weight: 500;
+    color: rgb(229, 53, 53);
+    padding: 1px 6px;
+    box-shadow: none;
+    font-size: 80%;
+    margin-left: 0.5em;
+    -webkit-transition: background 0.3s;
+    -moz-transition: background 0.3s;
+    transition: background 0.3s;
+}
+
+.remove-mq:hover,
+.remove-mq:active {
+    color: white;
+    background: rgb(249, 114, 114);
+    box-shadow: none;
+}
+
+.grids-example {
+    border-bottom: 1px solid #eee;
+    background: rgb(250, 250, 250);
+}
+
+.grids-example [class *= "pure-u"] {
+    font-family: Consolas, 'Liberation Mono', Courier, monospace;
+    text-align: center;
+    padding: 1em 0;
+    border: 1px solid #eee;
+    border-right: none;
+    border-bottom: none;
+}
+
+
+.pure-table .th-highlight {
+    background-color: rgb(255, 234, 133);
+}
+
+.pure-table .td-highlight {
+    background-color: rgb(255, 250, 229);
+}
+
+.pure-table .th-highlight code,
+.pure-table .td-highlight code {
+    background: rgb(255, 255, 243);
+}
+
+@media screen and (min-width: 48em) {
+    .controls {
+        text-align: left;
+    }
+
+    .grid-tab-link {
+        font-size: 1em;
+    }
+}

@@ -1,6 +1,7 @@
 'use strict';
 
-var path = require('path');
+var path   = require('path'),
+    config = require('./config');
 
 module.exports = function (grunt) {
     grunt.initConfig({
@@ -50,12 +51,7 @@ module.exports = function (grunt) {
             main: {
                 dest : 'build/public/css/main-grid.css',
                 options: {
-                    mediaQueries: {
-                        sm : 'screen and (min-width: 35.5em)', // 568px
-                        med: 'screen and (min-width: 48em)',   // 768px
-                        lrg: 'screen and (min-width: 58em)',   // 928px
-                        xl : 'screen and (min-width: 75em)'    // 1200px
-                    }
+                    mediaQueries: config.pure.grid
                 }
             },
 

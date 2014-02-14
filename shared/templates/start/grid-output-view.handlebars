@@ -1,0 +1,29 @@
+<div class="grid-output">
+    <ul class="grid-tabs pure-g">
+        <li class="grid-tab pure-u">
+            <a class="grid-tab-link" href="#html">index.html</a>
+        </li>
+
+        <li class="grid-tab pure-u">
+            <a class="grid-tab-link" href="#grid">grid.css</a>
+        </li>
+    </ul>
+
+    <div class="grid-content">
+        <div id="grid" class="content grid-panel grid-panel-selected">
+          {{#if css}}
+            <div id="css" class="grid-code">
+              {{#code type="css"}}
+                {{css wrap="true"}}
+              {{/code}}
+            </div>
+          {{/if}}
+        </div>
+
+        <div id="html" class="content grid-panel grid-panel-selected">
+          {{#code type="html" wrap="true"}}
+            {{> start/html}}
+          {{/code}}
+        </div>
+    </div>
+</div>
