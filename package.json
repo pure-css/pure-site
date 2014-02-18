@@ -34,7 +34,7 @@
         "archiver": "~0.5.1",
         "bower": "~1.2.7",
         "css-parse": "~1.7.0",
-        "es6-promise": "~0.1.0",
+        "ypromise": "~0.2.2",
         "rework": "~0.20.2",
         "rework-pure-grids": "~0.3.3"
     },
