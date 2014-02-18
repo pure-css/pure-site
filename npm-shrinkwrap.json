@@ -1,6 +1,6 @@
 {
   "name": "pure-site",
-  "version": "1.10.0",
+  "version": "1.11.2",
   "dependencies": {
     "combohandler": {
       "version": "0.3.8",
@@ -53,7 +53,7 @@
                       "from": "readable-stream@~1.0.2",
                       "dependencies": {
                         "string_decoder": {
-                          "version": "0.10.25",
+                          "version": "0.10.25-1",
                           "from": "string_decoder@~0.10.x"
                         }
                       }
@@ -171,7 +171,7 @@
                       "from": "core-util-is@~1.0.0"
                     },
                     "string_decoder": {
-                      "version": "0.10.25",
+                      "version": "0.10.25-1",
                       "from": "string_decoder@~0.10.x"
                     },
                     "debuglog": {
@@ -301,7 +301,7 @@
           "from": "uglify-js@~2.3",
           "dependencies": {
             "source-map": {
-              "version": "0.1.31",
+              "version": "0.1.32",
               "from": "source-map@~0.1.7",
               "dependencies": {
                 "amdefine": {
@@ -343,41 +343,23 @@
       "from": "async@~0.2.9"
     },
     "archiver": {
-      "version": "0.5.2",
-      "from": "archiver@~0.5.1",
+      "version": "0.6.1",
+      "from": "archiver@0.6.1",
       "dependencies": {
         "readable-stream": {
           "version": "1.0.25",
           "from": "readable-stream@~1.0.24",
           "dependencies": {
             "string_decoder": {
-              "version": "0.10.25",
+              "version": "0.10.25-1",
               "from": "string_decoder@~0.10.x"
             }
           }
         },
         "zip-stream": {
-          "version": "0.1.3",
-          "from": "zip-stream@~0.1.0",
+          "version": "0.2.1",
+          "from": "zip-stream@~0.2.0",
           "dependencies": {
-            "readable-stream": {
-              "version": "1.1.10",
-              "from": "readable-stream@~1.1.9",
-              "dependencies": {
-                "core-util-is": {
-                  "version": "1.0.1",
-                  "from": "core-util-is@~1.0.0"
-                },
-                "string_decoder": {
-                  "version": "0.10.25",
-                  "from": "string_decoder@~0.10.x"
-                },
-                "debuglog": {
-                  "version": "0.0.2",
-                  "from": "debuglog@0.0.2"
-                }
-              }
-            },
             "lodash.defaults": {
               "version": "2.4.1",
               "from": "lodash.defaults@~2.4.1",
@@ -430,7 +412,7 @@
             },
             "minimatch": {
               "version": "0.2.14",
-              "from": "minimatch@~0.2.11",
+              "from": "minimatch@~0.2.12",
               "dependencies": {
                 "lru-cache": {
                   "version": "2.5.0",
@@ -507,7 +489,7 @@
                   "from": "wordwrap@~0.0.2"
                 },
                 "minimist": {
-                  "version": "0.0.5",
+                  "version": "0.0.7",
                   "from": "minimist@~0.0.1"
                 }
               }
@@ -557,7 +539,7 @@
                       "from": "wordwrap@~0.0.2"
                     },
                     "minimist": {
-                      "version": "0.0.5",
+                      "version": "0.0.7",
                       "from": "minimist@~0.0.1"
                     }
                   }
@@ -595,7 +577,7 @@
           "from": "chalk@~0.2.0",
           "dependencies": {
             "has-color": {
-              "version": "0.1.3",
+              "version": "0.1.4",
               "from": "has-color@~0.1.0"
             },
             "ansi-styles": {
@@ -655,7 +637,7 @@
                   "from": "core-util-is@~1.0.0"
                 },
                 "string_decoder": {
-                  "version": "0.10.25",
+                  "version": "0.10.25-1",
                   "from": "string_decoder@~0.10.x"
                 },
                 "debuglog": {
@@ -697,7 +679,7 @@
           }
         },
         "graceful-fs": {
-          "version": "2.0.1",
+          "version": "2.0.2",
           "from": "graceful-fs@~2.0.0"
         },
         "handlebars": {
@@ -719,7 +701,7 @@
               "from": "uglify-js@~2.3",
               "dependencies": {
                 "source-map": {
-                  "version": "0.1.31",
+                  "version": "0.1.32",
                   "from": "source-map@~0.1.7",
                   "dependencies": {
                     "amdefine": {
@@ -951,7 +933,7 @@
               "from": "chalk@~0.1.1",
               "dependencies": {
                 "has-color": {
-                  "version": "0.1.3",
+                  "version": "0.1.4",
                   "from": "has-color@~0.1.0"
                 },
                 "ansi-styles": {
@@ -1034,9 +1016,9 @@
       "version": "1.7.0",
       "from": "css-parse@~1.7.0"
     },
-    "es6-promise": {
-      "version": "0.1.1",
-      "from": "es6-promise@~0.1.0"
+    "ypromise": {
+      "version": "0.2.2",
+      "from": "ypromise@~0.2.2"
     },
     "rework": {
       "version": "0.20.2",
@@ -1051,7 +1033,7 @@
               "from": "css-stringify@1.4.1",
               "dependencies": {
                 "source-map": {
-                  "version": "0.1.31",
+                  "version": "0.1.32",
                   "from": "source-map@~0.1.31",
                   "dependencies": {
                     "amdefine": {
