@@ -95,6 +95,7 @@
 .grids-example {
     border-bottom: 1px solid #eee;
     background: rgb(250, 250, 250);
+    margin: 2em auto;
 }
 
 .grids-example [class *= "pure-u"] {
@@ -107,17 +108,21 @@
 }
 
 
-.pure-table .th-highlight {
+.mq-table {
+    width: 100%;
+}
+.mq-table th.highlight {
     background-color: rgb(255, 234, 133);
 }
-
-.pure-table .td-highlight {
+.mq-table td.highlight {
     background-color: rgb(255, 250, 229);
 }
-
-.pure-table .th-highlight code,
-.pure-table .td-highlight code {
+.mq-table th.highlight code,
+.mq-table td.highlight code {
     background: rgb(255, 255, 243);
+}
+.mq-table-mq code {
+    font-size: 0.875em;
 }
 
 @media screen and (min-width: 48em) {

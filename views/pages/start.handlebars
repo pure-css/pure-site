@@ -12,7 +12,7 @@
     {{sectionHeading "Add Pure to Your Page"}}
 
     <p>
-        You can add Pure to your page via Yahoo's free CDN. Just add the following {{code "<link>"}} element into your page's {{code "<head>"}}, before your project's stylesheets.
+        You can add Pure to your page via <b>Yahoo's free CDN</b>. Just add the following {{code "<link>"}} element into your page's {{code "<head>"}}, before your project's stylesheets.
     </p>
 </div>
 
@@ -29,10 +29,10 @@
         </p>
     </aside>
 
-    {{sectionHeading "Add the Viewport Meta Tag"}}
+    {{sectionHeading "Add the Viewport Meta Element"}}
 
     <p>
-        The viewport {{code "meta"}} tag lets you control the the width and scale of the viewport on mobile browsers. Since we're building a responsive website, we want the width to be equal to the device's native width. Add this into your page's {{code "<head>"}}.
+        The viewport {{code "meta"}} element lets you control the the width and scale of the viewport on mobile browsers. Since you're building a responsive website, you want the width to be equal to the device's native width. Add this into your page's {{code "<head>"}}.
     </p>
 </div>
 
@@ -64,18 +64,18 @@
 <div class="content">
     <h3>Responsive Grids</h3>
     <p>
-        Pure Grids can be extended to become a mobile-first responsive grid system. You're able to customize the grid by specifying media query breakpoints and grid classnames. You can <a href="#cols">customize grids below</a>, but let's start off with an example.
+        Pure Grids can be extended to become a mobile-first, responsive grid system. You're able to customize the grid by specifying CSS Media Query breakpoints and grid classnames. You can <a href="#cols">customize grids below</a>, but let's start off with an example.
     </p>
 
     <p>
         Let's say that you specified the following grid:
     </p>
 
-    <table class="pure-table pure-table-bordered">
+    <table class="mq-table pure-table-bordered pure-table">
         <thead>
             <tr>
-                <th class="th-highlight">Key</th>
-                <th class="th-highlight">Media Query</th>
+                <th class="highlight">Key</th>
+                <th class="highlight">CSS Media Query</th>
                 <th>Applies</th>
                 <th>Classname</th>
             </tr>
@@ -83,16 +83,16 @@
 
         <tbody>
             <tr>
-                <td class="td-highlight"><i>None</i></td>
-                <td class="td-highlight"><i>None</i></td>
+                <td class="highlight"><i>None</i></td>
+                <td class="highlight"><i>None</i></td>
                 <td><i>Always</i></td>
                 <td>{{code ".pure-u-*"}}</td>
             </tr>
 
           {{#each selectedUnits}}
             <tr>
-                <td class="td-highlight"><b>{{code @key}}</b></td>
-                <td class="td-highlight"><code>@media {{this}}</code></td>
+                <td class="highlight"><b>{{code @key}}</b></td>
+                <td class="mq-table-mq highlight"><code>@media {{this}}</code></td>
                 <td>≥ <b>{{this.expressions.0.value}}</b></td>
                 <td><code>.pure-u-<b>{{@key}}</b>-*</code></td>
             </tr>
@@ -101,18 +101,17 @@
     </table>
 
     <p>
-        Here's an example of what you'd be able to do. Try resizing your screen to see how the grid responds.
+        Here's an example of what you'd be able to do. <i>Try resizing your screen to see how the grid responds.</i>
     </p>
 </div>
 
 <div class="grids-example">
-{{> grids/responsive}}
+    {{> grids/responsive}}
 </div>
 
 <div class="content">
-
     <p>
-        The {{code "grid.css"}} that powers the example above is <a href="/start/?med=48em&lrg=60em#css">available here</a>. You can copy and paste it, or <a href="#define-your-custom-grid">define your own custom responsive grid</a> by customizing class names and media query breakpoints!
+        The {{code "grid.css"}} that powers the example above is <a href="/start/?med=48em&lrg=60em#css">available here</a>. You can copy and paste it, or <a href="#define-your-custom-grid">define your own custom responsive grid</a> with custom CSS classnames and Media Query breakpoints!
     </p>
 </div>
 
