@@ -142,7 +142,8 @@ function generateHTML(req, res, next) {
     var template = path.join(config.dirs.shared, 'start', 'html' + hbs.extname);
 
     hbs.render(template, {
-        cache: req.app.enabled('view cache')
+        cache: req.app.enabled('view cache'),
+        pure : config.pure
     }, function (err, html) {
         if (err) { return next(err); }
         res.html = html;
@@ -178,8 +179,8 @@ function showStart(req, res, next) {
 function downloadStart(req, res, next) {
     var archive = archiver('zip');
 
-    archive.append(res.html,           {name: 'index.html'});
-    archive.append(res.css || '\r\n',  {name: 'grid.css'});
+    archive.append(res.html,         {name: 'index.html'});
+    archive.append(res.css || '\n',  {name: 'grid.css'});
 
     res.set('Content-Disposition', 'attachment; filename="pure-start.zip"');
     archive.finalize().pipe(res);
