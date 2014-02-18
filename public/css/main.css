@@ -1,7 +1,14 @@
 * {
     -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 html, button, input, select, textarea,
@@ -9,17 +16,17 @@ html, button, input, select, textarea,
     font-family: "proxima-nova", sans-serif;
 }
 
-body {
-    min-width: 320px;
-    color: #777;
-    line-height: 1.6;
-}
-
 
 /* --------------------------
  * Element Styles
  * --------------------------
 */
+
+body {
+    min-width: 320px;
+    color: #777;
+    line-height: 1.6;
+}
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
@@ -428,6 +435,24 @@ a.pure-button-primary {
     color: white;
 }
 
+.pure-table th,
+.pure-table td {
+    padding: 0.5em 1em;
+}
+
+.table-responsive {
+    margin-left: -1em;
+    margin-right: -1em;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.table-responsive table {
+    width: 100%;
+    min-width: 35.5em;
+    border-left-width: 0;
+    border-right-width: 0;
+}
+
 /* green call to action button class */
 .notice {
     background-color: #61B842;
@@ -491,6 +516,15 @@ a.pure-button-primary {
     .code {
         margin-left: auto;
         margin-right: auto;
+        border-left-width: 1px;
+        border-right-width: 1px;
+    }
+
+    .table-responsive {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .table-responsive table {
         border-left-width: 1px;
         border-right-width: 1px;
     }

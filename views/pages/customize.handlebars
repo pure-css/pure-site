@@ -13,63 +13,67 @@
         Rollups consist of all the modules in Pure. There are two rollups available - a regular (responsive) one, and a non-responsive one. Choose that one that's right for your project.
     </p>
 
-    <table class="pure-table pure-table-bordered">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>URL</th>
-                <th>Size (gzipped)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Responsive Rollup</td>
-                <td>http://yui.yahooapis.com/pure/{{pure.version}}/pure-min.css</td>
-                <td>{{fileSize "pure"}}</td>
-            </tr>
-            <tr>
-                <td>Non-Responsive Rollup</td>
-                <td>http://yui.yahooapis.com/pure/{{pure.version}}/pure-nr-min.css</td>
-                <td>{{fileSize "pure-nr"}}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table class="pure-table pure-table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>URL</th>
+                    <th>Size (gzip)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Responsive Rollup</td>
+                    <td>http://yui.yahooapis.com/pure/{{pure.version}}/pure-min.css</td>
+                    <td>{{fileSize "pure"}}</td>
+                </tr>
+                <tr>
+                    <td>Non-Responsive Rollup</td>
+                    <td>http://yui.yahooapis.com/pure/{{pure.version}}/pure-nr-min.css</td>
+                    <td>{{fileSize "pure-nr"}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
     <h3>Alternate CDNs</h3>
     <p>
         The main host for Pure is the Yahoo! CDN where Pure is available over HTTP and individual modules can be combined together in a single combo request. The following table lists alternate CDNs where Pure is hosted.
     </p>
 
-    <table class="pure-table pure-table-bordered">
-        <thead>
-            <tr>
-                <th>CDN</th>
-                <th>URL</th>
-                <th>HTTPS</th>
-                <th>Combo</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><a href="http://cdnjs.com/">cdnjs</a></td>
-                <td>//cdnjs.cloudflare.com/ajax/libs/pure/{{pure.version}}/pure-min.css</td>
-                <td>Yes</td>
-                <td>No</td>
-            </tr>
-            <tr>
-                <td><a href="http://www.osscdn.com/">OSS MaxCDN</a></td>
-                <td>//oss.maxcdn.com/libs/pure/{{pure.version}}/pure-min.css</td>
-                <td>Yes</td>
-                <td>No</td>
-            </tr>
-            <tr>
-                <td><a href="http://www.staticfile.org/">Staticfile</a></td>
-                <td>http://cdn.staticfile.org/pure/{{pure.version}}/pure-min.css</td>
-                <td>No</td>
-                <td>No</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table class="pure-table pure-table-bordered">
+            <thead>
+                <tr>
+                    <th>CDN</th>
+                    <th>URL</th>
+                    <th>HTTPS</th>
+                    <th>Combo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="http://cdnjs.com/">cdnjs</a></td>
+                    <td>//cdnjs.cloudflare.com/ajax/libs/pure/{{pure.version}}/pure-min.css</td>
+                    <td>Yes</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td><a href="http://www.osscdn.com/">OSS MaxCDN</a></td>
+                    <td>//oss.maxcdn.com/libs/pure/{{pure.version}}/pure-min.css</td>
+                    <td>Yes</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td><a href="http://www.staticfile.org/">Staticfile</a></td>
+                    <td>http://cdn.staticfile.org/pure/{{pure.version}}/pure-min.css</td>
+                    <td>No</td>
+                    <td>No</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
     <p>
         <b>Note:</b> If the latest version of Pure is not yet on one of the alternate CDNs, please contact them to update to the latest version of Pure: <b>{{pure.version}}</b>.
@@ -85,52 +89,54 @@
 <link rel="stylesheet" href="http://yui.yahooapis.com/combo?pure/{{pure.version}}/base-min.css&pure/{{pure.version}}/grids-min.css&pure/{{pure.version}}/forms-min.css">
 {{/code}}
 
-    <table class="pure-table pure-table-bordered">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>URL</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Base</td>
-                <td>http://yui.yahooapis.com/pure/{{pure.version}}/base-min.css</td>
-            </tr>
-            <tr>
-                <td>Buttons</td>
-                <td>http://yui.yahooapis.com/pure/{{pure.version}}/buttons-min.css</td>
-            </tr>
-            <tr>
-                <td>Forms (Responsive)</td>
-                <td>http://yui.yahooapis.com/pure/{{pure.version}}/forms-min.css</td>
-            </tr>
-            <tr>
-                <td>Forms (Non-Responsive)</td>
-                <td>http://yui.yahooapis.com/pure/{{pure.version}}/forms-nr-min.css</td>
-            </tr>
-            <tr>
-                <td>Grids (Responsive)</td>
-                <td>http://yui.yahooapis.com/pure/{{pure.version}}/grids-min.css</td>
-            </tr>
-            <tr>
-                <td>Grids (Non-Responsive)</td>
-                <td>http://yui.yahooapis.com/pure/{{pure.version}}/grids-nr-min.css</td>
-            </tr>
-            <tr>
-                <td>Menus (Responsive)</td>
-                <td>http://yui.yahooapis.com/pure/{{pure.version}}/menus-min.css</td>
-            </tr>
-            <tr>
-                <td>Menus (Non-Responsive)</td>
-                <td>http://yui.yahooapis.com/pure/{{pure.version}}/menus-nr-min.css</td>
-            </tr>
-            <tr>
-                <td>Tables</td>
-                <td>http://yui.yahooapis.com/pure/{{pure.version}}/tables-min.css</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table class="pure-table pure-table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>URL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Base</td>
+                    <td>http://yui.yahooapis.com/pure/{{pure.version}}/base-min.css</td>
+                </tr>
+                <tr>
+                    <td>Buttons</td>
+                    <td>http://yui.yahooapis.com/pure/{{pure.version}}/buttons-min.css</td>
+                </tr>
+                <tr>
+                    <td>Forms (Responsive)</td>
+                    <td>http://yui.yahooapis.com/pure/{{pure.version}}/forms-min.css</td>
+                </tr>
+                <tr>
+                    <td>Forms (Non-Responsive)</td>
+                    <td>http://yui.yahooapis.com/pure/{{pure.version}}/forms-nr-min.css</td>
+                </tr>
+                <tr>
+                    <td>Grids (Responsive)</td>
+                    <td>http://yui.yahooapis.com/pure/{{pure.version}}/grids-min.css</td>
+                </tr>
+                <tr>
+                    <td>Grids (Non-Responsive)</td>
+                    <td>http://yui.yahooapis.com/pure/{{pure.version}}/grids-nr-min.css</td>
+                </tr>
+                <tr>
+                    <td>Menus (Responsive)</td>
+                    <td>http://yui.yahooapis.com/pure/{{pure.version}}/menus-min.css</td>
+                </tr>
+                <tr>
+                    <td>Menus (Non-Responsive)</td>
+                    <td>http://yui.yahooapis.com/pure/{{pure.version}}/menus-nr-min.css</td>
+                </tr>
+                <tr>
+                    <td>Tables</td>
+                    <td>http://yui.yahooapis.com/pure/{{pure.version}}/tables-min.css</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
     {{sectionHeading "Skinning"}}
     <p>
