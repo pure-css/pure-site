@@ -108,8 +108,9 @@
 }
 
 
-.mq-table {
+.table-responsive .mq-table {
     width: 100%;
+    min-width: 44em;
 }
 .mq-table th.highlight {
     background-color: rgb(255, 234, 133);
