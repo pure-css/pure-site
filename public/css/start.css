@@ -126,6 +126,15 @@
     font-size: 0.875em;
 }
 
+.invalid-message {
+    color: red;
+    font-size: 90%;
+}
+
+.is-error-input {
+    border: 1px solid red !important;
+}
+
 @media screen and (min-width: 48em) {
     .controls {
         text-align: left;
@@ -133,5 +142,9 @@
 
     .grid-tab-link {
         font-size: 1em;
+    }
+
+    .invalid-message {
+        padding-top: 0.6em;
     }
 }
