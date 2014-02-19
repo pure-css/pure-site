@@ -29,7 +29,7 @@ exports.download = [
 
 var LIMITS = {
     cols        : {min: 2, max: 100},
-    prefix      : {min: 0, max: 80},
+    prefix      : {min: 0, max: 20},
     mediaQueries: {min: 0, max: 10}
 };
 
@@ -72,7 +72,13 @@ function normalizeOptions(req, res, next) {
                         '"cols" must be between 2—100, inclusively.');
                 }
 
-                cols = val;
+                //This is for the ?query=&nextQuery= case.
+                else if (!val) {
+                    cols = 24;
+                }
+                else {
+                    cols = val;
+                }
                 break;
 
             case 'prefix':
@@ -81,7 +87,13 @@ function normalizeOptions(req, res, next) {
                         '"prefix" must be between 0—80 characters.');
                 }
 
-                prefix = val;
+                //This is for the ?query=&nextQuery= case.
+                else if (!val) {
+                    prefix = '.pure-u-';
+                }
+                else {
+                    prefix = val;
+                }
                 break;
 
             // Assume it's a media query.
@@ -152,14 +164,20 @@ function generateHTML(req, res, next) {
 }
 
 function generateCSS(req, res, next) {
-    var options = req.startOptions;
+    var options = req.startOptions,
+        opts = {};
 
-    res.css = rework('').use(grids.units(options.cols, {
-        mediaQueries: options.mediaQueries.reduce(function (map, mq) {
-            map[mq.id] = mq.mq;
-            return map;
-        }, {})
-    })).toString({indent: '    '});
+    opts.mediaQueries = options.mediaQueries.reduce(function (map, mq) {
+        map[mq.id] = mq.mq;
+        return map;
+    }, {});
+
+    if (options.prefix) {
+        opts.selectorPrefix = options.prefix;
+    }
+
+    res.css = rework('').use(grids.units(options.cols, opts))
+                .toString({indent: '    '});
 
     next();
 }
