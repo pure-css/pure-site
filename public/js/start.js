@@ -1,19 +1,24 @@
-YUI().use('css-mediaquery', 'rework', 'rework-pure-grids', 'handlebars-runtime', function (Y) {
+YUI().use('grid-router', 'grid-input-view', 'grid-output-view', 'grid-model', function (Y) {
     'use strict';
 
-    var exported   = Y.Env._exported,
-        rework     = Y.config.global.rework,
-        pureGrids  = exported['rework-pure-grids'],
-        mediaQuery = exported['css-mediaquery'];
+    var gridModel = new Y.GridModel(app.start.options),
+        inputView = new Y.GridInputView({
+            model: gridModel,
+            container: '.grid-input',
+            template: Handlebars.template(app.templates.start.rows)
+        }),
 
-    var css = rework('').use(pureGrids.units({
-        mediaQueries: {
-            med: 'screen and (min-width: 48em)',
-            lrg: 'screen and (min-width: 75em)'
-        }
-    })).toString();
+        outputView = new Y.GridOutputView({
+            model: gridModel,
+            container: '.grid-output'
+        }),
 
-    console.log(mediaQuery.parse('screen and (min-width: 48em)'));
-    console.log(css);
-    console.log(app.start.query);
+        gridRouter = new Y.GridRouter({
+            model: gridModel,
+            inputView: inputView,
+            outputView: outputView
+        });
+
+    inputView.render();
+    outputView.render();
 });
