@@ -33,24 +33,40 @@ exports.config = {
                     path: 'vendor/rework-pure-grids.js'
                 },
 
-                'grid-router': {
-                    path: 'js/grid-router.js'
-                },
-
                 'grid-model': {
-                    path: 'js/models/grid-model.js'
+                    path: 'js/models/grid-model.js',
+                    requires: [
+                        'model',
+                        'mq-model-list',
+                        'rework',
+                        'rework-pure-grids',
+                        'querystring'
+                    ]
                 },
 
                 'mq-model-list': {
-                    path: 'js/models/mq-model-list.js'
+                    path: 'js/models/mq-model-list.js',
+                    requires: [
+                        'model-list',
+                        'css-mediaquery'
+                    ]
                 },
 
                 'grid-input-view': {
-                    path: 'js/views/grid-input-view.js'
+                    path: 'js/views/grid-input-view.js',
+                    requires: [
+                        'view',
+                        'node',
+                        'event-focus'
+                    ]
                 },
 
                 'grid-output-view': {
-                    path: 'js/views/grid-output-view.js'
+                    path: 'js/views/grid-output-view.js',
+                    requires: [
+                        'view',
+                        'node'
+                    ]
                 }
             }
         }
