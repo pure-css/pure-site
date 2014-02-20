@@ -9,13 +9,6 @@ YUI.add('grid-output-view', function (Y) {
             '.grid-tab-link': {click: 'handleTabClick'}
         },
 
-        initializer: function (cfg) {
-            var model = this.get('model');
-
-            model.after('change', this.render, this);
-            model.after('destroy', this.destroy, this);
-        },
-
         render: function () {
             var container = this.get('container'),
                 css = this.get('model').generate();

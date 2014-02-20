@@ -1,15 +1,12 @@
 var COL_INPUT           = '[data="cols-input"]',
     PREFIX_INPUT        = '[data="prefix-input"]',
-    COLS_MESSAGE        = '#cols-message',
-    PREFIX_MESSAGE      = '#prefix-message',
     MQ_ADD              = '[data="add-mq"]',
     MQ_TABLE            = '#media-query-table',
     MQ_LIST             = '#media-query-table tbody',
     MQ_KEY              = '.mq-key',
     MQ_VAL              = '.mq-value',
     SELECTED_PANEL      = '.grid-panel-selected',
-    SELECTED_TAB        = '.grid-tab-link-selected',
-    IS_ERROR_INPUT      = '.is-error-input';
+    SELECTED_TAB        = '.grid-tab-link-selected';
 
 YUI.add('grid-input-view', function (Y) {
 
@@ -29,9 +26,6 @@ YUI.add('grid-input-view', function (Y) {
 
         initializer: function (cfg) {
             var model = this.get('model');
-
-            model.after('change', this.render, this);
-            model.get('mediaQueries').after('change', this.render, this);
             model.after('destroy', this.destroy, this);
             this.set('template', cfg.template);
         },
@@ -108,6 +102,7 @@ YUI.add('grid-input-view', function (Y) {
             var container = this.get('container'),
                 list = container.one(MQ_LIST),
                 table = container.one(MQ_TABLE),
+                mq = this.get('model').get('mediaQueries'),
                 key = e.target.ancestor('tr', MQ_LIST).one(MQ_KEY).get('value');
 
             e.target.ancestor('tr', MQ_LIST).remove();
@@ -118,89 +113,76 @@ YUI.add('grid-input-view', function (Y) {
 
             //we only want to update the route if the row had some contents
             if (key) {
-                this.fire('removeMediaQuery', {
-                    id: key
-                });
+                mq.remove(mq.getById(key));
             }
+
+            this.get('model').set('mediaQueries', mq);
         },
 
         addMediaQueryById: function (e) {
             //check to see if this media query has a value associated with it.
-            var arr = [],
-                key = e.target.get('value'),
-                val = e.target.get('parentNode').next().one(MQ_VAL).get('value');
+            var key     = e.target.get('value'),
+                oldKey  = e.target.get('defaultValue'),
+                val     = e.target.get('parentNode').next().one(MQ_VAL).get('value'),
+                mq      = this.get('model').get('mediaQueries'),
+                existingModel = mq.getById(oldKey);
 
-            //dont want to do this unless the key has an explicit value
+
+            //dont want to do anything unless the key has an explicit value
             if (key) {
-                arr.push({id: key, mq: val});
-                this.fire('updateMediaQuery', {
-                    mq: arr,
-                    oldKey: e.target.get('defaultValue')
+
+                //if we had an existing model, then remove that
+                if (existingModel) {
+                    mq.remove(existingModel);
+                }
+                //add a new media query
+                mq.add({
+                    id: key,
+                    mq: val
                 });
+
+                this.get('model').set('mediaQueries', mq);
             }
         },
 
         addMediaQueryByValue: function (e) {
-            var arr = [],
-                val = e.target.get('value'),
-                key = e.target.get('parentNode').previous().one(MQ_KEY).get('value');
+            var val = e.target.get('value'),
+                key = e.target.get('parentNode').previous().one(MQ_KEY).get('value'),
+                mq  = this.get('model').get('mediaQueries'),
+                existingModel = mq.getById(key);
 
-            //dont want to do this unless the key and val have an explicit value
-            if (val && key) {
-                arr.push({id: key, mq: val});
-                this.fire('updateMediaQuery', {
-                    mq: arr
-                });
+
+            //dont want to do anything unless `val` has an explicit value
+            if (val) {
+                if (existingModel) {
+                    //find the existing model and update it.
+                    existingModel.set('mq', val);
+                }
+                //add a new model to the model list
+                else {
+                    mq.add({id: key, mq: val});
+                }
+                this.get('model').set('mediaQueries', mq);
             }
         },
 
         generateDefaultMediaQuery: function () {
-            this.fire('updateMediaQuery', {
-                mq: this.get('model').get('mediaQueries').get('defaultMq')
-            });
+            var defaults = this.get('model')
+                                .get('mediaQueries').get('defaultMq'),
+                mq = this.get('model').get('mediaQueries');
+
+            mq.reset().add(defaults);
+            this.get('model').set('mediaQueries', mq);
         },
 
         inputCols: function (e) {
-
-            var cols = e.target.get('value'),
-                message = this.get('container').one(COLS_MESSAGE);
-            if (!cols || (cols < app.start.limits.cols.max &&
-                cols >= app.start.limits.cols.min)) {
-
-                e.target.removeClass(IS_ERROR_INPUT);
-                message.hide();
-
-                this.fire('updateColumns', {
-                    cols: e.target.get('value')
-                });
-            }
-
-            else {
-                message.set('text', 'The number of columns needs to be between ' + app.start.limits.cols.min + ' and ' + app.start.limits.cols.max).show();
-                e.target.addClass(IS_ERROR_INPUT);
-            }
-
+            var cols = e.target.get('value');
+            this.get('model').set('cols', cols);
         },
 
         inputPrefix: function (e) {
-            var prefix = e.target.get('value'),
-                message = this.get('container').one(PREFIX_MESSAGE);
-
-            if (prefix.length < app.start.limits.prefix.max &&
-                prefix.length >= app.start.limits.prefix.min) {
-
-                e.target.removeClass('is-error-input');
-                message.hide();
-
-                this.fire('updatePrefix', {
-                    prefix: e.target.get('value')
-                });
-            }
-
-            else {
-                message.set('text', 'The prefix needs to have atleast 1 character, up to a maximum of ' + app.start.limits.prefix.max + ' characters.').show();
-                e.target.addClass('is-error-input');
-            }
+            var prefix = e.target.get('value');
+            this.get('model').set('prefix', prefix);
         }
     });
 
