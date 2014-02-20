@@ -2,6 +2,11 @@
     font-size: 100%;
 }
 
+.grid-input,
+.grid-output {
+    margin-bottom: 1em;
+}
+
 .grid-tabs,
 .grid-output-tabs {
     padding: 1em 0 0;
@@ -127,12 +132,8 @@
 }
 
 .invalid-message {
-    color: red;
+    color: #b94a48;
     font-size: 90%;
-}
-
-.is-error-input {
-    border: 1px solid red !important;
 }
 
 @media screen and (min-width: 48em) {
