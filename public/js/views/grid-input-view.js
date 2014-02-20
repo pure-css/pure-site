@@ -20,8 +20,10 @@ YUI.add('grid-input-view', function (Y) {
             '[data="add-default-mq"]'  : {click: 'generateDefaultMediaQuery'},
             '[data="cols-input"]'      : {blur: 'inputCols'},
             '[data="prefix-input"]'    : {blur: 'inputPrefix'},
-            '.mq-key'                  : {blur: 'addMediaQueryById'},
-            '.mq-value'                : {blur: 'addMediaQueryByValue'}
+            '.mq-key'                  : {focus: 'storeMediaQueryId',
+                                          blur: 'addMediaQueryById'},
+            '.mq-value'                : {focus: 'storeMediaQueryValue',
+                                          blur: 'addMediaQueryByValue'}
         },
 
         initializer: function (cfg) {
@@ -119,27 +121,36 @@ YUI.add('grid-input-view', function (Y) {
             this.get('model').set('mediaQueries', mq);
         },
 
+        storeMediaQueryId: function (e) {
+            this.mediaQueryId = e.target.get('value');
+        },
+
+        storeMediaQueryValue: function (e) {
+            this.mediaQueryValue = e.target.get('value');
+        },
         addMediaQueryById: function (e) {
             //check to see if this media query has a value associated with it.
             var key     = e.target.get('value'),
-                oldKey  = e.target.get('defaultValue'),
+                oldKey  = this.mediaQueryId,
                 val     = e.target.get('parentNode').next().one(MQ_VAL).get('value'),
                 mq      = this.get('model').get('mediaQueries'),
-                existingModel = mq.getById(oldKey);
+                existingModel = mq.getById(oldKey),
+                index   = mq.size();
 
 
             //dont want to do anything unless the key has an explicit value
-            if (key) {
+            if (key && key !== oldKey) {
 
                 //if we had an existing model, then remove that
                 if (existingModel) {
+                    index = mq.indexOf(existingModel);
                     mq.remove(existingModel);
                 }
                 //add a new media query
                 mq.add({
                     id: key,
                     mq: val
-                });
+                }, {index: index});
 
                 this.get('model').set('mediaQueries', mq);
             }
@@ -147,13 +158,14 @@ YUI.add('grid-input-view', function (Y) {
 
         addMediaQueryByValue: function (e) {
             var val = e.target.get('value'),
+                oldVal = this.mediaQueryValue,
                 key = e.target.get('parentNode').previous().one(MQ_KEY).get('value'),
                 mq  = this.get('model').get('mediaQueries'),
                 existingModel = mq.getById(key);
 
 
             //dont want to do anything unless `val` has an explicit value
-            if (val) {
+            if (val && val !== oldVal) {
                 if (existingModel) {
                     //find the existing model and update it.
                     existingModel.set('mq', val);
@@ -173,6 +185,7 @@ YUI.add('grid-input-view', function (Y) {
 
             mq.reset().add(defaults);
             this.get('model').set('mediaQueries', mq);
+            this.render();
         },
 
         inputCols: function (e) {
