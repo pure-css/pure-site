@@ -187,6 +187,7 @@ function showStart(req, res, next) {
 
     res.locals.selectedUnits = SELECTED_GRIDS_UNITS;
     res.locals.css           = res.css;
+    res.locals.query         = req._parsedUrl.search;
     res.locals(options);
 
     res.expose(LIMITS, 'start.limits');
