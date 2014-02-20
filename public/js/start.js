@@ -50,7 +50,7 @@ YUI().use('router', 'view', 'handlebars-runtime', 'grid-input-view', 'grid-outpu
         downloadView = new Y.View({
             model: gridModel,
             container: '.grid-download',
-            template: '/download/?{query}'
+            template: 'download/?{query}'
         }),
 
         router = new Y.GridRouter({
