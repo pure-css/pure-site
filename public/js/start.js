@@ -13,9 +13,8 @@ YUI().use('router', 'view', 'handlebars-runtime', 'grid-input-view', 'grid-outpu
         },
 
         renderViews: function (req) {
-            Y.Array.each(this.get('views'), function (view) {
-                view.render();
-            });
+            this.get('outputView').render();
+            this.get('downloadView').render();
         }
     }, {
       ATTRS: {
@@ -29,7 +28,9 @@ YUI().use('router', 'view', 'handlebars-runtime', 'grid-input-view', 'grid-outpu
           ]
         },
 
-        views: {},
+        inputView: {},
+        outputView: {},
+        downloadView: {},
         model: {}
       }
     });
@@ -55,7 +56,9 @@ YUI().use('router', 'view', 'handlebars-runtime', 'grid-input-view', 'grid-outpu
 
         router = new Y.GridRouter({
             root : '/start/',
-            views: [inputView, outputView, downloadView],
+            inputView: inputView,
+            outputView: outputView,
+            downloadView: downloadView,
             model: gridModel
         });
 
@@ -66,5 +69,6 @@ YUI().use('router', 'view', 'handlebars-runtime', 'grid-input-view', 'grid-outpu
             this.get('container').one('.download-link').setAttribute('href', link);
         };
 
+        inputView.render(); //this view just needs to render once.
         router.dispatch(); //let's start the show
 });
