@@ -72,28 +72,18 @@ function normalizeOptions(req, res, next) {
                         '"cols" must be between 2—100, inclusively.');
                 }
 
-                //This is for the ?query=&nextQuery= case.
-                else if (!val) {
-                    cols = 24;
-                }
-                else {
-                    cols = val;
-                }
+                cols = val;
+
                 break;
 
             case 'prefix':
                 if (val.length > LIMITS.prefix.max) {
                     badRequest('Prefix length',
-                        '"prefix" must be between 0—80 characters.');
+                        '"prefix" must be between 0—20 characters.');
                 }
 
-                //This is for the ?query=&nextQuery= case.
-                else if (!val) {
-                    prefix = '.pure-u-';
-                }
-                else {
-                    prefix = val;
-                }
+                prefix = val;
+
                 break;
 
             // Assume it's a media query.
