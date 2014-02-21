@@ -45,7 +45,8 @@ YUI().use('router', 'view', 'handlebars-runtime', 'grid-input-view', 'grid-outpu
 
         outputView = new Y.GridOutputView({
             model: gridModel,
-            container: '.grid-output'
+            container: '.grid-output',
+            template: Handlebars.template(app.templates.start.css)
         }),
 
         downloadView = new Y.View({
@@ -64,7 +65,7 @@ YUI().use('router', 'view', 'handlebars-runtime', 'grid-input-view', 'grid-outpu
 
         downloadView.render = function () {
             var link = Y.Lang.sub(this.template, {
-                query: this.get('model').stringify()
+                query: this.get('model').toString()
             });
             this.get('container').one('.download-link').setAttribute('href', link);
         };
