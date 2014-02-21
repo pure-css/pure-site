@@ -10,7 +10,9 @@ YUI.add('grid-model', function (Y) {
 
         initializer: function (cfg) {
             console.log(cfg);
-            var mq = new Y.MqModelList({items: cfg.mediaQueries});
+            var mq = new Y.MqModelList({
+                items: cfg.mediaQueries
+            });
             this.set('mediaQueries', mq);
         },
 
@@ -76,8 +78,7 @@ YUI.add('grid-model', function (Y) {
 
 }, '0.0.1', {
     requires: [
-        'model',
-        'mq-model-list',
+        'mq-model',
         'rework',
         'rework-pure-grids',
         'querystring'
