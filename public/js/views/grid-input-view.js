@@ -1,28 +1,36 @@
 var COL_INPUT           = '[data="cols-input"]',
     PREFIX_INPUT        = '[data="prefix-input"]',
+    TAB                 = '[data-action="tab"]',
     MQ_ADD              = '[data="add-mq"]',
+    MQ_REMOVE           = '[data="remove-mq"]'
+    MQ_ADD_DEFAULT      = '[data="add-default-mq"]'
     MQ_TABLE            = '#media-query-table',
     MQ_LIST             = '#media-query-table tbody',
     MQ_KEY              = '.mq-key',
-    MQ_VAL              = '.mq-value';
+    MQ_VAL              = '.mq-value',
+    MQ_ROW              = '[data-row="media-query"]';
+
+var events = {};
+
+events[TAB]           = {click: 'handleTabClick'};
+events[COL_INPUT]     = {blur: 'inputCols'};
+events[PREFIX_INPUT]  = {blur: 'inputPrefix'};
+events[MQ_KEY]        = {focus: 'storeMediaQueryId',
+                            blur: 'addMediaQueryById'};
+events[MQ_VAL]        = {focus: 'storeMediaQueryValue',
+                            blur: 'addMediaQueryByValue'};
+events[MQ_ADD]        = {click: 'renderNewMediaQuery'};
+events[MQ_REMOVE]     = {click: 'removeRenderedMediaQuery'};
+events[MQ_ADD_DEFAULT] = {click: 'generateDefaultMediaQuery'};
+
+
 
 YUI.add('grid-input-view', function (Y) {
 
     'use strict';
 
     Y.GridInputView = Y.Base.create('grid-input-view', Y.GridTabView, [], {
-        events: {
-            '[data-action="tab"]'      : {click: 'handleTabClick'},
-            '[data="add-mq"]'          : {click: 'renderNewMediaQuery'},
-            '[data="remove-mq"]'       : {click: 'removeRenderedMediaQuery'},
-            '[data="add-default-mq"]'  : {click: 'generateDefaultMediaQuery'},
-            '[data="cols-input"]'      : {blur: 'inputCols'},
-            '[data="prefix-input"]'    : {blur: 'inputPrefix'},
-            '.mq-key'                  : {focus: 'storeMediaQueryId',
-                                          blur: 'addMediaQueryById'},
-            '.mq-value'                : {focus: 'storeMediaQueryValue',
-                                          blur: 'addMediaQueryByValue'}
-        },
+        events: events,
 
         initializer: function (cfg) {
             var model = this.get('model');
@@ -71,7 +79,7 @@ YUI.add('grid-input-view', function (Y) {
             this._renderNewMediaQuery();
 
             var container = this.get('container'),
-                numMediaQueries = container.one(MQ_TABLE).all('[data-row="media-query"]').size();
+                numMediaQueries = container.one(MQ_TABLE).all(MQ_ROW).size();
 
             if (numMediaQueries > app.start.limits.mediaQueries.max ||
                 numMediaQueries < app.start.limits.mediaQueries.min) {
@@ -85,9 +93,10 @@ YUI.add('grid-input-view', function (Y) {
                 list = container.one(MQ_LIST),
                 table = container.one(MQ_TABLE),
                 mq = this.get('model').get('mediaQueries'),
-                key = e.target.ancestor('[data-row="media-query"]', MQ_LIST).one(MQ_KEY).get('value');
+                key = e.target.ancestor(MQ_ROW, MQ_LIST)
+                        .one(MQ_KEY).get('value');
 
-            e.target.ancestor('[data-row="media-query"]', MQ_LIST).remove();
+            e.target.ancestor(MQ_ROW, MQ_LIST).remove();
             container.one(MQ_ADD).removeAttribute('disabled');
             if (!list.hasChildNodes()) {
                 table.setAttribute('hidden');
