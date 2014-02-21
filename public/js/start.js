@@ -1,7 +1,11 @@
-YUI().use('router', 'view', 'handlebars-runtime', 'grid-input-view', 'grid-output-view', 'grid-model', function (Y) {
+YUI().require('router', 'view', 'handlebars-runtime', 'grid-input-view', 'grid-output-view', 'grid-model', function (Y, imports) {
     'use strict';
 
-    Y.GridRouter = Y.Base.create('grid-router', Y.Router, [], {
+    var GridModel = imports['grid-model'],
+        GridInputView = imports['grid-input-view'],
+        GridOutputView = imports['grid-output-view'];
+
+    var GridRouter = Y.Base.create('grid-router', Y.Router, [], {
 
         initializer: function (cfg) {
             this.get('model').on('change', Y.bind(this.updateRoute, this));
@@ -9,7 +13,7 @@ YUI().use('router', 'view', 'handlebars-runtime', 'grid-input-view', 'grid-outpu
         },
 
         updateRoute: function () {
-            this.save('/?' + this.get('model').stringify());
+            this.save('/?' + this.get('model').toString());
         },
 
         renderViews: function (req) {
@@ -18,16 +22,6 @@ YUI().use('router', 'view', 'handlebars-runtime', 'grid-input-view', 'grid-outpu
         }
     }, {
       ATTRS: {
-        root: {
-          value: ''
-        },
-
-        routes: {
-          value: [
-            {path: '/',    callbacks: 'renderViews'}
-          ]
-        },
-
         inputView: {},
         outputView: {},
         downloadView: {},
@@ -36,14 +30,14 @@ YUI().use('router', 'view', 'handlebars-runtime', 'grid-input-view', 'grid-outpu
     });
 
 
-    var gridModel = new Y.GridModel(app.start.options),
-        inputView = new Y.GridInputView({
+    var gridModel = new GridModel(app.start.options),
+        inputView = new GridInputView({
             model: gridModel,
             container: '.grid-input',
             template: Handlebars.template(app.templates.start.rows)
         }),
 
-        outputView = new Y.GridOutputView({
+        outputView = new GridOutputView({
             model: gridModel,
             container: '.grid-output',
             template: Handlebars.template(app.templates.start.css)
@@ -55,8 +49,11 @@ YUI().use('router', 'view', 'handlebars-runtime', 'grid-input-view', 'grid-outpu
             template: 'download/?{query}'
         }),
 
-        router = new Y.GridRouter({
+        router = new GridRouter({
             root : '/start/',
+            routes: [
+                {path: '/',    callbacks: 'renderViews'}
+            ],
             inputView: inputView,
             outputView: outputView,
             downloadView: downloadView,

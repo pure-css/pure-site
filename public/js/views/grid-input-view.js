@@ -11,7 +11,6 @@ var COL_INPUT           = '[data="cols-input"]',
     MQ_ROW              = '[data-row="media-query"]';
 
 var events = {};
-
 events[TAB]           = {click: 'handleTabClick'};
 events[COL_INPUT]     = {blur: 'inputCols'};
 events[PREFIX_INPUT]  = {blur: 'inputPrefix'};
@@ -25,11 +24,14 @@ events[MQ_ADD_DEFAULT] = {click: 'generateDefaultMediaQuery'};
 
 
 
-YUI.add('grid-input-view', function (Y) {
+YUI.add('grid-input-view', function (Y, NAME, imports, exports) {
 
     'use strict';
 
-    Y.GridInputView = Y.Base.create('grid-input-view', Y.GridTabView, [], {
+    //importing stuff in from other modules. Is this the right way?
+    var MqModel = imports['mq-model'].MqModel;
+
+    exports = Y.Base.create('grid-input-view', Y.GridTabView, [], {
         events: events,
 
         initializer: function (cfg) {
@@ -157,7 +159,7 @@ YUI.add('grid-input-view', function (Y) {
 
             //dont want to do anything unless `val` has an explicit value
             if (val && val !== oldVal) {
-                model = new Y.MqModel({id: key, mq: val});
+                model = new MqModel({id: key, mq: val});
 
                 if (!model.isValidMediaQuery()) {
                     e.target.setAttribute('invalid', true);
@@ -203,7 +205,10 @@ YUI.add('grid-input-view', function (Y) {
         }
     });
 
+    return exports;
+
 }, '0.0.1', {
+    es: true,
     requires: [
         'mq-model',
         'grid-tab-view',

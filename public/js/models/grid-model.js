@@ -1,22 +1,22 @@
-YUI.add('grid-model', function (Y) {
+YUI.add('grid-model', function (Y, NAME, imports, exports) {
 
     'use strict';
 
-    var exported   = Y.Env._exported,
-        rework     = Y.config.global.rework,
-        pureGrids  = exported['rework-pure-grids'];
+    var rework     = Y.config.global.rework,
+        pureGrids  = imports['rework-pure-grids'],
+        MqModelList = imports['mq-model'].MqModelList;
 
-    Y.GridModel = Y.Base.create('grid-model', Y.Model, [], {
+    exports = Y.Base.create('grid-model', Y.Model, [], {
 
         initializer: function (cfg) {
             console.log(cfg);
-            var mq = new Y.MqModelList({
+            var mq = new MqModelList({
                 items: cfg.mediaQueries
             });
             this.set('mediaQueries', mq);
         },
 
-        stringify: function () {
+        toString: function () {
 
             var o = this.toJSON(),
                 mq = this.get('mediaQueries');
@@ -76,7 +76,10 @@ YUI.add('grid-model', function (Y) {
         }
     });
 
+    return exports;
+
 }, '0.0.1', {
+    es: true,
     requires: [
         'mq-model',
         'rework',

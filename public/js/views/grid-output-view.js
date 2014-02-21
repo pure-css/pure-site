@@ -1,7 +1,7 @@
 var CSS_CODE = '#css';
 
-YUI.add('grid-output-view', function (Y) {
-    Y.GridOutputView = Y.Base.create('grid-output-view', Y.GridTabView,
+YUI.add('grid-output-view', function (Y, NAME, imports, exports) {
+    exports = Y.Base.create('grid-output-view', Y.GridTabView,
         [], {
 
         events: {
@@ -23,7 +23,11 @@ YUI.add('grid-output-view', function (Y) {
             container.one(CSS_CODE).empty().append(html);
         }
     });
+
+    return exports;
+
 }, '0.0.1', {
+    es: true,
     requires: [
         'grid-tab-view'
     ]

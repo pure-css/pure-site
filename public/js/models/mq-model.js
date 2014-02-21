@@ -1,8 +1,8 @@
-YUI.add('mq-model', function (Y) {
+YUI.add('mq-model', function (Y, NAME, imports, exports) {
 
-    var mediaQuery = Y.Env._exported['css-mediaquery'];
+    var mediaQuery = imports['css-mediaquery'];
 
-    Y.MqModel = Y.Base.create('mq-model', Y.Model, [], {
+    exports.MqModel = Y.Base.create('mq-model', Y.Model, [], {
         isValidMediaQuery: function () {
             try {
                 mediaQuery.parse(this.get('mq'));
@@ -13,8 +13,8 @@ YUI.add('mq-model', function (Y) {
         }
     });
 
-    Y.MqModelList = Y.Base.create('mq-model-list', Y.ModelList, [], {
-        model: Y.MqModel,
+    exports.MqModelList = Y.Base.create('mq-model-list', Y.ModelList, [], {
+        model: exports.MqModel,
 
         toObject: function () {
             var o = {};
@@ -26,7 +26,10 @@ YUI.add('mq-model', function (Y) {
 
     });
 
+    return exports;
+
 }, '0.0.1', {
+    es: true,
     requires: [
         'model',
         'model-list',
