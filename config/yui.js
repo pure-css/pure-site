@@ -37,26 +37,34 @@ exports.config = {
                     path: 'js/models/grid-model.js',
                     requires: [
                         'model',
-                        'mq-model-list',
+                        'mq-model',
                         'rework',
                         'rework-pure-grids',
                         'querystring'
                     ]
                 },
 
-                'mq-model-list': {
-                    path: 'js/models/mq-model-list.js',
+                'mq-model': {
+                    path: 'js/models/mq-model.js',
                     requires: [
+                        'model',
                         'model-list',
                         'css-mediaquery'
+                    ]
+                },
+
+                'grid-tab-view': {
+                    path: 'js/views/grid-tab-view.js',
+                    requires: [
+                        'view',
+                        'node'
                     ]
                 },
 
                 'grid-input-view': {
                     path: 'js/views/grid-input-view.js',
                     requires: [
-                        'view',
-                        'node',
+                        'grid-tab-view',
                         'event-focus'
                     ]
                 },
@@ -64,8 +72,7 @@ exports.config = {
                 'grid-output-view': {
                     path: 'js/views/grid-output-view.js',
                     requires: [
-                        'view',
-                        'node'
+                        'grid-tab-view'
                     ]
                 }
             }
