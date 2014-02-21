@@ -42,7 +42,7 @@ YUI.add('grid-model', function (Y) {
             css += rework('').use(pureGrids.units(this.get('cols'), {
                 mediaQueries: mediaQueries.toObject(),
                 selectorPrefix: this.get('prefix') || '.pure-u-'
-            })).toString();
+            })).toString({indent: '    '});;
 
             return css;
         }
