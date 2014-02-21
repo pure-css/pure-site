@@ -4,17 +4,15 @@ var COL_INPUT           = '[data="cols-input"]',
     MQ_TABLE            = '#media-query-table',
     MQ_LIST             = '#media-query-table tbody',
     MQ_KEY              = '.mq-key',
-    MQ_VAL              = '.mq-value',
-    SELECTED_PANEL      = '.grid-panel-selected',
-    SELECTED_TAB        = '.grid-tab-link-selected';
+    MQ_VAL              = '.mq-value';
 
 YUI.add('grid-input-view', function (Y) {
 
     'use strict';
 
-    Y.GridInputView = Y.Base.create('grid-input-view', Y.View, [], {
+    Y.GridInputView = Y.Base.create('grid-input-view', Y.GridTabView, [], {
         events: {
-            '.grid-tab-link'           : {click: 'handleTabClick'},
+            '[data-action="tab"]'      : {click: 'handleTabClick'},
             '[data="add-mq"]'          : {click: 'renderNewMediaQuery'},
             '[data="remove-mq"]'       : {click: 'removeRenderedMediaQuery'},
             '[data="add-default-mq"]'  : {click: 'generateDefaultMediaQuery'},
@@ -40,35 +38,17 @@ YUI.add('grid-input-view', function (Y) {
                 list = container.one(MQ_LIST);
 
             if (model.get('cols')) {
-                container.one(COL_INPUT).set('value', model.get('cols'));
+                container.one(COL_INPUT).set('value', Y.Escape.html(model.get('cols')));
             }
 
             if (model.get('prefix')) {
-                container.one(PREFIX_INPUT).set('value', model.get('prefix'));
+                container.one(PREFIX_INPUT).set('value', Y.Escape.html(model.get('prefix')));
             }
 
             list.empty();
             mq.each(function (m) {
                 this._renderNewMediaQuery(m.get('id'), m.get('mq'));
             }, this);
-        },
-
-        handleTabClick: function (e) {
-            var container = this.get('container'),
-                id = e.target.getAttribute('href'),
-                selectedTab = container.one(SELECTED_TAB);
-            e.preventDefault();
-
-            //add selected-tab class to the tab
-            if (selectedTab) {
-                selectedTab.removeClass(SELECTED_TAB.slice(1));
-            }
-            e.target.addClass(SELECTED_TAB.slice(1));
-
-            //add selected-panel class to the panel
-            //there will always be a selected panel because of server-side rendering
-            container.one(SELECTED_PANEL).removeClass(SELECTED_PANEL.slice(1));
-            container.one(id).addClass(SELECTED_PANEL.slice(1));
         },
 
         //This will create a new <tr> and populate it with media query values, if they exist.
@@ -83,7 +63,7 @@ YUI.add('grid-input-view', function (Y) {
             if (table.hasAttribute('hidden')) {
                 table.removeAttribute('hidden');
             }
-            container.one(MQ_LIST).appendChild(html);
+            container.one(MQ_LIST).append(html);
         },
 
         //This will just pass through to _renderNewMediaQuery() to create an empty row.
@@ -91,7 +71,7 @@ YUI.add('grid-input-view', function (Y) {
             this._renderNewMediaQuery();
 
             var container = this.get('container'),
-                numMediaQueries = container.one(MQ_TABLE).all('tr').size();
+                numMediaQueries = container.one(MQ_TABLE).all('[data-row="media-query"]').size();
 
             if (numMediaQueries > app.start.limits.mediaQueries.max ||
                 numMediaQueries < app.start.limits.mediaQueries.min) {
@@ -105,9 +85,9 @@ YUI.add('grid-input-view', function (Y) {
                 list = container.one(MQ_LIST),
                 table = container.one(MQ_TABLE),
                 mq = this.get('model').get('mediaQueries'),
-                key = e.target.ancestor('tr', MQ_LIST).one(MQ_KEY).get('value');
+                key = e.target.ancestor('[data-row="media-query"]', MQ_LIST).one(MQ_KEY).get('value');
 
-            e.target.ancestor('tr', MQ_LIST).remove();
+            e.target.ancestor('[data-row="media-query"]', MQ_LIST).remove();
             container.one(MQ_ADD).removeAttribute('disabled');
             if (!list.hasChildNodes()) {
                 table.setAttribute('hidden');
@@ -161,26 +141,41 @@ YUI.add('grid-input-view', function (Y) {
                 oldVal = this.mediaQueryValue,
                 key = e.target.get('parentNode').previous().one(MQ_KEY).get('value'),
                 mq  = this.get('model').get('mediaQueries'),
-                existingModel = mq.getById(key);
+                existingModel = mq.getById(key),
+                model;
+
 
 
             //dont want to do anything unless `val` has an explicit value
             if (val && val !== oldVal) {
-                if (existingModel) {
-                    //find the existing model and update it.
-                    existingModel.set('mq', val);
+                model = new Y.MqModel({id: key, mq: val});
+
+                if (!model.isValidMediaQuery()) {
+                    e.target.setAttribute('invalid', true);
                 }
-                //add a new model to the model list
                 else {
-                    mq.add({id: key, mq: val});
+                    if (existingModel) {
+                        //find the existing model and update it.
+                        existingModel.set('mq', val);
+                    }
+                    //add a new model to the model list
+                    else {
+                        mq.add({id: key, mq: val});
+                    }
+                    this.get('model').set('mediaQueries', mq);
                 }
-                this.get('model').set('mediaQueries', mq);
             }
         },
 
         generateDefaultMediaQuery: function () {
-            var defaults = this.get('model')
-                                .get('mediaQueries').get('defaultMq'),
+            var defaults = [{
+                    id: 'med',
+                    mq: 'screen and (min-width: 48em)'
+                },
+                {
+                    id: 'lrg',
+                    mq: 'screen and (min-width: 60em)'
+                }],
                 mq = this.get('model').get('mediaQueries');
 
             mq.reset().add(defaults);
@@ -201,8 +196,8 @@ YUI.add('grid-input-view', function (Y) {
 
 }, '0.0.1', {
     requires: [
-        'view',
-        'node',
+        'mq-model',
+        'grid-tab-view',
         'event-focus'
     ]
 });

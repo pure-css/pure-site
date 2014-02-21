@@ -1,43 +1,30 @@
-var CSS_CODE = '#css',
-    SELECTED_PANEL      = '.grid-panel-selected',
-    SELECTED_TAB        = '.grid-tab-link-selected';
+var CSS_CODE = '#css';
 
 YUI.add('grid-output-view', function (Y) {
-    Y.GridOutputView = Y.Base.create('grid-input-view', Y.View, [], {
+    Y.GridOutputView = Y.Base.create('grid-output-view', Y.GridTabView,
+        [], {
 
         events: {
-            '.grid-tab-link': {click: 'handleTabClick'}
+            '[data-action="tab"]': {click: 'handleTabClick'}
+        },
+
+        initializer: function (cfg) {
+            var model = this.get('model');
+            model.after('destroy', this.destroy, this);
+            this.set('template', cfg.template);
         },
 
         render: function () {
             var container = this.get('container'),
+                template = this.get('template'),
                 css = this.get('model').generate();
 
-            container.one(CSS_CODE).empty().append('<pre class="code code-wrap" data-language="css">' + css + '</pre>');
-        },
-
-        handleTabClick: function (e) {
-            var container = this.get('container'),
-                id = e.target.getAttribute('href'),
-                selectedTab = container.one(SELECTED_TAB);
-            e.preventDefault();
-
-            //add selected-tab class to the tab
-            if (selectedTab) {
-                selectedTab.removeClass(SELECTED_TAB.slice(1));
-            }
-            e.target.addClass(SELECTED_TAB.slice(1));
-
-            //add selected-panel class to the panel
-            //there will always be a selected panel because of server-side rendering
-            container.one(SELECTED_PANEL).removeClass(SELECTED_PANEL.slice(1));
-            container.one(id).addClass(SELECTED_PANEL.slice(1));
+            html = template({css: css});
+            container.one(CSS_CODE).empty().append(html);
         }
-
     });
 }, '0.0.1', {
     requires: [
-        'view',
-        'node'
+        'grid-tab-view'
     ]
 });
