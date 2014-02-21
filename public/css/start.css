@@ -136,6 +136,10 @@
     font-size: 90%;
 }
 
+.pure-form input[invalid] {
+    border: 1px solid rgb(229, 53, 53);
+}
+
 @media screen and (min-width: 48em) {
     .controls {
         text-align: left;
@@ -146,6 +150,6 @@
     }
 
     .invalid-message {
-        padding-top: 0.6em;
+        padding-top: 0.625em;
     }
 }
