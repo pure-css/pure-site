@@ -1,50 +1,41 @@
-var COL_INPUT           = '[data="cols-input"]',
-    PREFIX_INPUT        = '[data="prefix-input"]',
-    TAB                 = '[data-action="tab"]',
-    MQ_ADD              = '[data="add-mq"]',
-    MQ_REMOVE           = '[data="remove-mq"]'
-    MQ_ADD_DEFAULT      = '[data="add-default-mq"]'
-    MQ_TABLE            = '#media-query-table',
-    MQ_LIST             = '#media-query-table tbody',
-    MQ_KEY              = '.mq-key',
-    MQ_VAL              = '.mq-value',
-    MQ_ROW              = '[data-row="media-query"]';
-
-var events = {};
-events[TAB]           = {click: 'handleTabClick'};
-events[COL_INPUT]     = {blur: 'inputCols'};
-events[PREFIX_INPUT]  = {blur: 'inputPrefix'};
-events[MQ_KEY]        = {focus: 'storeMediaQueryId',
-                            blur: 'addMediaQueryById'};
-events[MQ_VAL]        = {focus: 'storeMediaQueryValue',
-                            blur: 'addMediaQueryByValue'};
-events[MQ_ADD]        = {click: 'renderNewMediaQuery'};
-events[MQ_REMOVE]     = {click: 'removeRenderedMediaQuery'};
-events[MQ_ADD_DEFAULT] = {click: 'generateDefaultMediaQuery'};
-
-
-
 YUI.add('grid-input-view', function (Y, NAME, imports, exports) {
 
     'use strict';
 
-    //importing stuff in from other modules. Is this the right way?
-    var MqModel = imports['mq-model'].MqModel;
+    var COL_INPUT           = '[data-content="cols-input"]',
+        PREFIX_INPUT        = '[data-content="prefix-input"]',
+        TAB                 = '[data-action="tab"]',
+        MQ_ADD              = '[data-action="add-mq"]',
+        MQ_REMOVE           = '[data-action="remove-mq"]',
+        MQ_ADD_DEFAULT      = '[data-action="add-default-mq"]',
+        MQ_TABLE            = '#media-query-table',
+        MQ_LIST             = '#media-query-table tbody',
+        MQ_KEY              = '[data-content="mq-key"]',
+        MQ_VAL              = '[data-content="mq-value"]',
+        MQ_ROW              = '[data-row="media-query"]';
 
-    exports = Y.Base.create('grid-input-view', Y.GridTabView, [], {
+    var events = {};
+
+    events[TAB]           = {click: 'handleTabClick'};
+    events[COL_INPUT]     = {change: 'inputCols'};
+    events[PREFIX_INPUT]  = {change: 'inputPrefix'};
+    events[MQ_KEY]        = {change: 'addMediaQueryById'};
+    events[MQ_VAL]        = {change: 'addMediaQueryByValue'};
+    events[MQ_ADD]        = {click: 'renderNewMediaQuery'};
+    events[MQ_REMOVE]     = {click: 'removeRenderedMediaQuery'};
+    events[MQ_ADD_DEFAULT] = {click: 'generateDefaultMediaQuery'};
+
+    var MqModel = imports['mq-model'].MqModel,
+        GridTabView = imports['grid-tab-view'];
+
+    return Y.Base.create('grid-input-view', GridTabView, [], {
         events: events,
-
-        initializer: function (cfg) {
-            var model = this.get('model');
-            model.after('destroy', this.destroy, this);
-            this.set('template', cfg.template);
-        },
 
         render: function () {
             //We are just going to manipulate the input values inside render(). No need to re-render all the DOM elements.
             var container = this.get('container'),
                 model = this.get('model'),
-                mq = model.get('mediaQueries'),
+                mqs = model.get('mediaQueries'),
                 list = container.one(MQ_LIST);
 
             if (model.get('cols')) {
@@ -56,7 +47,7 @@ YUI.add('grid-input-view', function (Y, NAME, imports, exports) {
             }
 
             list.empty();
-            mq.each(function (m) {
+            mqs.each(function (m) {
                 this._renderNewMediaQuery(m.get('id'), m.get('mq'));
             }, this);
         },
@@ -64,11 +55,10 @@ YUI.add('grid-input-view', function (Y, NAME, imports, exports) {
         //This will create a new <tr> and populate it with media query values, if they exist.
         _renderNewMediaQuery: function (key, mq) {
             var container = this.get('container'),
-                template = this.get('template'),
                 table = container.one(MQ_TABLE),
                 html;
 
-            html = template({id: key || '', mq: mq || ''});
+            html = this.template({id: key || '', mq: mq || ''});
 
             if (table.hasAttribute('hidden')) {
                 table.removeAttribute('hidden');
@@ -94,9 +84,10 @@ YUI.add('grid-input-view', function (Y, NAME, imports, exports) {
             var container = this.get('container'),
                 list = container.one(MQ_LIST),
                 table = container.one(MQ_TABLE),
-                mq = this.get('model').get('mediaQueries'),
+                mqs = this.get('model').get('mediaQueries'),
                 key = e.target.ancestor(MQ_ROW, MQ_LIST)
-                        .one(MQ_KEY).get('value');
+                        .one(MQ_KEY).get('value'),
+                index = this.get('container').all(MQ_ROW).indexOf(e.target.ancestor(MQ_ROW));
 
             e.target.ancestor(MQ_ROW, MQ_LIST).remove();
             container.one(MQ_ADD).removeAttribute('disabled');
@@ -106,59 +97,56 @@ YUI.add('grid-input-view', function (Y, NAME, imports, exports) {
 
             //we only want to update the route if the row had some contents
             if (key) {
-                mq.remove(mq.getById(key));
+                mqs.remove(mqs.item(index));
             }
 
-            this.get('model').set('mediaQueries', mq);
+            this.get('model').set('mediaQueries', mqs);
         },
 
-        storeMediaQueryId: function (e) {
-            this.mediaQueryId = e.target.get('value');
-        },
-
-        storeMediaQueryValue: function (e) {
-            this.mediaQueryValue = e.target.get('value');
-        },
         addMediaQueryById: function (e) {
             //check to see if this media query has a value associated with it.
-            var key     = e.target.get('value'),
-                oldKey  = this.mediaQueryId,
-                val     = e.target.get('parentNode').next().one(MQ_VAL).get('value'),
-                mq      = this.get('model').get('mediaQueries'),
-                existingModel = mq.getById(oldKey),
-                index   = mq.size();
-
+            var key   = e.target.get('value'),
+                index = this.get('container').all(MQ_ROW).indexOf(e.target.ancestor(MQ_ROW)),
+                val, mqs, existingModel;
 
             //dont want to do anything unless the key has an explicit value
-            if (key && key !== oldKey) {
+            if (key) {
+
+                val = e.target.get('parentNode').next().one(MQ_VAL).get('value'),
+                mqs = this.get('model').get('mediaQueries'),
+                existingModel = mqs.item(index);
 
                 //if we had an existing model, then remove that
                 if (existingModel) {
-                    index = mq.indexOf(existingModel);
-                    mq.remove(existingModel);
+                    existingModel.setAttrs({
+                        id: key,
+                        mq: val
+                    });
                 }
-                //add a new media query
-                mq.add({
-                    id: key,
-                    mq: val
-                }, {index: index});
 
-                this.get('model').set('mediaQueries', mq);
+                else {
+                    //add a new media query
+                    mqs.add({
+                        id: key,
+                        mq: val
+                    });
+
+                }
+
+                this.get('model').set('mediaQueries', mqs);
             }
         },
 
         addMediaQueryByValue: function (e) {
             var val = e.target.get('value'),
-                oldVal = this.mediaQueryValue,
-                key = e.target.get('parentNode').previous().one(MQ_KEY).get('value'),
-                mq  = this.get('model').get('mediaQueries'),
-                existingModel = mq.getById(key),
-                model;
-
-
+                index = this.get('container').all(MQ_ROW).indexOf(e.target.ancestor(MQ_ROW)),
+                key, mqs, existingModel, model;
 
             //dont want to do anything unless `val` has an explicit value
-            if (val && val !== oldVal) {
+            if (val) {
+                key = e.target.get('parentNode').previous().one(MQ_KEY).get('value'),
+                mqs = this.get('model').get('mediaQueries'),
+                existingModel = mqs.item(index),
                 model = new MqModel({id: key, mq: val});
 
                 if (!model.isValidMediaQuery()) {
@@ -171,9 +159,9 @@ YUI.add('grid-input-view', function (Y, NAME, imports, exports) {
                     }
                     //add a new model to the model list
                     else {
-                        mq.add({id: key, mq: val});
+                        mqs.add(model);
                     }
-                    this.get('model').set('mediaQueries', mq);
+                    this.get('model').set('mediaQueries', mqs);
                 }
             }
         },
@@ -187,10 +175,10 @@ YUI.add('grid-input-view', function (Y, NAME, imports, exports) {
                     id: 'lrg',
                     mq: 'screen and (min-width: 60em)'
                 }],
-                mq = this.get('model').get('mediaQueries');
+                mqs = this.get('model').get('mediaQueries');
 
-            mq.reset().add(defaults);
-            this.get('model').set('mediaQueries', mq);
+            mqs.reset().add(defaults);
+            this.get('model').set('mediaQueries', mqs);
             this.render();
         },
 
@@ -205,14 +193,11 @@ YUI.add('grid-input-view', function (Y, NAME, imports, exports) {
         }
     });
 
-    return exports;
-
 }, '0.0.1', {
     es: true,
     requires: [
         'mq-model',
-        'grid-tab-view',
-        'event-focus'
+        'grid-tab-view'
     ]
 });
 
