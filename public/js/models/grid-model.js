@@ -17,16 +17,13 @@ YUI.add('grid-model', function (Y, NAME, imports, exports) {
             var obj = this.toJSON(),
                 mqs = obj.mediaQueries;
 
-            // Create a map of media queries (reduce if possible): {id -> query}
-            mqs = Y.Array.reduce(mqs.toArray(), {}, function (mqs, mq) {
-                mqs[mq.get('id')] = mq.getReduced();
-                return mqs;
-            });
-
             // Prune model details and mix in `mqs` map.
             delete obj.mediaQueries;
             delete obj.id;
-            obj = Y.merge(obj, mqs);
+
+            mqs.each(function (mq) {
+                obj[mq.get('id')] = mq.getReduced();
+            });
 
             // Prune query string of any falsy values before serialization.
             Y.Object.each(obj, function (val, key) {
