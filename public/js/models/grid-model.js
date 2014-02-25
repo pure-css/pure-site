@@ -50,7 +50,7 @@ YUI.add('grid-model', function (Y, NAME, imports, exports) {
         },
 
         _setCols: function (val) {
-            return parseInt(val, 10);
+            return parseInt(val, 10) || undefined;
         },
 
         _validatePrefix: function (val) {
