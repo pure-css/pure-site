@@ -16,14 +16,14 @@ YUI.add('grid-input-view', function (Y, NAME, imports, exports) {
 
     var events = {};
 
-    events[TAB]           = {click: 'handleTabClick'};
-    events[COL_INPUT]     = {change: 'inputCols'};
-    events[PREFIX_INPUT]  = {change: 'inputPrefix'};
-    events[MQ_KEY]        = {change: 'addMediaQueryById'};
-    events[MQ_VAL]        = {change: 'addMediaQueryByValue'};
-    events[MQ_ADD]        = {click: 'renderNewMediaQuery'};
-    events[MQ_REMOVE]     = {click: 'removeRenderedMediaQuery'};
-    events[MQ_ADD_DEFAULT] = {click: 'generateDefaultMediaQuery'};
+    events[TAB]            = {click:  'handleTabClick'};
+    events[COL_INPUT]      = {change: 'inputCols'};
+    events[PREFIX_INPUT]   = {change: 'inputPrefix'};
+    events[MQ_KEY]         = {change: 'addMediaQueryById'};
+    events[MQ_VAL]         = {change: 'addMediaQueryByValue'};
+    events[MQ_ADD]         = {click:  'renderMediaQuery'};
+    events[MQ_REMOVE]      = {click:  'removeRenderedMediaQuery'};
+    events[MQ_ADD_DEFAULT] = {click:  'generateDefaultMediaQuery'};
 
     var MqModel = imports['mq-model'].MqModel,
         GridTabView = imports['grid-tab-view'];
@@ -36,7 +36,7 @@ YUI.add('grid-input-view', function (Y, NAME, imports, exports) {
             var container = this.get('container'),
                 model = this.get('model'),
                 mqs = model.get('mediaQueries'),
-                list = container.one(MQ_LIST);
+                rows = container.all(MQ_ROW);
 
             if (model.get('cols')) {
                 container.one(COL_INPUT).set('value', Y.Escape.html(model.get('cols')));
@@ -46,29 +46,39 @@ YUI.add('grid-input-view', function (Y, NAME, imports, exports) {
                 container.one(PREFIX_INPUT).set('value', Y.Escape.html(model.get('prefix')));
             }
 
-            list.empty();
-            mqs.each(function (m) {
-                this._renderNewMediaQuery(m.get('id'), m.get('mq'));
+            //for each media query, populate the input field within the row,
+            //or create a new row.
+            mqs.each(function (m, i) {
+                this._renderMediaQuery(m.get('id'), m.get('mq'), rows.item(i));
             }, this);
         },
 
         //This will create a new <tr> and populate it with media query values, if they exist.
-        _renderNewMediaQuery: function (key, mq) {
+        _renderMediaQuery: function (key, mq, row) {
             var container = this.get('container'),
                 table = container.one(MQ_TABLE),
                 html;
 
-            html = this.template({id: key || '', mq: mq || ''});
-
-            if (table.hasAttribute('hidden')) {
-                table.removeAttribute('hidden');
+            //if a row exists, populate the input fields within that row
+            if (row) {
+                row.one(MQ_KEY).set('value', key);
+                row.one(MQ_VAL).set('value', mq);
             }
-            container.one(MQ_LIST).append(html);
+
+            //otherwise create a new row from the template
+            else {
+                html = this.template({id: key || '', mq: mq || ''});
+
+                if (table.hasAttribute('hidden')) {
+                    table.removeAttribute('hidden');
+                }
+                container.one(MQ_LIST).append(html);
+            }
         },
 
-        //This will just pass through to _renderNewMediaQuery() to create an empty row.
-        renderNewMediaQuery: function () {
-            this._renderNewMediaQuery();
+        //This will just pass through to _renderMediaQuery() to create an empty row.
+        renderMediaQuery: function () {
+            this._renderMediaQuery();
 
             var container = this.get('container'),
                 numMediaQueries = container.one(MQ_TABLE).all(MQ_ROW).size();
