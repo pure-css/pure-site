@@ -1,8 +1,8 @@
-var SELECTED_PANEL      = '.grid-panel-selected',
-    SELECTED_TAB        = '.grid-tab-link-selected';
+YUI.add('grid-tab-view', function (Y, NAME, imports, exports) {
+    var SELECTED_PANEL      = '.grid-panel-selected',
+        SELECTED_TAB        = '.grid-tab-link-selected';
 
-YUI.add('grid-tab-view', function (Y) {
-    Y.GridTabView = Y.Base.create('grid-tab-view', Y.View, [], {
+    return Y.Base.create('grid-tab-view', Y.View, [], {
 
         handleTabClick: function (e) {
             var container = this.get('container'),
@@ -24,6 +24,7 @@ YUI.add('grid-tab-view', function (Y) {
 
     });
 }, '0.0.1', {
+    es: true,
     requires: [
         'view',
         'node'
