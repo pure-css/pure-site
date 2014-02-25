@@ -22,7 +22,7 @@ YUI.add('grid-model', function (Y, NAME, imports, exports) {
             delete obj.id;
 
             mqs.each(function (mq) {
-                obj[mq.get('id')] = mq.getReduced();
+                obj[mq.get('id')] = mq.get('mq'); //mq.getReduced()
             });
 
             // Prune query string of any falsy values before serialization.
