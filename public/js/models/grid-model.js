@@ -9,29 +9,33 @@ YUI.add('grid-model', function (Y, NAME, imports, exports) {
     exports = Y.Base.create('grid-model', Y.Model, [], {
 
         initializer: function (cfg) {
-            this._mq = new MqModelList();
-            this._mq.addTarget(this);
+            this._mqs = new MqModelList();
+            this._mqs.addTarget(this);
         },
 
         toString: function () {
             var obj = this.toJSON(),
-                mq  = obj.mediaQueries;
+                mqs = obj.mediaQueries;
 
+            // Create a map of media queries (reduce if possible): {id -> query}
+            mqs = Y.Array.reduce(mqs.toArray(), {}, function (mqs, mq) {
+                mqs[mq.get('id')] = mq.getReduced();
+                return mqs;
+            });
+
+            // Prune model details and mix in `mqs` map.
             delete obj.mediaQueries;
             delete obj.id;
+            obj = Y.merge(obj, mqs);
 
+            // Prune query string of any falsy values before serialization.
             Y.Object.each(obj, function (val, key) {
                 if (!val) {
                     delete obj[key];
                 }
             });
 
-            mq = Y.Array.reduce(mq.toArray(), {}, function (map, mq) {
-                map[mq.get('id')] = mq.getReduced();
-                return map;
-            });
-
-            return Y.QueryString.stringify(Y.merge(obj, mq));
+            return Y.QueryString.stringify(obj);
         },
 
         generate: function () {
@@ -61,11 +65,11 @@ YUI.add('grid-model', function (Y, NAME, imports, exports) {
         },
 
         _getMediaQueries: function () {
-            return this._mq;
+            return this._mqs;
         },
 
         _setMediaQueries: function (val) {
-            return this._mq.reset(val);
+            return this._mqs.reset(val);
         }
 
     }, {
