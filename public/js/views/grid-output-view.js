@@ -1,30 +1,22 @@
-var CSS_CODE = '#css';
-
 YUI.add('grid-output-view', function (Y, NAME, imports, exports) {
-    exports = Y.Base.create('grid-output-view', Y.GridTabView,
+    'use strict';
+    var GridTabView = imports['grid-tab-view'];
+    return Y.Base.create('grid-output-view', GridTabView,
         [], {
 
         events: {
             '[data-action="tab"]': {click: 'handleTabClick'}
         },
 
-        initializer: function (cfg) {
-            var model = this.get('model');
-            model.after('destroy', this.destroy, this);
-            this.set('template', cfg.template);
-        },
-
         render: function () {
             var container = this.get('container'),
-                template = this.get('template'),
-                css = this.get('model').generate();
+                css = this.get('model').generate(),
+                html = this.template({css: css});
 
-            html = template({css: css});
-            container.one(CSS_CODE).empty().append(html);
+            container.one('#css').empty().append(html);
+            Rainbow.color();
         }
     });
-
-    return exports;
 
 }, '0.0.1', {
     es: true,
