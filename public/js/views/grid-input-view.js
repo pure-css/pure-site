@@ -36,7 +36,8 @@ YUI.add('grid-input-view', function (Y, NAME, imports, exports) {
             var container = this.get('container'),
                 model = this.get('model'),
                 mqs = model.get('mediaQueries'),
-                rows = container.all(MQ_ROW);
+                rows = container.all(MQ_ROW),
+                index = 0;
 
             if (model.get('cols')) {
                 container.one(COL_INPUT).set('value', Y.Escape.html(model.get('cols')));
@@ -50,7 +51,13 @@ YUI.add('grid-input-view', function (Y, NAME, imports, exports) {
             //or create a new row.
             mqs.each(function (m, i) {
                 this._renderMediaQuery(m.get('id'), m.get('mq'), rows.item(i));
+                index = i;
             }, this);
+
+            //remove the additional rows.
+            for (index += 1; index < rows.size(); index++) {
+                rows.item(index).remove();
+            }
         },
 
         //This will create a new <tr> and populate it with media query values, if they exist.
@@ -117,12 +124,12 @@ YUI.add('grid-input-view', function (Y, NAME, imports, exports) {
             //check to see if this media query has a value associated with it.
             var key   = e.target.get('value'),
                 index = this.get('container').all(MQ_ROW).indexOf(e.target.ancestor(MQ_ROW)),
-                val, mqs, existingModel;
+                val = e.target.get('parentNode').next()
+                        .one(MQ_VAL).get('value'),
+                mqs, existingModel;
 
             //dont want to do anything unless the key has an explicit value
-            if (key) {
-
-                val = e.target.get('parentNode').next().one(MQ_VAL).get('value'),
+            if (key && val) {
                 mqs = this.get('model').get('mediaQueries'),
                 existingModel = mqs.item(index);
 
