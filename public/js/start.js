@@ -1,72 +1,58 @@
-YUI().require('router', 'view', 'handlebars-runtime', 'grid-input-view', 'grid-output-view', 'grid-model', function (Y, imports) {
+YUI().require(
+    'router', 'pjax-base', 'view', 'handlebars-runtime',
+    'grid-input-view', 'grid-output-view', 'grid-model',
+function (Y, imports) {
+
     'use strict';
 
-    var GridModel = imports['grid-model'],
-        GridInputView = imports['grid-input-view'],
-        GridOutputView = imports['grid-output-view'];
+    var GridModel      = imports['grid-model'],
+        GridInputView  = imports['grid-input-view'],
+        GridOutputView = imports['grid-output-view'],
+        GridRouter     = Y.Base.create('grid-router', Y.Router, [Y.PjaxBase]);
 
-    var GridRouter = Y.Base.create('grid-router', Y.Router, [], {
+    var gridModel = new GridModel(app.start.options);
 
-        initializer: function (cfg) {
-            this.get('model').on('change', Y.bind(this.updateRoute, this));
-            this.get('model').get('mediaQueries').on('change', Y.bind(this.updateRoute, this));
-        },
-
-        updateRoute: function () {
-            this.save('/?' + this.get('model').toString());
-        },
-
-        renderViews: function (req) {
-            this.get('outputView').render();
-            this.get('downloadView').render();
-        }
-    }, {
-      ATTRS: {
-        inputView: {},
-        outputView: {},
-        downloadView: {},
-        model: {}
-      }
+    var inputView = new GridInputView({
+        model    : gridModel,
+        container: '.grid-input',
+        template : Handlebars.template(app.templates.start.rows)
     });
 
+    var outputView = new GridOutputView({
+        model    : gridModel,
+        container: '.grid-output',
+        template : Handlebars.template(app.templates.start.css)
+    });
 
-    var gridModel = new GridModel(app.start.options),
-        inputView = new GridInputView({
-            model: gridModel,
-            container: '.grid-input',
-            template: Handlebars.template(app.templates.start.rows)
-        }),
+    var downloadView = new Y.View({
+        container: '.grid-download',
+        template : 'download/{query}'
+    });
 
-        outputView = new GridOutputView({
-            model: gridModel,
-            container: '.grid-output',
-            template: Handlebars.template(app.templates.start.css)
-        }),
+    var router = new GridRouter({
+        root        : '/start/',
+        linkSelector: '.grid-input a'
+    });
 
-        downloadView = new Y.View({
-            model: gridModel,
-            container: '.grid-download',
-            template: 'download/?{query}'
-        }),
+    gridModel.on('change', function () {
+        router.replace('/?' + this.toString());
+    });
 
-        router = new GridRouter({
-            root : '/start/',
-            routes: [
-                {path: '/',    callbacks: 'renderViews'}
-            ],
-            inputView: inputView,
-            outputView: outputView,
-            downloadView: downloadView,
-            model: gridModel
+    downloadView.render = function () {
+        var url = Y.Lang.sub(this.template, {
+            query: Y.config.win.location.search
         });
 
-        downloadView.render = function () {
-            var link = Y.Lang.sub(this.template, {
-                query: this.get('model').toString()
-            });
-            this.get('container').one('.download-link').setAttribute('href', link);
-        };
+        this.get('container').one('.download-link').setAttribute('href', url);
+    };
 
-        inputView.render(); //this view just needs to render once.
-        router.dispatch(); //let's start the show
+    router.route('/', function () {
+        inputView.render();
+        outputView.render();
+        downloadView.render();
+    });
+
+    inputView.attachEvents();
+    outputView.attachEvents();
+    router.upgrade();
 });
