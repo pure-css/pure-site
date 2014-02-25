@@ -9,7 +9,6 @@ YUI.add('grid-model', function (Y, NAME, imports, exports) {
     exports = Y.Base.create('grid-model', Y.Model, [], {
 
         initializer: function (cfg) {
-            console.log(cfg);
             var mq = new MqModelList({
                 items: cfg.mediaQueries
             });
@@ -19,7 +18,7 @@ YUI.add('grid-model', function (Y, NAME, imports, exports) {
         toString: function () {
 
             var o = this.toJSON(),
-                mq = this.get('mediaQueries');
+                mq = o.mediaQueries.toJSON();
 
             delete o.mediaQueries;
             delete o.id;
@@ -30,8 +29,8 @@ YUI.add('grid-model', function (Y, NAME, imports, exports) {
                 }
             });
 
-            mq.each(function (val) {
-                o[val.get('id')] = val.get('mq');
+            Y.Array.each(mq, function (elem) {
+                o[elem.id] = elem.mq;
             });
             return Y.QueryString.stringify(o);
         },
@@ -39,12 +38,10 @@ YUI.add('grid-model', function (Y, NAME, imports, exports) {
         generate: function () {
             var mediaQueries = this.get('mediaQueries'),
                 css = '';
-            css += rework('').use(pureGrids.units(this.get('cols'), {
+            return rework('').use(pureGrids.units(this.get('cols'), {
                 mediaQueries: mediaQueries.toObject(),
                 selectorPrefix: this.get('prefix') || '.pure-u-'
-            })).toString({indent: '    '});;
-
-            return css;
+            })).toString({indent: '    '});
         }
 
     }, {
