@@ -34,8 +34,10 @@ function (Y, imports) {
         linkSelector: '.grid-input a'
     });
 
-    gridModel.on('change', function () {
-        router.replace('/?' + this.toString());
+    gridModel.on('change', function (e) {
+        if (e.src !== 'routeHandler') {
+            router.save('/?' + this.toString());
+        }
     });
 
     downloadView.render = function () {
@@ -46,7 +48,23 @@ function (Y, imports) {
         this.get('container').one('.download-link').setAttribute('href', url);
     };
 
-    router.route('/', function () {
+    router.route('/', function (req) {
+
+        var query = req.query,
+            o = {
+                cols: query.cols,
+                prefix: query.prefix,
+                mediaQueries: []
+            };
+            delete query.cols;
+            delete query.prefix;
+
+        Y.Object.each(query, function (val, key) {
+            o.mediaQueries.push({id: key, mq: val});
+        });
+
+        gridModel.setAttrs(o, {src: 'routeHandler'});
+
         inputView.render();
         outputView.render();
         downloadView.render();
