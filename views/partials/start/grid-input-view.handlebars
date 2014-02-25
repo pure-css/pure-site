@@ -18,7 +18,7 @@
                 If you want to customize the number of columns, enter it below. The default grid is 24 columns.
             </p>
 
-            <input data="cols-input" class="pure-u-1 pure-u-med-1-6" type="number" min="2" max="100" placeholder="24" {{#if cols}}value="{{cols}}"{{/if}}>
+            <input data-content="cols-input" class="pure-u-1 pure-u-med-1-6" type="number" min="2" max="100" placeholder="24" {{#if cols}}value="{{cols}}"{{/if}}>
         </div>
         <div id="mq" class="grid-panel pure-form">
             <h3>Media Queries</h3>
@@ -31,7 +31,7 @@
             <p>
                 If you want your grid class names to have a custom prefix, enter it below. The default is {{code ".pure-u-"}}.
             </p>
-            <input data='prefix-input' class="pure-u-1 pure-u-med-1-6" type="text" placeholder=".pure-u-" value="{{prefix}}" maxLength="20">
+            <input data-content='prefix-input' class="pure-u-1 pure-u-med-1-6" type="text" placeholder=".pure-u-" value="{{prefix}}" maxLength="20">
             <p>
                 What media queries should your grid system respond to?
             </p>
@@ -50,10 +50,10 @@
                 </tbody>
             </table>
             <div class="controls">
-                <button data="add-default-mq" class="pure-button pure-button-primary">
+                <button data-action="add-default-mq" class="pure-button pure-button-primary">
                     Use device media queries
                 </button>
-                <button data="add-mq" class="pure-button">
+                <button data-action="add-mq" class="pure-button">
                     Add custom media query
                 </button>
             </div>
