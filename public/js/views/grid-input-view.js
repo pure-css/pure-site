@@ -37,7 +37,8 @@ YUI.add('grid-input-view', function (Y, NAME, imports, exports) {
                 model = this.get('model'),
                 mqs = model.get('mediaQueries'),
                 rows = container.all(MQ_ROW),
-                index = 0;
+                index = 1,
+                numRows = rows.size();
 
             if (model.get('cols')) {
                 container.one(COL_INPUT).set('value', Y.Escape.html(model.get('cols')));
@@ -47,16 +48,28 @@ YUI.add('grid-input-view', function (Y, NAME, imports, exports) {
                 container.one(PREFIX_INPUT).set('value', Y.Escape.html(model.get('prefix')));
             }
 
+            if (mqs.size()) {
+                container.one(MQ_TABLE).removeAttribute('hidden');
+            }
+
             //for each media query, populate the input field within the row,
             //or create a new row.
             mqs.each(function (m, i) {
                 this._renderMediaQuery(m.get('id'), m.get('mq'), rows.item(i));
-                index = i;
+                index++;
             }, this);
 
             //remove the additional rows.
-            for (index += 1; index < rows.size(); index++) {
-                rows.item(index).remove();
+            for ( ; index <= numRows; index++) {
+                var row = rows.item(index - 1);
+                if (row) {
+                    row.remove();
+                }
+            }
+
+            //fresh query
+            if (container.all(MQ_ROW).size() === 0) {
+                container.one(MQ_TABLE).setAttribute('hidden');
             }
         },
 
