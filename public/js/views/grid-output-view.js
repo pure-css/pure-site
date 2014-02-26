@@ -4,7 +4,6 @@ YUI.add('grid-output-view', function (Y, NAME, imports, exports) {
     var GridTabView = imports['grid-tab-view'];
 
     return Y.Base.create('grid-output-view', GridTabView, [], {
-
         render: function () {
             var container = this.get('container'),
                 css       = this.get('model').generate(),
