@@ -1,29 +1,31 @@
 <div class="grid-input">
     <ul class="grid-tabs pure-g">
         <li class="grid-tab pure-u">
-            <a class="grid-tab-link grid-tab-link-selected" href="#cols">Columns</a>
+            <a data-action="tab" class="grid-tab-link grid-tab-link-selected" href="#cols">Columns</a>
         </li>
         <li class="grid-tab pure-u">
-            <a class="grid-tab-link" href="#mq">Media Queries</a>
+            <a data-action="tab" class="grid-tab-link" href="#mq">Media Queries</a>
         </li>
     </ul>
 
     <div class="grid-content">
-        <div id="cols" class="grid-panel grid-panel-selected pure-form pure-form-stacked">
+        <div id="cols" class="grid-panel grid-panel-selected pure-form">
             <h3>Columns</h3>
+
             <p>
                 Pure has a 5<sup>ths</sup> and 24-column grid system by default. You define an element's width using fractional class names (ex: {{code ".pure-u-2-5"}} for {{code "width: 40%"}}, or {{code ".pure-u-12-24"}} for {{code "width: 50%"}}).
             </p>
             <p>
-                If you want to customize the number of columns, you can enter it below.
+                If you want to customize the number of columns, enter it below. The default grid is 24 columns.
             </p>
-            <label for="cols-input">
-                Number of Columns
-            </label>
-            <input data='cols-input' class="pure-u-1 pure-u-med-1-6" type='text' placeholder='24' value="{{cols}}">
+
+            <input data-content="cols-input" class="pure-u-1 pure-u-med-1-6"
+                   type="number" min="2" max="100" placeholder="24" {{#if cols}}value="{{cols}}"{{/if}}>
         </div>
-        <div id="mq" class="grid-panel grid-panel-selected pure-form">
+
+        <div id="mq" class="grid-panel pure-form">
             <h3>Media Queries</h3>
+
             <p>
                 By default, Pure's grid system does not include media queries since they can't be overriden. We can generate a mobile-first responsive grid if you provide us with media queries.
             </p>
@@ -31,16 +33,21 @@
                 Pure's generated responsive grid is simple. It provides you with a specific class name prefix for each media query. For example, {{code "pure-u-med-*"}} for devices with {{code "width > 767px"}}, and {{code "pure-u-lrg-*"}} for devices with {{code "width > 980px"}}. You choose the prefix and corresponding media query.
             </p>
             <p>
+                If you want your grid class names to have a custom prefix, enter it below. The default is {{code ".pure-u-"}}.
+            </p>
+
+            <input data-content='prefix-input' class="pure-u-1 pure-u-med-1-6"
+                   maxlength="20" type="text" placeholder=".pure-u-" value="{{prefix}}">
+
+            <p>
                 What media queries should your grid system respond to?
             </p>
 
             <table id="media-query-table" {{#unless mediaQueries}}hidden {{/unless}}>
                 <thead>
                     <tr>
-                        <th>Prefix</th>
-                        <th>Key</th>
+                        <th>Grid Key</th>
                         <th>Media Query</th>
-                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,11 +56,12 @@
                     {{/each}}
                 </tbody>
             </table>
+
             <div class="controls">
-                <button data="add-default-mq" class="pure-button pure-button-primary">
+                <button data-action="add-default-mq" class="pure-button pure-button-primary">
                     Use device media queries
                 </button>
-                <button data="add-mq" class="pure-button">
+                <button data-action="add-mq" class="pure-button">
                     Add custom media query
                 </button>
             </div>

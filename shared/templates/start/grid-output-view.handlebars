@@ -1,26 +1,21 @@
 <div class="grid-output">
     <ul class="grid-tabs pure-g">
         <li class="grid-tab pure-u">
-            <a class="grid-tab-link" href="#html">index.html</a>
+            <a data-action="tab" class="grid-tab-link grid-tab-link-selected" href="#grid">grid.css</a>
         </li>
-
         <li class="grid-tab pure-u">
-            <a class="grid-tab-link" href="#grid">grid.css</a>
+            <a data-action="tab" class="grid-tab-link" href="#html">index.html</a>
         </li>
     </ul>
 
     <div class="grid-content">
         <div id="grid" class="content grid-panel grid-panel-selected">
-          {{#if css}}
-            <div id="css" class="grid-code">
-              {{#code type="css"}}
-                {{css}}
-              {{/code}}
-            </div>
-          {{/if}}
+          <div id="css" class="grid-code">
+            {{> start/css}}
+          </div>
         </div>
 
-        <div id="html" class="content grid-panel grid-panel-selected">
+        <div id="html" class="content grid-panel">
           {{#code type="html"}}
             {{> start/html}}
           {{/code}}

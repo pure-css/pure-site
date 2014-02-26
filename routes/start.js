@@ -29,7 +29,7 @@ exports.download = [
 
 var LIMITS = {
     cols        : {min: 2, max: 100},
-    prefix      : {min: 0, max: 80},
+    prefix      : {min: 0, max: 20},
     mediaQueries: {min: 0, max: 10}
 };
 
@@ -73,15 +73,17 @@ function normalizeOptions(req, res, next) {
                 }
 
                 cols = val;
+
                 break;
 
             case 'prefix':
                 if (val.length > LIMITS.prefix.max) {
                     badRequest('Prefix length',
-                        '"prefix" must be between 0—80 characters.');
+                        '"prefix" must be between 0—20 characters.');
                 }
 
                 prefix = val;
+
                 break;
 
             // Assume it's a media query.
@@ -152,27 +154,36 @@ function generateHTML(req, res, next) {
 }
 
 function generateCSS(req, res, next) {
-    var options = req.startOptions;
+    var startOptions = req.startOptions,
+        mediaQueries = startOptions.mediaQueries,
+        gridsGenOpts = {};
 
-    res.css = rework('').use(grids.units(options.cols, {
-        mediaQueries: options.mediaQueries.reduce(function (map, mq) {
-            map[mq.id] = mq.mq;
-            return map;
-        }, {})
-    })).toString({indent: '    '});
+    gridsGenOpts.mediaQueries = mediaQueries.reduce(function (mqs, mq) {
+        mqs[mq.id] = mq.mq;
+        return mqs;
+    }, {});
+
+    if (startOptions.prefix) {
+        gridsGenOpts.selectorPrefix = startOptions.prefix;
+    }
+
+    res.css = rework('')
+            .use(grids.units(startOptions.cols, gridsGenOpts))
+            .toString({indent: '    '});
 
     next();
 }
 
 function showStart(req, res, next) {
-    var options = req.startOptions;
+    var startOptions = req.startOptions;
 
     res.locals.selectedUnits = SELECTED_GRIDS_UNITS;
     res.locals.css           = res.css;
-    res.locals(options);
+    res.locals.query         = req._parsedUrl.search;
+    res.locals(startOptions);
 
     res.expose(LIMITS, 'start.limits');
-    res.expose(options, 'start.options');
+    res.expose(startOptions, 'start.options');
     res.render('start');
 }
 

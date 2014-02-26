@@ -1,12 +1,13 @@
-<tr>
-    <td><code>.pure-u-</code></td>
+<tr data-row="media-query">
     <td>
-        <input class="mq-key pure-u-1" type="text" placeholder="med" value="{{this.id}}">
+        <input data-content="mq-key" class="mq-key pure-u-1"
+               required type="text" placeholder="med" value="{{this.id}}">
     </td>
     <td>
-        <input class="mq-value pure-u-1" type="text" placeholder="screen and (min-width: 48em)" value="{{this.mq}}">
+        <input data-content="mq-value" class="mq-value pure-u-1"
+               required type="text" placeholder="screen and (min-width: 48em)" value="{{this.mq}}">
     </td>
     <td>
-        <button data="remove-mq" class="remove-mq pure-button">&times;</button>
+        <button data-action="remove-mq" class="remove-mq pure-button">&times;</button>
     </td>
 </tr>
