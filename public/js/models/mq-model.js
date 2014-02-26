@@ -32,6 +32,37 @@ YUI.add('mq-model', function (Y, NAME, imports, exports) {
             }
 
             return query;
+        },
+
+        _setMq: function (mq, options) {
+            mq = mq.trim();
+            var expand = options && options.expand;
+
+            if (expand) {
+                mq = 'screen and (min-width: ' + mq + ')';
+            }
+
+            try {
+                mediaQuery.parse(mq);
+                return mq;
+            } catch (e) {
+                // When we've already expanded the short-hand MQ syntax, or when
+                // the short-hand form doesn't look like a length value, signal
+                // that the valid is invalid.
+                if (expand || !/^(\d|\.)/.test(mq)) {
+                    return Y.Attribute.INVALID_VALUE;
+                }
+            }
+
+            // Try again, this time expanding the `mq` assuming it's in the
+            // short-hand.
+            return this._setMq(mq, {expand: true});
+        }
+    }, {
+        ATTRS: {
+            mq: {
+                setter: '_setMq'
+            }
         }
     });
 
