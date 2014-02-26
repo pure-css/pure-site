@@ -11,6 +11,8 @@ YUI.add('grid-model', function (Y, NAME, imports, exports) {
         initializer: function (cfg) {
             this._mqs = new MqModelList();
             this._mqs.addTarget(this);
+
+            this.after(['*:change', '*:add', '*:remove'], this._fireUpdate);
         },
 
         toString: function () {
@@ -41,6 +43,10 @@ YUI.add('grid-model', function (Y, NAME, imports, exports) {
                 mediaQueries  : this.get('mediaQueries').toObject(),
                 selectorPrefix: this.get('prefix') || '.pure-u-'
             })).toString({indent: '    '});
+        },
+
+        _fireUpdate: function (e) {
+            this.fire('update', {originEvent: e});
         },
 
         _validateCols: function (val) {

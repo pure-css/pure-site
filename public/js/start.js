@@ -2,7 +2,6 @@ YUI().require(
     'router', 'pjax-base', 'view', 'handlebars-runtime',
     'grid-input-view', 'grid-output-view', 'grid-model',
 function (Y, imports) {
-
     'use strict';
 
     var GridModel      = imports['grid-model'],
@@ -34,9 +33,9 @@ function (Y, imports) {
         linkSelector: '.grid-input a'
     });
 
-    gridModel.on('change', function (e) {
+    gridModel.on('update', function (e) {
         // Avoid caring about changes made to the model in the route handler.
-        if (e.src !== 'url') {
+        if (e.originEvent.src !== 'url') {
             router.save('/?' + this.toString());
         }
     });
