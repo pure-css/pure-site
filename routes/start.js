@@ -154,34 +154,36 @@ function generateHTML(req, res, next) {
 }
 
 function generateCSS(req, res, next) {
-    var options = req.startOptions,
-        opts = {};
+    var startOptions = req.startOptions,
+        mediaQueries = startOptions.mediaQueries,
+        gridsGenOpts = {};
 
-    opts.mediaQueries = options.mediaQueries.reduce(function (map, mq) {
-        map[mq.id] = mq.mq;
-        return map;
+    gridsGenOpts.mediaQueries = mediaQueries.reduce(function (mqs, mq) {
+        mqs[mq.id] = mq.mq;
+        return mqs;
     }, {});
 
-    if (options.prefix) {
-        opts.selectorPrefix = options.prefix;
+    if (startOptions.prefix) {
+        gridsGenOpts.selectorPrefix = startOptions.prefix;
     }
 
-    res.css = rework('').use(grids.units(options.cols, opts))
-                .toString({indent: '    '});
+    res.css = rework('')
+            .use(grids.units(startOptions.cols, gridsGenOpts))
+            .toString({indent: '    '});
 
     next();
 }
 
 function showStart(req, res, next) {
-    var options = req.startOptions;
+    var startOptions = req.startOptions;
 
     res.locals.selectedUnits = SELECTED_GRIDS_UNITS;
     res.locals.css           = res.css;
     res.locals.query         = req._parsedUrl.search;
-    res.locals(options);
+    res.locals(startOptions);
 
     res.expose(LIMITS, 'start.limits');
-    res.expose(options, 'start.options');
+    res.expose(startOptions, 'start.options');
     res.render('start');
 }
 

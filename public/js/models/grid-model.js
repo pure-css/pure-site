@@ -11,6 +11,8 @@ YUI.add('grid-model', function (Y, NAME, imports, exports) {
         initializer: function (cfg) {
             this._mqs = new MqModelList();
             this._mqs.addTarget(this);
+
+            this.after(['*:change', '*:add', '*:remove'], this._fireUpdate);
         },
 
         toString: function () {
@@ -22,7 +24,7 @@ YUI.add('grid-model', function (Y, NAME, imports, exports) {
             delete obj.id;
 
             mqs.each(function (mq) {
-                obj[mq.get('id')] = mq.get('mq'); //mq.getReduced()
+                obj[mq.get('id')] = mq.getReduced();
             });
 
             // Prune query string of any falsy values before serialization.
@@ -41,6 +43,10 @@ YUI.add('grid-model', function (Y, NAME, imports, exports) {
                 mediaQueries  : this.get('mediaQueries').toObject(),
                 selectorPrefix: this.get('prefix') || '.pure-u-'
             })).toString({indent: '    '});
+        },
+
+        _fireUpdate: function (e) {
+            this.fire('update', {originEvent: e});
         },
 
         _validateCols: function (val) {

@@ -1,223 +1,192 @@
 YUI.add('grid-input-view', function (Y, NAME, imports, exports) {
-
     'use strict';
 
-    var COL_INPUT           = '[data-content="cols-input"]',
-        PREFIX_INPUT        = '[data-content="prefix-input"]',
-        TAB                 = '[data-action="tab"]',
-        MQ_ADD              = '[data-action="add-mq"]',
-        MQ_REMOVE           = '[data-action="remove-mq"]',
-        MQ_ADD_DEFAULT      = '[data-action="add-default-mq"]',
-        MQ_TABLE            = '#media-query-table',
-        MQ_LIST             = '#media-query-table tbody',
-        MQ_KEY              = '[data-content="mq-key"]',
-        MQ_VAL              = '[data-content="mq-value"]',
-        MQ_ROW              = '[data-row="media-query"]';
+    var MqModel     = imports['mq-model'].MqModel,
+        GridTabView = imports['grid-tab-view'];
+
+    var COL_INPUT      = '[data-content="cols-input"]',
+        PREFIX_INPUT   = '[data-content="prefix-input"]',
+        MQ_ADD         = '[data-action="add-mq"]',
+        MQ_REMOVE      = '[data-action="remove-mq"]',
+        MQ_ADD_DEFAULT = '[data-action="add-default-mq"]',
+        MQ_TABLE       = '#media-query-table',
+        MQ_LIST        = '#media-query-table tbody',
+        MQ_KEY         = '[data-content="mq-key"]',
+        MQ_VAL         = '[data-content="mq-value"]',
+        MQ_ROW         = '[data-row="media-query"]';
 
     var events = {};
 
-    events[TAB]            = {click:  'handleTabClick'};
-    events[COL_INPUT]      = {change: 'inputCols'};
-    events[PREFIX_INPUT]   = {change: 'inputPrefix'};
-    events[MQ_KEY]         = {change: 'addMediaQueryById'};
-    events[MQ_VAL]         = {change: 'addMediaQueryByValue'};
-    events[MQ_ADD]         = {click:  'renderMediaQuery'};
-    events[MQ_REMOVE]      = {click:  'removeRenderedMediaQuery'};
-    events[MQ_ADD_DEFAULT] = {click:  'generateDefaultMediaQuery'};
-
-    var MqModel = imports['mq-model'].MqModel,
-        GridTabView = imports['grid-tab-view'];
+    events[COL_INPUT]      = {change: 'setCols'};
+    events[PREFIX_INPUT]   = {change: 'setPrefix'};
+    events[MQ_KEY]         = {change: 'updateMediaQueryId'};
+    events[MQ_VAL]         = {change: 'updateMediaQueryValue'};
+    events[MQ_ADD]         = {click:  'addMediaQuery'};
+    events[MQ_REMOVE]      = {click:  'removeMediaQuery'};
+    events[MQ_ADD_DEFAULT] = {click:  'setDefaultMediaQueries'};
 
     return Y.Base.create('grid-input-view', GridTabView, [], {
         events: events,
 
         render: function () {
-            //We are just going to manipulate the input values inside render(). No need to re-render all the DOM elements.
+            // We are just going to manipulate the input values inside render().
+            // No need to re-render all the DOM elements.
             var container = this.get('container'),
-                model = this.get('model'),
-                mqs = model.get('mediaQueries'),
-                rows = container.all(MQ_ROW),
-                index = 1,
-                numRows = rows.size();
+                model     = this.get('model'),
+                mqs       = model.get('mediaQueries'),
+                rows      = container.all(MQ_ROW),
+                lastIndex = -1;
 
             if (model.get('cols')) {
-                container.one(COL_INPUT).set('value', Y.Escape.html(model.get('cols')));
+                container.one(COL_INPUT).set('value',
+                        Y.Escape.html(model.get('cols')));
             }
 
             if (model.get('prefix')) {
-                container.one(PREFIX_INPUT).set('value', Y.Escape.html(model.get('prefix')));
+                container.one(PREFIX_INPUT).set('value',
+                        Y.Escape.html(model.get('prefix')));
             }
 
             if (mqs.size()) {
                 container.one(MQ_TABLE).removeAttribute('hidden');
             }
 
-            //for each media query, populate the input field within the row,
-            //or create a new row.
-            mqs.each(function (m, i) {
-                this._renderMediaQuery(m.get('id'), m.get('mq'), rows.item(i));
-                index++;
+            // For each media query, populate the input field within the row, or
+            // create a new row.
+            mqs.each(function (mq, i) {
+                lastIndex = i;
+                this.renderMediaQuery(mq, rows.item(i));
             }, this);
 
-            //remove the additional rows.
-            for ( ; index <= numRows; index++) {
-                var row = rows.item(index - 1);
-                if (row) {
-                    row.remove();
-                }
-            }
+            // Advance the index to see if there's any additional rows, and
+            // remove them from the UI.
+            rows.splice(lastIndex + 1).remove();
 
-            //fresh query
-            if (container.all(MQ_ROW).size() === 0) {
+            // Fresh query.
+            rows = container.all(MQ_ROW);
+
+            if (!rows.size()) {
                 container.one(MQ_TABLE).setAttribute('hidden');
             }
         },
 
-        //This will create a new <tr> and populate it with media query values, if they exist.
-        _renderMediaQuery: function (key, mq, row) {
+        // This will create a new <tr> and populate it with media query values,
+        // if they exist.
+        renderMediaQuery: function (mq, row) {
             var container = this.get('container'),
-                table = container.one(MQ_TABLE),
                 html;
 
-            //if a row exists, populate the input fields within that row
+            // If a row exists, populate the input fields within that row.
+            // Otherwise create a new row from the template.
             if (row) {
-                row.one(MQ_KEY).set('value', key);
-                row.one(MQ_VAL).set('value', mq);
-            }
+                row.one(MQ_KEY).set('value', Y.Escape.html(mq.get('id')));
+                row.one(MQ_VAL).set('value', Y.Escape.html(mq.get('mq')));
+            } else {
+                html = this.template({
+                    id: mq.get('id') || '',
+                    mq: mq.get('mq')  || ''
+                });
 
-            //otherwise create a new row from the template
-            else {
-                html = this.template({id: key || '', mq: mq || ''});
-
-                if (table.hasAttribute('hidden')) {
-                    table.removeAttribute('hidden');
-                }
                 container.one(MQ_LIST).append(html);
+                container.one(MQ_TABLE).removeAttribute('hidden');
             }
         },
 
-        //This will just pass through to _renderMediaQuery() to create an empty row.
-        renderMediaQuery: function () {
-            this._renderMediaQuery();
+        addMediaQuery: function () {
+            var mqs = this.get('model').get('mediaQueries'),
+                num;
 
-            var container = this.get('container'),
-                numMediaQueries = container.one(MQ_TABLE).all(MQ_ROW).size();
+            // Add an empty model to the list.
+            this.renderMediaQuery(mqs.add({}, {silent: true}));
 
-            if (numMediaQueries > app.start.limits.mediaQueries.max ||
-                numMediaQueries < app.start.limits.mediaQueries.min) {
-
-                container.one(MQ_ADD).setAttribute('disabled', true);
+            if (mqs.size() >= app.start.limits.mediaQueries.max) {
+                this.get('container').one(MQ_ADD).setAttribute('disabled');
             }
         },
 
-        removeRenderedMediaQuery: function (e) {
-            var container = this.get('container'),
-                list = container.one(MQ_LIST),
-                table = container.one(MQ_TABLE),
-                mqs = this.get('model').get('mediaQueries'),
-                key = e.target.ancestor(MQ_ROW, MQ_LIST)
-                        .one(MQ_KEY).get('value'),
-                index = this.get('container').all(MQ_ROW).indexOf(e.target.ancestor(MQ_ROW));
+        removeMediaQuery: function (e) {
+            var mqs       = this.get('model').get('mediaQueries'),
+                container = this.get('container'),
+                table     = container.one(MQ_TABLE),
+                rows      = table.all(MQ_ROW),
+                row       = e.target.ancestor(MQ_ROW),
+                index     = rows.indexOf(row),
+                key       = row.one(MQ_KEY).get('value');
 
-            e.target.ancestor(MQ_ROW, MQ_LIST).remove();
+            row.remove();
             container.one(MQ_ADD).removeAttribute('disabled');
-            if (!list.hasChildNodes()) {
+
+            // Fresh DOM query.
+            rows = table.all(MQ_ROW);
+
+            if (!rows.size()) {
                 table.setAttribute('hidden');
             }
 
-            //we only want to update the route if the row had some contents
-            if (key) {
-                mqs.remove(mqs.item(index));
-            }
-
-            this.get('model').set('mediaQueries', mqs);
+            // We only want to fire events if the row had some content.
+            mqs.remove(index, {silent: !key});
         },
 
-        addMediaQueryById: function (e) {
-            //check to see if this media query has a value associated with it.
-            var key   = e.target.get('value'),
-                index = this.get('container').all(MQ_ROW).indexOf(e.target.ancestor(MQ_ROW)),
-                val = e.target.get('parentNode').next()
-                        .one(MQ_VAL).get('value'),
-                mqs, existingModel;
+        updateMediaQueryId: function (e) {
+            if (e.target.get('invalid')) { return; }
 
-            //dont want to do anything unless the key has an explicit value
-            if (key && val) {
-                mqs = this.get('model').get('mediaQueries'),
-                existingModel = mqs.item(index);
+            var mqs  = this.get('model').get('mediaQueries'),
+                rows = this.get('container').all(MQ_ROW),
+                row  = e.target.ancestor(MQ_ROW),
+                key  = e.target.get('value'),
+                val  = row.one(MQ_VAL).get('value'),
+                mq   = mqs.item(rows.indexOf(row));
 
-                //if we had an existing model, then remove that
-                if (existingModel) {
-                    existingModel.setAttrs({
-                        id: key,
-                        mq: val
-                    });
-                }
-
-                else {
-                    //add a new media query
-                    mqs.add({
-                        id: key,
-                        mq: val
-                    });
-
-                }
-
-                this.get('model').set('mediaQueries', mqs);
-            }
+            // Update the key, and only fire the change event if there's a value
+            // for the key and media query.
+            mq.set('id', key, {silent: !(key && val)});
         },
 
-        addMediaQueryByValue: function (e) {
-            var val = e.target.get('value'),
-                index = this.get('container').all(MQ_ROW).indexOf(e.target.ancestor(MQ_ROW)),
-                key, mqs, existingModel, model;
+        updateMediaQueryValue: function (e) {
+            var val = e.target.get('value');
 
-            //dont want to do anything unless `val` has an explicit value
-            if (val) {
-                key = e.target.get('parentNode').previous().one(MQ_KEY).get('value'),
-                mqs = this.get('model').get('mediaQueries'),
-                existingModel = mqs.item(index),
-                model = new MqModel({id: key, mq: val});
-
-                if (!model.isValidMediaQuery()) {
-                    e.target.setAttribute('invalid', true);
-                }
-                else {
-                    if (existingModel) {
-                        //find the existing model and update it.
-                        existingModel.set('mq', val);
-                    }
-                    //add a new model to the model list
-                    else {
-                        mqs.add(model);
-                    }
-                    this.get('model').set('mediaQueries', mqs);
-                }
+            if (!new MqModel({mq: val}).isValidMediaQuery()) {
+                e.target.setAttribute('invalid');
+            } else {
+                e.target.removeAttribute('invalid');
             }
+
+            if (e.target.get('invalid')) { return; }
+
+            var mqs  = this.get('model').get('mediaQueries'),
+                rows = this.get('container').all(MQ_ROW),
+                row  = e.target.ancestor(MQ_ROW),
+                key  = row.one(MQ_KEY).get('value'),
+                mq   = mqs.item(rows.indexOf(row));
+
+            // Update the key, and only fire the change event if there's a value
+            // for the key and media query.
+            mq.set('mq', val, {silent: !(key && val)});
         },
 
-        generateDefaultMediaQuery: function () {
-            var defaults = [{
+        setDefaultMediaQueries: function (e) {
+            // TODO: Move defauts out of this method, they should be suplied
+            // from the server.
+            var defaults = [
+                {
                     id: 'med',
-                    mq: 'screen and (min-width: 48em)'
+                    mq: '48em'
                 },
                 {
                     id: 'lrg',
-                    mq: 'screen and (min-width: 60em)'
-                }],
-                mqs = this.get('model').get('mediaQueries');
+                    mq: '60em'
+                }
+            ];
 
-            mqs.reset().add(defaults);
-            this.get('model').set('mediaQueries', mqs);
-            this.render();
+            this.get('model').set('mediaQueries', defaults);
         },
 
-        inputCols: function (e) {
+        setCols: function (e) {
             var cols = e.target.get('value');
             this.get('model').set('cols', cols);
         },
 
-        inputPrefix: function (e) {
+        setPrefix: function (e) {
             var prefix = e.target.get('value');
             this.get('model').set('prefix', prefix);
         }
@@ -230,6 +199,3 @@ YUI.add('grid-input-view', function (Y, NAME, imports, exports) {
         'grid-tab-view'
     ]
 });
-
-
-

@@ -2,7 +2,6 @@ YUI().require(
     'router', 'pjax-base', 'view', 'handlebars-runtime',
     'grid-input-view', 'grid-output-view', 'grid-model',
 function (Y, imports) {
-
     'use strict';
 
     var GridModel      = imports['grid-model'],
@@ -34,8 +33,9 @@ function (Y, imports) {
         linkSelector: '.grid-input a'
     });
 
-    gridModel.on('change', function (e) {
-        if (e.src !== 'routeHandler') {
+    gridModel.on('update', function (e) {
+        // Avoid caring about changes made to the model in the route handler.
+        if (e.originEvent.src !== 'url') {
             router.save('/?' + this.toString());
         }
     });
@@ -49,21 +49,22 @@ function (Y, imports) {
     };
 
     router.route('/', function (req) {
+        var query = req.query;
 
-        var query = req.query,
-            o = {
-                cols: query.cols,
-                prefix: query.prefix,
-                mediaQueries: []
-            };
-            delete query.cols;
-            delete query.prefix;
+        var attrs = {
+            cols        : query.cols,
+            prefix      : query.prefix,
+            mediaQueries: []
+        };
+
+        delete query.cols;
+        delete query.prefix;
 
         Y.Object.each(query, function (val, key) {
-            o.mediaQueries.push({id: key, mq: val});
+            attrs.mediaQueries.push({id: key, mq: val});
         });
 
-        gridModel.setAttrs(o, {src: 'routeHandler'});
+        gridModel.setAttrs(attrs, {src: 'url'});
 
         inputView.render();
         outputView.render();
