@@ -1,22 +1,19 @@
 YUI.add('grid-input-view', function (Y, NAME, imports, exports) {
-
     'use strict';
 
-    var COL_INPUT           = '[data-content="cols-input"]',
-        PREFIX_INPUT        = '[data-content="prefix-input"]',
-        TAB                 = '[data-action="tab"]',
-        MQ_ADD              = '[data-action="add-mq"]',
-        MQ_REMOVE           = '[data-action="remove-mq"]',
-        MQ_ADD_DEFAULT      = '[data-action="add-default-mq"]',
-        MQ_TABLE            = '#media-query-table',
-        MQ_LIST             = '#media-query-table tbody',
-        MQ_KEY              = '[data-content="mq-key"]',
-        MQ_VAL              = '[data-content="mq-value"]',
-        MQ_ROW              = '[data-row="media-query"]';
+    var COL_INPUT      = '[data-content="cols-input"]',
+        PREFIX_INPUT   = '[data-content="prefix-input"]',
+        MQ_ADD         = '[data-action="add-mq"]',
+        MQ_REMOVE      = '[data-action="remove-mq"]',
+        MQ_ADD_DEFAULT = '[data-action="add-default-mq"]',
+        MQ_TABLE       = '#media-query-table',
+        MQ_LIST        = '#media-query-table tbody',
+        MQ_KEY         = '[data-content="mq-key"]',
+        MQ_VAL         = '[data-content="mq-value"]',
+        MQ_ROW         = '[data-row="media-query"]';
 
     var events = {};
 
-    events[TAB]            = {click:  'handleTabClick'};
     events[COL_INPUT]      = {change: 'inputCols'};
     events[PREFIX_INPUT]   = {change: 'inputPrefix'};
     events[MQ_KEY]         = {change: 'addMediaQueryById'};
@@ -25,41 +22,44 @@ YUI.add('grid-input-view', function (Y, NAME, imports, exports) {
     events[MQ_REMOVE]      = {click:  'removeRenderedMediaQuery'};
     events[MQ_ADD_DEFAULT] = {click:  'generateDefaultMediaQuery'};
 
-    var MqModel = imports['mq-model'].MqModel,
+    var MqModel     = imports['mq-model'].MqModel,
         GridTabView = imports['grid-tab-view'];
 
     return Y.Base.create('grid-input-view', GridTabView, [], {
         events: events,
 
         render: function () {
-            //We are just going to manipulate the input values inside render(). No need to re-render all the DOM elements.
+            // We are just going to manipulate the input values inside render().
+            // No need to re-render all the DOM elements.
             var container = this.get('container'),
-                model = this.get('model'),
-                mqs = model.get('mediaQueries'),
-                rows = container.all(MQ_ROW),
-                index = 1,
-                numRows = rows.size();
+                model     = this.get('model'),
+                mqs       = model.get('mediaQueries'),
+                rows      = container.all(MQ_ROW),
+                index     = 1,
+                numRows   = rows.size();
 
             if (model.get('cols')) {
-                container.one(COL_INPUT).set('value', Y.Escape.html(model.get('cols')));
+                container.one(COL_INPUT).set('value',
+                        Y.Escape.html(model.get('cols')));
             }
 
             if (model.get('prefix')) {
-                container.one(PREFIX_INPUT).set('value', Y.Escape.html(model.get('prefix')));
+                container.one(PREFIX_INPUT).set('value',
+                        Y.Escape.html(model.get('prefix')));
             }
 
             if (mqs.size()) {
                 container.one(MQ_TABLE).removeAttribute('hidden');
             }
 
-            //for each media query, populate the input field within the row,
-            //or create a new row.
+            // For each media query, populate the input field within the row, or
+            // create a new row.
             mqs.each(function (m, i) {
                 this._renderMediaQuery(m.get('id'), m.get('mq'), rows.item(i));
                 index++;
             }, this);
 
-            //remove the additional rows.
+            // Remove the additional rows.
             for ( ; index <= numRows; index++) {
                 var row = rows.item(index - 1);
                 if (row) {
@@ -67,19 +67,20 @@ YUI.add('grid-input-view', function (Y, NAME, imports, exports) {
                 }
             }
 
-            //fresh query
+            // Fresh query.
             if (container.all(MQ_ROW).size() === 0) {
                 container.one(MQ_TABLE).setAttribute('hidden');
             }
         },
 
-        //This will create a new <tr> and populate it with media query values, if they exist.
+        // This will create a new <tr> and populate it with media query values,
+        // if they exist.
         _renderMediaQuery: function (key, mq, row) {
             var container = this.get('container'),
-                table = container.one(MQ_TABLE),
+                table     = container.one(MQ_TABLE),
                 html;
 
-            //if a row exists, populate the input fields within that row
+            // If a row exists, populate the input fields within that row.
             if (row) {
                 row.one(MQ_KEY).set('value', key);
                 row.one(MQ_VAL).set('value', mq);
@@ -96,7 +97,8 @@ YUI.add('grid-input-view', function (Y, NAME, imports, exports) {
             }
         },
 
-        //This will just pass through to _renderMediaQuery() to create an empty row.
+        // This will just pass through to _renderMediaQuery() to create an empty
+        // row.
         renderMediaQuery: function () {
             this._renderMediaQuery();
 
@@ -112,12 +114,11 @@ YUI.add('grid-input-view', function (Y, NAME, imports, exports) {
 
         removeRenderedMediaQuery: function (e) {
             var container = this.get('container'),
-                list = container.one(MQ_LIST),
-                table = container.one(MQ_TABLE),
-                mqs = this.get('model').get('mediaQueries'),
-                key = e.target.ancestor(MQ_ROW, MQ_LIST)
-                        .one(MQ_KEY).get('value'),
-                index = this.get('container').all(MQ_ROW).indexOf(e.target.ancestor(MQ_ROW));
+                list      = container.one(MQ_LIST),
+                table     = container.one(MQ_TABLE),
+                mqs       = this.get('model').get('mediaQueries'),
+                key       = e.target.ancestor(MQ_ROW, MQ_LIST).one(MQ_KEY).get('value'),
+                index     = this.get('container').all(MQ_ROW).indexOf(e.target.ancestor(MQ_ROW));
 
             e.target.ancestor(MQ_ROW, MQ_LIST).remove();
             container.one(MQ_ADD).removeAttribute('disabled');
@@ -125,7 +126,7 @@ YUI.add('grid-input-view', function (Y, NAME, imports, exports) {
                 table.setAttribute('hidden');
             }
 
-            //we only want to update the route if the row had some contents
+            // We only want to update the route if the row had some contents.
             if (key) {
                 mqs.remove(mqs.item(index));
             }
@@ -230,6 +231,3 @@ YUI.add('grid-input-view', function (Y, NAME, imports, exports) {
         'grid-tab-view'
     ]
 });
-
-
-
