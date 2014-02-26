@@ -8,11 +8,11 @@
     {{sectionHeading "Installing Pure with Bower"}}
 
     <p>
-        You can add Pure to your project through <a href="http://bower.io">Bower</a>. This is our recommended way to serve Pure on SSL-encrypted websites.
+        You can add Pure to your project through <a href="http://bower.io">Bower</a>. This is our recommended way to to integrate Pure into your project's build process and tool chain. It also works great if your website is SSL-encrypted.
     </p>
 
-    {{#code}}
-        bower install pure --save
+    {{#code "shell"}}
+        $ bower install pure --save
     {{/code}}
 
     {{sectionHeading "Extending Pure with Grunt"}}
@@ -40,13 +40,13 @@
 
     <p>Download the {{code "grunt-pure-grids"}} module from npm.</p>
 
-    {{#code}}
-    npm install grunt-pure-grids --save-dev
+    {{#code "shell"}}
+    $ npm install grunt-pure-grids --save-dev
     {{/code}}
 
     <p>Next, add it to your {{code "Gruntfile.js"}}.</p>
 
-    {{#code}}
+    {{#code "js"}}
     grunt.loadNpmTasks('grunt-pure-grids');
     {{/code}}
 
@@ -79,8 +79,8 @@
 
     <p>You can install the Rework plugin through npm.</p>
 
-    {{#code}}
-    npm install rework rework-pure-grids
+    {{#code "shell"}}
+    $ npm install rework rework-pure-grids
     {{/code}}
 
     <p>You can then run it in NodeJS.</p>
@@ -127,12 +127,12 @@
 
     <p>Download the {{code "grunt-stripmq"}} module from npm.</p>
 
-    {{#code}}
-    npm install grunt-stripmq --save-dev
+    {{#code "shell"}}
+    $ npm install grunt-stripmq --save-dev
     {{/code}}
 
     <p>Next, add the Grunt task to your {{code "Gruntfile.js"}}</p>
-    {{#code}}
+    {{#code "js"}}
     grunt.loadNpmTasks('grunt-stripmq');
     {{/code}}
 
@@ -160,7 +160,7 @@
         Finally, you'll need to add this block in your {{code "<head>"}} to let old IE browsers request the generated CSS files.
     </p>
 
-    {{#code}}
+    {{#code "html"}}
     <!--[if lt IE 9]>
     <link rel="stylesheet" href="css/grid-old-ie.css">
     <link rel="stylesheet" href="css/app-old-ie.css">
@@ -181,12 +181,12 @@
     <h3>Via Grunt</h3>
 
     <p>Install {{code "grunt-css-selectors"}} through npm.</p>
-    {{#code}}
-    npm install grunt-css-selectors --save-dev
+    {{#code "shell"}}
+    $ npm install grunt-css-selectors --save-dev
     {{/code}}
 
     <p>Once it's installed, add the task to your {{code "Gruntfile.js"}}</p>
-    {{#code}}
+    {{#code "js"}}
     grunt.loadNpmTasks('grunt-css-selectors');
     {{/code}}
 
