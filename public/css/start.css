@@ -22,7 +22,7 @@
     color: #666;
     transition: all 0.3s;
     cursor: pointer;
-    top: -0.8em;
+    top: -0.813em;
     position: relative;
 }
 
@@ -31,8 +31,8 @@
     border: 1px solid #ccc;
     background: #fff;
     border-bottom-color: transparent;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
 }
 
 .grid-content {
