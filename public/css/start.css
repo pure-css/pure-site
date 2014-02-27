@@ -9,30 +9,37 @@
 
 .grid-tabs,
 .grid-output-tabs {
-    padding: 1em 0 0;
+    padding: 3em 0 0;
+    margin: 0;
 }
 
 .grid-tab-link,
 .grid-tab-link:visited {
     font-weight: bold;
+    padding: 1em 1em;
+    border: 1px solid transparent;
+    border-bottom-color: transparent;
     color: #666;
-    padding: 4px 10px;
-    margin: 0.3em;
     transition: all 0.3s;
     cursor: pointer;
+    top: -0.8em;
+    position: relative;
 }
 
 .grid-tab-link-selected,
 .grid-tab-link-selected:visited {
-    color: rgb(0, 120, 231);
-    border-bottom: 2px solid rgb(0, 120, 231);
+    border: 1px solid #ccc;
+    background: #fff;
+    border-bottom-color: transparent;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 .grid-content {
     padding: 1em;
-    margin-top: 1em;
     border: 1px solid #ccc;
     border-radius: 3px;
+    border-top-left-radius: 0;
     overflow-y: hidden;
 }
 
@@ -84,7 +91,7 @@
     padding: 1px 6px;
     box-shadow: none;
     font-size: 80%;
-    margin-left: 0.5em;
+    margin-top: 0.5em;
     -webkit-transition: background 0.3s;
     -moz-transition: background 0.3s;
     transition: background 0.3s;
@@ -138,6 +145,11 @@
 
 .pure-form input[invalid] {
     border: 1px solid rgb(229, 53, 53);
+}
+
+.input-lg {
+    font-size: 1.2em;
+    text-align: center;
 }
 
 @media screen and (min-width: 48em) {
