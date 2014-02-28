@@ -77,19 +77,11 @@
 
 .controls {
     text-align: center;
+    margin-top: 1em;
 }
 
-.controls button {
-    margin: 0.2em 0;
-}
-
-#cols .cols-control,
-#mq .prefix-control {
-    text-align: center;
-    font-size: 1.25em;
-}
-#cols .cols-control label,
-#mq .prefix-control label {
+#options .cols-control label,
+#options .prefix-control label {
     width: auto;
 }
 .cols-control input {
