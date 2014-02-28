@@ -20,7 +20,7 @@
     border: 1px solid transparent;
     border-bottom-color: transparent;
     color: #666;
-    transition: all 0.3s;
+    transition: all 0.1s;
     cursor: pointer;
     top: -0.813em;
     position: relative;
@@ -77,10 +77,19 @@
 
 .controls {
     text-align: center;
+    margin-top: 1em;
 }
 
-.controls button {
-    margin: 0.2em 0;
+#options .cols-control label,
+#options .prefix-control label {
+    width: auto;
+}
+.cols-control input {
+    text-align: center;
+}
+
+.remove-row {
+    text-align: center;
 }
 
 .remove-mq {
@@ -88,13 +97,12 @@
     border: 1px solid rgb(229, 53, 53);
     font-weight: 500;
     color: rgb(229, 53, 53);
-    padding: 1px 6px;
+    margin-top: 0.25em;
+    padding: 0.25em 0.5em;
     box-shadow: none;
-    font-size: 80%;
-    margin-top: 0.5em;
-    -webkit-transition: background 0.3s;
-    -moz-transition: background 0.3s;
-    transition: background 0.3s;
+    -webkit-transition: background 0.1s;
+    -moz-transition: background 0.1s;
+    transition: background 0.1s;
 }
 
 .remove-mq:hover,
@@ -145,11 +153,6 @@
 
 .pure-form input[invalid] {
     border: 1px solid rgb(229, 53, 53);
-}
-
-.input-lg {
-    font-size: 1.2em;
-    text-align: center;
 }
 
 @media screen and (min-width: 48em) {
