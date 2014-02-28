@@ -11,7 +11,6 @@ function render (req, res) {
         xl: new GridUnits('screen and (min-width: 80em)')
     };
 
-    console.log(res.locals.selectedUnits);
     res.render('grids');
 }
 
