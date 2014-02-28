@@ -14,23 +14,24 @@ YUI.add('grid-tab-view', function (Y, NAME, imports, exports) {
         },
 
         handleTabClick: function (e) {
-            var container     = this.get('container'),
-                id            = e.target.getAttribute('href'),
-                selectedTab   = container.one('.' + SELECTED_TAB),
-                selectedPanel = container.one('.' + SELECTED_PANEL);
-
             e.preventDefault();
+            this.showTab(e.target.getAttribute('href'));
+        },
 
-            if (selectedTab) {
-                selectedTab.removeClass(SELECTED_TAB);
+        showTab: function (id) {
+            var container = this.get('container'),
+                tab       = container.one('[href="' + id + '"]'),
+                panel     = container.one(id);
+
+            if (!tab.hasClass(SELECTED_TAB)) {
+                container.one('.' + SELECTED_TAB).removeClass(SELECTED_TAB);
+                tab.addClass(SELECTED_TAB);
             }
 
-            if (selectedPanel) {
-                selectedPanel.removeClass(SELECTED_PANEL);
+            if (!panel.hasClass(SELECTED_PANEL)) {
+                container.one('.' + SELECTED_PANEL).removeClass(SELECTED_PANEL);
+                panel.addClass(SELECTED_PANEL);
             }
-
-            e.target.addClass(SELECTED_TAB);
-            container.one(id).addClass(SELECTED_PANEL);
         }
     });
 

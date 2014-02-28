@@ -9,30 +9,37 @@
 
 .grid-tabs,
 .grid-output-tabs {
-    padding: 1em 0 0;
+    padding: 3em 0 0;
+    margin: 0;
 }
 
 .grid-tab-link,
 .grid-tab-link:visited {
     font-weight: bold;
+    padding: 1em 1em;
+    border: 1px solid transparent;
+    border-bottom-color: transparent;
     color: #666;
-    padding: 4px 10px;
-    margin: 0.3em;
-    transition: all 0.3s;
+    transition: all 0.1s;
     cursor: pointer;
+    top: -0.813em;
+    position: relative;
 }
 
 .grid-tab-link-selected,
 .grid-tab-link-selected:visited {
-    color: rgb(0, 120, 231);
-    border-bottom: 2px solid rgb(0, 120, 231);
+    border: 1px solid #ccc;
+    background: #fff;
+    border-bottom-color: transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
 }
 
 .grid-content {
     padding: 1em;
-    margin-top: 1em;
     border: 1px solid #ccc;
     border-radius: 3px;
+    border-top-left-radius: 0;
     overflow-y: hidden;
 }
 
@@ -70,10 +77,19 @@
 
 .controls {
     text-align: center;
+    margin-top: 1em;
 }
 
-.controls button {
-    margin: 0.2em 0;
+#options .cols-control label,
+#options .prefix-control label {
+    width: auto;
+}
+.cols-control input {
+    text-align: center;
+}
+
+.remove-row {
+    text-align: center;
 }
 
 .remove-mq {
@@ -81,13 +97,12 @@
     border: 1px solid rgb(229, 53, 53);
     font-weight: 500;
     color: rgb(229, 53, 53);
-    padding: 1px 6px;
+    margin-top: 0.25em;
+    padding: 0.25em 0.5em;
     box-shadow: none;
-    font-size: 80%;
-    margin-left: 0.5em;
-    -webkit-transition: background 0.3s;
-    -moz-transition: background 0.3s;
-    transition: background 0.3s;
+    -webkit-transition: background 0.1s;
+    -moz-transition: background 0.1s;
+    transition: background 0.1s;
 }
 
 .remove-mq:hover,
