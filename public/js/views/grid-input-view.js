@@ -17,6 +17,7 @@ YUI.add('grid-input-view', function (Y, NAME, imports, exports) {
 
     var events = {};
 
+    events.form            = {submit: 'preventSubmit'};
     events[COL_INPUT]      = {change: 'setCols'};
     events[PREFIX_INPUT]   = {change: 'setPrefix'};
     events[MQ_KEY]         = {change: 'updateMediaQueryId'};
@@ -90,6 +91,10 @@ YUI.add('grid-input-view', function (Y, NAME, imports, exports) {
                 container.one(MQ_LIST).append(html);
                 container.one(MQ_TABLE).removeAttribute('hidden');
             }
+        },
+
+        preventSubmit: function (e) {
+            e.preventDefault();
         },
 
         addMediaQuery: function () {

@@ -9,19 +9,29 @@
     </ul>
 
     <div class="grid-content">
-        <div id="cols" class="grid-panel grid-panel-selected pure-form">
+        <form id="cols" class="grid-panel grid-panel-selected pure-form-aligned pure-form">
             <h3>Columns</h3>
 
             <p>
                 Pure has a 5<sup>ths</sup> and 24-column grid system by default. You define an element's width using fractional class names (ex: {{code ".pure-u-2-5"}} for {{code "width: 40%"}}, or {{code ".pure-u-12-24"}} for {{code "width: 50%"}}).
             </p>
+
             <p>
                 If you want to customize the number of columns, enter it below. The default grid is 24 columns.
             </p>
-            <input data-content="cols-input" class="input-lg pure-u-1 pure-u-med-1-6" type="number" min="2" max="100" placeholder="24" {{#if cols}}value="{{cols}}"{{/if}}>
-        </div>
 
-        <div id="mq" class="grid-panel pure-form">
+            <p class="cols-control pure-control-group">
+                <label for="cols-input">
+                    Columns
+                </label>
+                <input id="cols-input" data-content="cols-input"
+                       class="pure-u-1 pure-u-sm-3-24"
+                       type="number" min="2" max="100" placeholder="24"
+                       {{#if cols}}value="{{cols}}"{{/if}}>
+            </p>
+        </form>
+
+        <form id="mq" class="grid-panel pure-form-aligned pure-form">
             <h3>Media Queries</h3>
 
             <p>
@@ -34,8 +44,15 @@
                 If you want your grid class names to have a custom prefix, enter it below. The default is {{code ".pure-u-"}}.
             </p>
 
-            <input data-content='prefix-input' class="input-lg pure-u-1 pure-u-med-1-6"
-                   maxlength="20" type="text" placeholder=".pure-u-" value="{{prefix}}">
+            <p class="prefix-control pure-control-group">
+                <label for="prefix-input">
+                    CSS Selector Prefix
+                </label>
+                <input data-content='prefix-input'
+                       class="pure-u-1 pure-u-sm-1-3 pure-u-med-1-4"
+                       type="text" maxlength="20" placeholder=".pure-u-"
+                       value="{{prefix}}">
+            </p>
 
             <p>
                 What media queries should your grid system respond to?
@@ -56,13 +73,13 @@
             </table>
 
             <div class="controls">
-                <button data-action="add-default-mq" class="pure-button pure-button-primary">
+                <button type="button" data-action="add-default-mq" class="pure-button pure-button-primary">
                     Use device media queries
                 </button>
-                <button data-action="add-mq" class="pure-button">
+                <button type="button" data-action="add-mq" class="pure-button">
                     Add custom media query
                 </button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
