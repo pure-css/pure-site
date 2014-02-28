@@ -112,12 +112,6 @@
     box-shadow: none;
 }
 
-.grids-example {
-    border-bottom: 1px solid #eee;
-    background: rgb(250, 250, 250);
-    margin: 2em auto;
-}
-
 .grids-example [class *= "pure-u"] {
     font-family: Consolas, 'Liberation Mono', Courier, monospace;
     text-align: center;
@@ -125,25 +119,6 @@
     border: 1px solid #eee;
     border-right: none;
     border-bottom: none;
-}
-
-
-.table-responsive .mq-table {
-    width: 100%;
-    min-width: 44em;
-}
-.mq-table th.highlight {
-    background-color: rgb(255, 234, 133);
-}
-.mq-table td.highlight {
-    background-color: rgb(255, 250, 229);
-}
-.mq-table th.highlight code,
-.mq-table td.highlight code {
-    background: rgb(255, 255, 243);
-}
-.mq-table-mq code {
-    font-size: 0.875em;
 }
 
 .invalid-message {
