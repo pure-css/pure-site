@@ -45,8 +45,6 @@
 <div class="content">
     {{sectionHeading "Understand Pure Grids"}}
 
-    <h3>Basic Grids</h3>
-
     <p>
         Pure's grid system is very simple. You create a row by using the {{code ".pure-g"}} class, and create columns within that row by using the {{code "pure-u-*"}} classes.
     </p>
@@ -65,10 +63,10 @@
 </div>
 
 <div class="content">
-    <h3>Responsive Grids</h3>
+    {{sectionHeading "Responsive Grids"}}
 
     <p>
-        Pure's grid system is also <b>mobile-first</b> and <b>responsive</b>. You're able to customize the grid by specifying CSS Media Query breakpoints and grid classnames. You can <a href="#options">customize grids below</a>, but let's start off with an example.
+        Pure's grid system is also <b>mobile-first</b> and <b>responsive</b>, and you're able to customize the grid by specifying CSS Media Query breakpoints and grid classnames. If needed, you can <a href="#build-your-pure-starter-kit">customize Pure Grids below</a>, but let's start off with an example.
     </p>
 
     <p>
@@ -134,14 +132,14 @@
         </p>
     </aside>
 
-    {{sectionHeading "Define Your Custom Grid"}}
+    {{sectionHeading "Build Your Pure Starter Kit"}}
 
     <p>
-        Now that you know how grids work, you might want to customize things to better suite your web project. You can define your own by specifying a CSS Media Queries. You can also customize the number of columns that your grid needs.
+        Now that you know how grids work, you might want to customize things to better suit your web project. You can define your own breakpoints by specifying a CSS Media Queries. You can also customize the number of columns that your layout needs.
     </p>
 
     <p>
-        We'll generate a {{code "grid.css"}} file for you based on your requirements that you can download and include in your project.
+        We'll generate an {{code "index.html"}} file, and if needed, a {{code "grid.css"}} file that you can download and use as the starting-point for your project.
     </p>
 
 {{> start/grid-input-view}}
