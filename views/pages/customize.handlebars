@@ -84,11 +84,15 @@
     <p>
         You can also pull in the modules individually. The Yahoo! CDN supports combo handling, so you can combo your requests and get a single CSS file back. Here's an example of a combo URL that only includes CSS for <a href="{{pathTo 'base'}}">Base</a>, <a href="{{pathTo 'grids'}}">Grids</a>, and <a href="{{pathTo 'forms'}}">Forms</a>:
     </p>
+</div>
 
-{{#code wrap=true}}
-<link rel="stylesheet" href="http://yui.yahooapis.com/combo?pure/{{pure.version}}/base-min.css&pure/{{pure.version}}/grids-min.css&pure/{{pure.version}}/forms-min.css">
-{{/code}}
+<div class="is-code-full">
+  {{#code wrap=true}}
+    <link rel="stylesheet" href="http://yui.yahooapis.com/combo?pure/{{pure.version}}/base-min.css&pure/{{pure.version}}/grids-min.css&pure/{{pure.version}}/forms-min.css">
+  {{/code}}
+</div>
 
+<div class="content">
     <div class="table-responsive">
         <table class="pure-table pure-table-bordered">
             <thead>
