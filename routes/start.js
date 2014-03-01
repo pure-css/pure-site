@@ -20,8 +20,8 @@ exports.index = [
 
 exports.download = [
     normalizeOptions,
-    generateHTML,
     generateCSS,
+    generateHTML,
     downloadStart
 ];
 
@@ -33,13 +33,11 @@ var LIMITS = {
     mediaQueries: {min: 0, max: 10}
 };
 
-var SELECTED_GRIDS_UNITS = {
-    med: new GridUnits(config.pure.grid.med),
-    lrg: new GridUnits(config.pure.grid.lrg)
-};
-
-function GridUnits(mq) {
-    utils.extend(this, {mq: mq}, mediaQuery.parse(mq)[0]);
+function GridUnits(id, mq) {
+    utils.extend(this, {
+        id: id,
+        mq: mq
+    }, mediaQuery.parse(mq)[0]);
 }
 
 GridUnits.prototype.toString = function () {
@@ -144,8 +142,10 @@ function generateHTML(req, res, next) {
     var template = path.join(config.dirs.shared, 'start', 'html' + hbs.extname);
 
     hbs.render(template, {
-        cache: req.app.enabled('view cache'),
-        pure : config.pure
+        cache   : req.app.enabled('view cache'),
+        pure    : config.pure,
+        needsCSS: res.needsCSS,
+        css     : res.css
     }, function (err, html) {
         if (err) { return next(err); }
         res.html = html;
@@ -154,44 +154,77 @@ function generateHTML(req, res, next) {
 }
 
 function generateCSS(req, res, next) {
-    var startOptions = req.startOptions,
+    var defaults     = res.locals.pure.responsive,
+        startOptions = req.startOptions,
         mediaQueries = startOptions.mediaQueries,
-        gridsGenOpts = {};
+        numMQs       = mediaQueries.length,
+        gridsGenOpts = {},
+        genGridsCSS  = false;
 
-    gridsGenOpts.mediaQueries = mediaQueries.reduce(function (mqs, mq) {
+    if ((startOptions.cols && startOptions.cols !== defaults.cols) ||
+        (numMQs && numMQs !== defaults.mediaQueries.length)) {
+
+        genGridsCSS = true;
+    }
+
+    if (startOptions.prefix && startOptions.prefix !== defaults.prefix) {
+        genGridsCSS = true;
+        gridsGenOpts.selectorPrefix = startOptions.prefix;
+    }
+
+    gridsGenOpts.mediaQueries = mediaQueries.reduce(function (mqs, mq, i) {
+        var dmq = defaults.mediaQueries[i];
+
+        if (!(dmq && dmq.id === mq.id && dmq.mq === mq.mq)) {
+            genGridsCSS = true;
+        }
+
         mqs[mq.id] = mq.mq;
         return mqs;
     }, {});
 
-    if (startOptions.prefix) {
-        gridsGenOpts.selectorPrefix = startOptions.prefix;
-    }
+    res.needsCSS = genGridsCSS || !!numMQs;
 
-    res.css = rework('')
-            .use(grids.units(startOptions.cols, gridsGenOpts))
-            .toString({indent: '    '});
+    if (genGridsCSS) {
+        res.css = rework('')
+                .use(grids.units(startOptions.cols, gridsGenOpts))
+                .toString({indent: '    '});
+    }
 
     next();
 }
 
 function showStart(req, res, next) {
-    var startOptions = req.startOptions;
+    var pure         = res.locals.pure,
+        defaults     = pure.responsive,
+        startOptions = req.startOptions;
 
-    res.locals.selectedUnits = SELECTED_GRIDS_UNITS;
-    res.locals.css           = res.css;
-    res.locals.query         = req._parsedUrl.search;
+    res.locals.needsCSS = res.needsCSS;
+    res.locals.css      = res.css;
+    res.locals.query    = req._parsedUrl.search;
+
+    res.locals.defaultMQs = defaults.mediaQueries.map(function (mq) {
+        return new GridUnits(mq.id, mq.mq);
+    });
+
     res.locals(startOptions);
 
-    res.expose(LIMITS, 'start.limits');
+    res.expose(pure.version, 'pure.version');
+    res.expose(LIMITS,       'start.limits');
+    res.expose(defaults,     'start.defaults');
     res.expose(startOptions, 'start.options');
+
     res.render('start');
 }
 
 function downloadStart(req, res, next) {
     var archive = archiver('zip');
 
-    archive.append(res.html,         {name: 'index.html'});
-    archive.append(res.css || '\n',  {name: 'grid.css'});
+    archive.append(res.html, {name: 'index.html'});
+
+    if (res.css) {
+        archive.append(res.css, {name: 'grid.css'});
+    }
 
     res.set('Content-Disposition', 'attachment; filename="pure-start.zip"');
     archive.finalize().pipe(res);

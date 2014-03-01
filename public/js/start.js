@@ -9,18 +9,23 @@ function (Y, imports) {
         GridOutputView = imports['grid-output-view'],
         GridRouter     = Y.Base.create('grid-router', Y.Router, [Y.PjaxBase]);
 
-    var gridModel = new GridModel(app.start.options);
+    var gridModel    = new GridModel(app.start.options),
+        defaultModel = new GridModel(app.start.defaults);
 
     var inputView = new GridInputView({
-        model    : gridModel,
-        container: '.grid-input',
-        template : Handlebars.template(app.templates.start.rows)
+        defaultMQs: app.start.defaults.mediaQueries,
+        model     : gridModel,
+        container : '.grid-input',
+        template  : Handlebars.template(app.templates.start.rows)
     });
 
     var outputView = new GridOutputView({
-        model    : gridModel,
-        container: '.grid-output',
-        template : Handlebars.template(app.templates.start.css)
+        pure        : app.pure,
+        defaults    : defaultModel,
+        model       : gridModel,
+        container   : '.grid-output',
+        cssTemplate : Handlebars.template(app.templates.start.css),
+        htmlTemplate: Handlebars.template(app.templates.start.html)
     });
 
     var downloadView = new Y.View({
