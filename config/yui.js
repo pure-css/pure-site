@@ -2,7 +2,7 @@
 
 var isProduction = process.env.NODE_ENV === 'production';
 
-exports.version = '3.15.0-rc-1';
+exports.version = '3.15.0';
 
 exports.config = {
     combine: isProduction,

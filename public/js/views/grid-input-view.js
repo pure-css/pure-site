@@ -176,20 +176,7 @@ YUI.add('grid-input-view', function (Y, NAME, imports, exports) {
         },
 
         setDefaultMediaQueries: function (e) {
-            // TODO: Move defauts out of this method, they should be suplied
-            // from the server.
-            var defaults = [
-                {
-                    id: 'med',
-                    mq: '48em'
-                },
-                {
-                    id: 'lrg',
-                    mq: '60em'
-                }
-            ];
-
-            this.get('model').set('mediaQueries', defaults);
+            this.get('model').set('mediaQueries', this.get('defaultMQs'));
         },
 
         setCols: function (e) {

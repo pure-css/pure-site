@@ -7,7 +7,13 @@
     <title>Your page title</title>
 
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure.version}}/pure-min.css">
+{{~#if needsCSS~}}
+  {{#if css}}
     <link rel="stylesheet" href="grid.css">
+  {{~else}}
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure.version}}/grids-responsive-min.css">
+  {{~/if~}}
+{{/if}}
 </head>
 
 <body>

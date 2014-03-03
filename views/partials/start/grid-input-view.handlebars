@@ -14,20 +14,21 @@
 
     <div class="grid-content">
         <form id="mqs" class="grid-panel-selected grid-panel pure-form-aligned pure-form">
-            <h3>Media Queries</h3>
+            <h3>Grids Media Queries</h3>
 
             <p>
-                By default, Pure's grid system does not include media queries since they can't be overriden. We can generate a mobile-first responsive grid if you provide us with media queries.
-            </p>
-            <p>
-                Pure's generated responsive grid is simple. It provides you with a specific class name prefix for each media query. For example, {{code "pure-u-med-*"}} for devices with {{code "width > 767px"}}, and {{code "pure-u-lrg-*"}} for devices with {{code "width > 980px"}}. You choose the prefix and corresponding media query.
+                You can use Pure's default CSS Media Queries which will add {{code "grids-responsive.css"}} to your Pure Starter Kit, or we can generate a mobile-first, responsive grid if you provide us with the breakpoints.
             </p>
 
             <p>
-                What media queries should your grid system respond to?
+                Pure's generated Responsive Grids is simple to use. It provides you with a specific CSS classname for each Media Query. For example, {{code "pure-u-md-*"}} for devices with {{code "width >= 768px"}}, and {{code "pure-u-lg-*"}} for devices with {{code "width >= 1024px"}}.
             </p>
 
-            <table id="media-query-table" {{#unless mediaQueries}}hidden {{/unless}}>
+            <p>
+                What Media Queries should your grid system respond to?
+            </p>
+
+            <table id="media-query-table" {{#unless mediaQueries}}hidden{{/unless}}>
                 <thead>
                     <tr>
                         <th class="pure-u-1-6">Grid Key</th>
@@ -43,10 +44,10 @@
 
             <div class="controls">
                 <button type="button" data-action="add-default-mq" class="pure-button pure-button-primary">
-                    Use device media queries
+                    Use Default Media Queries
                 </button>
                 <button type="button" data-action="add-mq" class="pure-button">
-                    Add custom media query
+                    Add Media Query
                 </button>
             </div>
         </form>
@@ -55,7 +56,7 @@
             <h3>Grid Options</h3>
 
             <p>
-                Pure has a 5<sup>ths</sup> and 24-column grid system by default. You define an element's width using fractional class names (ex: {{code ".pure-u-2-5"}} for {{code "width: 40%"}}, or {{code ".pure-u-12-24"}} for {{code "width: 50%"}}).
+                Pure has a 5<sup>ths</sup> and 24<sup>ths</sup>-column grid system by default. You define an element's width using fractional classnames, e.g; {{code ".pure-u-2-5"}} for {{code "width: 40%"}}, or {{code ".pure-u-12-24"}} for {{code "width: 50%"}}.
             </p>
 
             <p>

@@ -45,12 +45,13 @@
 <div class="content">
     {{sectionHeading "Understand Pure Grids"}}
 
-    <h3>Default Grids</h3>
     <p>
         Pure's grid system is very simple. You create a row by using the {{code ".pure-g"}} class, and create columns within that row by using the {{code "pure-u-*"}} classes.
     </p>
 
-    <p>Here's a grid with three columns:</p>
+    <p>
+        Here's a grid with three columns:
+    </p>
 
   {{#code}}
     {{> grids/intro}}
@@ -62,13 +63,26 @@
 </div>
 
 <div class="content">
-    <h3>Responsive Grids</h3>
+    {{sectionHeading "Responsive Grids"}}
+
     <p>
-        Pure Grids can be extended to become a mobile-first, responsive grid system. You're able to customize the grid by specifying CSS Media Query breakpoints and grid classnames. You can <a href="#options">customize grids below</a>, but let's start off with an example.
+        Pure's grid system is also <b>mobile-first</b> and <b>responsive</b>, and you're able to customize the grid by specifying CSS Media Query breakpoints and grid classnames. If needed, you can <a href="#build-your-pure-starter-kit">customize Pure Grids below</a>, but let's start off with an example.
     </p>
 
     <p>
-        Let's say that you specified the following grid:
+        You'll need to <em>also</em> include Pure's {{code "grids-responsive.css"}} onto your page:
+    </p>
+</div>
+
+<div class="is-code-full">
+  {{#code wrap=true}}
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure.version}}/grids-responsive-min.css">
+  {{/code}}
+</div>
+
+<div class="content">
+    <p>
+        Here's the default responsive breakpoints included in {{code "grids-responsive.css"}}:
     </p>
 
     <div class="table-responsive">
@@ -90,12 +104,12 @@
                     <td>{{code ".pure-u-*"}}</td>
                 </tr>
 
-              {{#each selectedUnits}}
+              {{#each defaultMQs}}
                 <tr>
-                    <td class="highlight"><b>{{code @key}}</b></td>
+                    <td class="highlight"><b>{{code this.id}}</b></td>
                     <td class="mq-table-mq highlight"><code>@media {{this}}</code></td>
                     <td>≥ <b>{{this.expressions.0.value}}</b></td>
-                    <td><code>.pure-u-<b>{{@key}}</b>-*</code></td>
+                    <td><code>.pure-u-<b>{{this.id}}</b>-*</code></td>
                 </tr>
               {{/each}}
             </tbody>
@@ -112,19 +126,20 @@
 </div>
 
 <div class="content">
-    <p>
-        The {{code "grid.css"}} that powers the example above is <a href="/start/?med=48em&lrg=60em#css">available here</a>. You can copy and paste it, or <a href="#define-your-custom-grid">define your own custom responsive grid</a> with custom CSS classnames and Media Query breakpoints!
-    </p>
-</div>
+    <aside>
+        <p>
+            <a href="{{pathTo 'grids'}}#pure-responsive-grids">Learn More</a> about how to include and use Pure's Responsive Grids system, and how it compares to Basic Grids.
+        </p>
+    </aside>
 
-<div class="content">
+    {{sectionHeading "Build Your Pure Starter Kit"}}
 
-    {{sectionHeading "Define your Custom Grid"}}
     <p>
-        Now that you know how grids work, you can define your own by specifying a few class names and media queries. You can also customize the number of columns that your grid needs.
+        Now that you know how grids work, you might want to customize things to better suit your web project. You can define your own breakpoints by specifying a CSS Media Queries. You can also customize the number of columns that your layout needs.
     </p>
+
     <p>
-        We'll generate a {{code "grid.css"}} file for you based on your requirements that you can download and include in your project.
+        We'll generate an {{code "index.html"}} file, and if needed, a {{code "grid.css"}} file that you can download and use as the starting-point for your project.
     </p>
 
 {{> start/grid-input-view}}
