@@ -86,34 +86,7 @@
     </p>
 
     <div class="table-responsive">
-        <table class="mq-table pure-table-bordered pure-table">
-            <thead>
-                <tr>
-                    <th class="highlight">Key</th>
-                    <th class="highlight">CSS Media Query</th>
-                    <th>Applies</th>
-                    <th>Classname</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr>
-                    <td class="highlight"><i>None</i></td>
-                    <td class="highlight"><i>None</i></td>
-                    <td><i>Always</i></td>
-                    <td>{{code ".pure-u-*"}}</td>
-                </tr>
-
-              {{#each defaultMQs}}
-                <tr>
-                    <td class="highlight"><b>{{code this.id}}</b></td>
-                    <td class="mq-table-mq highlight"><code>@media {{this}}</code></td>
-                    <td>≥ <b>{{this.expressions.0.value}}</b></td>
-                    <td><code>.pure-u-<b>{{this.id}}</b>-*</code></td>
-                </tr>
-              {{/each}}
-            </tbody>
-        </table>
+        {{> grids/mq-table}}
     </div>
 
     <p>
