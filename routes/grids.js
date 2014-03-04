@@ -1,19 +1,21 @@
+'use strict';
+
 var mediaQuery = require('css-mediaquery'),
     utils      = require('../lib/utils');
 
 exports.index = render;
 
 function render (req, res) {
-    res.locals.selectedUnits = {
-        sm: new GridUnits('screen and (min-width: 35.5em)'),
-        md: new GridUnits('screen and (min-width: 48em)'),
-        lg: new GridUnits('screen and (min-width: 64em)'),
-        xl: new GridUnits('screen and (min-width: 80em)')
-    };
-
+    var defaults = res.locals.pure.responsive;
+    res.locals.defaultMQs = defaults.mediaQueries.map(function (mq) {
+        return new GridUnits(mq.id, mq.mq);
+    });
     res.render('grids');
 }
 
-function GridUnits(mq) {
-    utils.extend(this, {mq: mq}, mediaQuery.parse(mq)[0]);
+function GridUnits(id, mq) {
+    utils.extend(this, {
+        id: id,
+        mq: mq
+    }, mediaQuery.parse(mq)[0]);
 }
