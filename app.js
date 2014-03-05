@@ -105,6 +105,7 @@ page('/buttons/',   'buttons',   'Buttons');
 page('/tables/',    'tables',    'Tables');
 page('/menus/',     'menus',     'Menus');
 page('/layouts/',   'layouts',   'Layouts', routes.layouts.index);
+page('/tools/',     'tools',     'Tools');
 page('/customize/', 'customize', 'Customize');
 page('/extend/',    'extend',    'Extend');
 
