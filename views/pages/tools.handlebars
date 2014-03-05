@@ -19,7 +19,7 @@
     {{sectionHeading "Extending Pure with Grunt"}}
 
     <p>
-        We've written several tools that help you extend Pure and integrate it with your project's CSS. These tools are available as <a href="http://gruntjs.com">Grunt</a> plugins that can easily be integrated into your existing {{code "Gruntfile.js"}}.
+        We've written several tools that help you extend Pure and integrate it with your project's CSS. These tools are available as <b><a href="http://gruntjs.com">Grunt</a></b> plugins that can easily be integrated into your existing {{code "Gruntfile.js"}}.
     </p>
 
     <aside>
@@ -27,6 +27,13 @@
             If you haven't used Grunt before, it's very easy to set up. Just head over to the <a href="http://gruntjs.com/getting-started">Getting Started</a> page to learn more.
         </p>
     </aside>
+
+
+    {{sectionHeading "Extending Pure with Rework"}}
+
+    <p>
+        We've taken a layered approach to developing Pure's tooling. Most of the tools are first built as <b><a href="https://github.com/reworkcss/rework">Rework</a></b> plugins. This allows you to compose Pure's Rework plugins together with other Rework plugins. It also allows the Grunt plugins to be written as <em>very thin</em> wrappers.
+    </p>
 
 
     {{sectionHeading "Generating Custom Responsive Grids"}}
@@ -195,7 +202,7 @@ grunt.initConfig({
     {{sectionHeading "Mutating Selectors"}}
 
     <p>
-        All selectors defined in Pure's source code begin with the {{code ".pure-"}} prefix. However, you may want to change this. To accomplish this task, we wrote the <a href="https://www.npmjs.org/package/grunt-css-selectors">CSS Selectors Grunt Plugin</a> that lets you mutate CSS selectors.
+        All selectors defined in Pure's source code begin with the {{code ".pure-"}} prefix. However, you may want to change this. To accomplish this task, you can use Pure's tooling to mutate CSS selectors.
     </p>
 
     <h3>Via Grunt</h3>
@@ -235,6 +242,37 @@ grunt.initConfig({
     }
 });
 {{/code}}
+
+    <h3>Via Rework</h3>
+
+    <p>
+        If you're not using Grunt, you can also mutate CSS selectors using the <a href="https://www.npmjs.org/package/rework-mutate-selectors">Mutate Selectors Rework Plugin</a>. It has a similar interface to the Grunt plugin &mdash; in fact, this is what powers the Grunt plugin.
+    </p>
+
+    <p>
+        You can install the Rework plugin through npm.
+    </p>
+
+  {{#code "shell"}}
+    $ npm install rework rework-mutate-selectors
+  {{/code}}
+
+    <p>
+        And it can be used on it's own like this, or along side other Rework plugins you might be using.
+    </p>
+
+{{#code "js"}}
+var rework    = require('rework'),
+    selectors = require('rework-mutate-selectors');
+
+var css = rework(inputCSS)
+    .use(selectors.prefix('.foo'))
+    .use(selectors.replace(/^\.pure/g, '.bar'))
+    .toString();
+
+console.log(css); // This will log-out the resulting CSS.
+{{/code}}
+
 
     <aside>
         <p>
