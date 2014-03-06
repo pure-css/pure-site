@@ -59,7 +59,7 @@
 }
 
 .grid-code {
-    max-height: 484px; /* same height as HTML section */
+    max-height: 30.25em; /* same height as HTML section */
     overflow-y: scroll;
 }
 
