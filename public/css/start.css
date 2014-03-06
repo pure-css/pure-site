@@ -11,10 +11,19 @@
     margin-bottom: 1em;
 }
 
-.grid-tabs,
-.grid-output-tabs {
+.grid-tabs {
     padding: 3em 0 0;
     margin: 0;
+}
+
+.grid-output-tabs {
+    padding-right: 7em;
+}
+.grid-output-download {
+    width: 7em;
+    margin-right: -7em;
+    padding-top: 1.875em;
+    text-align: right;
 }
 
 .grid-tab-link,
@@ -28,6 +37,13 @@
     cursor: pointer;
     top: -0.813em;
     position: relative;
+}
+
+.grid-output-tabs .grid-tab-link,
+.grid-output-tabs .grid-tab-link:visited,
+.download-link {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
 }
 
 .grid-tab-link-selected,
@@ -139,6 +155,15 @@
 
 .pure-form input[invalid] {
     border: 1px solid rgb(229, 53, 53);
+}
+
+@media screen and (min-width: 30em) {
+    .grid-output-tabs .grid-tab-link,
+    .grid-output-tabs .grid-tab-link:visited,
+    .download-link {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
 }
 
 @media screen and (min-width: 48em) {
