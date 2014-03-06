@@ -8,7 +8,6 @@
 {{> header}}
 
 <div class="content">
-
     {{sectionHeading "Introduction to Pure Grids"}}
 
     <p>
@@ -18,7 +17,7 @@
     <dl>
         <dt>Grid classes vs. unit classes</dt>
         <dd>
-            Pure Grids consist of two types of classes: grid classes ({{code "pure-g"}} or {{code "pure-g-r"}}) and unit classes ({{code "pure-u"}} or {{code "pure-u-*"}})
+            Pure Grids consist of two types of classes: the grid class ({{code "pure-g"}} and unit classes ({{code "pure-u"}} or {{code "pure-u-*"}})
         </dd>
 
         <dt>The widths of the units are fractions</dt>
@@ -47,9 +46,9 @@
         Let's start with a simple example. Here's a grid with three columns:
     </p>
 
-    {{#code}}
+  {{#code}}
     {{> grids/intro}}
-    {{/code}}
+  {{/code}}
 
 
     {{sectionHeading "Grids Units Sizes"}}
@@ -57,15 +56,6 @@
     <p>
         Pure ships with both a <b>5ths</b> and <b>24ths</b> based grid. Depicted below are the available units that can be appended to the <b>{{code "pure-u-*"}}</b> classname where {{code "*"}} is one of the unit factions listed below. For example the unit classname for 50% width is: {{code "pure-u-1-2"}}.
     </p>
-
-  {{!
-    <p class="pure-form">
-        <label>
-            <input class="grids-show-all" type="checkbox" checked>
-            Show All Grids Units
-        </label>
-    </p>
-  }}
 
     <h3>5ths-Based Units</h3>
 
@@ -80,6 +70,7 @@
   {{/each}}
 
     <h3>Custom Unit Sizes</h3>
+
     <p>
         We are working on building tools to allow people to customize Pure Grids. The first low-level tools, the <b><a href="https://github.com/ericf/rework-pure-grids">Pure Grids Rework Plugin</a></b>, is available to use today&mdash;we use this tool to generate Pure's built-in unit sizes.
     </p>
@@ -92,10 +83,10 @@
     </p>
 
     <h3>Including on Your Page</h3>
+
     <p>
         Since media queries cannot be over-written, we <u>do not</u> include the grid system as part of {{code "pure.css"}}. You'll have to pull it in as a separate CSS file. You can do this by adding the following {{code "<link>"}} tag to your page.
     </p>
-
 </div>
 
 <div class="is-code-full">
@@ -105,8 +96,13 @@
 </div>
 
 <div class="content">
+    <p>
+        If you are using Pure from Yahoo's CDN, you can take advantage of our combo handler, and load the responsive grid along with Pure in a single request.
+    </p>
 
-    {{> grids/combo}}
+  {{#code wrap=true}}
+    <link rel="stylesheet" href="http://yui.yahooapis.com/combo?pure/{{pure.version}}/pure-min.css&pure/{{pure.version}}/grids-responsive-min.css">
+  {{/code}}
 
     <h3>Pure's Regular Grid vs. Responsive Grid</h3>
 
@@ -114,17 +110,17 @@
         The best way to understand the difference between Pure's regular grid and a responsive grid is through an example.The snippet below shows how regular Pure Grids are written. These grids are unresponsive. They'll always be {{code "width: 33.33%"}}, irrespective of the width of the screen.
     </p>
 
-    {{#code}}
+  {{#code}}
     {{> grids/compare-nr}}
-    {{/code}}
+  {{/code}}
 
     <p>
         Next, let's look at a responsive grid. Elements within this grid will be {{code "width: 100%"}} on small screens, but will shrink to become {{code "width: 33.33%"}} on medium-sized screens and above.
     </p>
 
-    {{#code}}
+  {{#code}}
     {{> grids/compare-r}}
-    {{/code}}
+  {{/code}}
 
     <h3>Default Media Queries</h3>
 
@@ -158,13 +154,11 @@
 </div>
 
 <div class="content">
-
     {{sectionHeading "Grids on Mobile"}}
 
     <p>
         Pure's default grid system is mobile-first. If you want to have a grid on small screens, just use the {{code "pure-u-*"}} classnames on your elements.
     </p>
-
 </div>
 
 <div class="grids-example">
@@ -190,32 +184,33 @@
         To add borders and padding to Pure Grids, you have two options. The first option is to nest a {{code "<div>"}} inside each Grid unit and style the child container:
     </p>
 
-    {{#code}}
+  {{#code}}
     {{> grids/padding-nested}}
-    {{/code}}
+  {{/code}}
 
     <p>
         The second option is to add borders and padding directly to a grid unit. This would ordinarily risk breaking the layout, but you can easily avoid this problem by augmenting the behavior of the grid itself with a {{code "box-sizing: border-box"}} rule:
     </p>
 
-    {{#code}}
+  {{#code}}
     {{> grids/padding-box-sizing}}
-    {{/code}}
+  {{/code}}
 
     <p>
         Using {{code "box-sizing: border-box"}} keeps your markup cleaner, but has two minor drawbacks. Legacy browsers such as IE 7 and below <a href="http://caniuse.com/#search=box-sizing">lack support</a> for {{code "box-sizing"}}, and setting this property on all grid units makes it harder to override or unset the value later on. As an unopinionated library, Pure lets {{code "box-sizing"}} remain at the default value of {{code "content-box"}} and leaves the choice up to you.
     </p>
 
 
-    {{sectionHeading "Using Grids with Your Font-Family" id="using-grids-with-custom-fonts" }}
+    {{sectionHeading "Using Grids with Your Font-Family"
+                  id="using-grids-with-custom-fonts" }}
 
     <p>
         Pure Grids use a specific font stack to ensure the greatest OS/browser compatibility, and by default grid units will have {{code "font-family: sans-serif;"}} applied — this is the default font stack Pure's Base (Normalize.css) applies to {{code "<html>"}}, {{code "<button>"}}, {{code "<input>"}}, {{code "<select>"}}, and {{code "<textarea>"}} elements. Fortunately, it's quite easy to make sure your project's font stack applies to all content when using Pure. Instead of applying your {{code "font-family"}} to only the {{code "<body>"}} element, apply it like this:
     </p>
 
-    {{#code}}
+  {{#code}}
     {{> grids/custom-font}}
-    {{/code}}
+  {{/code}}
 
 
     {{sectionHeading "Want to just use Grids?"}}
@@ -225,13 +220,12 @@
     </p>
 
   {{#code wrap=true}}
-    <link rel="stylesheet" href="http://yui.yahooapis.com/combo?pure/{{pure.version}}/grids-min.css&pure/{{pure.version}}/grids-responsive-min.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/combo?pure/{{pure.version}}/base-min.css&pure/{{pure.version}}/grids-min.css&pure/{{pure.version}}/grids-responsive-min.css">
   {{/code}}
 
     <aside>
         <p>
-            Optionally, you can head over to the <a href="/start/#define-your-custom-grid">Get Started</a> page to make your very own grid with custom media query breakpoints and column sizes. Download the CSS and HTML file when you're done and get started quickly!
+            Optionally, you can head over to the <a href="/start/#build-your-pure-starter-kit">Get Started</a> page to make your very own grid with custom media query breakpoints and column sizes. Download the CSS and HTML file when you're done and get started quickly!
         </p>
     </aside>
-
 </div>

@@ -7,7 +7,6 @@
             <th>Classname</th>
         </tr>
     </thead>
-
     <tbody>
         <tr>
             <td class="highlight"><i>None</i></td>
@@ -16,13 +15,13 @@
             <td>{{code ".pure-u-*"}}</td>
         </tr>
 
-      {{#each defaultMQs}}
+      {{#gridsMQs pure.responsive.mediaQueries}}
         <tr>
             <td class="highlight"><b>{{code this.id}}</b></td>
             <td class="mq-table-mq highlight"><code>@media {{this.mq}}</code></td>
-            <td>≥ <b>{{this.expressions.0.value}}</b></td>
+            <td>≥ <b>{{toPx this.expressions.0.value}}</b></td>
             <td><code>.pure-u-<b>{{this.id}}</b>-*</code></td>
         </tr>
-      {{/each}}
+      {{/gridsMQs}}
     </tbody>
 </table>

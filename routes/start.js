@@ -33,17 +33,6 @@ var LIMITS = {
     mediaQueries: {min: 0, max: 10}
 };
 
-function GridUnits(id, mq) {
-    utils.extend(this, {
-        id: id,
-        mq: mq
-    }, mediaQuery.parse(mq)[0]);
-}
-
-GridUnits.prototype.toString = function () {
-    return this.mq;
-};
-
 function normalizeOptions(req, res, next) {
     var mediaQueries = [],
         cols, prefix;
@@ -202,10 +191,6 @@ function showStart(req, res, next) {
     res.locals.needsCSS = res.needsCSS;
     res.locals.css      = res.css;
     res.locals.query    = req._parsedUrl.search;
-
-    res.locals.defaultMQs = defaults.mediaQueries.map(function (mq) {
-        return new GridUnits(mq.id, mq.mq);
-    });
 
     res.locals(startOptions);
 

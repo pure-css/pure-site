@@ -100,7 +100,7 @@ function page(path, name, label, callbacks) {
 
 page('/',           'home');
 page('/base/',      'base',      'Base');
-page('/grids/',     'grids',     'Grids',       routes.grids.index);
+page('/grids/',     'grids',     'Grids');
 page('/forms/',     'forms',     'Forms');
 page('/buttons/',   'buttons',   'Buttons');
 page('/tables/',    'tables',    'Tables');
