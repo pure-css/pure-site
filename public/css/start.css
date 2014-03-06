@@ -58,6 +58,11 @@
     position: static;
 }
 
+.grid-code {
+    max-height: 484px; /* same height as HTML section */
+    overflow-y: scroll;
+}
+
 .offset-1-12 {
     margin-left: 8.33%;
 }
