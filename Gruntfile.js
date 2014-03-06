@@ -1,5 +1,7 @@
 'use strict';
 
+var path = require('path');
+
 module.exports = function (grunt) {
     grunt.initConfig({
         clean: {
@@ -18,6 +20,29 @@ module.exports = function (grunt) {
                 expand: true,
                 dest  : 'build/public/vendor/',
                 src   : ['rainbow/js/**']
+            },
+
+            npm: {
+                expand : true,
+                cwd    : 'node_modules/',
+                dest   : 'build/public/vendor/',
+
+                src: [
+                    'css-mediaquery/index.js',
+                    'rework/rework.js',
+                    'rework-pure-grids/index.js',
+                    'handlebars/dist/handlebars.runtime.js'
+                ],
+
+                rename: function (dest, src) {
+                    var name = path.basename(src);
+
+                    if (name === 'index.js') {
+                        name = path.dirname(src) + '.js';
+                    }
+
+                    return path.join(dest, name);
+                }
             }
         },
 

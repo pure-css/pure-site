@@ -1,0 +1,38 @@
+<div class="grid-output">
+    <div class="grid-output-tabs pure-g">
+        <div class="pure-u-1">
+            <ul class="grid-tabs pure-g">
+                <li class="grid-tab pure-u">
+                    <a data-action="tab" class="grid-tab-link-selected grid-tab-link" href="#html">
+                        index.html
+                    </a>
+                </li>
+
+                <li class="grid-tab pure-u">
+                    <a data-action="tab" class="grid-tab-link" href="#grid">
+                        grid.css
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="grid-output-download pure-u">
+            <a class="download-link pure-button-primary pure-button"
+               href="download/{{query}}">Download</a>
+        </div>
+    </div>
+
+    <div class="grid-content pure-u-1">
+        <div id="html" class="grid-panel-selected grid-panel">
+          {{#code type="html"}}
+            {{> start/html}}
+          {{/code}}
+        </div>
+
+        <div id="grid" class="grid-panel">
+          <div id="css" class="grid-code">
+            {{> start/css}}
+          </div>
+        </div>
+    </div>
+</div>

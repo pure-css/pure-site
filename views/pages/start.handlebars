@@ -1,0 +1,129 @@
+{{setTitle     "Get Started"}}
+{{setSubTitle  "Start your next web project with Pure."}}
+{{setActiveNav "start"}}
+{{setLoadYUI   true}}
+{{addLocalCSS  "/css/start.css"}}
+{{addLocalJS   "/js/start.js"}}
+
+
+{{> header}}
+
+<div class="content">
+    {{sectionHeading "Add Pure to Your Page"}}
+
+    <p>
+        You can add Pure to your page via <b>Yahoo's free CDN</b>. Just add the following {{code "<link>"}} element into your page's {{code "<head>"}}, before your project's stylesheets.
+    </p>
+</div>
+
+<div class="is-code-full">
+  {{#code wrap=true}}
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure.version}}/pure-min.css">
+  {{/code}}
+</div>
+
+<div class="content">
+    <aside>
+        <p>
+            Alternatively, you can <a href="https://github.com/yui/pure-release/archive/v{{pure.version}}.zip">download Pure</a>, or <a href="{{pathTo 'customize'}}">check out other CDNs</a> that host Pure.
+        </p>
+    </aside>
+
+    {{sectionHeading "Add the Viewport Meta Element"}}
+
+    <p>
+        The viewport {{code "meta"}} element lets you control the the width and scale of the viewport on mobile browsers. Since you're building a responsive website, you want the width to be equal to the device's native width. Add this into your page's {{code "<head>"}}.
+    </p>
+</div>
+
+<div class="is-code-full">
+  {{#code wrap=true}}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  {{/code}}
+</div>
+
+<div class="content">
+    {{sectionHeading "Understand Pure Grids"}}
+
+    <p>
+        Pure's grid system is very simple. You create a row by using the {{code ".pure-g"}} class, and create columns within that row by using the {{code "pure-u-*"}} classes.
+    </p>
+
+    <p>
+        Here's a grid with three columns:
+    </p>
+
+  {{#code}}
+    {{> grids/intro}}
+  {{/code}}
+</div>
+
+<div class="grids-example">
+    {{> grids/intro}}
+</div>
+
+<div class="content">
+    {{sectionHeading "Responsive Grids"}}
+
+    <p>
+        Pure's grid system is also <b>mobile-first</b> and <b>responsive</b>, and you're able to customize the grid by specifying CSS Media Query breakpoints and grid classnames. If needed, you can <a href="#build-your-pure-starter-kit">customize Pure Grids below</a>, but let's start off with an example.
+    </p>
+
+    <p>
+        You'll need to <em>also</em> include Pure's {{code "grids-responsive.css"}} onto your page:
+    </p>
+</div>
+
+<div class="is-code-full">
+  {{#code wrap=true}}
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure.version}}/grids-responsive-min.css">
+  {{/code}}
+</div>
+
+<div class="content">
+    <p>
+        Here's the default responsive breakpoints included in {{code "grids-responsive.css"}}:
+    </p>
+
+    <div class="table-responsive">
+        {{> grids/mq-table}}
+    </div>
+
+    <p>
+        Here's an example of what you'd be able to do. <i>Try resizing your screen to see how the grid responds.</i>
+    </p>
+</div>
+
+<div class="grids-example">
+    {{> grids/responsive}}
+</div>
+
+<div class="content">
+    <aside>
+        <p>
+            <a href="{{pathTo 'grids'}}#pure-responsive-grids">Learn More</a> about how to include and use Pure's Responsive Grids system, and how it compares to Basic Grids.
+        </p>
+    </aside>
+
+    {{sectionHeading "Build Your Pure Starter Kit"}}
+
+    <p>
+        Now that you know how grids work, you might want to customize things to better suit your web project. You can define your own breakpoints by specifying a CSS Media Queries. You can also customize the number of columns that your layout needs.
+    </p>
+
+    <p>
+        We'll generate an {{code "index.html"}} file, and if needed, a {{code "grid.css"}} file that you can download and use as the starting-point for your project.
+    </p>
+
+    {{> start/grid-input-view}}
+
+    <div class="grid-download">
+        <aside>
+            <p>
+                Your Pure Starter Kit will be generated below in real-time as you make your customizations. When you're ready, just download it!
+            </p>
+        </aside>
+    </div>
+
+    {{> start/grid-output-view}}
+</div>

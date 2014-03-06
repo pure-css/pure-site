@@ -1,9 +1,22 @@
-var path  = require('path'),
+'use strict';
+
+var fs    = require('fs'),
+    path  = require('path'),
     error = require('../lib/utils').error;
 
 exports.render   = render;
 exports.redirect = redirect;
-exports.layouts  = require('./layouts');
+
+// Load up all middleware modules from this dir (except this file), and auto
+// export them as part of this module.
+fs.readdirSync(__dirname).forEach(function (filename) {
+    if (filename === 'index.js' || path.extname(filename) !== '.js') { return; }
+
+    var module = path.basename(filename, '.js'),
+        route  = require(path.join(__dirname, module));
+
+    exports[route.name || module] = route;
+});
 
 // -----------------------------------------------------------------------------
 

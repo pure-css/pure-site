@@ -22,6 +22,7 @@ expstate.extend(app);
 app.set('name', 'Pure');
 app.set('env', config.env);
 app.set('port', config.port);
+app.set('state namespace', 'app');
 app.enable('strict routing');
 app.enable('case sensitive routing');
 
@@ -46,7 +47,7 @@ app.locals({
     html5shiv: config.html5shiv
 });
 
-app.expose(config.yui.config, 'YUI_config', {cache: true});
+app.expose(config.yui.config, 'window.YUI_config', {cache: true});
 
 // -- Middleware ---------------------------------------------------------------
 
@@ -104,7 +105,8 @@ page('/forms/',     'forms',     'Forms');
 page('/buttons/',   'buttons',   'Buttons');
 page('/tables/',    'tables',    'Tables');
 page('/menus/',     'menus',     'Menus');
-page('/layouts/',   'layouts',   'Layouts', routes.layouts.index);
+page('/start/',     'start',     'Get Started', routes.start.index);
+page('/layouts/',   'layouts',   'Layouts',     routes.layouts.index);
 page('/tools/',     'tools',     'Tools');
 page('/customize/', 'customize', 'Customize');
 page('/extend/',    'extend',    'Extend');
@@ -123,6 +125,8 @@ app.param('layout', function (val) {
 
 page('/layouts/:layout/',         'layout',          routes.layouts.layout);
 page('/layouts/:layout/download', 'layout-download', routes.layouts.download);
+
+page('/start/download', 'start-download', routes.start.download);
 
 // Static asset combo.
 app.get('/combo/:version', [
@@ -147,6 +151,6 @@ app.locals.nav = app.findAll('label').get.map(function (route) {
         path   : route.path,
         name   : annotations.name,
         label  : annotations.label,
-        divider: annotations.name === 'layouts'
+        divider: annotations.name === 'start'
     };
 });

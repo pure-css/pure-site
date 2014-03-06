@@ -2,8 +2,9 @@
 
 var async = require('async');
 
-var fileSizes = require('../lib/pure/filesizes'),
-    gridUnits = require('../lib/pure/gridunits');
+var fileSizes  = require('../lib/pure/filesizes'),
+    gridUnits  = require('../lib/pure/gridunits'),
+    responsive = require('../lib/pure/responsive');
 
 module.exports = function (pure) {
     return function (req, res, next) {
@@ -25,16 +26,18 @@ function getPureMetadata(pure, callback) {
     }
 
     async.parallel({
-        filesizes: fileSizes.bind(null, pure.local),
-        gridunits: gridUnits.bind(null, pure.local)
+        filesizes : fileSizes.bind(null, pure.local),
+        gridunits : gridUnits.bind(null, pure.local),
+        responsive: responsive.bind(null, pure.local)
     }, function (err, results) {
         if (err) { return callback(err); }
 
         pureMetadata = {
-            version  : pure.version,
-            modules  : pure.modules,
-            filesizes: results.filesizes,
-            gridunits: results.gridunits
+            version   : pure.version,
+            modules   : pure.modules,
+            filesizes : results.filesizes,
+            gridunits : results.gridunits,
+            responsive: results.responsive
         };
 
         callback(null, pureMetadata);

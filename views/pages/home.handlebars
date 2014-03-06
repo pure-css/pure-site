@@ -11,12 +11,14 @@
     </div>
 
     <div class="hero-cta">
-      {{#code wrap=true}}
-        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure.version}}/pure-min.css">
-      {{/code}}
+        <div class="is-code-full">
+          {{#code wrap=true}}
+            <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure.version}}/pure-min.css">
+          {{/code}}
+        </div>
 
         <p>
-            <a class="button-cta pure-button" href="{{pathTo 'customize'}}">Get Started</a>
+            <a class="button-cta pure-button" href="{{pathTo 'start'}}">Get Started</a>
             <a class="button-secondary pure-button" href="https://github.com/yui/pure/">View on GitHub</a>
         </p>
     </div>

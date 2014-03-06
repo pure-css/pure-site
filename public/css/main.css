@@ -222,7 +222,6 @@ code {
     word-wrap: break-word;
 }
 
-
 /* --------------------------
  * Footer Module Styles
  * --------------------------
@@ -435,6 +434,24 @@ a.pure-button-primary {
     color: white;
 }
 
+
+/* green call to action button class */
+.notice {
+    background-color: #61B842;
+    color: white;
+}
+
+.muted {
+    color: #ccc;
+}
+
+
+
+/* -------------
+ * Table Styles
+ * -------------
+*/
+
 .pure-table th,
 .pure-table td {
     padding: 0.5em 1em;
@@ -445,6 +462,7 @@ a.pure-button-primary {
     margin-right: -1em;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    margin-bottom: 1em;
 }
 .table-responsive table {
     width: 100%;
@@ -453,14 +471,48 @@ a.pure-button-primary {
     border-right-width: 0;
 }
 
-/* green call to action button class */
-.notice {
-    background-color: #61B842;
-    color: white;
+.table-responsive .mq-table {
+    width: 100%;
+    min-width: 44em;
+}
+.mq-table th.highlight {
+    background-color: rgb(255, 234, 133);
+}
+.mq-table td.highlight {
+    background-color: rgb(255, 250, 229);
+}
+.mq-table th.highlight code,
+.mq-table td.highlight code {
+    background: rgb(255, 255, 243);
+}
+.mq-table-mq code {
+    font-size: 0.875em;
 }
 
-.muted {
-    color: #ccc;
+/* ----------------------------
+ * Example for full-width Grids
+ * ----------------------------
+*/
+
+.grids-example {
+    background: rgb(250, 250, 250);
+    margin: 2em auto;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+/* --------------------------
+ * State Rules
+ * --------------------------
+*/
+
+
+.is-code-full {
+    text-align: center;
+}
+.is-code-full .code {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
