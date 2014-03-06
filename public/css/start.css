@@ -2,6 +2,10 @@
     font-size: 100%;
 }
 
+.grids-example {
+    border-top: 0;
+}
+
 .grid-input,
 .grid-output {
     margin-bottom: 1em;
@@ -36,7 +40,7 @@
 }
 
 .grid-content {
-    padding: 1em;
+    padding: 0.5em;
     border: 1px solid #ccc;
     border-radius: 3px;
     border-top-left-radius: 0;
@@ -56,6 +60,13 @@
 .grid-panel-selected {
     /* when a tab is selected, we remove the position: absolute;*/
     position: static;
+}
+
+.grid-output .code {
+    max-height: 30.25em; /* same height as HTML section */
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    margin: 0;
 }
 
 .offset-1-12 {
@@ -116,7 +127,7 @@
     font-family: Consolas, 'Liberation Mono', Courier, monospace;
     text-align: center;
     padding: 1em 0;
-    border: 1px solid #eee;
+    border: 1px solid #ddd;
     border-right: none;
     border-bottom: none;
 }
@@ -133,6 +144,10 @@
 @media screen and (min-width: 48em) {
     .controls {
         text-align: left;
+    }
+
+    .grid-content {
+        padding: 1em;
     }
 
     .grid-tab-link {
