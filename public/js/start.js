@@ -29,7 +29,7 @@ function (Y, imports) {
     });
 
     var downloadView = new Y.View({
-        container: '.grid-download',
+        container: '.grid-output-download',
         template : 'download/{query}'
     });
 
