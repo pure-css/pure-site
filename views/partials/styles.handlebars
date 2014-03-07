@@ -1,44 +1,53 @@
 {{! Common styles used across multiple layouts }}
 
 {{#if servePureLocally}}
-<link rel="stylesheet" href="/css/pure/pure{{min}}.css">
-{{else}}
-{{addCdnCSS pure.version "pure" min=isProduction prepend=true}}
-{{/if}}
-
-{{#if includePureGR}}
-<!--[if lte IE 8]>
-  {{#if servePureLocally}}
-    <link rel="stylesheet" href="/css/pure/grids-responsive-old-ie{{min}}.css">
+  {{#if includePureGR}}
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="/css/pure/pure{{min}}.css">
+        <link rel="stylesheet" href="/css/pure/grids-responsive{{min}}.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="/css/pure/pure{{min}}.css">
+        <link rel="stylesheet" href="/css/pure/grids-responsive{{min}}.css">
+    <!--<![endif]-->
   {{else}}
-    {{addCdnCSS pure.version "grids-responsive-old-ie" min=isProduction}}
+    <link rel="stylesheet" href="/css/pure/pure{{min}}.css">
   {{/if}}
-<![endif]-->
-<!--[if gt IE 8]><!-->
-  {{#if servePureLocally}}
-    <link rel="stylesheet" href="/css/pure/grids-responsive{{min}}.css">
-  {{else}}
+
+{{else}}
+
+    {{addCdnCSS pure.version "pure" min=isProduction prepend=true}}
+
+  {{#if includePureGR}}
     {{addCdnCSS pure.version "grids-responsive" min=isProduction}}
   {{/if}}
+{{/if}}
+
+{{#if cdnCSS}}
+<!--[if lte IE 8]>
+  {{#cdnCSS}}
+    <link rel="stylesheet" href="{{{.}}}">
+  {{/cdnCSS}}
+<![endif]-->
+<!--[if gt IE 8]><!-->
+  {{#cdnCSS}}
+    <link rel="stylesheet" href="{{{.}}}">
+  {{/cdnCSS}}
 <!--<![endif]-->
 {{/if}}
 
-{{#cdnCSS}}
-<link rel="stylesheet" href="{{{.}}}">
-{{/cdnCSS}}
-
-{{#localCSS}}
-  {{#if this.oldIE}}
-    <!--[if lte IE 8]>
-        <link rel="stylesheet" href="{{{this.oldIE}}}">
-    <![endif]-->
-    <!--[if gt IE 8]><!-->
-        <link rel="stylesheet" href="{{{this.path}}}">
-    <!--<![endif]-->
-  {{else}}
+{{#if localCSS}}
+<!--[if lte IE 8]>
+  {{#localCSS}}
     <link rel="stylesheet" href="{{{this.path}}}">
-  {{/if}}
-{{/localCSS}}
+  {{/localCSS}}
+<![endif]-->
+<!--[if gt IE 8]><!-->
+  {{#localCSS}}
+    <link rel="stylesheet" href="{{{this.path}}}">
+  {{/localCSS}}
+<!--<![endif]-->
+{{/if}}
 
 {{#remoteCSS}}
 <link rel="stylesheet" href="{{{.}}}">
