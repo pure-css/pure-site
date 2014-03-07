@@ -88,22 +88,19 @@
     <p>
         Since media queries cannot be over-written, we <u>do not</u> include the grid system as part of {{code "pure.css"}}. You'll have to pull it in as a separate CSS file. You can do this by adding the following {{code "<link>"}} tag to your page.
     </p>
-</div>
 
-<div class="is-code-full">
-    {{#code wrap=true}}
-      <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure.version}}/grids-responsive-min.css">
-    {{/code}}
-</div>
-
-<div class="content">
-    <p>
-        If you are using Pure from Yahoo's CDN, you can take advantage of our combo handler, and load the responsive grid along with Pure in a single request.
-    </p>
-
-  {{#code wrap=true}}
-    <link rel="stylesheet" href="http://yui.yahooapis.com/combo?pure/{{pure.version}}/pure-min.css&pure/{{pure.version}}/grids-responsive-min.css">
+  {{#code}}
+<!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure.version}}/grids-responsive-old-ie-min.css">
+<![endif]-->
+<!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure.version}}/grids-responsive-min.css">
+<!--<![endif]-->
   {{/code}}
+
+    <p>
+        Even though Pure Grids are designed to be mobile-first, you may want to show the "desktop-experience" to users who view your website in IE 8 or below. Just include the {{code "grids-responsive-old-ie.css"}} file inside an IE conditional statement and Pure Grids will adapt to show the desktop experience.
+    </p>
 
     <h3>Pure's Regular Grid vs. Responsive Grid</h3>
 
