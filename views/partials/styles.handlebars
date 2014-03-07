@@ -2,10 +2,25 @@
 
 {{#if servePureLocally}}
 <link rel="stylesheet" href="/css/pure/pure{{min}}.css">
-<link rel="stylesheet" href="/css/pure/grids-responsive{{min}}.css">
 {{else}}
-{{addCdnCSS pure.version "pure"             min=isProduction prepend=true}}
-{{addCdnCSS pure.version "grids-responsive" min=isProduction}}
+{{addCdnCSS pure.version "pure" min=isProduction prepend=true}}
+{{/if}}
+
+{{#if includePureGR}}
+<!--[if lte IE 8]>
+  {{#if servePureLocally}}
+    <link rel="stylesheet" href="/css/pure/grids-responsive-old-ie{{min}}.css">
+  {{else}}
+    {{addCdnCSS pure.version "grids-responsive-old-ie" min=isProduction}}
+  {{/if}}
+<![endif]-->
+<!--[if gt IE 8]><!-->
+  {{#if servePureLocally}}
+    <link rel="stylesheet" href="/css/pure/grids-responsive{{min}}.css">
+  {{else}}
+    {{addCdnCSS pure.version "grids-responsive" min=isProduction}}
+  {{/if}}
+<!--<![endif]-->
 {{/if}}
 
 {{#cdnCSS}}
