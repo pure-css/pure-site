@@ -97,8 +97,8 @@
 #media-query-table td {
     padding: 0.3em;
 }
-.mq-val,
-.mq-key {
+.mq-key,
+.mq-value {
     width: 100%;
 }
 
@@ -109,7 +109,7 @@
 
 #options .cols-control label,
 #options .prefix-control label {
-    width: auto;
+    width: 8.75em;
 }
 .cols-control input {
     text-align: center;

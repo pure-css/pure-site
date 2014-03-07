@@ -30,9 +30,9 @@
 
             <table id="media-query-table" {{#unless mediaQueries}}hidden{{/unless}}>
                 <thead>
-                    <tr>
-                        <th class="pure-u-1-6">Grid Key</th>
-                        <th class="pure-u-3-4">Media Query</th>
+                    <tr class="pure-g">
+                        <th class="pure-u-4-24 pure-u-med-3-24">Grid Key</th>
+                        <th class="pure-u-20-24 pure-u-med-21-24">Media Query</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -63,23 +63,21 @@
                 You can customize the number of columns; the default grid is 24 columns. You can also change the Grids classname prefix; the default is {{code ".pure-u-"}}.
             </p>
 
-            <div class="pure-g">
-                <div class="cols-control pure-control-group pure-u-1 pure-u-med-1-2">
+            <div>
+                <div class="cols-control pure-control-group">
                     <label for="cols-input">
                         Number of Columns
                     </label>
                     <input id="cols-input" data-content="cols-input"
-                           class="pure-u-1 pure-u-sm-1-4"
                            type="number" min="2" max="100" placeholder="24"
                            {{#if cols}}value="{{cols}}"{{/if}}>
                 </div>
 
-                <div class="prefix-control pure-control-group pure-u-1 pure-u-med-1-2">
+                <div class="prefix-control pure-control-group">
                     <label for="prefix-input">
                         Grid Prefix
                     </label>
                     <input id="prefix-input" data-content='prefix-input'
-                           class="pure-u-1 pure-u-sm-1-2"
                            type="text" maxlength="20" placeholder=".pure-u-"
                            value="{{prefix}}">
                 </div>
