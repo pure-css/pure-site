@@ -1026,7 +1026,7 @@
     },
     "rework": {
       "version": "0.20.2",
-      "from": "rework@git://github.com/reworkcss/rework",
+      "from": "git://github.com/reworkcss/rework#master",
       "dependencies": {
         "css": {
           "version": "1.6.0",
