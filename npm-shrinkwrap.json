@@ -1,6 +1,6 @@
 {
   "name": "pure-site",
-  "version": "1.11.5",
+  "version": "1.12.0",
   "dependencies": {
     "archiver": {
       "version": "0.6.1",
