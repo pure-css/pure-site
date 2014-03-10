@@ -73,15 +73,16 @@
     <p>
         You'll need to <em>also</em> include Pure's {{code "grids-responsive.css"}} onto your page:
     </p>
-</div>
 
-<div class="is-code-full">
-  {{#code wrap=true}}
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure.version}}/grids-responsive-min.css">
+  {{#code}}
+<!--[if lte IE 8]>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure.version}}/grids-responsive-old-ie-min.css">
+<![endif]-->
+<!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure.version}}/grids-responsive-min.css">
+<!--<![endif]-->
   {{/code}}
-</div>
 
-<div class="content">
     <p>
         Here's the default responsive breakpoints included in {{code "grids-responsive.css"}}:
     </p>
