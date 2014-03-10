@@ -11,7 +11,12 @@
   {{#if css}}
     <link rel="stylesheet" href="grid.css">
   {{~else}}
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure.version}}/grids-responsive-min.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure.version}}/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure.version}}/grids-responsive-min.css">
+    <!--<![endif]-->
   {{~/if~}}
 {{/if}}
 </head>

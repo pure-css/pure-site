@@ -90,12 +90,7 @@
     </p>
 
   {{#code}}
-<!--[if lte IE 8]>
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure.version}}/grids-responsive-old-ie-min.css">
-<![endif]-->
-<!--[if gt IE 8]><!-->
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure.version}}/grids-responsive-min.css">
-<!--<![endif]-->
+    {{> grids/combo}}
   {{/code}}
 
     <p>
@@ -217,8 +212,13 @@
         Grids is part of the Pure CSS file. However, if you just want Grids and not the other modules, you can pull it down separately. Just include this {{code "<link>"}} element in your {{code "<head>"}}.
     </p>
 
-  {{#code wrap=true}}
-    <link rel="stylesheet" href="http://yui.yahooapis.com/combo?pure/{{pure.version}}/base-min.css&pure/{{pure.version}}/grids-min.css&pure/{{pure.version}}/grids-responsive-min.css">
+  {{#code}}
+<!--[if lte IE 8]>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/combo?pure/{{pure.version}}/base-min.css&pure/{{pure.version}}/grids-min.css&pure/{{pure.version}}/grids-responsive-old-ie-min.css">
+<![endif]-->
+<!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="http://yui.yahooapis.com/combo?pure/{{pure.version}}/base-min.css&pure/{{pure.version}}/grids-min.css&pure/{{pure.version}}/grids-responsive-min.css">
+<!--<![endif]-->
   {{/code}}
 
     <aside>
