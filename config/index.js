@@ -11,7 +11,7 @@ module.exports = {
     port: env.PORT || 5000,
 
     dirs: {
-        pub     : path.resolve('build/public/'),
+        pub     : path.resolve('build/'),
         views   : path.resolve('views/pages/'),
         layouts : path.resolve('views/layouts/'),
         partials: path.resolve('views/partials/'),
