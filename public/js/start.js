@@ -4,9 +4,9 @@ YUI().require(
 function (Y, imports) {
     'use strict';
 
-    var GridModel      = imports['grid-model'],
-        GridInputView  = imports['grid-input-view'],
-        GridOutputView = imports['grid-output-view'],
+    var GridModel      = imports['grid-model']['default'],
+        GridInputView  = imports['grid-input-view']['default'],
+        GridOutputView = imports['grid-output-view']['default'],
         GridRouter     = Y.Base.create('grid-router', Y.Router, [Y.PjaxBase]);
 
     var gridModel    = new GridModel(app.start.options),
