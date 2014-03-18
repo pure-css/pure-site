@@ -1,6 +1,8 @@
+import {Base} from 'base-build';
+import {Escape} from 'escape';
 import GridTabView from 'grid-tab-view';
 
-export default Y.Base.create('grid-output-view', GridTabView, [], {
+export default Base.create('grid-output-view', GridTabView, [], {
     render: function () {
         var defaults   = this.get('defaults'),
             model      = this.get('model'),
@@ -28,7 +30,7 @@ export default Y.Base.create('grid-output-view', GridTabView, [], {
         }
 
         container.one('#html code').removeClass('rainbow').setHTML(
-            Y.Escape.html(this.get('htmlTemplate')({
+            Escape.html(this.get('htmlTemplate')({
                 pure    : this.get('pure'),
                 needsCSS: css || !!mqs.length,
                 css     : css

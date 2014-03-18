@@ -1,15 +1,17 @@
+import {merge} from 'yui';
+import {Base} from 'base-build';
 import {View} from 'view';
 
 var SELECTED_PANEL = 'grid-panel-selected',
     SELECTED_TAB   = 'grid-tab-link-selected';
 
-export default Y.Base.create('grid-tab-view', View, [], {
+export default Base.create('grid-tab-view', View, [], {
     tabEvents: {
         '[data-action="tab"]': {click: 'handleTabClick'}
     },
 
     initializer: function () {
-        this.events = Y.merge(this.tabEvents, this.events);
+        this.events = merge(this.tabEvents, this.events);
     },
 
     handleTabClick: function (e) {

@@ -1,8 +1,10 @@
 module mediaQuery from 'css-mediaquery';
+import {Attribute} from 'attribute';
+import {Base} from 'base-build';
 import {Model} from 'model';
 import {ModelList} from 'model-list';
 
-export var MqModel = Y.Base.create('mq-model', Y.Model, [], {
+export var MqModel = Base.create('mq-model', Model, [], {
     isValidMediaQuery: function () {
         try {
             return !!mediaQuery.parse(this.get('mq'));
@@ -48,7 +50,7 @@ export var MqModel = Y.Base.create('mq-model', Y.Model, [], {
             // the short-hand form doesn't look like a length value, signal
             // that the valid is invalid.
             if (expand || !/^(\d|\.)/.test(mq)) {
-                return Y.Attribute.INVALID_VALUE;
+                return Attribute.INVALID_VALUE;
             }
         }
 
@@ -64,7 +66,7 @@ export var MqModel = Y.Base.create('mq-model', Y.Model, [], {
     }
 });
 
-export var MqModelList = Y.Base.create('mq-model-list', Y.ModelList, [], {
+export var MqModelList = Base.create('mq-model-list', ModelList, [], {
     model: MqModel,
 
     toObject: function () {

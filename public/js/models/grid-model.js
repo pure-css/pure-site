@@ -1,10 +1,13 @@
 module pureGrids from 'rework-pure-grids';
-import {MqModelList} from 'mq-model';
+import {Object as YObject, config} from 'yui';
 import {QueryString} from 'querystring';
+import {Base} from 'base-build';
+import {Model} from 'model';
+import {MqModelList} from 'mq-model';
 
-var rework = Y.config.global.rework;
+var rework = config.global.rework;
 
-export default Y.Base.create('grid-model', Y.Model, [], {
+export default Base.create('grid-model', Model, [], {
 
     initializer: function (cfg) {
         this._mqs = new MqModelList();
@@ -26,7 +29,7 @@ export default Y.Base.create('grid-model', Y.Model, [], {
         });
 
         // Prune query string of any falsy values before serialization.
-        Y.Object.each(obj, function (val, key) {
+        YObject.each(obj, function (val, key) {
             if (!val) {
                 delete obj[key];
             }

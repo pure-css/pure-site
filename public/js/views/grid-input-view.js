@@ -1,3 +1,4 @@
+import {Base} from 'base-build';
 import {MqModel} from 'mq-model';
 import GridTabView from 'grid-tab-view';
 
@@ -24,7 +25,7 @@ events[MQ_ADD]         = {click:  'addMediaQuery'};
 events[MQ_REMOVE]      = {click:  'removeMediaQuery'};
 events[MQ_ADD_DEFAULT] = {click:  'setDefaultMediaQueries'};
 
-export default Y.Base.create('grid-input-view', GridTabView, [], {
+export default Base.create('grid-input-view', GridTabView, [], {
     events: events,
 
     render: function () {
