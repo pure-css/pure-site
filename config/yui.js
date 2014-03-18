@@ -74,6 +74,22 @@ exports.config = {
                     requires: [
                         'grid-tab-view'
                     ]
+                },
+
+                'start': {
+                    path: 'js/start.js',
+                    requires: [
+                        'grid-model',
+                        'grid-input-view',
+                        'grid-output-view',
+                        'base-build',
+                        'router',
+                        'pjax-base',
+                        'view',
+                        'yui',
+                        // TODO this is right!
+                        'handlebars-runtime'
+                    ]
                 }
             }
         }
