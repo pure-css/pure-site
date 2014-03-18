@@ -49,6 +49,11 @@ app.locals({
 
 app.expose(config.yui.config, 'window.YUI_config', {cache: true});
 
+if (config.isDevelopment) {
+    // Creates Broccoli watcher which manages the build/ dir.
+    app.watcher = require('./lib/watcher');
+}
+
 // -- Middleware ---------------------------------------------------------------
 
 if (config.isDevelopment) {
@@ -67,7 +72,12 @@ if (config.isDevelopment || config.pure.serveLocally) {
     console.log('Serving Pure', config.pure.version, 'from:', config.pure.local);
 }
 
-app.use(express.static(config.dirs.pub));
+if (app.watcher) {
+    app.use(require('broccoli/lib/middleware')(app.watcher));
+} else {
+    app.use(express.static(config.dirs.pub));
+}
+
 app.use(middleware.notfound);
 
 if (config.isDevelopment) {
