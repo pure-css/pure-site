@@ -1,14 +1,15 @@
 'use strict';
 
 module.exports = function (broccoli) {
-    var pickFiles      = require('broccoli-static-compiler'),
+    var mergeTrees     = require('broccoli-merge-trees'),
+        pickFiles      = require('broccoli-static-compiler'),
         compileModules = require('./lib/compile-modules'),
         cssWithMQs     = require('./lib/css-with-mqs'),
         stripMQs       = require('./lib/css-strip-mqs');
 
     var bower_components = new broccoli.Tree('bower_components/'),
         node_modules     = new broccoli.Tree('node_modules/'),
-        pub              = broccoli.makeTree('public/');
+        pub              = 'public/';
 
     bower_components.map('rainbow/js/', '/rainbow/');
 
@@ -18,7 +19,7 @@ module.exports = function (broccoli) {
     node_modules.map('handlebars/dist/handlebars.runtime.js', '/handlebars.runtime.js');
 
     // Move vendor scripts to "vendor/".
-    var vendor = pickFiles(new broccoli.MergedTree([
+    var vendor = pickFiles(mergeTrees([
         bower_components,
         node_modules
     ]), {
@@ -32,5 +33,5 @@ module.exports = function (broccoli) {
     // Compile ES6 Modules in `pub`.
     pub = compileModules(pub, {type: 'yui'});
 
-    return [vendor, pub, oldIECSS];
+    return mergeTrees([vendor, pub, oldIECSS]);
 };
