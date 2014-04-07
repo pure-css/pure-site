@@ -28,7 +28,7 @@
     "express-params": "~0.0.3",
     "express-map": "~0.1.0",
     "express-slash": "~1.0.0",
-    "express-state": "~1.1.0",
+    "express-state": "^1.1.4",
     "express3-handlebars": "~0.5.0",
     "handlebars": "~1.3.0",
     "glob": "~3.2.6",
@@ -39,7 +39,9 @@
     "ypromise": "~0.2.2",
     "rework": "reworkcss/rework",
     "rework-pure-grids": "ericf/rework-pure-grids#umd",
-    "css-mediaquery": "ericf/css-mediaquery#umd"
+    "css-mediaquery": "ericf/css-mediaquery#umd",
+    "express-yui": "^1.3.2",
+    "yui": "^3.15.0"
   },
   "scripts": {
     "install": "bower install"
@@ -62,7 +64,7 @@
     "grunt-cli": "^0.1.13",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-pure-grids": "0.0.2",
-    "grunt-broccoli-build": "0.0.4",
+    "grunt-broccoli-build": "^0.1.0",
     "broccoli": "^0.4.1",
     "broccoli-filter": "^0.1.4",
     "broccoli-transform": "^0.1.1",

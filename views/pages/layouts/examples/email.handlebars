@@ -203,4 +203,7 @@
     });
 </script>
 
+{{#unless forDownload}}
+<script>{{{state}}}</script>
 {{> prevent-scroll}}
+{{/unless}}

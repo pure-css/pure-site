@@ -7,7 +7,6 @@ import GridModel from 'grid-model';
 import GridInputView from 'grid-input-view';
 import GridOutputView from 'grid-output-view';
 
-
 var Handlebars = config.global.Handlebars,
     GridRouter = Base.create('grid-router', Router, PjaxBase);
 

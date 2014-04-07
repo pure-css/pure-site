@@ -1,97 +1,78 @@
 'use strict';
 
-var isProduction = process.env.NODE_ENV === 'production';
+exports.modules = {
+    'css-mediaquery': {
+        path: 'vendor/css-mediaquery.js'
+    },
 
-exports.version = '3.15.0';
+    'handlebars-runtime': {
+        path: 'vendor/handlebars.runtime.js'
+    },
 
-exports.config = {
-    combine: isProduction,
-    filter : isProduction ? 'min' : 'raw',
-    root   : exports.version + '/',
+    'rework': {
+        path: 'vendor/rework.js'
+    },
 
-    groups: {
-        'app': {
-            combine  : isProduction,
-            comboBase: '/combo/' + require('../package').version + '?',
-            base     : '/',
-            root     : '/',
+    'rework-pure-grids': {
+        path: 'vendor/rework-pure-grids.js'
+    },
 
-            modules: {
-                'css-mediaquery': {
-                    path: 'vendor/css-mediaquery.js'
-                },
+    'grid-model': {
+        path: 'js/models/grid-model.js',
+        requires: [
+            'model',
+            'mq-model',
+            'rework',
+            'rework-pure-grids',
+            'querystring'
+        ]
+    },
 
-                'handlebars-runtime': {
-                    path: 'vendor/handlebars.runtime.js'
-                },
+    'mq-model': {
+        path: 'js/models/mq-model.js',
+        requires: [
+            'model',
+            'model-list',
+            'css-mediaquery'
+        ]
+    },
 
-                'rework': {
-                    path: 'vendor/rework.js'
-                },
+    'grid-tab-view': {
+        path: 'js/views/grid-tab-view.js',
+        requires: [
+            'view',
+            'node'
+        ]
+    },
 
-                'rework-pure-grids': {
-                    path: 'vendor/rework-pure-grids.js'
-                },
+    'grid-input-view': {
+        path: 'js/views/grid-input-view.js',
+        requires: [
+            'grid-tab-view',
+            'event-focus'
+        ]
+    },
 
-                'grid-model': {
-                    path: 'js/models/grid-model.js',
-                    requires: [
-                        'model',
-                        'mq-model',
-                        'rework',
-                        'rework-pure-grids',
-                        'querystring'
-                    ]
-                },
+    'grid-output-view': {
+        path: 'js/views/grid-output-view.js',
+        requires: [
+            'grid-tab-view'
+        ]
+    },
 
-                'mq-model': {
-                    path: 'js/models/mq-model.js',
-                    requires: [
-                        'model',
-                        'model-list',
-                        'css-mediaquery'
-                    ]
-                },
-
-                'grid-tab-view': {
-                    path: 'js/views/grid-tab-view.js',
-                    requires: [
-                        'view',
-                        'node'
-                    ]
-                },
-
-                'grid-input-view': {
-                    path: 'js/views/grid-input-view.js',
-                    requires: [
-                        'grid-tab-view',
-                        'event-focus'
-                    ]
-                },
-
-                'grid-output-view': {
-                    path: 'js/views/grid-output-view.js',
-                    requires: [
-                        'grid-tab-view'
-                    ]
-                },
-
-                'start': {
-                    path: 'js/start.js',
-                    requires: [
-                        'grid-model',
-                        'grid-input-view',
-                        'grid-output-view',
-                        'base-build',
-                        'router',
-                        'pjax-base',
-                        'view',
-                        'yui',
-                        // TODO this is right!
-                        'handlebars-runtime'
-                    ]
-                }
-            }
-        }
+    'start': {
+        path: 'js/start.js',
+        requires: [
+            'grid-model',
+            'grid-input-view',
+            'grid-output-view',
+            'base-build',
+            'router',
+            'pjax-base',
+            'view',
+            'yui',
+            // TODO this is right!
+            'handlebars-runtime'
+        ]
     }
 };
