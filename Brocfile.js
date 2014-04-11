@@ -1,37 +1,39 @@
 'use strict';
 
-module.exports = function (broccoli) {
-    var mergeTrees     = require('broccoli-merge-trees'),
-        pickFiles      = require('broccoli-static-compiler'),
-        compileModules = require('./lib/compile-modules'),
-        cssWithMQs     = require('./lib/css-with-mqs'),
-        stripMQs       = require('./lib/css-strip-mqs');
+var mergeTrees     = require('broccoli-merge-trees'),
+    pickFiles      = require('broccoli-static-compiler'),
+    compileModules = require('./lib/compile-modules'),
+    cssWithMQs     = require('./lib/css-with-mqs'),
+    stripMQs       = require('./lib/css-strip-mqs'),
+    mapFiles       = require('./lib/map-files');
 
-    var bower_components = new broccoli.Tree('bower_components/'),
-        node_modules     = new broccoli.Tree('node_modules/'),
-        pub              = 'public/';
+var bower_components = mapFiles('bower_components/', {
+    '/rainbow/js/': '/rainbow/'
+});
 
-    bower_components.map('rainbow/js/', '/rainbow/');
+var node_modules = mapFiles('node_modules/', {
+    '/css-mediaquery/index.js'              : '/css-mediaquery.js',
+    '/rework/rework.js'                     : '/rework.js',
+    '/rework-pure-grids/index.js'           : '/rework-pure-grids.js',
+    '/handlebars/dist/handlebars.runtime.js': '/handlebars.runtime.js'
+});
 
-    node_modules.map('css-mediaquery/index.js',               '/css-mediaquery.js');
-    node_modules.map('rework/rework.js',                      '/rework.js');
-    node_modules.map('rework-pure-grids/index.js',            '/rework-pure-grids.js');
-    node_modules.map('handlebars/dist/handlebars.runtime.js', '/handlebars.runtime.js');
+// Move vendor scripts to "vendor/".
+var vendor = pickFiles(mergeTrees([
+    bower_components,
+    node_modules
+]), {
+    srcDir : '/',
+    destDir: 'vendor/'
+});
 
-    // Move vendor scripts to "vendor/".
-    var vendor = pickFiles(mergeTrees([
-        bower_components,
-        node_modules
-    ]), {
-        srcDir : '/',
-        destDir: 'vendor/'
-    });
+var pub = 'public/';
 
-    // Strip Media Queries from CSS files and save copy as "-old-ie.css".
-    var oldIECSS = stripMQs(cssWithMQs(pub), {suffix: '-old-ie'});
+// Compile ES6 Modules in `pub`.
+pub = compileModules(pub, {type: 'yui'});
 
-    // Compile ES6 Modules in `pub`.
-    pub = compileModules(pub, {type: 'yui'});
+// Strip Media Queries from CSS files and save copy as "-old-ie.css".
+var oldIECSS = stripMQs(cssWithMQs(pub), {suffix: '-old-ie'});
 
-    return mergeTrees([vendor, pub, oldIECSS]);
-};
+// Export merged trees.
+module.exports = mergeTrees([vendor, pub, oldIECSS]);
