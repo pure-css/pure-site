@@ -1097,57 +1097,60 @@
     },
     "rework": {
       "version": "0.20.2",
-      "from": "rework@git://github.com/reworkcss/rework#0a89ce4a3e5efb297f1374832f5054d555db6bd7",
-      "resolved": "git://github.com/reworkcss/rework#0a89ce4a3e5efb297f1374832f5054d555db6bd7",
+      "from": "rework@0.20.2",
+      "resolved": "https://registry.npmjs.org/rework/-/rework-0.20.2.tgz",
       "dependencies": {
         "css": {
           "version": "1.6.0",
-          "from": "https://registry.npmjs.org/css/-/css-1.6.0.tgz",
-          "resolved": "https://registry.npmjs.org/css/-/css-1.6.0.tgz",
+          "from": "css@1.6.0",
           "dependencies": {
             "css-stringify": {
               "version": "1.4.1",
-              "from": "https://registry.npmjs.org/css-stringify/-/css-stringify-1.4.1.tgz",
-              "resolved": "https://registry.npmjs.org/css-stringify/-/css-stringify-1.4.1.tgz"
+              "from": "css-stringify@1.4.1"
+            }
+          }
+        },
+        "commander": {
+          "version": "1.0.4",
+          "from": "commander@1.0.4",
+          "resolved": "https://registry.npmjs.org/commander/-/commander-1.0.4.tgz",
+          "dependencies": {
+            "keypress": {
+              "version": "0.1.0",
+              "from": "keypress@0.1.x"
             }
           }
         },
         "color-parser": {
           "version": "0.1.0",
-          "from": "https://registry.npmjs.org/color-parser/-/color-parser-0.1.0.tgz",
-          "resolved": "https://registry.npmjs.org/color-parser/-/color-parser-0.1.0.tgz"
+          "from": "color-parser@0.1.0"
         },
         "hsb2rgb": {
           "version": "1.0.2",
-          "from": "https://registry.npmjs.org/hsb2rgb/-/hsb2rgb-1.0.2.tgz",
-          "resolved": "https://registry.npmjs.org/hsb2rgb/-/hsb2rgb-1.0.2.tgz"
+          "from": "hsb2rgb@1.0.2"
         },
         "debug": {
           "version": "0.8.0",
-          "from": "debug@>= 0.7.3 < 1",
-          "resolved": "https://registry.npmjs.org/debug/-/debug-0.8.0.tgz"
+          "from": "debug@*"
         },
         "rework-inherit": {
           "version": "0.2.1",
-          "from": "https://registry.npmjs.org/rework-inherit/-/rework-inherit-0.2.1.tgz",
-          "resolved": "https://registry.npmjs.org/rework-inherit/-/rework-inherit-0.2.1.tgz"
+          "from": "rework-inherit@0.2.1"
         },
         "rework-visit": {
           "version": "1.0.0",
-          "from": "https://registry.npmjs.org/rework-visit/-/rework-visit-1.0.0.tgz",
-          "resolved": "https://registry.npmjs.org/rework-visit/-/rework-visit-1.0.0.tgz"
+          "from": "rework-visit@1.0.0"
         },
         "convert-source-map": {
           "version": "0.3.3",
-          "from": "https://registry.npmjs.org/convert-source-map/-/convert-source-map-0.3.3.tgz",
-          "resolved": "https://registry.npmjs.org/convert-source-map/-/convert-source-map-0.3.3.tgz"
+          "from": "convert-source-map@~0.3.1"
         }
       }
     },
     "rework-pure-grids": {
       "version": "0.3.3",
-      "from": "rework-pure-grids@git://github.com/ericf/rework-pure-grids#78133f1545fdf8d8173a9eb6e1f80b797e42fb06",
-      "resolved": "git://github.com/ericf/rework-pure-grids#78133f1545fdf8d8173a9eb6e1f80b797e42fb06"
+      "from": "rework-pure-grids@0.3.3",
+      "resolved": "https://registry.npmjs.org/rework-pure-grids/-/rework-pure-grids-0.3.3.tgz"
     },
     "sntp": {
       "version": "0.2.4",

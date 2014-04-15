@@ -1,19 +1,25 @@
-module pureGrids from 'rework-pure-grids';
 import {Object as YObject, config} from 'yui';
 import {QueryString} from 'querystring';
 import {Base} from 'base-build';
 import {Model} from 'model';
+import {ModelSync} from 'model-sync-rest';
 import {MqModelList} from 'mq-model';
 
-var rework = config.global.rework;
-
-export default Base.create('grid-model', Model, [], {
+export default Base.create('grid-model', Model, [ModelSync.REST], {
 
     initializer: function (cfg) {
         this._mqs = new MqModelList();
         this._mqs.addTarget(this);
 
         this.after(['*:change', '*:add', '*:remove'], this._fireUpdate);
+    },
+
+    getURL: function () {
+        return 'css?' + this.toString();
+    },
+
+    parse: function (response) {
+        return {css: response};
     },
 
     toString: function () {
@@ -23,6 +29,7 @@ export default Base.create('grid-model', Model, [], {
         // Prune model details and mix in `mqs` map.
         delete obj.mediaQueries;
         delete obj.id;
+        delete obj.css;
 
         mqs.each(function (mq) {
             obj[mq.get('id')] = mq.getReduced();
@@ -36,14 +43,6 @@ export default Base.create('grid-model', Model, [], {
         });
 
         return QueryString.stringify(obj);
-    },
-
-    generate: function () {
-        // TODO move default prefix out somewhere else.
-        return rework('').use(pureGrids.units(this.get('cols'), {
-            mediaQueries  : this.get('mediaQueries').toObject(),
-            selectorPrefix: this.get('prefix') || '.pure-u-'
-        })).toString({indent: '    '});
     },
 
     _fireUpdate: function (e) {
@@ -81,6 +80,10 @@ export default Base.create('grid-model', Model, [], {
         cols: {
             setter   : '_setCols',
             validator: '_validateCols'
+        },
+
+        css: {
+            value: ''
         },
 
         prefix: {

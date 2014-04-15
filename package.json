@@ -37,8 +37,8 @@
     "bower": "^1.2.8",
     "css-parse": "~1.7.0",
     "ypromise": "~0.2.2",
-    "rework": "reworkcss/rework",
-    "rework-pure-grids": "ericf/rework-pure-grids#umd",
+    "rework": "^0.20.2",
+    "rework-pure-grids": "^0.3.3",
     "css-mediaquery": "ericf/css-mediaquery#umd",
     "express-yui": "^1.3.2",
     "yui": "^3.16.0"

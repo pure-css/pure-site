@@ -10,8 +10,7 @@ import GridOutputView from 'grid-output-view';
 var Handlebars = config.global.Handlebars,
     GridRouter = Base.create('grid-router', Router, PjaxBase);
 
-var gridModel    = new GridModel(app.start.options),
-    defaultModel = new GridModel(app.start.defaults);
+var gridModel = new GridModel(app.start.options);
 
 var inputView = new GridInputView({
     defaultMQs: app.start.defaults.mediaQueries,
@@ -22,7 +21,6 @@ var inputView = new GridInputView({
 
 var outputView = new GridOutputView({
     pure        : app.pure,
-    defaults    : defaultModel,
     model       : gridModel,
     container   : '.grid-output',
     cssTemplate : Handlebars.template(app.templates.start.css),
@@ -76,8 +74,12 @@ router.route('/', function (req) {
     gridModel.setAttrs(attrs, {src: 'url'});
 
     inputView.render();
-    outputView.render();
     downloadView.render();
+
+    // Fetch CSS, then render the output view.
+    gridModel.load({silent: true}, function () {
+        outputView.render();
+    });
 });
 
 inputView.attachEvents();
