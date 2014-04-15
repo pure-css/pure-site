@@ -18,6 +18,12 @@ exports.index = [
     showStart
 ];
 
+exports.css = [
+    normalizeOptions,
+    generateCSS,
+    sendCSS
+];
+
 exports.download = [
     normalizeOptions,
     generateCSS,
@@ -200,6 +206,11 @@ function showStart(req, res, next) {
     res.expose(startOptions, 'start.options');
 
     res.render('start');
+}
+
+function sendCSS(req, res, next) {
+    res.set('Content-Type', 'text/css; charset=UTF-8');
+    res.send(res.css);
 }
 
 function downloadStart(req, res, next) {

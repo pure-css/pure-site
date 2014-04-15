@@ -9,21 +9,11 @@ exports.modules = {
         path: 'vendor/handlebars.runtime.js'
     },
 
-    'rework': {
-        path: 'vendor/rework.js'
-    },
-
-    'rework-pure-grids': {
-        path: 'vendor/rework-pure-grids.js'
-    },
-
     'grid-model': {
         path: 'js/models/grid-model.js',
         requires: [
             'model',
             'mq-model',
-            'rework',
-            'rework-pure-grids',
             'querystring'
         ]
     },

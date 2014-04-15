@@ -13,8 +13,6 @@ var bower_components = mapFiles('bower_components/', {
 
 var node_modules = mapFiles('node_modules/', {
     '/css-mediaquery/index.js'              : '/css-mediaquery.js',
-    '/rework/rework.js'                     : '/rework.js',
-    '/rework-pure-grids/index.js'           : '/rework-pure-grids.js',
     '/handlebars/dist/handlebars.runtime.js': '/handlebars.runtime.js'
 });
 
