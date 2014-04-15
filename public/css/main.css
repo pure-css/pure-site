@@ -173,7 +173,7 @@ aside {
         background-size: 20px 20px;
     }
 
-    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
         .content-link {
             background-image: url('/img/link-icon@2x.png');
         }
