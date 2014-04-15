@@ -1,12 +1,13 @@
 var combo     = require('combohandler'),
     express   = require('express'),
-    expparams = require('express-params'),
-    expmap    = require('express-map'),
-    expstate  = require('express-state'),
     exphbs    = require('express3-handlebars'),
-    path      = require('path'),
+    expmap    = require('express-map'),
+    expparams = require('express-params'),
+    expstate  = require('express-state'),
+    expyui    = require('express-yui'),
+    path      = require('path');
 
-    config     = require('./config'),
+var config     = require('./config'),
     hbs        = require('./lib/hbs'),
     middleware = require('./middleware'),
     routes     = require('./routes');
@@ -18,6 +19,7 @@ var app = module.exports = express();
 expmap.extend(app);
 expparams.extend(app);
 expstate.extend(app);
+expyui.extend(app);
 
 app.set('name', 'Pure');
 app.set('env', config.env);
@@ -30,24 +32,22 @@ app.engine(hbs.extname, hbs.engine);
 app.set('view engine', hbs.extname);
 app.set('views', config.dirs.views);
 
-app.locals({
-    site          : 'Pure',
-    copyright_year: '2014',
-
-    version    : config.version,
-    yui_version: config.yui.version,
-
-    isDevelopment: config.isDevelopment,
-    isProduction : config.isProduction,
-
-    min: config.isProduction ? '-min' : '',
-
-    ga       : config.isProduction && config.ga,
-    typekit  : config.typekit,
-    html5shiv: config.html5shiv
+app.yui.applyGroupConfig('app', {
+    combine  : config.isProduction,
+    comboBase: '/combo/' + config.version + '?',
+    base     : '/',
+    root     : '/',
+    modules  : config.yui.modules
 });
 
-app.expose(config.yui.config, 'window.YUI_config', {cache: true});
+if (config.isDevelopment) {
+    // Creates Broccoli watcher which manages the build/ dir.
+    app.watcher = require('./lib/watcher');
+}
+
+if (config.isProduction) {
+    app.yui.setCoreFromCDN();
+}
 
 // -- Middleware ---------------------------------------------------------------
 
@@ -58,16 +58,22 @@ if (config.isDevelopment) {
 app.use(express.compress());
 app.use(express.favicon(path.join(config.dirs.pub, 'favicon.ico')));
 app.use(middleware.pure(config.pure));
+app.use(expyui.expose());
 app.use(app.router);
 app.use(middleware.slash());
 
-if (config.isDevelopment || config.pure.serveLocally) {
-    app.locals.servePureLocally = true;
+if (config.pure.serveLocally) {
     app.use('/css/pure/', express.static(config.pure.local));
-    console.log('Serving Pure', config.pure.version, 'from:', config.pure.local);
+    console.log('Serving Pure v%s from: "%s"',
+        config.pure.version, config.pure.local);
 }
 
-app.use(express.static(config.dirs.pub));
+if (app.watcher) {
+    app.use(require('broccoli/lib/middleware')(app.watcher));
+} else {
+    app.use(express.static(config.dirs.pub));
+}
+
 app.use(middleware.notfound);
 
 if (config.isDevelopment) {
@@ -126,6 +132,7 @@ app.param('layout', function (val) {
 page('/layouts/:layout/',         'layout',          routes.layouts.layout);
 page('/layouts/:layout/download', 'layout-download', routes.layouts.download);
 
+page('/start/css',      'start-css',      routes.start.css);
 page('/start/download', 'start-download', routes.start.download);
 
 // Static asset combo.
@@ -142,6 +149,27 @@ app.pathTo = expmap.pathTo(app.getRouteMap());
 hbs.helpers.pathTo = function (name, options) {
     return app.pathTo(name, options.hash);
 };
+
+// -- Locals -------------------------------------------------------------------
+
+app.locals({
+    site          : 'Pure',
+    copyright_year: '2014',
+
+    version    : config.version,
+    yui_version: app.yui.config().version,
+
+    isDevelopment: config.isDevelopment,
+    isProduction : config.isProduction,
+
+    servePureLocally: config.pure.serveLocally,
+
+    min: config.isProduction ? '-min' : '',
+
+    ga       : config.isProduction && config.ga,
+    typekit  : config.typekit,
+    html5shiv: config.html5shiv
+});
 
 // Create `nav` local with all labeled routes.
 app.locals.nav = app.findAll('label').get.map(function (route) {

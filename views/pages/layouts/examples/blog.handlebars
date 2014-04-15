@@ -156,5 +156,7 @@
     </div>
 </div>
 
-{{> yui-seed}}
+{{#unless forDownload}}
+<script>{{{state}}}</script>
 {{> prevent-scroll}}
+{{/unless}}

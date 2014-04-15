@@ -14,6 +14,8 @@
 </head>
 <body>
 
+    <script>{{{state}}}</script>
+
     <div id="layout">
         {{> menu}}
 
@@ -27,21 +29,17 @@
         </div>
     </div>
 
-    <script>
-        {{{state}}}
-    </script>
-
-  {{#if loadYUI}}
-    {{> yui-seed}}
+  {{#if yuiBoot}}
+    {{> yui-boot}}
   {{/if}}
 
     {{addLocalJS "/js/ui.js"}}
-    {{addLocalJS "/vendor/rainbow/js/rainbow.min.js"}}
-    {{addLocalJS "/vendor/rainbow/js/language/generic.js"}}
-    {{addLocalJS "/vendor/rainbow/js/language/html.js"}}
-    {{addLocalJS "/vendor/rainbow/js/language/css.js"}}
-    {{addLocalJS "/vendor/rainbow/js/language/javascript.js"}}
-    {{addLocalJS "/vendor/rainbow/js/language/shell.js"}}
+    {{addLocalJS "/vendor/rainbow/rainbow.min.js"}}
+    {{addLocalJS "/vendor/rainbow/language/generic.js"}}
+    {{addLocalJS "/vendor/rainbow/language/html.js"}}
+    {{addLocalJS "/vendor/rainbow/language/css.js"}}
+    {{addLocalJS "/vendor/rainbow/language/javascript.js"}}
+    {{addLocalJS "/vendor/rainbow/language/shell.js"}}
 
   {{#localJS}}
     <script src="{{{.}}}"></script>

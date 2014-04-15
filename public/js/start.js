@@ -1,82 +1,87 @@
-YUI().require(
-    'router', 'pjax-base', 'view', 'handlebars-runtime',
-    'grid-input-view', 'grid-output-view', 'grid-model',
-function (Y, imports) {
-    'use strict';
+import {Lang, Object as YObject, config} from 'yui';
+import {Base} from 'base-build';
+import {Router} from 'router';
+import {PjaxBase} from 'pjax-base';
+import {View} from 'view';
+import GridModel from 'grid-model';
+import GridInputView from 'grid-input-view';
+import GridOutputView from 'grid-output-view';
 
-    var GridModel      = imports['grid-model'],
-        GridInputView  = imports['grid-input-view'],
-        GridOutputView = imports['grid-output-view'],
-        GridRouter     = Y.Base.create('grid-router', Y.Router, [Y.PjaxBase]);
+var Handlebars = config.global.Handlebars,
+    GridRouter = Base.create('grid-router', Router, PjaxBase);
 
-    var gridModel    = new GridModel(app.start.options),
-        defaultModel = new GridModel(app.start.defaults);
+var gridModel = new GridModel(app.start.options);
 
-    var inputView = new GridInputView({
-        defaultMQs: app.start.defaults.mediaQueries,
-        model     : gridModel,
-        container : '.grid-input',
-        template  : Handlebars.template(app.templates.start.rows)
+var inputView = new GridInputView({
+    defaultMQs: app.start.defaults.mediaQueries,
+    model     : gridModel,
+    container : '.grid-input',
+    template  : Handlebars.template(app.templates.start.rows)
+});
+
+var outputView = new GridOutputView({
+    pure        : app.pure,
+    model       : gridModel,
+    container   : '.grid-output',
+    cssTemplate : Handlebars.template(app.templates.start.css),
+    htmlTemplate: Handlebars.template(app.templates.start.html)
+});
+
+var downloadView = new View({
+    container: '.grid-output-download',
+    template : 'download/{query}'
+});
+
+var router = new GridRouter({
+    root        : '/start/',
+    linkSelector: '.grid-input a'
+});
+
+gridModel.on('update', function (e) {
+    // Avoid caring about changes made to the model in the route handler.
+    if (e.originEvent.src !== 'url') {
+        router.save('/?' + this.toString());
+    }
+});
+
+downloadView.render = function () {
+    var url = Lang.sub(this.template, {
+        query: config.win.location.search
     });
 
-    var outputView = new GridOutputView({
-        pure        : app.pure,
-        defaults    : defaultModel,
-        model       : gridModel,
-        container   : '.grid-output',
-        cssTemplate : Handlebars.template(app.templates.start.css),
-        htmlTemplate: Handlebars.template(app.templates.start.html)
-    });
+    this.get('container').one('.download-link').setAttribute('href', url);
+};
 
-    var downloadView = new Y.View({
-        container: '.grid-output-download',
-        template : 'download/{query}'
-    });
+router.route('/', function (req) {
+    var query = req.query;
 
-    var router = new GridRouter({
-        root        : '/start/',
-        linkSelector: '.grid-input a'
-    });
-
-    gridModel.on('update', function (e) {
-        // Avoid caring about changes made to the model in the route handler.
-        if (e.originEvent.src !== 'url') {
-            router.save('/?' + this.toString());
-        }
-    });
-
-    downloadView.render = function () {
-        var url = Y.Lang.sub(this.template, {
-            query: Y.config.win.location.search
-        });
-
-        this.get('container').one('.download-link').setAttribute('href', url);
+    var attrs = {
+        cols        : query.cols,
+        prefix      : query.prefix,
+        mediaQueries: []
     };
 
-    router.route('/', function (req) {
-        var query = req.query;
+    delete query.cols;
+    delete query.prefix;
 
-        var attrs = {
-            cols        : query.cols,
-            prefix      : query.prefix,
-            mediaQueries: []
-        };
-
-        delete query.cols;
-        delete query.prefix;
-
-        Y.Object.each(query, function (val, key) {
-            attrs.mediaQueries.push({id: key, mq: val});
+    YObject.each(query, function (val, key) {
+        attrs.mediaQueries.push({
+            id: key,
+            mq: val
         });
-
-        gridModel.setAttrs(attrs, {src: 'url'});
-
-        inputView.render();
-        outputView.render();
-        downloadView.render();
     });
 
-    inputView.attachEvents();
-    outputView.attachEvents();
-    router.upgrade();
+    gridModel.setAttrs(attrs, {src: 'url'});
+
+    inputView.render();
+    downloadView.render();
+
+    // Fetch CSS, then render the output view.
+    gridModel.load({silent: true}, function () {
+        outputView.render();
+    });
 });
+
+inputView.attachEvents();
+outputView.attachEvents();
+router.upgrade();

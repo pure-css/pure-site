@@ -6,10 +6,6 @@
 
 {{> header}}
 
-<!-- adding to the top so that the dropdown example code can run -->
-{{> yui-seed}}
-{{> prevent-scroll}}
-
 <div class="content">
 
     {{sectionHeading "Horizontal Menu"}}
@@ -54,10 +50,17 @@
     </p>
 
     {{> menus/dropdown}}
+    <script>
+        app.yui.ready(function () {
+            {{> menus/dropdown-script}}
+        });
+    </script>
 
-  {{#code}}
-    {{> menus/dropdown}}
-  {{/code}}
+{{#code}}
+{{> menus/dropdown}}
+<script>
+{{> menus/dropdown-script}}</script>
+{{/code}}
 
 
     {{sectionHeading "Menus with Disabled Items"}}
@@ -84,3 +87,5 @@
   {{/code}}
 
 </div>
+
+{{> prevent-scroll}}
