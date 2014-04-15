@@ -17,8 +17,9 @@
         </div>
 
         <div class="grid-output-download pure-u">
-            <a class="download-link pure-button-primary pure-button"
-               href="download/{{query}}">Download</a>
+            <a download href="{{pathTo 'start-download'}}{{query}}"
+               onclick="return Pure.trackDownload.call(this, 'start', '{{#if needsCSS}}{{#if css}}custom{{else}}default-mqs{{/if}}{{else}}default{{/if}}');"
+               class="download-link pure-button-primary pure-button">Download</a>
         </div>
     </div>
 

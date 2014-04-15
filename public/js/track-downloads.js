@@ -1,11 +1,11 @@
 (function (window, document) {
 
-    // Expose as `Pure.trackLayoutDownload()`
-    (window.Pure || (window.Pure = {})).trackLayoutDownload = trackLayoutDownload;
+    // Expose as `Pure.trackDownload()`
+    (window.Pure || (window.Pure = {})).trackDownload = trackDownload;
 
     var HAS_DOWNLOAD_ATTR = 'download' in document.createElement('a');
 
-    function trackLayoutDownload(layoutName) {
+    function trackDownload(category, name) {
         var ga   = window.ga,
             link = this;
 
@@ -13,7 +13,7 @@
         if (!ga) { return; }
 
         // Fire off the GA ping to track the download event.
-        ga('send', 'event', 'layouts', 'download', layoutName);
+        ga('send', 'event', category, 'download', name);
 
         // If the browser does not support the HTML5 `download` attribute give
         // the GA ping some time to complete before starting the download.
