@@ -43,7 +43,7 @@
     "yui": "^3.16.0"
   },
   "scripts": {
-    "install": "bower install && grunt"
+    "postinstall": "bower install && grunt"
   },
   "yahoo": {
     "bugzilla": {
