@@ -50,6 +50,13 @@ exports.modules = {
         ]
     },
 
+    'grid-download-view': {
+        path: 'js/views/grid-download-view.js',
+        requires: [
+            'view'
+        ]
+    },
+
     'start': {
         path: 'js/start.js',
         requires: [

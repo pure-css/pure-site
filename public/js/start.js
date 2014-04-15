@@ -1,4 +1,4 @@
-import {Lang, Object as YObject, config} from 'yui';
+import {Object as YObject, config} from 'yui';
 import {Base} from 'base-build';
 import {Router} from 'router';
 import {PjaxBase} from 'pjax-base';
@@ -6,6 +6,7 @@ import {View} from 'view';
 import GridModel from 'grid-model';
 import GridInputView from 'grid-input-view';
 import GridOutputView from 'grid-output-view';
+import GridDownloadView from 'grid-download-view';
 
 var Handlebars = config.global.Handlebars,
     GridRouter = Base.create('grid-router', Router, PjaxBase);
@@ -27,9 +28,11 @@ var outputView = new GridOutputView({
     htmlTemplate: Handlebars.template(app.templates.start.html)
 });
 
-var downloadView = new View({
-    container: '.grid-output-download',
-    template : 'download/{query}'
+var downloadView = new GridDownloadView({
+    urlTemplate  : 'download{query}',
+    trackTemplate: 'return Pure.trackDownload.call(this, \'start\', \'{label}\');',
+    container    : '.grid-output-download',
+    model        : gridModel
 });
 
 var router = new GridRouter({
@@ -43,14 +46,6 @@ gridModel.on('update', function (e) {
         router.save('/?' + this.toString());
     }
 });
-
-downloadView.render = function () {
-    var url = Lang.sub(this.template, {
-        query: config.win.location.search
-    });
-
-    this.get('container').one('.download-link').setAttribute('href', url);
-};
 
 router.route('/', function (req) {
     var query = req.query;
@@ -73,12 +68,13 @@ router.route('/', function (req) {
 
     gridModel.setAttrs(attrs, {src: 'url'});
 
+    // Render ASAP since it doesn't depend on output.
     inputView.render();
-    downloadView.render();
 
     // Fetch CSS, then render the output view.
     gridModel.load({silent: true}, function () {
         outputView.render();
+        downloadView.render();
     });
 });
 
