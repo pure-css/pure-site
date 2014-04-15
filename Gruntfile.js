@@ -34,7 +34,9 @@ module.exports = function (grunt) {
                 dest: 'public/css/layouts/gallery-grid.css',
 
                 options: {
-                    units: 6,
+                    selectorPrefix: '.u-',
+                    units         : 6,
+
                     mediaQueries: {
                         med : 'screen and (min-width: 30em)',
                         lrg : 'screen and (min-width: 48em)'
