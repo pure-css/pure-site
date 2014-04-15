@@ -5,7 +5,7 @@ var path = require('path');
 module.exports = function (grunt) {
     grunt.initConfig({
         broccoli_build: {
-            assets: {
+            build: {
                 dest: 'build'
             }
         },
