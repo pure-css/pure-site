@@ -134,20 +134,20 @@
     <h3>Using Relative Units for Widths</h3>
 
     <p>
-        You may have noticed that we use {{code "em"}} for our default CSS Media Query widths instead of {{code "px"}}. This was a conscious decision since it allows the media queries to respond appropriately when people zoom the webpage. Check out <a href="http://bradfrostweb.com/blog/post/7-habits-of-highly-effective-media-queries/#relative">this article by Brad Frost</a> for some background information on using relative units within media queries.
+        You may have noticed that we use {{code "em"}} for our default CSS Media Query widths instead of {{code "px"}}. This was a conscious decision since it allows the Media Queries to respond appropriately when people zoom the webpage. Check out <a href="http://bradfrostweb.com/blog/post/7-habits-of-highly-effective-media-queries/#relative">this article by Brad Frost</a> for some background information on using relative units within Media Queries.
     </p>
 
     <p>
-        If you do want to use units other than {{code "em"}}, you can always modify the default media queries on the <a href="{{pathTo 'start'}}#build-your-pure-starter-kit">Get Started</a> page. Converting from {{code "em"}} to {{code "px"}} is pretty simple:
+        If you do want to use units other than {{code "em"}}, you can always modify the default Media Queries on the <a href="{{pathTo 'start'}}#build-your-pure-starter-kit">Get Started</a> page. Converting from {{code "em"}} to {{code "px"}} is pretty simple:
     </p>
 
     {{#code}}
-    1em === 16px *
+    1em == 16px *
     {{/code}}
 
     <p>
         <small>
-            * The {{code "em"}} to {{code "px"}} conversion is based on the browser's default font-size, which is generally {{code "16px"}}, but can be overridden by a user in their browser settings.
+            * The {{code "em"}} to {{code "px"}} conversion is based on the browser's default font size, which is generally {{code "16px"}}, but can be overridden by a user in their browser settings.
         </small>
     </p>
 
