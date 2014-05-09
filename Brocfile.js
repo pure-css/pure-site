@@ -3,6 +3,7 @@
 var mergeTrees     = require('broccoli-merge-trees'),
     pickFiles      = require('broccoli-static-compiler'),
     compileModules = require('./lib/compile-modules'),
+    graphModules   = require('./lib/graph'),
     cssWithMQs     = require('./lib/css-with-mqs'),
     stripMQs       = require('./lib/css-strip-mqs'),
     mapFiles       = require('./lib/map-files');
@@ -30,8 +31,10 @@ var pub = 'public/';
 // Compile ES6 Modules in `pub`.
 pub = compileModules(pub, {type: 'yui'});
 
+var deps = graphModules('public/');
+
 // Strip Media Queries from CSS files and save copy as "-old-ie.css".
 var oldIECSS = stripMQs(cssWithMQs(pub), {suffix: '-old-ie'});
 
 // Export merged trees.
-module.exports = mergeTrees([vendor, pub, oldIECSS]);
+module.exports = mergeTrees([vendor, pub, oldIECSS, deps]);
