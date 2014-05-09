@@ -6,12 +6,12 @@ module.exports = function (grunt) {
     grunt.initConfig({
         broccoli_build: {
             build: {
-                dest: 'build'
+                dest: 'build/'
             }
         },
 
         clean: {
-            build: ['build']
+            build: ['build/', 'tmp/']
         },
 
         pure_grids: {
