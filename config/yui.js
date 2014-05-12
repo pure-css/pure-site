@@ -1,75 +1,27 @@
+/*jshint globalstrict: true, node: true*/
 'use strict';
 
-exports.modules = {
+var extend = require('../lib/utils').extend,
+    path   = require('path'),
+    fs     = require('fs'),
+    graph   = JSON.parse(fs.readFileSync('../build/graph.json')),
+    config = {};
+
+Object.keys(graph).forEach(function (modulePath) {
+    config[path.basename(modulePath)] = {
+        path: modulePath + '.js',
+        requires: Object.keys(graph[modulePath].imports)
+    };
+});
+
+exports.modules = extend({
     'css-mediaquery': {
-        path: 'vendor/css-mediaquery.js'
+        path: 'vendor/css-mediaquery.js',
+        requires: []
     },
 
     'handlebars-runtime': {
-        path: 'vendor/handlebars.runtime.js'
-    },
-
-    'grid-model': {
-        path: 'js/models/grid-model.js',
-        requires: [
-            'model',
-            'mq-model',
-            'querystring'
-        ]
-    },
-
-    'mq-model': {
-        path: 'js/models/mq-model.js',
-        requires: [
-            'model',
-            'model-list',
-            'css-mediaquery'
-        ]
-    },
-
-    'grid-tab-view': {
-        path: 'js/views/grid-tab-view.js',
-        requires: [
-            'view',
-            'node'
-        ]
-    },
-
-    'grid-input-view': {
-        path: 'js/views/grid-input-view.js',
-        requires: [
-            'grid-tab-view',
-            'event-focus'
-        ]
-    },
-
-    'grid-output-view': {
-        path: 'js/views/grid-output-view.js',
-        requires: [
-            'grid-tab-view'
-        ]
-    },
-
-    'grid-download-view': {
-        path: 'js/views/grid-download-view.js',
-        requires: [
-            'view'
-        ]
-    },
-
-    'start': {
-        path: 'js/start.js',
-        requires: [
-            'grid-model',
-            'grid-input-view',
-            'grid-output-view',
-            'base-build',
-            'router',
-            'pjax-base',
-            'view',
-            'yui',
-            // TODO this is right!
-            'handlebars-runtime'
-        ]
+        path: 'vendor/handlebars.runtime.js',
+        requires: []
     }
-};
+}, config);
