@@ -8,6 +8,8 @@ var combo     = require('combohandler'),
     path      = require('path');
 
 var config     = require('./config'),
+    utils      = require('./lib/utils'),
+    graphYUI   = require('./lib/graph-yui'),
     hbs        = require('./lib/hbs'),
     middleware = require('./middleware'),
     routes     = require('./routes');
@@ -32,21 +34,48 @@ app.engine(hbs.extname, hbs.engine);
 app.set('view engine', hbs.extname);
 app.set('views', config.dirs.views);
 
-app.yui.applyGroupConfig('app', {
-    combine  : config.isProduction,
-    comboBase: '/combo/' + config.version + '?',
-    base     : '/',
-    root     : '/',
-    modules  : config.yui.modules
-});
-
 if (config.isDevelopment) {
     // Creates Broccoli watcher which manages the build/ dir.
     app.watcher = require('./lib/watcher');
 }
 
+// -- Configure YUI ------------------------------------------------------------
+
+app.yui.applyGroupConfig('app', {
+    combine  : config.isProduction,
+    comboBase: '/combo/' + config.version + '?',
+    base     : '/',
+    root     : '/',
+    modules  : {
+        'css-mediaquery'    : {path: 'vendor/css-mediaquery.js'},
+        'handlebars-runtime': {path: 'vendor/handlebars.runtime.js'}
+    }
+});
+
+// Extend the YUI Group: "app" with the computed module dependency graph. In
+// development we don't care if "graph.json" doesn't load, but fail in prod.
+try {
+    utils.extend(app.yui.config().groups.app.modules,
+        graphYUI(require(path.join(config.dirs.pub, 'graph.json'))));
+} catch (e) {
+    if (config.isProduction) {
+        console.error(e);
+    }
+}
+
 if (config.isProduction) {
     app.yui.setCoreFromCDN();
+}
+
+if (app.watcher) {
+    // Update the YUI dependency graph after each build during development.
+    app.watcher.on('change', function (results) {
+        var graph      = require(path.join(results.directory, 'graph.json')),
+            appModules = app.yui.config().groups.app.modules;
+
+        utils.extend(appModules, graphYUI(graph));
+        app.expose(appModules, 'window.YUI_config.groups.app.modules', {cache: true});
+    });
 }
 
 // -- Middleware ---------------------------------------------------------------

@@ -28,13 +28,14 @@ var vendor = pickFiles(mergeTrees([
 
 var pub = 'public/';
 
+// Calculate the ES6 module dependency graph.
+var modGraph = graphModules(pub);
+
 // Compile ES6 Modules in `pub`.
 pub = compileModules(pub, {type: 'yui'});
-
-var deps = graphModules('public/');
 
 // Strip Media Queries from CSS files and save copy as "-old-ie.css".
 var oldIECSS = stripMQs(cssWithMQs(pub), {suffix: '-old-ie'});
 
 // Export merged trees.
-module.exports = mergeTrees([vendor, pub, oldIECSS, deps]);
+module.exports = mergeTrees([vendor, pub, oldIECSS, modGraph]);
