@@ -11,7 +11,8 @@ module.exports = function (grunt) {
         },
 
         clean: {
-            build: ['build/', 'tmp/']
+            build: 'build/',
+            tmp  : 'tmp/'
         },
 
         pure_grids: {
@@ -51,5 +52,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-pure-grids');
 
-    grunt.registerTask('default', ['clean', 'broccoli_build']);
+    grunt.registerTask('default', ['clean', 'broccoli_build', 'clean:tmp']);
 };
