@@ -1,25 +1,29 @@
 'use strict';
 
 var mergeTrees     = require('broccoli-merge-trees'),
-    unwatchedTree  = require('broccoli-unwatched-tree'),
+    pickFiles      = require('broccoli-static-compiler'),
     compileModules = require('./lib/compile-modules'),
     cssWithMQs     = require('./lib/css-with-mqs'),
     stripMQs       = require('./lib/css-strip-mqs'),
     mapFiles       = require('./lib/map-files');
 
-var bower_components = unwatchedTree('bower_components/'),
-    node_modules     = unwatchedTree('node_modules/');
+var bower_components = mapFiles('bower_components/', {
+    '/rainbow/js/': '/rainbow/'
+});
 
-var vendor = mergeTrees([
-    mapFiles(bower_components, {
-        'rainbow/js/': 'vendor/rainbow/'
-    }),
+var node_modules = mapFiles('node_modules/', {
+    '/css-mediaquery/index.js'              : '/css-mediaquery.js',
+    '/handlebars/dist/handlebars.runtime.js': '/handlebars.runtime.js'
+});
 
-    mapFiles(node_modules, {
-        'css-mediaquery/index.js'              : 'vendor/css-mediaquery.js',
-        'handlebars/dist/handlebars.runtime.js': 'vendor/handlebars.runtime.js'
-    })
-]);
+// Move vendor scripts to "vendor/".
+var vendor = pickFiles(mergeTrees([
+    bower_components,
+    node_modules
+]), {
+    srcDir : '/',
+    destDir: 'vendor/'
+});
 
 var pub = 'public/';
 
