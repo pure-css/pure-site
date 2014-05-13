@@ -67,7 +67,7 @@
     "grunt-broccoli-build": "^0.2.0",
     "es6-module-transpiler": "^0.4.0",
     "js-module-formats": "^0.1.0",
-    "module-graph": "git://git.corp.yahoo.com/jdopazo/module-graph.git",
+    "module-graph": "latest",
     "broccoli-kitchen-sink-helpers": "^0.2.0",
     "broccoli-filter": "^0.1.6",
     "broccoli-static-compiler": "^0.1.4",
