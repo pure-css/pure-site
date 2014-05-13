@@ -122,7 +122,7 @@
         },
         "lodash": {
           "version": "2.4.1",
-          "from": "lodash@~2.4.1"
+          "from": "lodash@2.4.1"
         }
       }
     },
@@ -272,12 +272,12 @@
       "from": "css-parse@~1.7.0"
     },
     "express": {
-      "version": "3.6.0",
-      "from": "express@3.x",
+      "version": "3.5.3",
+      "from": "express@~3.5.3",
       "dependencies": {
         "connect": {
-          "version": "2.15.0",
-          "from": "connect@2.15.0",
+          "version": "2.14.5",
+          "from": "connect@2.14.5",
           "dependencies": {
             "basic-auth-connect": {
               "version": "1.0.0",
@@ -294,22 +294,26 @@
               }
             },
             "compression": {
-              "version": "1.0.2",
-              "from": "compression@1.0.2",
+              "version": "1.0.0",
+              "from": "compression@1.0.0",
               "dependencies": {
+                "bytes": {
+                  "version": "0.2.1",
+                  "from": "bytes@~0.2.0"
+                },
                 "negotiator": {
-                  "version": "0.4.3",
-                  "from": "negotiator@0.4.3"
+                  "version": "0.3.0",
+                  "from": "negotiator@0.3.0"
                 },
                 "compressible": {
-                  "version": "1.0.1",
-                  "from": "compressible@1.0.1"
+                  "version": "1.0.0",
+                  "from": "compressible@1.0.0"
                 }
               }
             },
             "connect-timeout": {
-              "version": "1.1.0",
-              "from": "connect-timeout@1.1.0"
+              "version": "1.0.0",
+              "from": "connect-timeout@1.0.0"
             },
             "csurf": {
               "version": "1.1.0",
@@ -326,20 +330,28 @@
               }
             },
             "errorhandler": {
-              "version": "1.0.1",
-              "from": "errorhandler@1.0.1"
+              "version": "1.0.0",
+              "from": "errorhandler@1.0.0"
             },
             "express-session": {
-              "version": "1.0.4",
-              "from": "express-session@1.0.4",
+              "version": "1.0.2",
+              "from": "express-session@1.0.2",
               "dependencies": {
                 "utils-merge": {
                   "version": "1.0.0",
                   "from": "utils-merge@1.0.0"
                 },
+                "cookie": {
+                  "version": "0.1.0",
+                  "from": "cookie@0.1.0"
+                },
                 "uid2": {
                   "version": "0.0.3",
-                  "from": "uid2@0.0.3"
+                  "from": "uid2@~0.0.2"
+                },
+                "debug": {
+                  "version": "0.7.4",
+                  "from": "debug@0.7.4"
                 }
               }
             },
@@ -348,8 +360,14 @@
               "from": "method-override@1.0.0"
             },
             "morgan": {
-              "version": "1.0.1",
-              "from": "morgan@1.0.1"
+              "version": "1.0.0",
+              "from": "morgan@1.0.0",
+              "dependencies": {
+                "bytes": {
+                  "version": "0.2.1",
+                  "from": "bytes@~0.2.0"
+                }
+              }
             },
             "qs": {
               "version": "0.6.6",
@@ -363,21 +381,21 @@
               "version": "1.0.0",
               "from": "response-time@1.0.0"
             },
-            "serve-favicon": {
-              "version": "2.0.0",
-              "from": "serve-favicon@2.0.0"
+            "setimmediate": {
+              "version": "1.0.1",
+              "from": "setimmediate@1.0.1"
             },
             "serve-index": {
-              "version": "1.0.2",
-              "from": "serve-index@1.0.2",
+              "version": "1.0.1",
+              "from": "serve-index@1.0.1",
               "dependencies": {
                 "batch": {
                   "version": "0.5.0",
                   "from": "batch@0.5.0"
                 },
                 "negotiator": {
-                  "version": "0.4.3",
-                  "from": "negotiator@0.4.3"
+                  "version": "0.4.2",
+                  "from": "negotiator@0.4.2"
                 }
               }
             },
@@ -390,6 +408,10 @@
                   "from": "parseurl@1.0.1"
                 }
               }
+            },
+            "static-favicon": {
+              "version": "1.0.2",
+              "from": "static-favicon@1.0.2"
             },
             "vhost": {
               "version": "1.0.0",
@@ -447,13 +469,13 @@
             }
           }
         },
-        "methods": {
-          "version": "1.0.0",
-          "from": "methods@1.0.0"
-        },
         "range-parser": {
           "version": "1.0.0",
           "from": "range-parser@1.0.0"
+        },
+        "mkdirp": {
+          "version": "0.4.0",
+          "from": "mkdirp@0.4.0"
         },
         "cookie": {
           "version": "0.1.2",
@@ -466,6 +488,10 @@
         "fresh": {
           "version": "0.2.2",
           "from": "fresh@0.2.2"
+        },
+        "methods": {
+          "version": "0.1.0",
+          "from": "methods@0.1.0"
         },
         "send": {
           "version": "0.3.0",
@@ -491,7 +517,7 @@
         },
         "debug": {
           "version": "0.8.1",
-          "from": "debug@>= 0.8.0 < 1"
+          "from": "debug@>= 0.7.3 < 1"
         }
       }
     },
