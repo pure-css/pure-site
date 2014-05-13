@@ -8,6 +8,10 @@ import GridInputView from 'grid-input-view';
 import GridOutputView from 'grid-output-view';
 import GridDownloadView from 'grid-download-view';
 
+// TODO: Fix this in a better way.
+// Imported to capture dependency, binding is unused.
+import HandlebarsRuntime from 'handlebars-runtime';
+
 var Handlebars = config.global.Handlebars,
     GridRouter = Base.create('grid-router', Router, PjaxBase);
 
