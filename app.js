@@ -52,6 +52,8 @@ app.yui.applyGroupConfig('app', {
     }
 });
 
+// Extend the YUI Group: "app" with the computed module dependency graph. In
+// development we don't care if "graph.json" doesn't load, but fail in prod.
 try {
     utils.extend(app.yui.config().groups.app.modules,
         graphYUI(require(path.join(config.dirs.pub, 'graph.json'))));
@@ -66,6 +68,7 @@ if (config.isProduction) {
 }
 
 if (app.watcher) {
+    // Update the YUI dependency graph after each build during development.
     app.watcher.on('change', function (results) {
         var graph      = require(path.join(results.directory, 'graph.json')),
             appModules = app.yui.config().groups.app.modules;
