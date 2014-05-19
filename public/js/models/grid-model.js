@@ -18,10 +18,6 @@ export default Base.create('grid-model', Model, [ModelSync.REST], {
         return 'css?' + this.toString();
     },
 
-    parse: function (response) {
-        return {css: response};
-    },
-
     toString: function () {
         var obj = this.toJSON(),
             mqs = obj.mediaQueries;
@@ -30,6 +26,7 @@ export default Base.create('grid-model', Model, [ModelSync.REST], {
         delete obj.mediaQueries;
         delete obj.id;
         delete obj.css;
+        delete obj.cssOldIE;
 
         mqs.each(function (mq) {
             obj[mq.get('id')] = mq.getReduced();
@@ -83,6 +80,10 @@ export default Base.create('grid-model', Model, [ModelSync.REST], {
         },
 
         css: {
+            value: ''
+        },
+
+        cssOldIE: {
             value: ''
         },
 
