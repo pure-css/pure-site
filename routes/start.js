@@ -192,6 +192,10 @@ function generateCSS(req, res, next) {
                     .toString({indent: '    '});
         }
     }
+    else {
+        res.css = null;
+        res.cssOldIE = null;
+    }
 
     next();
 }
