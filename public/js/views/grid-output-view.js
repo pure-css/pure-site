@@ -11,9 +11,10 @@ export default Base.create('grid-output-view', GridTabView, [], {
 
         container.one('#html code').removeClass('rainbow').setHTML(
             Escape.html(this.get('htmlTemplate')({
-                pure    : this.get('pure'),
-                needsCSS: css || !!model.get('mediaQueries').size(),
-                css     : css
+                pure          : this.get('pure'),
+                needsOldIECSS : !!model.get('mediaQueries').size(),
+                css           : css,
+                cssOldIE      : cssOldIE
             }))
         );
 

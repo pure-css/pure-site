@@ -21,12 +21,12 @@ var inputView = new GridInputView({
 });
 
 var outputView = new GridOutputView({
-    pure        : app.pure,
-    model       : gridModel,
-    container   : '.grid-output',
-    cssTemplate : Handlebars.template(app.templates.start.css),
+    pure             : app.pure,
+    model            : gridModel,
+    container        : '.grid-output',
+    cssTemplate      : Handlebars.template(app.templates.start.css),
     cssOldIETemplate : Handlebars.template(app.templates.start['css-old-ie']),
-    htmlTemplate: Handlebars.template(app.templates.start.html)
+    htmlTemplate     : Handlebars.template(app.templates.start.html)
 });
 
 var downloadView = new GridDownloadView({
