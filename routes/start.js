@@ -180,6 +180,8 @@ function generateCSS(req, res, next) {
     }, {});
 
     res.needsCSS = genGridsCSS || !!numMQs;
+    res.css      = null;
+    res.cssOldIE = null;
 
     if (genGridsCSS) {
         res.css = rework('')
@@ -191,10 +193,6 @@ function generateCSS(req, res, next) {
                     .use(stripmq())
                     .toString({indent: '    '});
         }
-    }
-    else {
-        res.css = null;
-        res.cssOldIE = null;
     }
 
     next();
