@@ -16,14 +16,9 @@
     margin: 0;
 }
 
-.grid-output-tabs {
-    padding-right: 7em;
-}
+
 .grid-output-download {
-    width: 7em;
-    margin-right: -7em;
-    padding-top: 1.875em;
-    text-align: right;
+    font-size: 120%;
 }
 
 .grid-tab-link,
@@ -37,13 +32,14 @@
     cursor: pointer;
     top: -0.813em;
     position: relative;
+    font-size: 0.8em;
 }
 
 .grid-output-tabs .grid-tab-link,
 .grid-output-tabs .grid-tab-link:visited,
 .download-link {
-    padding-left: 0.5em;
-    padding-right: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 
 .grid-tab-link-selected,
@@ -157,13 +153,8 @@
     border: 1px solid rgb(229, 53, 53);
 }
 
-@media screen and (min-width: 30em) {
-    .grid-output-tabs .grid-tab-link,
-    .grid-output-tabs .grid-tab-link:visited,
-    .download-link {
-        padding-left: 1em;
-        padding-right: 1em;
-    }
+.download-link {
+    display: block;
 }
 
 @media screen and (min-width: 48em) {
@@ -181,5 +172,9 @@
 
     .invalid-message {
         padding-top: 0.625em;
+    }
+
+    .grid-output-download {
+        font-size: 150%;
     }
 }
