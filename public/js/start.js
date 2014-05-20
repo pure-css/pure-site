@@ -25,6 +25,7 @@ var outputView = new GridOutputView({
     model       : gridModel,
     container   : '.grid-output',
     cssTemplate : Handlebars.template(app.templates.start.css),
+    cssOldIETemplate : Handlebars.template(app.templates.start['css-old-ie']),
     htmlTemplate: Handlebars.template(app.templates.start.html)
 });
 
