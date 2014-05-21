@@ -75,10 +75,13 @@
 }
 
 .grid-output .code {
-    max-height: 30.25em; /* same height as HTML section */
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     margin: 0;
+}
+#css .code,
+#css-old-ie .code {
+    max-height: 35em;
 }
 
 .offset-1-12 {
