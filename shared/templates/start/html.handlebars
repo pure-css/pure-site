@@ -3,28 +3,33 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Your page title</title>
+
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure.version}}/pure-min.css">
-{{~#if css~}}
-  {{~#if needsOldIECSS~}}
+{{~#if needsCSS~}}
+  {{#if css}}
+    {{~#if cssOldIE}}
     <!--[if lte IE 8]>
         <link rel="stylesheet" href="grid-old-ie.css">
     <![endif]-->
     <!--[if gt IE 8]><!-->
         <link rel="stylesheet" href="grid.css">
     <!--<![endif]-->
-  {{~else}}
+    {{~else}}
     <link rel="stylesheet" href="grid.css">
-  {{~/if~}}
-{{~else}}
+    {{~/if~}}
+  {{~else}}
     <!--[if lte IE 8]>
         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure.version}}/grids-responsive-old-ie-min.css">
     <![endif]-->
     <!--[if gt IE 8]><!-->
         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure.version}}/grids-responsive-min.css">
     <!--<![endif]-->
-{{~/if}}
+  {{~/if~}}
+{{/if}}
 </head>
+
 <body>
     <!--
     Your HTML goes here. Visit purecss.io/layouts/ for some sample HTML code.
