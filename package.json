@@ -2,7 +2,7 @@
   "name": "pure-site",
   "description": "The Pure CSS website.",
   "homepage": "http://purecss.io/",
-  "version": "1.12.12",
+  "version": "1.12.13",
   "private": true,
   "repository": "git://github.com/yui/pure-site.git",
   "contributors": [
@@ -65,17 +65,17 @@
     "postinstall": "bower install && grunt"
   },
   "jshintConfig": {
-    "browser"  : true,
-    "esnext"   : true,
-    "evil"     : true,
-    "expr"     : true,
-    "node"     : true,
+    "browser": true,
+    "esnext": true,
+    "evil": true,
+    "expr": true,
+    "node": true,
     "regexdash": true,
-    "sub"      : true,
-    "trailing" : true,
-    "undef"    : false,
-    "unused"   : false,
-    "wsh"      : true
+    "sub": true,
+    "trailing": true,
+    "undef": false,
+    "unused": false,
+    "wsh": true
   },
   "yhint": {
     "excludes": [
