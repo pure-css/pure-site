@@ -65,6 +65,19 @@
     "postinstall": "bower install && grunt"
   },
   "jshintConfig": {
+    "browser"  : true,
+    "esnext"   : true,
+    "evil"     : true,
+    "expr"     : true,
+    "node"     : true,
+    "regexdash": true,
+    "sub"      : true,
+    "trailing" : true,
+    "undef"    : false,
+    "unused"   : false,
+    "wsh"      : true
+  },
+  "yhint": {
     "excludes": [
       "bower_components/",
       "build/",
