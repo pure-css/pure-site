@@ -31,8 +31,18 @@
             <table id="media-query-table" {{#unless mediaQueries}}hidden{{/unless}}>
                 <thead>
                     <tr class="pure-g">
-                        <th class="pure-u-4-24 u-md-3-24">Grid Key</th>
-                        <th class="pure-u-20-24 u-md-21-24">Media Query</th>
+                        <th class="pure-u-6-24">
+                            Grid Key <br>
+                            <span class="media-query-table-example">
+                                .pure-u-{grid-key}-*
+                            </span>
+                        </th>
+                        <th class="pure-u-15-24">
+                            Media Query <br>
+                            <span class="media-query-table-example">
+                                screen and (min-width: 48em)
+                            </span>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
