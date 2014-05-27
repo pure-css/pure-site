@@ -98,9 +98,14 @@
 }
 
 .media-query-table-example {
-    font-size: 0.85em;
+    font-size: 0.875em;
     font-weight: normal;
     display: none;
+}
+.media-query-table-example code {
+    background: none;
+    color: inherit;
+    padding: 0;
 }
 
 .mq-key,
@@ -190,8 +195,5 @@
 
     .media-query-table-example {
         display: block;
-    }
-    .media-query-table-example:before {
-        content: "ex: ";
     }
 }
