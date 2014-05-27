@@ -96,6 +96,13 @@
 #media-query-table td {
     padding: 0.3em;
 }
+
+.media-query-table-example {
+    font-size: 0.85em;
+    font-weight: normal;
+    display: none;
+}
+
 .mq-key,
 .mq-value {
     width: 100%;
@@ -179,5 +186,12 @@
 
     .grid-output-download {
         font-size: 1.5em;
+    }
+
+    .media-query-table-example {
+        display: block;
+    }
+    .media-query-table-example:before {
+        content: "ex: ";
     }
 }
