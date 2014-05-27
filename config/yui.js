@@ -53,6 +53,7 @@ exports.modules = {
     'grid-download-view': {
         path: 'js/views/grid-download-view.js',
         requires: [
+            'querystring',
             'view'
         ]
     },
