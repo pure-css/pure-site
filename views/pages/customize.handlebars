@@ -143,34 +143,21 @@
     <p>
         Combo handling is a service where one or more modules can be loaded using a single HTTP request. They are essentially dynamic rollups that are cacheable by CDNs.
     </p>
-
     <p>
          Here's an example of a Yahoo! CDN combo URL that includes CSS for <a href="{{pathTo 'base'}}">Base</a>, <a href="{{pathTo 'grids'}}">Grids</a>, and <a href="{{pathTo 'forms'}}">Forms</a>:
     </p>
 
-</div>
-
-<div class="is-code-full">
-    {{#code wrap=true}}
+    {{#code}}
         <link rel="stylesheet" href="http://yui.yahooapis.com/combo?pure/{{pure.version}}/base-min.css&pure/{{pure.version}}/grids-min.css&pure/{{pure.version}}/forms-min.css">
     {{/code}}
-</div>
-
-<div class="content">
 
     <p>
         jsDelivr is an alternative CDN that supports combo handling. Here's an example of a combo URL that includes the same CSS <a href="{{pathTo 'base'}}">Base</a>, <a href="{{pathTo 'grids'}}">Grids</a>, and <a href="{{pathTo 'forms'}}">Forms</a> as above.
     </p>
 
-</div>
-
-<div class="is-code-full">
-    {{#code wrap=true}}
+    {{#code}}
         <link rel="stylesheet" href="//cdn.jsdelivr.net/g/pure@{{pure.version}}(base-min.css+grids-min.css+forms-min.css)">
     {{/code}}
-</div>
-
-<div class="content">
 
     <p>
          See the <a href="https://github.com/jsdelivr/jsdelivr#load-multiple-files-with-single-http-request">jsDelivr combo handler documentation</a> to learn more about its features.
