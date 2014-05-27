@@ -1,13 +1,14 @@
 import {Lang, config} from 'yui';
 import {Base} from 'base-build';
+import {QueryString} from 'querystring';
 import {View} from 'view';
 
 export default Base.create('grid-download-view', View, [], {
     initializer: function (config) {
         config || (config = {});
 
-        this.urlTemplate   = config.urlTemplate || this.urlTemplate;
-        this.trackTemplate = config.trackTemplate || this.trackTemplate;
+        this.urlTemplate   = config.urlTemplate;
+        this.trackTemplate = config.trackTemplate;
     },
 
     render: function () {
@@ -15,7 +16,7 @@ export default Base.create('grid-download-view', View, [], {
             url, onclick;
 
         url = Lang.sub(this.urlTemplate, {
-            query: config.win.location.search
+            query: QueryString.stringify(this.get('query'))
         });
 
         onclick = Lang.sub(this.trackTemplate, {
@@ -39,5 +40,9 @@ export default Base.create('grid-download-view', View, [], {
     _NON_ATTRS_CFG: [
         'urlTemplate',
         'trackTemplate'
-    ]
+    ],
+
+    ATTRS: {
+        query: {value: null}
+    }
 });

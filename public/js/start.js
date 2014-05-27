@@ -30,7 +30,7 @@ var outputView = new GridOutputView({
 });
 
 var downloadView = new GridDownloadView({
-    urlTemplate  : 'download{query}',
+    urlTemplate  : 'download?{query}',
     trackTemplate: 'return Pure.trackDownload.call(this, \'start\', \'{label}\');',
     container    : '.grid-output-download',
     model        : gridModel
@@ -75,10 +75,16 @@ router.route('/', function (req) {
     // Fetch CSS, then render the output view.
     gridModel.load({silent: true}, function () {
         outputView.render();
-        downloadView.render();
+        downloadView.set('query', query).render();
     });
 });
 
 inputView.attachEvents();
 outputView.attachEvents();
 router.upgrade();
+
+// Force-dispatch for non-HTML5 browsers because the query params might be in
+// the hash-fragment of the URL.
+if (!router.get('html5')) {
+    router.dispatch();
+}
