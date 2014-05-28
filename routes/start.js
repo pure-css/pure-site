@@ -141,7 +141,8 @@ function generateHTML(req, res, next) {
         cache   : req.app.enabled('view cache'),
         pure    : config.pure,
         needsCSS: res.needsCSS,
-        css     : res.css
+        css     : res.css,
+        cssOldIE: res.cssOldIE
     }, function (err, html) {
         if (err) { return next(err); }
         res.html = html;
