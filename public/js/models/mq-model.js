@@ -1,4 +1,4 @@
-module mediaQuery from 'css-mediaquery';
+import {parse as parseMQ} from 'css-mediaquery';
 import {Attribute} from 'attribute';
 import {Base} from 'base-build';
 import {Model} from 'model';
@@ -7,7 +7,7 @@ import {ModelList} from 'model-list';
 export var MqModel = Base.create('mq-model', Model, [], {
     isValidMediaQuery: function () {
         try {
-            return !!mediaQuery.parse(this.get('mq'));
+            return !!praseMQ(this.get('mq'));
         } catch (e) {
             return false;
         }
@@ -19,7 +19,7 @@ export var MqModel = Base.create('mq-model', Model, [], {
 
         if (!this.isValidMediaQuery()) { return query; }
 
-        parsed = mediaQuery.parse(query);
+        parsed = praseMQ(query);
         if (parsed.length !== 1) { return query; }
 
         parsed = parsed[0];
@@ -43,7 +43,7 @@ export var MqModel = Base.create('mq-model', Model, [], {
         }
 
         try {
-            mediaQuery.parse(mq);
+            praseMQ(mq);
             return mq;
         } catch (e) {
             // When we've already expanded the short-hand MQ syntax, or when
