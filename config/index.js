@@ -1,9 +1,9 @@
 'use strict';
 
-var env  = process.env,
-    path = require('path');
+var env   = process.env,
+    path  = require('path');
 
-module.exports = {
+exports = module.exports = {
     env          : env.NODE_ENV,
     isDevelopment: env.NODE_ENV !== 'production',
     isProduction : env.NODE_ENV === 'production',
@@ -25,3 +25,11 @@ module.exports = {
     typekit  : 'gis6vng',
     html5shiv: '3.7'
 };
+
+try {
+    exports.graph = require(path.join(exports.dirs.pub, 'graph.json'));
+} catch (e) {
+    if (exports.isProduction) {
+        throw e;
+    }
+}

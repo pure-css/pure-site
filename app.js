@@ -9,7 +9,6 @@ var combo     = require('combohandler'),
 
 var config     = require('./config'),
     utils      = require('./lib/utils'),
-    graphYUI   = require('./lib/graph-yui'),
     hbs        = require('./lib/hbs'),
     middleware = require('./middleware'),
     routes     = require('./routes');
@@ -41,41 +40,26 @@ if (config.isDevelopment) {
 
 // -- Configure YUI ------------------------------------------------------------
 
+app.yui.applyConfig({
+    maxURLLength: 2048
+});
+
 app.yui.applyGroupConfig('app', {
     combine  : config.isProduction,
     comboBase: '/combo/' + config.version + '?',
     base     : '/',
     root     : '/',
-    modules  : {
+
+    modules: {
         'css-mediaquery'    : {path: 'vendor/css-mediaquery.js'},
         'handlebars-runtime': {path: 'vendor/handlebars.runtime.js'}
     }
 });
 
-// Extend the YUI Group: "app" with the computed module dependency graph. In
-// development we don't care if "graph.json" doesn't load, but fail in prod.
-try {
-    utils.extend(app.yui.config().groups.app.modules,
-        graphYUI(require(path.join(config.dirs.pub, 'graph.json'))));
-} catch (e) {
-    if (config.isProduction) {
-        console.error(e);
-    }
-}
-
 if (config.isProduction) {
     app.yui.setCoreFromCDN();
-}
-
-if (app.watcher) {
-    // Update the YUI dependency graph after each build during development.
-    app.watcher.on('change', function (results) {
-        var graph      = require(path.join(results.directory, 'graph.json')),
-            appModules = app.yui.config().groups.app.modules;
-
-        utils.extend(appModules, graphYUI(graph));
-        app.expose(appModules, 'window.YUI_config.groups.app.modules', {cache: true});
-    });
+} else {
+    app.yui.setCoreFromAppOrigin();
 }
 
 // -- Middleware ---------------------------------------------------------------
@@ -88,6 +72,7 @@ app.use(express.compress());
 app.use(express.favicon(path.join(config.dirs.pub, 'favicon.ico')));
 app.use(middleware.pure(config.pure));
 app.use(expyui.expose());
+app.use(middleware.exposeModuleGraph(app, config.graph));
 app.use(app.router);
 app.use(middleware.slash());
 
@@ -101,6 +86,10 @@ if (app.watcher) {
     app.use(require('broccoli/lib/middleware')(app.watcher));
 } else {
     app.use(express.static(config.dirs.pub));
+}
+
+if (config.isDevelopment) {
+    app.use(expyui.static(__dirname));
 }
 
 app.use(middleware.notfound);
