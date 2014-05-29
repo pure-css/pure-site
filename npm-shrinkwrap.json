@@ -1,6 +1,6 @@
 {
   "name": "pure-site",
-  "version": "1.12.13",
+  "version": "1.13.2",
   "dependencies": {
     "archiver": {
       "version": "0.8.1",
@@ -28,17 +28,21 @@
             },
             "inherits": {
               "version": "2.0.1",
-              "from": "inherits@~2.0.1"
+              "from": "inherits@2"
             }
           }
         },
         "zip-stream": {
-          "version": "0.3.3",
+          "version": "0.3.4",
           "from": "zip-stream@~0.3.0",
           "dependencies": {
             "crc32-stream": {
               "version": "0.2.0",
               "from": "crc32-stream@~0.2.0"
+            },
+            "deflate-crc32-stream": {
+              "version": "0.1.1",
+              "from": "deflate-crc32-stream@~0.1.0"
             },
             "lodash.defaults": {
               "version": "2.4.1",
@@ -252,7 +256,7 @@
             },
             "debug": {
               "version": "0.8.1",
-              "from": "debug@*"
+              "from": "debug@>= 0.7.3 < 1"
             }
           }
         },
@@ -347,7 +351,7 @@
                 },
                 "uid2": {
                   "version": "0.0.3",
-                  "from": "uid2@0.0.3"
+                  "from": "uid2@~0.0.2"
                 },
                 "debug": {
                   "version": "0.7.4",
@@ -503,7 +507,7 @@
             },
             "mime": {
               "version": "1.2.11",
-              "from": "mime@1.2.11"
+              "from": "mime@^1.2.11"
             }
           }
         },
@@ -619,7 +623,7 @@
           "dependencies": {
             "async": {
               "version": "0.2.10",
-              "from": "async@~0.2.8"
+              "from": "async@~0.2.6"
             },
             "source-map": {
               "version": "0.1.33",
@@ -675,7 +679,7 @@
         },
         "debug": {
           "version": "0.8.1",
-          "from": "debug@>= 0.7.3 < 1"
+          "from": "debug@*"
         },
         "rework-inherit": {
           "version": "0.2.2",
@@ -686,7 +690,7 @@
           "from": "rework-visit@1.0.0"
         },
         "convert-source-map": {
-          "version": "0.3.3",
+          "version": "0.3.4",
           "from": "convert-source-map@~0.3.1"
         }
       }
@@ -702,7 +706,6 @@
     "yui": {
       "version": "3.16.0",
       "from": "yui@~3.16.0",
-      "resolved": "https://registry.npmjs.org/yui/-/yui-3.16.0.tgz",
       "dependencies": {
         "request": {
           "version": "2.21.0",
