@@ -22,15 +22,16 @@ var inputView = new GridInputView({
 });
 
 var outputView = new GridOutputView({
-    pure        : app.pure,
-    model       : gridModel,
-    container   : '.grid-output',
-    cssTemplate : Handlebars.template(app.templates.start.css),
-    htmlTemplate: Handlebars.template(app.templates.start.html)
+    pure             : app.pure,
+    model            : gridModel,
+    container        : '.grid-output',
+    cssTemplate      : Handlebars.template(app.templates.start.css),
+    cssOldIETemplate : Handlebars.template(app.templates.start['css-old-ie']),
+    htmlTemplate     : Handlebars.template(app.templates.start.html)
 });
 
 var downloadView = new GridDownloadView({
-    urlTemplate  : 'download{query}',
+    urlTemplate  : 'download?{query}',
     trackTemplate: 'return Pure.trackDownload.call(this, \'start\', \'{label}\');',
     container    : '.grid-output-download',
     model        : gridModel
@@ -75,10 +76,16 @@ router.route('/', function (req) {
     // Fetch CSS, then render the output view.
     gridModel.load({silent: true}, function () {
         outputView.render();
-        downloadView.render();
+        downloadView.set('query', query).render();
     });
 });
 
 inputView.attachEvents();
 outputView.attachEvents();
 router.upgrade();
+
+// Force-dispatch for non-HTML5 browsers because the query params might be in
+// the hash-fragment of the URL.
+if (!router.get('html5')) {
+    router.dispatch();
+}

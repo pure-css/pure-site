@@ -2,7 +2,7 @@
   "name": "pure-site",
   "description": "The Pure CSS website.",
   "homepage": "http://purecss.io/",
-  "version": "1.12.6",
+  "version": "1.13.2",
   "private": true,
   "repository": "git://github.com/yui/pure-site.git",
   "contributors": [
@@ -40,20 +40,7 @@
     "rework-pure-grids": "^0.3.3",
     "css-mediaquery": "ericf/css-mediaquery#umd",
     "express-yui": "^1.3.2",
-    "yui": "^3.16.0"
-  },
-  "scripts": {
-    "postinstall": "bower install && grunt"
-  },
-  "yahoo": {
-    "bugzilla": {
-      "product": "yui utilities",
-      "component": "Pure"
-    },
-    "custodian": {
-      "email": "tilo@yahoo-inc.com",
-      "url": "http://purecss.io/"
-    }
+    "yui": "~3.16.0"
   },
   "devDependencies": {
     "bower": "^1.3.2",
@@ -74,5 +61,38 @@
     "broccoli": "^0.12.0",
     "broccoli-writer": "^0.1.1",
     "broccoli-unwatched-tree": "^0.1.1"
+  },
+  "scripts": {
+    "postinstall": "bower install && grunt"
+  },
+  "jshintConfig": {
+    "browser": true,
+    "esnext": true,
+    "evil": true,
+    "expr": true,
+    "node": true,
+    "regexdash": true,
+    "sub": true,
+    "trailing": true,
+    "undef": false,
+    "unused": false,
+    "wsh": true
+  },
+  "yhint": {
+    "excludes": [
+      "bower_components/",
+      "build/",
+      "node_modules/"
+    ]
+  },
+  "yahoo": {
+    "bugzilla": {
+      "product": "yui utilities",
+      "component": "Pure"
+    },
+    "custodian": {
+      "email": "tilo@yahoo-inc.com",
+      "url": "http://purecss.io/"
+    }
   }
 }

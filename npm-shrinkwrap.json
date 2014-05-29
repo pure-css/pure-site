@@ -1,6 +1,6 @@
 {
   "name": "pure-site",
-  "version": "1.12.6",
+  "version": "1.12.13",
   "dependencies": {
     "archiver": {
       "version": "0.8.1",
@@ -28,7 +28,7 @@
             },
             "inherits": {
               "version": "2.0.1",
-              "from": "inherits@2"
+              "from": "inherits@~2.0.1"
             }
           }
         },
@@ -122,7 +122,7 @@
         },
         "lodash": {
           "version": "2.4.1",
-          "from": "lodash@2.4.1"
+          "from": "lodash@~2.4.1"
         }
       }
     },
@@ -252,7 +252,7 @@
             },
             "debug": {
               "version": "0.8.1",
-              "from": "debug@>= 0.7.3 < 1"
+              "from": "debug@*"
             }
           }
         },
@@ -347,7 +347,7 @@
                 },
                 "uid2": {
                   "version": "0.0.3",
-                  "from": "uid2@~0.0.2"
+                  "from": "uid2@0.0.3"
                 },
                 "debug": {
                   "version": "0.7.4",
@@ -503,7 +503,7 @@
             },
             "mime": {
               "version": "1.2.11",
-              "from": "mime@^1.2.11"
+              "from": "mime@1.2.11"
             }
           }
         },
@@ -576,12 +576,16 @@
       }
     },
     "glob": {
-      "version": "3.2.9",
+      "version": "3.2.11",
       "from": "glob@~3.2.6",
       "dependencies": {
+        "inherits": {
+          "version": "2.0.1",
+          "from": "inherits@2"
+        },
         "minimatch": {
-          "version": "0.2.14",
-          "from": "minimatch@~0.2.11",
+          "version": "0.3.0",
+          "from": "minimatch@0.3",
           "dependencies": {
             "lru-cache": {
               "version": "2.5.0",
@@ -592,10 +596,6 @@
               "from": "sigmund@~1.0.0"
             }
           }
-        },
-        "inherits": {
-          "version": "2.0.1",
-          "from": "inherits@2"
         }
       }
     },
@@ -619,7 +619,7 @@
           "dependencies": {
             "async": {
               "version": "0.2.10",
-              "from": "async@~0.2.6"
+              "from": "async@~0.2.8"
             },
             "source-map": {
               "version": "0.1.33",
@@ -675,7 +675,7 @@
         },
         "debug": {
           "version": "0.8.1",
-          "from": "debug@*"
+          "from": "debug@>= 0.7.3 < 1"
         },
         "rework-inherit": {
           "version": "0.2.2",
@@ -700,8 +700,9 @@
       "from": "ypromise@~0.2.2"
     },
     "yui": {
-      "version": "3.17.0-rc-1",
-      "from": "yui@^3.16.0",
+      "version": "3.16.0",
+      "from": "yui@~3.16.0",
+      "resolved": "https://registry.npmjs.org/yui/-/yui-3.16.0.tgz",
       "dependencies": {
         "request": {
           "version": "2.21.0",

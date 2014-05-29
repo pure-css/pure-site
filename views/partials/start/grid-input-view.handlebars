@@ -31,8 +31,18 @@
             <table id="media-query-table" {{#unless mediaQueries}}hidden{{/unless}}>
                 <thead>
                     <tr class="pure-g">
-                        <th class="pure-u-4-24 u-md-3-24">Grid Key</th>
-                        <th class="pure-u-20-24 u-md-21-24">Media Query</th>
+                        <th class="pure-u-6-24">
+                            Grid Key <br>
+                            <span class="media-query-table-example">
+                                {{code ".pure-u-{key}-*"}}
+                            </span>
+                        </th>
+                        <th class="pure-u-15-24 pure-u-sm-16-24">
+                            Media Query <br>
+                            <span class="media-query-table-example">
+                                {{code "screen and (min-width: 48em)"}}
+                            </span>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,7 +66,7 @@
             <h3>Grid Options</h3>
 
             <p>
-                Pure has a 5<sup>ths</sup> and 24<sup>ths</sup>-column grid system by default. You define an element's width using fractional classnames, e.g; {{code ".pure-u-2-5"}} for {{code "width: 40%"}}, or {{code ".pure-u-12-24"}} for {{code "width: 50%"}}.
+                Pure has a 5<sup>ths</sup> and 24<sup>ths</sup>-column grid system by default. You define an element's width using fractional classnames, e.g; {{code ".pure-u-2-5"}} for {{code "width: 40%"}}, or {{code ".pure-u-12-24"}} for {{code "width: 50%"}}. You can <a href="{{pathTo 'grids'}}#grids-units-sizes">view all the grid units</a> that are available in the default grid.
             </p>
 
             <p>

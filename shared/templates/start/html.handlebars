@@ -9,7 +9,16 @@
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure.version}}/pure-min.css">
 {{~#if needsCSS~}}
   {{#if css}}
+    {{~#if cssOldIE}}
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="grid-old-ie.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="grid.css">
+    <!--<![endif]-->
+    {{~else}}
     <link rel="stylesheet" href="grid.css">
+    {{~/if~}}
   {{~else}}
     <!--[if lte IE 8]>
         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/{{pure.version}}/grids-responsive-old-ie-min.css">

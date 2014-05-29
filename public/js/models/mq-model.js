@@ -48,7 +48,7 @@ export var MqModel = Base.create('mq-model', Model, [], {
         } catch (e) {
             // When we've already expanded the short-hand MQ syntax, or when
             // the short-hand form doesn't look like a length value, signal
-            // that the valid is invalid.
+            // that the value is invalid.
             if (expand || !/^(\d|\.)/.test(mq)) {
                 return Attribute.INVALID_VALUE;
             }

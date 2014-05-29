@@ -1,3 +1,13 @@
+<div class="grid-output-download">
+    <a download href="{{pathTo 'start-download'}}{{query}}"
+       onclick="return Pure.trackDownload.call(this, 'start', '{{#if needsCSS}}{{#if css}}custom{{else}}default-mqs{{/if}}{{else}}default{{/if}}');"
+       class="download-link pure-button-primary pure-button">Download Your Starter Kit</a>
+</div>
+
+<p>
+    Here's what the downloaded zip file contains.
+</p>
+
 <div class="grid-output">
     <div class="grid-output-tabs pure-g">
         <div class="pure-u-1">
@@ -7,19 +17,17 @@
                         index.html
                     </a>
                 </li>
-
                 <li class="grid-tab pure-u">
                     <a data-action="tab" class="grid-tab-link" href="#grid">
                         grid.css
                     </a>
                 </li>
+                <li class="grid-tab pure-u">
+                    <a data-action="tab" class="grid-tab-link" href="#grid-old-ie">
+                        grid-old-ie.css
+                    </a>
+                </li>
             </ul>
-        </div>
-
-        <div class="grid-output-download pure-u">
-            <a download href="{{pathTo 'start-download'}}{{query}}"
-               onclick="return Pure.trackDownload.call(this, 'start', '{{#if needsCSS}}{{#if css}}custom{{else}}default-mqs{{/if}}{{else}}default{{/if}}');"
-               class="download-link pure-button-primary pure-button">Download</a>
         </div>
     </div>
 
@@ -33,6 +41,12 @@
         <div id="grid" class="grid-panel">
           <div id="css" class="grid-code">
             {{> start/css}}
+          </div>
+        </div>
+
+        <div id="grid-old-ie" class="grid-panel">
+          <div id="css-old-ie" class="grid-code">
+            {{> start/css-old-ie}}
           </div>
         </div>
     </div>

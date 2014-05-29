@@ -8,6 +8,7 @@ var archiver   = require('archiver'),
 
 var config     = require('../config'),
     hbs        = require('../lib/hbs'),
+    stripmq    = require('../lib/stripmq'),
     utils      = require('../lib/utils'),
     middleware = require('../middleware');
 
@@ -140,7 +141,8 @@ function generateHTML(req, res, next) {
         cache   : req.app.enabled('view cache'),
         pure    : config.pure,
         needsCSS: res.needsCSS,
-        css     : res.css
+        css     : res.css,
+        cssOldIE: res.cssOldIE
     }, function (err, html) {
         if (err) { return next(err); }
         res.html = html;
@@ -179,11 +181,19 @@ function generateCSS(req, res, next) {
     }, {});
 
     res.needsCSS = genGridsCSS || !!numMQs;
+    res.css      = null;
+    res.cssOldIE = null;
 
     if (genGridsCSS) {
         res.css = rework('')
                 .use(grids.units(startOptions.cols, gridsGenOpts))
                 .toString({indent: '    '});
+
+        if (numMQs) {
+            res.cssOldIE = rework(res.css)
+                    .use(stripmq())
+                    .toString({indent: '    '});
+        }
     }
 
     next();
@@ -196,6 +206,7 @@ function showStart(req, res, next) {
 
     res.locals.needsCSS = res.needsCSS;
     res.locals.css      = res.css;
+    res.locals.cssOldIE = res.cssOldIE;
     res.locals.query    = req._parsedUrl.search;
 
     res.locals(startOptions);
@@ -209,8 +220,10 @@ function showStart(req, res, next) {
 }
 
 function sendCSS(req, res, next) {
-    res.set('Content-Type', 'text/css; charset=UTF-8');
-    res.send(res.css);
+    res.json({
+        css     : res.css,
+        cssOldIE: res.cssOldIE
+    });
 }
 
 function downloadStart(req, res, next) {
@@ -220,6 +233,10 @@ function downloadStart(req, res, next) {
 
     if (res.css) {
         archive.append(res.css, {name: 'grid.css'});
+    }
+
+    if (res.cssOldIE) {
+        archive.append(res.cssOldIE, {name: 'grid-old-ie.css'});
     }
 
     res.set('Content-Disposition', 'attachment; filename="pure-start.zip"');

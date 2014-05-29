@@ -134,14 +134,14 @@ function page(path, name, label, callbacks) {
 // Basic docs pages.
 
 page('/',           'home');
+page('/start/',     'start',     'Get Started', routes.start.index);
+page('/layouts/',   'layouts',   'Layouts',     routes.layouts.index);
 page('/base/',      'base',      'Base');
 page('/grids/',     'grids',     'Grids');
 page('/forms/',     'forms',     'Forms');
 page('/buttons/',   'buttons',   'Buttons');
 page('/tables/',    'tables',    'Tables');
 page('/menus/',     'menus',     'Menus');
-page('/start/',     'start',     'Get Started', routes.start.index);
-page('/layouts/',   'layouts',   'Layouts',     routes.layouts.index);
 page('/tools/',     'tools',     'Tools');
 page('/customize/', 'customize', 'Customize');
 page('/extend/',    'extend',    'Extend');
@@ -208,6 +208,6 @@ app.locals.nav = app.findAll('label').get.map(function (route) {
         path   : route.path,
         name   : annotations.name,
         label  : annotations.label,
-        divider: annotations.name === 'start'
+        divider: annotations.name === 'base' || annotations.name === 'tools'
     };
 });
