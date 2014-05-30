@@ -7,7 +7,7 @@ import {ModelList} from 'model-list';
 export var MqModel = Base.create('mq-model', Model, [], {
     isValidMediaQuery: function () {
         try {
-            return !!praseMQ(this.get('mq'));
+            return !!parseMQ(this.get('mq'));
         } catch (e) {
             return false;
         }
@@ -19,7 +19,7 @@ export var MqModel = Base.create('mq-model', Model, [], {
 
         if (!this.isValidMediaQuery()) { return query; }
 
-        parsed = praseMQ(query);
+        parsed = parseMQ(query);
         if (parsed.length !== 1) { return query; }
 
         parsed = parsed[0];
@@ -43,7 +43,7 @@ export var MqModel = Base.create('mq-model', Model, [], {
         }
 
         try {
-            praseMQ(mq);
+            parseMQ(mq);
             return mq;
         } catch (e) {
             // When we've already expanded the short-hand MQ syntax, or when
