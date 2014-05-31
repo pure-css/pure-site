@@ -51,7 +51,7 @@
     "grunt-cli": "^0.1.13",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-pure-grids": "0.0.2",
-    "grunt-broccoli-build": "^0.2.0",
+    "grunt-broccoli-build": "^0.3.0",
     "es6-module-transpiler": "^0.4.0",
     "js-module-formats": "^0.1.0",
     "module-graph": "~0.1.0",
