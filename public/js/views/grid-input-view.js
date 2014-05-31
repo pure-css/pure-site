@@ -1,6 +1,7 @@
 import {Base} from 'base-build';
-import {MqModel} from 'mq-model';
-import GridTabView from 'grid-tab-view';
+
+import {MqModel} from '../models/mq-model';
+import GridTabView from './grid-tab-view';
 
 var COL_INPUT      = '[data-content="cols-input"]',
     PREFIX_INPUT   = '[data-content="prefix-input"]',

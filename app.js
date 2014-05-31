@@ -44,7 +44,7 @@ app.yui.applyConfig({
     maxURLLength: 2048
 });
 
-app.yui.applyGroupConfig('app', {
+app.yui.applyGroupConfig('vendor', {
     combine  : config.isProduction,
     comboBase: '/combo/' + config.version + '?',
     base     : '/',
@@ -54,6 +54,13 @@ app.yui.applyGroupConfig('app', {
         'css-mediaquery'    : {path: 'vendor/css-mediaquery.js'},
         'handlebars-runtime': {path: 'vendor/handlebars.runtime.js'}
     }
+});
+
+app.yui.applyGroupConfig('app', {
+    combine  : config.isProduction,
+    comboBase: '/combo/' + config.version + '?',
+    base     : '/js/',
+    root     : '/js/'
 });
 
 if (config.isProduction) {

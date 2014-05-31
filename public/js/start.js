@@ -1,13 +1,15 @@
+import 'handlebars-runtime';
+
 import {Object as YObject, config} from 'yui';
 import {Base} from 'base-build';
 import {Router} from 'router';
 import {PjaxBase} from 'pjax-base';
 import {View} from 'view';
-import GridModel from 'grid-model';
-import GridInputView from 'grid-input-view';
-import GridOutputView from 'grid-output-view';
-import GridDownloadView from 'grid-download-view';
-import 'handlebars-runtime';
+
+import GridModel from './models/grid-model';
+import GridInputView from './views/grid-input-view';
+import GridOutputView from './views/grid-output-view';
+import GridDownloadView from './views/grid-download-view';
 
 var Handlebars = config.global.Handlebars,
     GridRouter = Base.create('grid-router', Router, PjaxBase);
