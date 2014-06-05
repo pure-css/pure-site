@@ -1,6 +1,6 @@
 {
   "name": "pure-site",
-  "version": "1.14.0",
+  "version": "1.15.0",
   "dependencies": {
     "archiver": {
       "version": "0.8.1",
@@ -704,8 +704,8 @@
       "from": "ypromise@~0.2.2"
     },
     "yui": {
-      "version": "3.16.0",
-      "from": "yui@~3.16.0",
+      "version": "3.17.2",
+      "from": "yui@3.17.2",
       "dependencies": {
         "request": {
           "version": "2.21.0",
