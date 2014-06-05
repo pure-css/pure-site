@@ -40,7 +40,7 @@
     "rework-pure-grids": "^0.3.3",
     "css-mediaquery": "ericf/css-mediaquery#umd",
     "express-yui": "^1.3.2",
-    "yui": "~3.16.0"
+    "yui": "~3.17.2"
   },
   "devDependencies": {
     "bower": "^1.3.2",
