@@ -3,9 +3,10 @@ import {QueryString} from 'querystring';
 import {Base} from 'base-build';
 import {Model} from 'model';
 import {ModelSync} from 'model-sync-rest';
-import {MqModelList} from 'mq-model';
 
-export default Base.create('grid-model', Model, [ModelSync.REST], {
+import {MqModelList} from './mq';
+
+export default Base.create('start-grid-model', Model, [ModelSync.REST], {
 
     initializer: function (cfg) {
         this._mqs = new MqModelList();

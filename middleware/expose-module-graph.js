@@ -1,7 +1,6 @@
 'use strict';
 
-var path   = require('path'),
-    extend = require('../lib/utils').extend;
+var path = require('path');
 
 module.exports = exposeModuleGraph;
 
@@ -19,12 +18,8 @@ function exposeModuleGraph(app, graph) {
     }
 
     return function (req, res, next) {
-        var existingModules;
-
         if (needsToExpose) {
-            existingModules = app.yui.config().groups.app.modules;
-
-            app.expose(extend({}, existingModules, graphToYUIConfig(graph)),
+            app.expose(graphToYUIConfig(graph),
                     'window.YUI_config.groups.app.modules', {cache: true});
 
             needsToExpose = false;
@@ -38,7 +33,7 @@ function graphToYUIConfig(graph) {
     var yuiConfig = {};
 
     Object.keys(graph).forEach(function (modulePath) {
-        yuiConfig[path.basename(modulePath)] = {
+        yuiConfig[modulePath] = {
             path    : modulePath + '.js',
             requires: graph[modulePath]
         };

@@ -1,8 +1,9 @@
 import {Base} from 'base-build';
 import {Escape} from 'escape';
-import GridTabView from 'grid-tab-view';
 
-export default Base.create('grid-output-view', GridTabView, [], {
+import TabView from './tab';
+
+export default Base.create('start-output-view', TabView, [], {
     render: function () {
         var model     = this.get('model'),
             container = this.get('container'),

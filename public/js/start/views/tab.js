@@ -5,7 +5,7 @@ import {View} from 'view';
 var SELECTED_PANEL = 'grid-panel-selected',
     SELECTED_TAB   = 'grid-tab-link-selected';
 
-export default Base.create('grid-tab-view', View, [], {
+export default Base.create('start-tab-view', View, [], {
     tabEvents: {
         '[data-action="tab"]': {click: 'handleTabClick'}
     },

@@ -25,10 +25,16 @@ var vendor = mergeTrees([
 var pub = 'public/';
 
 // Calculate the ES6 module dependency graph.
-var modGraph = graphModules(pub);
+var modGraph = graphModules(pub, {
+    basePath      : 'js/',
+    resolveImports: true
+});
 
 // Compile ES6 Modules in `pub`.
-pub = compileModules(pub, {type: 'yui'});
+pub = compileModules(pub, {
+    basePath: 'js/',
+    type    : 'yui'
+});
 
 // Strip Media Queries from CSS files and save copy as "-old-ie.css".
 var oldIECSS = stripMQs(cssWithMQs(pub), {suffix: '-old-ie'});

@@ -3,7 +3,7 @@ import {Base} from 'base-build';
 import {QueryString} from 'querystring';
 import {View} from 'view';
 
-export default Base.create('grid-download-view', View, [], {
+export default Base.create('start-download-view', View, [], {
     initializer: function (config) {
         config || (config = {});
 

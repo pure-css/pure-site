@@ -1,27 +1,29 @@
+import 'handlebars-runtime';
+
 import {Object as YObject, config} from 'yui';
 import {Base} from 'base-build';
 import {Router} from 'router';
 import {PjaxBase} from 'pjax-base';
 import {View} from 'view';
-import GridModel from 'grid-model';
-import GridInputView from 'grid-input-view';
-import GridOutputView from 'grid-output-view';
-import GridDownloadView from 'grid-download-view';
-import 'handlebars-runtime';
+
+import GridModel from './models/grid';
+import InputView from './views/input';
+import OutputView from './views/output';
+import DownloadView from './views/download';
 
 var Handlebars = config.global.Handlebars,
-    GridRouter = Base.create('grid-router', Router, PjaxBase);
+    StartRouter = Base.create('start-router', Router, PjaxBase);
 
 var gridModel = new GridModel(app.start.options);
 
-var inputView = new GridInputView({
+var inputView = new InputView({
     defaultMQs: app.start.defaults.mediaQueries,
     model     : gridModel,
     container : '.grid-input',
     template  : Handlebars.template(app.templates.start.rows)
 });
 
-var outputView = new GridOutputView({
+var outputView = new OutputView({
     pure             : app.pure,
     model            : gridModel,
     container        : '.grid-output',
@@ -30,14 +32,14 @@ var outputView = new GridOutputView({
     htmlTemplate     : Handlebars.template(app.templates.start.html)
 });
 
-var downloadView = new GridDownloadView({
+var downloadView = new DownloadView({
     urlTemplate  : 'download?{query}',
     trackTemplate: 'return Pure.trackDownload.call(this, \'start\', \'{label}\');',
     container    : '.grid-output-download',
     model        : gridModel
 });
 
-var router = new GridRouter({
+var router = new StartRouter({
     root        : '/start/',
     linkSelector: '.grid-input a'
 });
