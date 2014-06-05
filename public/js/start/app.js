@@ -6,10 +6,10 @@ import {Router} from 'router';
 import {PjaxBase} from 'pjax-base';
 import {View} from 'view';
 
-import GridModel from './models/start/grid';
-import InputView from './views/start/input';
-import OutputView from './views/start/output';
-import DownloadView from './views/start/download';
+import GridModel from './models/grid';
+import InputView from './views/input';
+import OutputView from './views/output';
+import DownloadView from './views/download';
 
 var Handlebars = config.global.Handlebars,
     StartRouter = Base.create('start-router', Router, PjaxBase);

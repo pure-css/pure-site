@@ -1,6 +1,6 @@
 import {Base} from 'base-build';
 
-import {MqModel} from '../../models/start/mq';
+import {MqModel} from '../models/mq';
 import TabView from './tab';
 
 var COL_INPUT      = '[data-content="cols-input"]',
