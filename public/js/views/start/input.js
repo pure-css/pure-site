@@ -1,7 +1,7 @@
 import {Base} from 'base-build';
 
-import {MqModel} from '../models/mq-model';
-import GridTabView from './grid-tab-view';
+import {MqModel} from '../../models/start/mq';
+import TabView from './tab';
 
 var COL_INPUT      = '[data-content="cols-input"]',
     PREFIX_INPUT   = '[data-content="prefix-input"]',
@@ -26,7 +26,7 @@ events[MQ_ADD]         = {click:  'addMediaQuery'};
 events[MQ_REMOVE]      = {click:  'removeMediaQuery'};
 events[MQ_ADD_DEFAULT] = {click:  'setDefaultMediaQueries'};
 
-export default Base.create('grid-input-view', GridTabView, [], {
+export default Base.create('start-input-view', TabView, [], {
     events: events,
 
     render: function () {

@@ -4,7 +4,7 @@ import {Base} from 'base-build';
 import {Model} from 'model';
 import {ModelList} from 'model-list';
 
-export var MqModel = Base.create('mq-model', Model, [], {
+export var MqModel = Base.create('start-mq-model', Model, [], {
     isValidMediaQuery: function () {
         try {
             return !!parseMQ(this.get('mq'));
