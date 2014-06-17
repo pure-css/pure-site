@@ -4,11 +4,11 @@ var archiver   = require('archiver'),
     mediaQuery = require('css-mediaquery'),
     rework     = require('rework'),
     grids      = require('rework-pure-grids'),
-    path       = require('path');
+    path       = require('path'),
+    stripmq    = require('stripmq');
 
 var config     = require('../config'),
     hbs        = require('../lib/hbs'),
-    stripmq    = require('../lib/stripmq'),
     utils      = require('../lib/utils'),
     middleware = require('../middleware');
 
@@ -190,9 +190,7 @@ function generateCSS(req, res, next) {
                 .toString({indent: '    '});
 
         if (numMQs) {
-            res.cssOldIE = rework(res.css)
-                    .use(stripmq())
-                    .toString({indent: '    '});
+            res.cssOldIE = stripmq(res.css, null, {indent: '    '});
         }
     }
 
