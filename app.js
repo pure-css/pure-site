@@ -1,6 +1,5 @@
 var combo     = require('combohandler'),
     express   = require('express'),
-    exphbs    = require('express3-handlebars'),
     expmap    = require('express-map'),
     expparams = require('express-params'),
     expstate  = require('express-state'),

@@ -2,10 +2,11 @@
 
 var path      = require('path'),
     sharedDir = require('../config').dirs.shared,
-    exphbs    = require('../lib/hbs');
+    hbs       = require('../lib/hbs'),
+    utils     = require('../lib/utils');
 
 // RegExp to remove the ".handlebars" extension from the template names.
-var extRegex = new RegExp(exphbs.extname + '$');
+var extRegex = new RegExp(hbs.extname + '$');
 
 module.exports = function exposeTemplates(templatesDir) {
     templatesDir || (templatesDir = '');
@@ -19,11 +20,9 @@ module.exports = function exposeTemplates(templatesDir) {
         // Uses the `ExpressHandlebars` instance to get the get the
         // **precompiled** templates which will be shared with the client-side
         // of the app.
-        exphbs.loadTemplates(path.join(sharedDir, templatesDir), {
+        hbs.getTemplates(path.join(sharedDir, templatesDir), {
             precompiled: true
-        }, function (err, templates) {
-            if (err) { return next(err); }
-
+        }).then(function (templates) {
             templates = Object.keys(templates).reduce(function (map, name) {
                 // Evaluate the precompiled template string into a function.
                 var template; eval('template = ' + templates[name]);
@@ -34,7 +33,7 @@ module.exports = function exposeTemplates(templatesDir) {
             // Exposes the templates via express-state.
             res.expose(templates, namespace);
 
-            next();
-        });
+            setImmediate(next);
+        }).catch(utils.passError(next));
     };
 };

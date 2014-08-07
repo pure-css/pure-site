@@ -138,16 +138,16 @@ function generateHTML(req, res, next) {
     var template = path.join(config.dirs.shared, 'start', 'html' + hbs.extname);
 
     hbs.render(template, {
-        cache   : req.app.enabled('view cache'),
         pure    : config.pure,
         needsCSS: res.needsCSS,
         css     : res.css,
         cssOldIE: res.cssOldIE
-    }, function (err, html) {
-        if (err) { return next(err); }
+    }, {
+        cache: req.app.enabled('view cache')
+    }).then(function (err, html) {
         res.html = html;
-        next();
-    });
+        setImmediate(next);
+    }).catch(utils.passError(next));
 }
 
 function generateCSS(req, res, next) {
