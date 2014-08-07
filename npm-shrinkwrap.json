@@ -374,7 +374,7 @@
       "dependencies": {
         "connect": {
           "version": "2.14.5",
-          "from": "connect@2.14.5",
+          "from": "connect@>=2.14.1-0 <2.15.0-0",
           "resolved": "https://registry.npmjs.org/connect/-/connect-2.14.5.tgz",
           "dependencies": {
             "basic-auth-connect": {
@@ -460,7 +460,7 @@
                 },
                 "uid2": {
                   "version": "0.0.3",
-                  "from": "uid2@0.0.3",
+                  "from": "uid2@>=0.0.2-0 <0.1.0-0",
                   "resolved": "https://registry.npmjs.org/uid2/-/uid2-0.0.3.tgz"
                 },
                 "debug": {
@@ -636,7 +636,7 @@
         },
         "methods": {
           "version": "0.1.0",
-          "from": "methods@0.1.0",
+          "from": "methods@>=0.1.0-0 <0.2.0-0",
           "resolved": "https://registry.npmjs.org/methods/-/methods-0.1.0.tgz"
         },
         "send": {
@@ -679,8 +679,9 @@
       "resolved": "https://registry.npmjs.org/express-annotations/-/express-annotations-0.1.0.tgz"
     },
     "express-handlebars": {
-      "version": "1.0.0-rc-1",
-      "from": "express-handlebars@>=1.0.0-rc-1 <2.0.0-0",
+      "version": "1.0.0-rc-2",
+      "from": "express-handlebars@>=1.0.0-rc-2 <2.0.0-0",
+      "resolved": "https://registry.npmjs.org/express-handlebars/-/express-handlebars-1.0.0-rc-2.tgz",
       "dependencies": {
         "glob": {
           "version": "4.0.5",
@@ -689,7 +690,7 @@
           "dependencies": {
             "inherits": {
               "version": "2.0.1",
-              "from": "inherits@>=2.0.1-0 <2.1.0-0",
+              "from": "inherits@>=2.0.0-0 <3.0.0-0",
               "resolved": "https://registry.npmjs.org/inherits/-/inherits-2.0.1.tgz"
             },
             "minimatch": {
