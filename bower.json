@@ -1,6 +1,6 @@
 {
   "name": "pure-site",
-  "version": "1.16.0",
+  "version": "1.17.0",
   "private": true,
   "dependencies": {
     "pure": "0.5.0",
