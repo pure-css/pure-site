@@ -4,7 +4,7 @@
   "homepage": "http://purecss.io/",
   "version": "1.17.0",
   "private": true,
-  "repository": "git://github.com/yui/pure-site.git",
+  "repository": "git://github.com/yahoo/pure-site.git",
   "contributors": [
     "Eric Ferraiuolo <eferraiuolo@gmail.com> (http://ericf.me/)",
     "Tilo Mitra <tilomitra@gmail.com> (http://www.tilomitra.com/)"
