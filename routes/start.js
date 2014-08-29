@@ -144,7 +144,7 @@ function generateHTML(req, res, next) {
         cssOldIE: res.cssOldIE
     }, {
         cache: req.app.enabled('view cache')
-    }).then(function (err, html) {
+    }).then(function (html) {
         res.html = html;
         setImmediate(next);
     }).catch(utils.passError(next));
