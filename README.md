@@ -45,12 +45,13 @@ $ bower link
 
 Now you'll need to move into where you have this project checked out locally,
 install the website's npm dependencies (if you haven't done so already),
-link `pure` in `pure-site` using Bower, then start up the server:
+link `pure` in `pure-site` using Bower, then start up the server with the 
+--pure-local argument:
 
 ```shell
 $ cd ../pure-site/
 $ bower link pure
-$ npm start
+$ node server.js --pure-local
 ```
 
 **Note:** The steps to install the npm dependencies and link pure using Bower do
