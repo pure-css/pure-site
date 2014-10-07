@@ -1,4 +1,4 @@
- Pure CSS Website
+Pure CSS Website
 ================
 
 The website which showcases [Pure CSS][Pure].

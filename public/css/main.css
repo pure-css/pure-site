@@ -302,6 +302,7 @@ code {
     #menu .pure-menu ul {
         border: none;
         background: transparent;
+        display: block;
     }
 
     #menu .pure-menu ul,
