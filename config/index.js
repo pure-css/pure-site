@@ -22,7 +22,7 @@ exports = module.exports = {
 
     pure     : require('./pure'),
     ga       : 'UA-41480445-1',
-    typekit  : 'gis6vng',
+    typekit  : '', /* 'gis6vng'  Disabling typekit. This was the value */
     html5shiv: '3.7'
 };
 

@@ -2,7 +2,7 @@
     text-align: center;
 }
     .hero-titles {
-        font-family: "omnes-pro", sans-serif;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         padding: 0 1em;
         margin: 2em auto;
         max-width: 768px;
@@ -12,6 +12,7 @@
         font-weight: 100;
         margin: 0;
         color: #1f8dd6;
+        letter-spacing: 0.05em;
     }
     .hero-tagline {
         font-size: 150%;

@@ -13,7 +13,10 @@
 
 html, button, input, select, textarea,
 .pure-g [class *= "pure-u"] {
-    font-family: "proxima-nova", sans-serif;
+    font-family: sans-serif;
+    font-weight: 100;
+    font-size: 97%;
+    letter-spacing: 0.01em;
 }
 
 
@@ -106,14 +109,15 @@ aside {
 */
 
 .header {
-     font-family: "omnes-pro", sans-serif;
-     max-width: 768px;
-     margin: 0 auto;
-     padding: 1em;
-     text-align: center;
-     border-bottom: 1px solid #eee;
-     background: #fff;
- }
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 1em;
+    text-align: center;
+    borqder-bottom: 1px solid #eee;
+    background: #fff;
+    letter-spacing: 0.05em;
+}
     .header h1 {
         font-size: 300%;
         font-weight: 100;
@@ -187,7 +191,7 @@ aside {
 
 pre,
 code {
-    font-family: Consolas, 'Liberation Mono', Courier, monospace;
+    font-family: Consolas, Courier, monospace;
     color: #333;
     background: rgb(250, 250, 250);
 }
