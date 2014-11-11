@@ -191,7 +191,6 @@ app.locals({
     min: config.isProduction ? '-min' : '',
 
     ga       : config.isProduction && config.ga,
-    typekit  : config.typekit,
     html5shiv: config.html5shiv
 });
 

@@ -15,7 +15,6 @@ html, button, input, select, textarea,
 .pure-g [class *= "pure-u"] {
     font-family: sans-serif;
     font-weight: 100;
-    font-size: 97%;
     letter-spacing: 0.01em;
 }
 
@@ -114,7 +113,7 @@ aside {
     margin: 0 auto;
     padding: 1em;
     text-align: center;
-    borqder-bottom: 1px solid #eee;
+    border-bottom: 1px solid #eee;
     background: #fff;
     letter-spacing: 0.05em;
 }
@@ -562,7 +561,7 @@ a.pure-button-primary {
         font-size: 350%;
     }
     .header h2 {
-        font-size: 150%;
+        font-size: 146%;
     }
 
     .content p {
