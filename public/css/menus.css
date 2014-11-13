@@ -1,7 +1,64 @@
-.content .pure-menu.pure-menu-open {
+.content .pure-menu {
     width: 40%;
     margin-top: 2em;
 }
 .content .pure-menu.pure-menu-horizontal {
     width: 100%;
+}
+
+/**
+ *  Should this be put back into pure?
+ *  I can't decide if this is a problem or not. On the one hand,
+ *  the less styles in Pure, the better. But on the other hand,
+ *  these changes are going to affect users, who will similarly have to go
+ *  through their stuff and add customizations to bring their menus back to
+ *  the way they were.
+ */
+.content .pure-menu,
+.content .pure-menu-children {
+    border: 1px solid #b7b7b7;
+}
+.content .pure-menu.pure-menu-horizontal {
+    border: 0;
+}
+
+.content .pure-menu-list {
+    display: block;
+}
+
+.content .pure-menu-horizontal .pure-menu-list {
+    display: inline;
+}
+
+.content .pure-menu-selected a {
+    color: #000;
+}
+
+.content .pure-menu-heading {
+    text-transform: uppercase;
+    color: #565d64;
+    font-weight: normal;
+    padding: 5px 20px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #dfdfdf;
+}
+.content .pure-menu-horizontal .pure-menu-heading {
+    border: 0;
+}
+
+.content .pure-menu-link {
+    padding: 5px 20px;
+}
+.content .pure-menu-link:hover {
+    background-color: #eee;
+}
+
+/* disabled functionality has also been removed */
+.content .pure-menu-disabled .pure-menu-link,
+.content .pure-menu-disabled .pure-menu-link:hover {
+    background-color: transparent;
+    border-color: transparent;
+    color: #bfbfbf;
+    cursor: default;
 }

@@ -31,10 +31,9 @@
     {{> menus/heading}}
   {{/code}}
 
-
     {{sectionHeading "Vertical Menu"}}
     <p>
-        Menus are vertical by default. You need only add the {{code "pure-menu"}} class to style the menu, and the {{code "pure-menu-open"}} class to ensure that it is visible.
+        Menus are vertical by default. You need only add the {{code "pure-menu"}} class to style the menu.
     </p>
 
     {{> menus/vertical}}
@@ -46,20 +45,13 @@
 
     {{sectionHeading "Add Dropdowns to Menus"}}
     <p>
-        Adding dropdowns to menus requires the use of JavaScript. For example, YUI's {{code "Y.Menu"}} module adds dropdown functionality and the ability to create JavaScript menus.
+        Adding dropdowns to menus no longer requires the use of JavaScript. Only one level of nesting is allowed; more than that would prove cumbersome on small screens.
     </p>
 
     {{> menus/dropdown}}
-    <script>
-        app.yui.ready(function () {
-            {{> menus/dropdown-script}}
-        });
-    </script>
 
 {{#code}}
 {{> menus/dropdown}}
-<script>
-{{> menus/dropdown-script}}</script>
 {{/code}}
 
 
