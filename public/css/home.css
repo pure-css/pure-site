@@ -2,21 +2,20 @@
     text-align: center;
 }
     .hero-titles {
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
         padding: 0 1em;
         margin: 2em auto;
         max-width: 768px;
     }
     .hero-site {
         font-size: 400%;
-        font-weight: 100;
+        font-weight: 200;
         margin: 0;
         color: #1f8dd6;
-        letter-spacing: 0.05em;
     }
     .hero-tagline {
         font-size: 150%;
-        font-weight: 100;
+        font-weight: 200;
         line-height: 1.5;
         margin: 0 0 1em;
         color: #666;
@@ -224,10 +223,10 @@ a.button-secondary {
         padding: 0 2em;
     }
     .hero-site {
-        font-size: 800%;
+        font-size: 720%;
     }
     .hero-tagline {
-        font-size: 250%;
+        font-size: 220%;
     }
 
     a.button-cta,

@@ -108,7 +108,7 @@ aside {
 */
 
 .header {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
     max-width: 768px;
     margin: 0 auto;
     padding: 1em;
@@ -128,6 +128,7 @@ aside {
         line-height: 1.5;
         margin: 0;
         color: #666;
+        letter-spacing: -0.02em;
     }
 
 
@@ -558,10 +559,10 @@ a.pure-button-primary {
     }
 
     .header h1 {
-        font-size: 350%;
+        font-size: 320%;
     }
     .header h2 {
-        font-size: 146%;
+        font-size: 128%;
     }
 
     .content p {
