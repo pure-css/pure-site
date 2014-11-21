@@ -30,8 +30,7 @@ function showLayout(req, res, next) {
 
     res.render(template, {
         section: 'Layout Examples',
-        layout : 'blank',
-        typekit: false
+        layout : 'blank'
     }, function (err, body) {
         if (err) {
             // Unset the "blank" page layout so that the 404 page uses the app's
