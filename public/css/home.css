@@ -7,6 +7,11 @@
         margin: 2em auto;
         max-width: 768px;
     }
+    .hero-titles .logo {
+        width: 80%;
+        max-width: 420px;
+        margin: 40px 0;
+    }
     .hero-site {
         font-size: 400%;
         font-weight: 200;
