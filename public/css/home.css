@@ -227,6 +227,10 @@ a.button-secondary {
     .hero-titles {
         padding: 0 2em;
     }
+    .hero-titles .logo {
+        width: 419px;
+        height: auto;
+    }
     .hero-site {
         font-size: 720%;
     }
