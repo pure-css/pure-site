@@ -7,6 +7,11 @@
         margin: 2em auto;
         max-width: 768px;
     }
+    .hero-titles .logo {
+        width: 80%;
+        max-width: 419px;
+        margin: 40px 0;
+    }
     .hero-site {
         font-size: 400%;
         font-weight: 200;
@@ -66,7 +71,7 @@ a.button-secondary {
     }
 
     .size-chart-base {
-        background: #0e90d2;
+        background: #1f8dd6;
     }
         .size-chart-base .size-chart-size {
             color: rgb(103, 194, 240);
@@ -221,6 +226,10 @@ a.button-secondary {
 @media screen and (min-width: 48em) {
     .hero-titles {
         padding: 0 2em;
+    }
+    .hero-titles .logo {
+        width: 419px;
+        height: auto;
     }
     .hero-site {
         font-size: 720%;
