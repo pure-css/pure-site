@@ -51,8 +51,8 @@ gridModel.on('update', function (e) {
     }
 });
 
-router.route('/', function (req) {
-    var query = req.query;
+function getGridModelUpdates(query) {
+    query = Y.merge(query);
 
     var attrs = {
         cols        : query.cols,
@@ -70,7 +70,13 @@ router.route('/', function (req) {
         });
     });
 
-    gridModel.setAttrs(attrs, {src: 'url'});
+    return attrs;
+}
+
+router.route('/', function (req) {
+    var query = req.query;
+
+    gridModel.setAttrs(getGridModelUpdates(query), {src: 'url'});
 
     // Render ASAP since it doesn't depend on output.
     inputView.render();

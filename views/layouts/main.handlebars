@@ -3,13 +3,15 @@
 <head>
     {{> meta}}
     {{> title}}
-    {{addLocalCSS "/css/main.css" prepend=true hasOldIE=true}}
-    {{addLocalCSS "/css/main-grid.css" prepend=true hasOldIE=true}}
-    {{addLocalCSS "/css/rainbow/baby-blue.css"}}
+    
+    {{addLocalCSS  "/css/main.css" prepend=true hasOldIE=true}}
+    {{addLocalCSS  "/css/main-grid.css" prepend=true hasOldIE=true}}
+    {{addLocalCSS  "/css/rainbow/baby-blue.css"}}
+    {{addRemoteCSS "http://fonts.googleapis.com/css?family=Raleway:200"}}
+
     {{> styles}}
 
     {{> html5shiv}}
-    {{> typekit}}
     {{> analytics}}
 </head>
 <body>

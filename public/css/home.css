@@ -2,20 +2,25 @@
     text-align: center;
 }
     .hero-titles {
-        font-family: "omnes-pro", sans-serif;
+        font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
         padding: 0 1em;
         margin: 2em auto;
         max-width: 768px;
     }
+    .hero-titles .logo {
+        width: 80%;
+        max-width: 419px;
+        margin: 40px 0;
+    }
     .hero-site {
         font-size: 400%;
-        font-weight: 100;
+        font-weight: 200;
         margin: 0;
         color: #1f8dd6;
     }
     .hero-tagline {
         font-size: 150%;
-        font-weight: 100;
+        font-weight: 200;
         line-height: 1.5;
         margin: 0 0 1em;
         color: #666;
@@ -66,7 +71,7 @@ a.button-secondary {
     }
 
     .size-chart-base {
-        background: #0e90d2;
+        background: #1f8dd6;
     }
         .size-chart-base .size-chart-size {
             color: rgb(103, 194, 240);
@@ -222,11 +227,15 @@ a.button-secondary {
     .hero-titles {
         padding: 0 2em;
     }
+    .hero-titles .logo {
+        width: 419px;
+        height: auto;
+    }
     .hero-site {
-        font-size: 800%;
+        font-size: 720%;
     }
     .hero-tagline {
-        font-size: 250%;
+        font-size: 220%;
     }
 
     a.button-cta,

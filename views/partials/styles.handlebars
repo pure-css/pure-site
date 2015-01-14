@@ -23,6 +23,10 @@
 <!--<![endif]-->
 {{/if}}
 
+{{#remoteCSS}}
+<link rel="stylesheet" href="{{{.}}}">
+{{/remoteCSS}}
+
 {{#localCSS}}
   {{#if this.oldIE}}
     <!--[if lte IE 8]>
@@ -35,7 +39,3 @@
     <link rel="stylesheet" href="{{{this.path}}}">
   {{/if}}
 {{/localCSS}}
-
-{{#remoteCSS}}
-<link rel="stylesheet" href="{{{.}}}">
-{{/remoteCSS}}

@@ -22,7 +22,6 @@ exports = module.exports = {
 
     pure     : require('./pure'),
     ga       : 'UA-41480445-1',
-    typekit  : 'gis6vng',
     html5shiv: '3.7'
 };
 
