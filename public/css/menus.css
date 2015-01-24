@@ -1,4 +1,4 @@
-.content .pure-menu {
+/*.content .pure-menu {
     width: 40%;
     margin-top: 2em;
 }
@@ -6,14 +6,6 @@
     width: 100%;
 }
 
-/**
- *  Should this be put back into pure?
- *  I can't decide if this is a problem or not. On the one hand,
- *  the less styles in Pure, the better. But on the other hand,
- *  these changes are going to affect users, who will similarly have to go
- *  through their stuff and add customizations to bring their menus back to
- *  the way they were.
- */
 .content .pure-menu,
 .content .pure-menu-children {
     border: 1px solid #b7b7b7;
@@ -54,7 +46,6 @@
     background-color: #eee;
 }
 
-/* disabled functionality has also been removed */
 .content .pure-menu-disabled .pure-menu-link,
 .content .pure-menu-disabled .pure-menu-link:hover {
     background-color: transparent;
@@ -62,3 +53,4 @@
     color: #bfbfbf;
     cursor: default;
 }
+*/

@@ -395,6 +395,7 @@ code {
         color: #fff;
         margin-top: 0;
         padding: 0.5em 0.8em;
+        text-transform: uppercase;
     }
     #menu .pure-menu-heading:hover,
     #menu .pure-menu-heading:focus {
