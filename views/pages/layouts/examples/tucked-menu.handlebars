@@ -1,0 +1,29 @@
+{{setTitle    "Responsive Horizontal Menu"}}
+{{setSubTitle "A layout showcasing a scrollable horizontal menu that hides at small window widths."}}
+{{setTags     "base" "menus"}}
+
+{{> menus/tucked}}
+
+<style>
+.main {
+    padding: 2em;
+    color: black;
+}
+</style>
+
+<div class="main">
+
+    <h1>Responsive Horizontal Menu</h1>
+
+    <p>This example shows how you can build upon Pure menu classes
+    such as pure-menu-horizontal
+    and pure-menu-scrollable. At wide window-widths we display a horizontal menu.
+    At smaller window-widths,
+    we switch to a scrollable horizontal menu with a toggle control.
+    Code reproduced below:</p>
+
+    {{#code}}
+      {{> menus/tucked}}
+    {{/code}}
+
+</div>
