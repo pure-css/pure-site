@@ -1,0 +1,30 @@
+{{setTitle    "Responsive Horizontal-to-Vertical Menu"}}
+{{setSubTitle "A set of horizontal menus that switch to vertical
+and which hide at small window widths."}}
+{{setTags     "base" "grids" "menus"}}
+
+{{> menus/tucked-vertical}}
+
+<style>
+.main {
+    padding: 2em;
+    color: black;
+}
+</style>
+
+<div class="main">
+
+    <h1>Responsive Horizontal-to-Vertical Menu</h1>
+
+    <p>This example shows how you can build upon Pure Menu and Grid classes. At wide
+    window-widths we display a horizontal menu.
+    At smaller window-widths,
+    we switch to a vertical menu with a toggle control. Grids are used to
+    arrange the menus.
+    Code reproduced below:</p>
+
+    {{#code}}
+      {{> menus/tucked-vertical}}
+    {{/code}}
+
+</div>
