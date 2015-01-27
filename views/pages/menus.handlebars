@@ -32,6 +32,17 @@
       {{> menus/horizontal}}
     {{/code}}
 
+    {{sectionHeading "Selected and Disabled Items"}}
+    <p>
+        Mark a selected list element by adding the {{code "pure-menu-selected"}} class to the list element. To mark a link as disabled, add an {{code "<a>"}} element with the {{code "pure-menu-disabled"}} class name. Disabled items appear faded and do not inherit hover styles.
+    </p>
+
+    {{> menus/disabled}}
+
+    {{#code}}
+      {{> menus/disabled}}
+    {{/code}}
+
 
     {{sectionHeading "Dropdowns"}}
     <p>
@@ -73,17 +84,21 @@
       {{> menus/vertical-scroll}}
     {{/code}}
 
-    {{sectionHeading "Selected and Disabled Items"}}
+    {{sectionHeading "Responsive Menus That Hide"}}
     <p>
-        Mark a selected list element by adding the {{code "pure-menu-selected"}} class to the list element. To mark a link as disabled, add an {{code "<a>"}} element with the {{code "pure-menu-disabled"}} class name. Disabled items appear faded and do not inherit hover styles.
+        Check out our <a href="/layouts/">Layout Examples</a> to see how you can use
+        Pure as a foundation for more complex menus, such as:
     </p>
 
-    {{> menus/disabled}}
-
-    {{#code}}
-      {{> menus/disabled}}
-    {{/code}}
-
+    <ul>
+        <li><a href="/layouts/side-menu/">Responsive Vertical Menu</a>, which
+        collapses behind a hamburger,
+        similar to the menu on this Pure website.</li>
+        <li><a href="/layouts/tucked-menu/">Responsive Horizontal-Scrollable Menu</a>,
+        which tucks out of the way on small screens.</li>
+        <li><a href="/layouts/tucked-menu-vertical/">Responsive Horizontal-to-Vertical Menu</a>,
+        which tucks out of the way on small screens.</li>
+    </ul>
 
 </div>
 
