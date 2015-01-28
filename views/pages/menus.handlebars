@@ -3,6 +3,7 @@
 {{setActiveNav "menus"}}
 
 {{addLocalCSS "/css/menus.css"}}
+{{addLocalJS "/js/menus.js"}}
 
 {{> header}}
 
@@ -11,7 +12,9 @@
     {{sectionHeading "Vertical Menu"}}
     <p>
         Menus are vertical by default. Minimal default styling and low-specificity
-        selectors make them easy to customize.
+        selectors make them easy to customize. By default, menu items take up
+        100% of the width of their container, so you may want to limit the menu
+        width or set the menu to display:inline-block.
     </p>
 
     {{> menus/vertical}}
@@ -46,8 +49,9 @@
 
     {{sectionHeading "Dropdowns"}}
     <p>
-        Adding dropdowns to menus requires the use of JavaScript. An example has
-        been provided which provides ARIA support, keyboard navigation, and
+        Adding dropdowns to menus requires the use of JavaScript.
+        <a href="/js/menus.js">An example script</a>
+        written with vanilla JS provides ARIA support, keyboard navigation, and
         the ability to dismiss the menu with an outside event or the ESC key.
         Only one level of nesting is supported, since more than that generally
         proves cumbersome on small screens.
@@ -58,8 +62,6 @@
     {{#code}}
       {{> menus/dropdown}}
     {{/code}}
-
-    <script src="/js/menus.js"></script>
 
     {{sectionHeading "Scrollable Horizontal Menu"}}
     <p>
@@ -97,7 +99,7 @@
         <li><a href="/layouts/tucked-menu/">Responsive Horizontal-Scrollable Menu</a>,
         which tucks out of the way on small screens.</li>
         <li><a href="/layouts/tucked-menu-vertical/">Responsive Horizontal-to-Vertical Menu</a>,
-        which tucks out of the way on small screens.</li>
+        which slides out of view.</li>
     </ul>
 
 </div>

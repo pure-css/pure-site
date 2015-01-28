@@ -6,7 +6,7 @@
 <!--<![endif]-->
 
 <style>
-.pure-menu-custom-wrapper {
+.custom-wrapper {
     background-color: #ffd390;
     margin-bottom: 1em;
     -webkit-font-smoothing: antialiased;
@@ -18,19 +18,15 @@
     transition: height 0.5s;
 }
 
-.pure-menu-horizontal {
-    width: auto;
+.custom-wrapper.open {
+    height: 14em;
 }
 
-.pure-menu-custom-wrapper.open {
-    height: 12.7em;
-}
-
-.pure-menu-custom-3 {
+.custom-menu-3 {
     text-align: right;
 }
 
-.pure-menu-custom-toggle {
+.custom-toggle {
     width: 34px;
     height: 34px;
     display: block;
@@ -40,7 +36,7 @@
     display: none;
 }
 
-.pure-menu-custom-toggle .bar {
+.custom-toggle .bar {
     background-color: #777;
     display: block;
     width: 20px;
@@ -55,21 +51,21 @@
     transition: all 0.5s;
 }
 
-.pure-menu-custom-toggle .bar:first-child {
+.custom-toggle .bar:first-child {
     -webkit-transform: translateY(-6px);
     -moz-transform: translateY(-6px);
     -ms-transform: translateY(-6px);
     transform: translateY(-6px);
 }
 
-.pure-menu-custom-toggle.x .bar {
+.custom-toggle.x .bar {
     -webkit-transform: rotate(45deg);
     -moz-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
 
-.pure-menu-custom-toggle.x .bar:first-child {
+.custom-toggle.x .bar:first-child {
     -webkit-transform: rotate(-45deg);
     -moz-transform: rotate(-45deg);
     -ms-transform: rotate(-45deg);
@@ -78,25 +74,25 @@
 
 @media (max-width: 48em) {
 
-    .pure-menu-custom-3 {
+    .custom-menu-3 {
         text-align: left;
     }
 
-    .pure-menu-custom-toggle {
+    .custom-toggle {
         display: block;
     }
 
 }
 </style>
-<div class="pure-menu-custom-wrapper pure-g" id="menu">
+<div class="custom-wrapper pure-g" id="menu">
     <div class="pure-u-1 pure-u-md-1-3">
         <div class="pure-menu">
-            <a href="#" class="pure-menu-heading pure-menu-custom-brand">Brand</a>
-            <a href="#" class="pure-menu-custom-toggle" id="toggle"><s class="bar"></s><s class="bar"></s></a>
+            <a href="#" class="pure-menu-heading custom-brand">Brand</a>
+            <a href="#" class="custom-toggle" id="toggle"><s class="bar"></s><s class="bar"></s></a>
         </div>
     </div>
     <div class="pure-u-1 pure-u-md-1-3">
-        <div class="pure-menu pure-menu-horizontal pure-menu-custom-can-transform">
+        <div class="pure-menu pure-menu-horizontal custom-can-transform">
             <ul class="pure-menu-list">
                 <li class="pure-menu-item"><a href="#" class="pure-menu-link">Home</a></li>
                 <li class="pure-menu-item"><a href="#" class="pure-menu-link">About</a></li>
@@ -105,7 +101,7 @@
         </div>
     </div>
     <div class="pure-u-1 pure-u-md-1-3">
-        <div class="pure-menu pure-menu-horizontal pure-menu-custom-3 pure-menu-custom-can-transform">
+        <div class="pure-menu pure-menu-horizontal custom-menu-3 custom-can-transform">
             <ul class="pure-menu-list">
                 <li class="pure-menu-item"><a href="#" class="pure-menu-link">Yahoo</a></li>
                 <li class="pure-menu-item"><a href="#" class="pure-menu-link">W3C</a></li>
@@ -119,7 +115,7 @@ var menu = document.getElementById('menu'),
 
 function toggleHorizontal() {
     [].forEach.call(
-        document.getElementById('menu').querySelectorAll('.pure-menu-custom-can-transform'),
+        document.getElementById('menu').querySelectorAll('.custom-can-transform'),
         function(el){
             el.classList.toggle('pure-menu-horizontal');
         }
@@ -130,7 +126,7 @@ function toggleMenu() {
     // set timeout so that the panel has a chance to roll up 
     // before the menu switches states
     if (menu.classList.contains('open')) {
-        setTimeout(toggleHorizontal, 1000);
+        setTimeout(toggleHorizontal, 500);
     }
     else {
         toggleHorizontal();

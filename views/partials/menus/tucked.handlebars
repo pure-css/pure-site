@@ -1,49 +1,51 @@
 <style>
-.pure-menu-custom-wrapper {
+.custom-menu-wrapper {
     background-color: #808080;
     margin-bottom: 2.5em;
+    white-space: nowrap;
+    position: relative;
 }
 
-.pure-menu-custom {
+.custom-menu {
     display: inline-block;
     width: auto;
     vertical-align: middle;
     -webkit-font-smoothing: antialiased;
 }
 
-.pure-menu-custom .pure-menu-link,
-.pure-menu-custom .pure-menu-heading {
+.custom-menu .pure-menu-link,
+.custom-menu .pure-menu-heading {
     color: white;
 }
 
-.pure-menu-custom .pure-menu-link:hover,
-.pure-menu-custom .pure-menu-heading:hover {
+.custom-menu .pure-menu-link:hover,
+.custom-menu .pure-menu-heading:hover {
     background-color: transparent;
 }
 
-.pure-menu-custom-top {
+.custom-menu-top {
     position: relative;
     padding-top: .5em;
     padding-bottom: .5em;
 }
 
-.pure-menu-custom-brand {
+.custom-menu-brand {
     display: block;
     text-align: center;
     position: relative;
 }
 
-.pure-menu-custom-toggle {
+.custom-menu-toggle {
     width: 44px;
     height: 44px;
     display: block;
     position: absolute;
-    top: 0;
+    top: 3px;
     right: 0;
     display: none;
 }
 
-.pure-menu-custom-toggle .bar {
+.custom-menu-toggle .bar {
     background-color: white;
     display: block;
     width: 20px;
@@ -58,65 +60,64 @@
     transition: all 0.5s;
 }
 
-.pure-menu-custom-toggle .bar:first-child {
+.custom-menu-toggle .bar:first-child {
     -webkit-transform: translateY(-6px);
     -moz-transform: translateY(-6px);
     -ms-transform: translateY(-6px);
     transform: translateY(-6px);
 }
 
-.pure-menu-custom-toggle.x .bar {
+.custom-menu-toggle.x .bar {
     -webkit-transform: rotate(45deg);
     -moz-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
 
-.pure-menu-custom-toggle.x .bar:first-child {
+.custom-menu-toggle.x .bar:first-child {
     -webkit-transform: rotate(-45deg);
     -moz-transform: rotate(-45deg);
     -ms-transform: rotate(-45deg);
     transform: rotate(-45deg);
 }
 
-.pure-menu-custom-screen {
-    display: none;
+.custom-menu-screen {
     background-color: rgba(0, 0, 0, 0.5);
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
     -ms-transition: all 0.5s;
     transition: all 0.5s;
     height: 3em;
-    width: 50em;
+    width: 70em;
     position: absolute;
     top: 0;
     z-index: -1;
 }
 
-.pure-menu-custom-tucked .pure-menu-custom-screen {
+.custom-menu-tucked .custom-menu-screen {
     -webkit-transform: translateY(-44px);
     -moz-transform: translateY(-44px);
     -ms-transform: translateY(-44px);
     transform: translateY(-44px);
 }
 
-@media (max-width: 50em) {
+@media (max-width: 62em) {
 
-    .pure-menu-custom {
+    .custom-menu {
         display: block;
     }
 
-    .pure-menu-custom-toggle {
+    .custom-menu-toggle {
         display: block;
     }
 
-    .pure-menu-custom-bottom {
+    .custom-menu-bottom {
         position: absolute;
         width: 100%;
         border-top: 1px solid #eee;
     }
 
-    .pure-menu-custom-bottom .pure-menu-link {
+    .custom-menu-bottom .pure-menu-link {
         opacity: 1;
         -webkit-transform: translateX(0);
         -moz-transform: translateX(0);
@@ -128,7 +129,7 @@
         transition: all 0.5s;
     }
 
-    .pure-menu-custom-bottom.pure-menu-custom-tucked .pure-menu-link {
+    .custom-menu-bottom.custom-menu-tucked .pure-menu-link {
         -webkit-transform: translateX(-140px);
         -moz-transform: translateX(-140px);
         -ms-transform: translateX(-140px);
@@ -136,27 +137,21 @@
         opacity: 0;
     }
 
-    .pure-menu-custom-tucked {
+    .custom-menu-tucked {
         z-index: -1;
-        top: -44px;
+        top: 45px;
         position: absolute;
-        opacity: 0;
-    }
-
-    .pure-menu-custom-screen {
-        display: block;
-        width: 70em;
     }
 
 }
 </style>
-<div class="pure-menu-custom-wrapper">
-    <div class="pure-menu pure-menu-custom pure-menu-custom-top">
-        <a href="#" class="pure-menu-heading pure-menu-custom-brand">Brand</a>
-        <a href="#" class="pure-menu-custom-toggle" id="toggle"><s class="bar"></s><s class="bar"></s></a>
+<div class="custom-menu-wrapper">
+    <div class="pure-menu custom-menu custom-menu-top">
+        <a href="#" class="pure-menu-heading custom-menu-brand">Brand</a>
+        <a href="#" class="custom-menu-toggle" id="toggle"><s class="bar"></s><s class="bar"></s></a>
     </div>
-    <div class="pure-menu pure-menu-horizontal pure-menu-scrollable pure-menu-custom pure-menu-custom-bottom pure-menu-custom-tucked" id="tuckedMenu">
-        <div class="pure-menu-custom-screen"></div>
+    <div class="pure-menu pure-menu-horizontal pure-menu-scrollable custom-menu custom-menu-bottom custom-menu-tucked" id="tuckedMenu">
+        <div class="custom-menu-screen"></div>
         <ul class="pure-menu-list">
             <li class="pure-menu-item"><a href="#" class="pure-menu-link">Home</a></li>
             <li class="pure-menu-item"><a href="#" class="pure-menu-link">About</a></li>
@@ -174,7 +169,7 @@
 </div>
 <script>
 document.getElementById('toggle').addEventListener('click', function (e) {
-    document.getElementById('tuckedMenu').classList.toggle('pure-menu-custom-tucked');
+    document.getElementById('tuckedMenu').classList.toggle('custom-menu-tucked');
     document.getElementById('toggle').classList.toggle('x');
 });
 </script>
