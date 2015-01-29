@@ -49,18 +49,30 @@
 
     {{sectionHeading "Dropdowns"}}
     <p>
-        Adding dropdowns to menus requires the use of JavaScript.
+        Adding dropdowns to menus requires JavaScript for .
         <a href="/js/menus.js">An example script</a>
         written with vanilla JS provides ARIA support, keyboard navigation, and
         the ability to dismiss the menu with an outside event or the ESC key.
-        Only one level of nesting is supported, since more than that generally
-        proves cumbersome on small screens.
+    </p>
+    <p>You still might want to display submenus on hover. Just add
+    {{code "pure-menu-allow-hover"}} to the {{code "pure-menu-has-children"}} list item.
     </p>
 
     {{> menus/dropdown}}
 
     {{#code}}
       {{> menus/dropdown}}
+    {{/code}}
+
+
+    {{sectionHeading "Submenus"}}
+
+    <p>The same construct used to create dropdowns works in vertical menus as well.</p>
+
+    {{> menus/submenu}}
+
+    {{#code}}
+      {{> menus/submenu}}
     {{/code}}
 
     {{sectionHeading "Scrollable Horizontal Menu"}}

@@ -72,7 +72,7 @@
     transform: rotate(-45deg);
 }
 
-@media (max-width: 48em) {
+@media (max-width: 47.999em) {
 
     .custom-menu-3 {
         text-align: left;
@@ -110,6 +110,7 @@
     </div>
 </div>
 <script>
+(function (window, document) {
 var menu = document.getElementById('menu'),
     WINDOW_CHANGE_EVENT = ('onorientationchange' in window) ? 'orientationchange':'resize';
 
@@ -123,7 +124,7 @@ function toggleHorizontal() {
 };
 
 function toggleMenu() {
-    // set timeout so that the panel has a chance to roll up 
+    // set timeout so that the panel has a chance to roll up
     // before the menu switches states
     if (menu.classList.contains('open')) {
         setTimeout(toggleHorizontal, 500);
@@ -146,6 +147,7 @@ document.getElementById('toggle').addEventListener('click', function (e) {
 });
 
 window.addEventListener(WINDOW_CHANGE_EVENT, closeMenu);
+})(this, this.document);
 
 </script>
 
