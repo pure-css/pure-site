@@ -161,7 +161,7 @@
     }
 
     function initDropdowns() {
-        var dropdownParents = document.getElementsByClassName('pure-menu-has-children');
+        var dropdownParents = document.querySelectorAll('.pure-menu-has-children');
         for (var i = 0; i < dropdownParents.length; i++) {
             var ddm = new PureDropdown(dropdownParents[i]);
         }

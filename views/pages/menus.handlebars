@@ -5,6 +5,8 @@
 {{addLocalCSS "/css/menus.css"}}
 {{addLocalJS "/js/menus.js"}}
 
+<script src="https://cdn.polyfill.io/v1/polyfill.min.js"></script>
+
 {{> header}}
 
 <div class="content">
@@ -46,21 +48,21 @@
       {{> menus/disabled}}
     {{/code}}
 
-
     {{sectionHeading "Dropdowns"}}
     <p>
         We recommend enabling submenus via JavaScript to enable accessibility.
         To help get you started, <a href="/js/menus.js">an example script</a>
         written in vanilla JS provides ARIA support, limited submenu arrow-key
         navigation, and the ability to dismiss menus with an outside event or
-        the ESC key. But you may wish to go further and add edge detection,
+        the ESC key. But you may wish to go further by adding edge detection,
         comprehensive arrow-key navigation, and polyfills for compatibility
         with old browsers.
     </p>
     <p>
         Even with JavaScript in place, you still might want to display submenus
         on hover. Just add {{code "pure-menu-allow-hover"}} to the
-        {{code "pure-menu-has-children"}} list item. 
+        {{code "pure-menu-has-children"}} list item. This can be nice for desktop
+        users and provides a fallback for users with no JavaScript.
     </p>
 
     {{> menus/dropdown}}
