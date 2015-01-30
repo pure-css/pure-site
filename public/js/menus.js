@@ -20,6 +20,7 @@
             DISMISS_EVENT = (window.hasOwnProperty &&
                 window.hasOwnProperty('ontouchstart')) ?
                     'touchstart' : 'mousedown',
+            arrowKeysEnabled = true,
             ddm = this; // drop down menu
 
             this._state = MENU_CLOSED;
@@ -55,6 +56,7 @@
             this._dropdownParent = dropdownParent;
             this._link = this._dropdownParent.querySelector(MENU_LINK_SELECTOR);
             this._menu = this._dropdownParent.querySelector(MENU_SELECTOR);
+            this._firstMenuLink = this._menu.querySelector(MENU_LINK_SELECTOR);
 
             // Set ARIA attributes
             this._link.setAttribute('aria-haspopup', 'true');
@@ -103,26 +105,26 @@
                     ddm.hide();
                 }
                 // Go to the next link on down arrow
-                else if (e.keyCode === 40) {
+                else if (arrowKeysEnabled && e.keyCode === 40) {
                     /* Down arrow */
                     ddm.halt(e);
-                    // get the currently focused link
+                    // get the nextSibling (an LI) of the current link's LI
                     nextSibling = (currentLink) ? currentLink.parentNode.nextSibling : null;
+                    // if the nextSibling is a text node (not an element), go to the next one
                     while (nextSibling && nextSibling.nodeType !== 1) {
                         nextSibling = nextSibling.nextSibling;
                     }
                     nextLink = (nextSibling) ? nextSibling.querySelector('.pure-menu-link') : null;
-                    // if there is no currently focused item, focus the first item
+                    // if there is no currently focused link, focus the first one
                     if (!currentLink) {
                         ddm._menu.querySelector('.pure-menu-link').focus();
                     }
-                    // else if there is a next item, go to the next item
                     else if (nextLink) {
                         nextLink.focus();
                     }
                 }
                 // Go to the previous link on up arrow
-                else if (e.keyCode === 38) {
+                else if (arrowKeysEnabled && e.keyCode === 38) {
                     /* Up arrow */
                     ddm.halt(e);
                     // get the currently focused link

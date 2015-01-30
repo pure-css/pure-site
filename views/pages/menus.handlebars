@@ -49,18 +49,18 @@
 
     {{sectionHeading "Dropdowns"}}
     <p>
-        We recommend enabling submenus via JavaScript to improve accessibility.
+        We recommend enabling submenus via JavaScript to enable accessibility.
         To help get you started, <a href="/js/menus.js">an example script</a>
-        written in vanilla JS provides ARIA support, keyboard navigation, and
-        the ability to dismiss menus with an outside event or the ESC key. This script
-        is incomplete, however: it lacks edge detection logic, the keyboard
-        navigation could be improved, and, because it's vanilla JS, it won't work
-        in older browsers without polyfills.
+        written in vanilla JS provides ARIA support, limited submenu arrow-key
+        navigation, and the ability to dismiss menus with an outside event or
+        the ESC key. But you may wish to go further and add edge detection,
+        comprehensive arrow-key navigation, and polyfills for compatibility
+        with old browsers.
     </p>
     <p>
-        Even with JavaScript in place, you still might want to display submenus on hover. Just add
-        {{code "pure-menu-allow-hover"}} to the {{code "pure-menu-has-children"}}
-        list item.
+        Even with JavaScript in place, you still might want to display submenus
+        on hover. Just add {{code "pure-menu-allow-hover"}} to the
+        {{code "pure-menu-has-children"}} list item. 
     </p>
 
     {{> menus/dropdown}}
@@ -70,13 +70,12 @@
     {{/code}}
 
 
-    {{sectionHeading "Submenus"}}
+    {{sectionHeading "Vertical Menu with Submenus"}}
 
     <p>
         The same construct used to create dropdowns works in vertical menus as well. You
-        can nest submenus, but this can lead to usability issues on mobile. You may also
-        require JavaScript to intelligently position the menus in response to window
-        boundaries.
+        may nest submenus, but keep in mind that complex menus can present usability
+        challenges on small screens.
     </p>
 
     {{> menus/submenu}}
