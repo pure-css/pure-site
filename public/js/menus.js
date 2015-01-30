@@ -5,6 +5,8 @@
     // Inspired by YUI3 gallery-simple-menu by Julien LeComte
     // [https://github.com/yui/yui3-gallery/blob/master/src/gallery-simple-menu/js/simple-menu.js]
 
+    // TODO: remove visible classes
+
     function PureDropdown(dropdownParent) {
 
         var PREFIX = 'pure-',
@@ -15,12 +17,15 @@
             MENU_OPEN = 0,
             MENU_CLOSED = 1,
             MENU_PARENT_CLASS_NAME = 'pure-menu-has-children',
+            MENU_ACTIVE_SELECTOR = '.pure-menu-active',
             MENU_LINK_SELECTOR = '.pure-menu-link',
             MENU_SELECTOR = '.pure-menu-children',
             DISMISS_EVENT = (window.hasOwnProperty &&
                 window.hasOwnProperty('ontouchstart')) ?
                     'touchstart' : 'mousedown',
+
             arrowKeysEnabled = true,
+
             ddm = this; // drop down menu
 
             this._state = MENU_CLOSED;
@@ -90,15 +95,20 @@
                     nextSibling,
                     previousLink,
                     nextLink;
+
                 // if the menu isn't active, ignore
                 if (ddm._state !== MENU_OPEN) {
+                    return;
+                }
+
+                // if the menu is the parent of an open, active submenu, ignore
+                if (ddm._menu.querySelector(MENU_ACTIVE_SELECTOR)) {
                     return;
                 }
 
                 currentLink = ddm._menu.querySelector(':focus');
 
                 // Dismiss an open menu on ESC
-                console.log(e.keyCode);
                 if (e.keyCode === 27) {
                     /* Esc */
                     ddm.halt(e);
@@ -108,6 +118,8 @@
                 else if (arrowKeysEnabled && e.keyCode === 40) {
                     /* Down arrow */
                     ddm.halt(e);
+                    console.log('ddm id: ' + ddm._dropdownParent.id);
+                    if (ddm._menu.id === 'debug-third') debugger;
                     // get the nextSibling (an LI) of the current link's LI
                     nextSibling = (currentLink) ? currentLink.parentNode.nextSibling : null;
                     // if the nextSibling is a text node (not an element), go to the next one
