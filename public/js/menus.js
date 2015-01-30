@@ -5,13 +5,10 @@
     // Inspired by YUI3 gallery-simple-menu by Julien LeComte
     // [https://github.com/yui/yui3-gallery/blob/master/src/gallery-simple-menu/js/simple-menu.js]
 
-    // TODO: remove visible classes
-
     function PureDropdown(dropdownParent) {
 
         var PREFIX = 'pure-',
             ACTIVE_CLASS_NAME = PREFIX + 'menu-active',
-            VISIBLE_CLASS_NAME = PREFIX + 'menu-visible',
             ARIA_ROLE = 'role',
             ARIA_HIDDEN = 'aria-hidden',
             MENU_OPEN = 0,
@@ -33,7 +30,6 @@
             this.show = function () {
                 if (this._state !== MENU_OPEN) {
                     this._dropdownParent.classList.add(ACTIVE_CLASS_NAME);
-                    this._menu.classList.add(VISIBLE_CLASS_NAME);
                     this._menu.setAttribute(ARIA_HIDDEN, false);
                     this._state = MENU_OPEN;
                 }
@@ -42,7 +38,6 @@
             this.hide = function () {
                 if (this._state !== MENU_CLOSED) {
                     this._dropdownParent.classList.remove(ACTIVE_CLASS_NAME);
-                    this._menu.classList.remove(VISIBLE_CLASS_NAME);
                     this._menu.setAttribute(ARIA_HIDDEN, true);
                     this._link.focus();
                     this._state = MENU_CLOSED;
@@ -118,7 +113,6 @@
                 else if (arrowKeysEnabled && e.keyCode === 40) {
                     /* Down arrow */
                     ddm.halt(e);
-                    console.log('ddm id: ' + ddm._dropdownParent.id);
                     if (ddm._menu.id === 'debug-third') debugger;
                     // get the nextSibling (an LI) of the current link's LI
                     nextSibling = (currentLink) ? currentLink.parentNode.nextSibling : null;
