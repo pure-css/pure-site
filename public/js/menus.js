@@ -21,7 +21,7 @@
                 window.hasOwnProperty('ontouchstart')) ?
                     'touchstart' : 'mousedown',
 
-            arrowKeysEnabled = true,
+            ARROW_KEYS_ENABLED = true,
 
             ddm = this; // drop down menu
 
@@ -110,7 +110,7 @@
                     ddm.hide();
                 }
                 // Go to the next link on down arrow
-                else if (arrowKeysEnabled && e.keyCode === 40) {
+                else if (ARROW_KEYS_ENABLED && e.keyCode === 40) {
                     /* Down arrow */
                     ddm.halt(e);
                     if (ddm._menu.id === 'debug-third') debugger;
@@ -130,7 +130,7 @@
                     }
                 }
                 // Go to the previous link on up arrow
-                else if (arrowKeysEnabled && e.keyCode === 38) {
+                else if (ARROW_KEYS_ENABLED && e.keyCode === 38) {
                     /* Up arrow */
                     ddm.halt(e);
                     // get the currently focused link
