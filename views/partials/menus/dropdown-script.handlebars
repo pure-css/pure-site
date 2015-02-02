@@ -2,15 +2,15 @@ YUI({
     classNamePrefix: 'pure'
 }).use('gallery-sm-menu', function (Y) {
 
-    var horizontalMenu = new Y.Menu({
-        container         : '#demo-horizontal-menu',
-        sourceNode        : '#std-menu-items',
-        orientation       : 'horizontal',
+    var myMenu = new Y.Menu({
+        container         : '#yui-enabled-menu',
+        sourceNode        : '#yui-enabled-menu-items',
+        orientation       : 'vertical',
         hideOnOutsideClick: false,
         hideOnClick       : false
     });
 
-    horizontalMenu.render();
-    horizontalMenu.show();
+    myMenu.render();
+    myMenu.show();
 
 });

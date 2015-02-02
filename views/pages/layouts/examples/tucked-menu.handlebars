@@ -1,0 +1,34 @@
+{{setTitle    "Responsive Horizontal-to-Scrollable Menu"}}
+{{setSubTitle "Showcases a horizontal menu that hides at
+ small window widths, and which scrolls when revealed."}}
+{{setTags     "base" "menus"}}
+
+{{> menus/tucked}}
+
+<style>
+.main {
+    padding: 2em;
+    color: black;
+}
+</style>
+
+<div class="main">
+
+    <h1>Responsive Horizontal-to-Scrollable Menu</h1>
+
+    <p>This example shows how you can build upon Pure menu classes
+    such as pure-menu-horizontal
+    and pure-menu-scrollable. At wide window-widths we display a horizontal menu.
+    At smaller window-widths,
+    we switch to a scrollable horizontal menu with a toggle control. Older IE
+    clients won't get all the bells and whistles, but it should still be usable.
+    Remember that the JavaScript provided is plain vanilla JS so it won't work in
+    some browsers; you'll need to polyfill or adapt the code to your library of choice.</p>
+
+    <p>Code reproduced below:</p>
+
+    {{#code}}
+      {{> menus/tucked}}
+    {{/code}}
+
+</div>

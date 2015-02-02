@@ -3,88 +3,127 @@
 {{setActiveNav "menus"}}
 
 {{addLocalCSS "/css/menus.css"}}
+{{addLocalJS "/js/menus.js"}}
+
+<script src="https://cdn.polyfill.io/v1/polyfill.min.js"></script>
 
 {{> header}}
 
 <div class="content">
 
-    {{sectionHeading "Horizontal Menu"}}
-    <p>
-        To create a horizontal menu, add the {{code "pure-menu-horizontal"}} class name. You can mark the active list element by adding the {{code "pure-menu-selected"}} class to the list element.
-    </p>
-
-    {{> menus/horizontal}}
-
-  {{#code}}
-    {{> menus/horizontal}}
-  {{/code}}
-
-
-    {{sectionHeading "Menu with Headings"}}
-    <p>
-        To add headings to your menu, place some content outside the {{code "<ul>"}} element and wrap it in an {{code "<a>"}} element with the {{code "pure-menu-heading"}} class name.
-    </p>
-
-    {{> menus/heading}}
-
-  {{#code}}
-    {{> menus/heading}}
-  {{/code}}
-
-
     {{sectionHeading "Vertical Menu"}}
     <p>
-        Menus are vertical by default. You need only add the {{code "pure-menu"}} class to style the menu, and the {{code "pure-menu-open"}} class to ensure that it is visible.
+        Menus are vertical by default. Minimal default styling and low-specificity
+        selectors make them easy to customize. By default, menu items take up
+        100% of the width of their container, so you may want to limit the menu
+        width or set the menu to display:inline-block.
     </p>
 
     {{> menus/vertical}}
 
-  {{#code}}
-    {{> menus/vertical}}
-  {{/code}}
+    {{#code}}
+      {{> menus/vertical}}
+    {{/code}}
 
 
-    {{sectionHeading "Add Dropdowns to Menus"}}
+    {{sectionHeading "Horizontal Menu"}}
     <p>
-        Adding dropdowns to menus requires the use of JavaScript. For example, YUI's {{code "Y.Menu"}} module adds dropdown functionality and the ability to create JavaScript menus.
+        To create a horizontal menu, add the {{code "pure-menu-horizontal"}} class name.
+    </p>
+
+    {{> menus/horizontal}}
+
+    {{#code}}
+      {{> menus/horizontal}}
+    {{/code}}
+
+    {{sectionHeading "Selected and Disabled Items"}}
+    <p>
+        Mark a selected list element by adding the {{code "pure-menu-selected"}} class to the list element. To mark a link as disabled, add an {{code "<a>"}} element with the {{code "pure-menu-disabled"}} class name. Disabled items appear faded and do not inherit hover styles.
+    </p>
+
+    {{> menus/disabled}}
+
+    {{#code}}
+      {{> menus/disabled}}
+    {{/code}}
+
+    {{sectionHeading "Dropdowns"}}
+    <p>
+        We recommend enabling submenus via JavaScript to enable accessibility.
+        To help get you started, <a href="/js/menus.js">an example script</a>
+        written in vanilla JS provides ARIA support, limited submenu arrow-key
+        navigation, and the ability to dismiss menus with an outside event or
+        the ESC key. But you may wish to go further by adding edge detection,
+        comprehensive arrow-key navigation, and polyfills for compatibility
+        with old browsers.
+    </p>
+    <p>
+        Even with JavaScript in place, you still might want to display submenus
+        on hover. Just add {{code "pure-menu-allow-hover"}} to the
+        {{code "pure-menu-has-children"}} list item. This can be nice for desktop
+        users and provides a fallback for users with no JavaScript.
     </p>
 
     {{> menus/dropdown}}
-    <script>
-        app.yui.ready(function () {
-            {{> menus/dropdown-script}}
-        });
-    </script>
 
-{{#code}}
-{{> menus/dropdown}}
-<script>
-{{> menus/dropdown-script}}</script>
-{{/code}}
+    {{#code}}
+      {{> menus/dropdown}}
+    {{/code}}
 
 
-    {{sectionHeading "Menus with Disabled Items"}}
+    {{sectionHeading "Vertical Menu with Submenus"}}
+
     <p>
-        To mark a link as disabled, add an {{code "<a>"}} element with the {{code "pure-menu-disabled"}} class name. Disabled items appear faded and do not inherit hover styles.
+        The same construct used to create dropdowns works in vertical menus as well. You
+        may nest submenus, but keep in mind that complex menus can present usability
+        challenges on small screens.
     </p>
 
-    {{> menus/disabled}}
+    {{> menus/submenu}}
 
-  {{#code}}
-    {{> menus/disabled}}
-  {{/code}}
+    {{#code}}
+      {{> menus/submenu}}
+    {{/code}}
 
-
-    {{sectionHeading "Paginators"}}
+    {{sectionHeading "Scrollable Horizontal Menu"}}
     <p>
-        To create a paginator control, add the {{code "pure-paginator"}} classname to a {{code "<ul>"}} element. For paginator controls that look like buttons, add the {{code "pure-button"}} class name. For a plainer paginator, you can omit this class.
+        To create a scrollable horizontal menu, add the {{code "pure-menu-scrollable"}} class name. When
+        there isn't enough room, the menu items can be scrolled or flicked. Dropdown menus are not supported.
     </p>
 
-    {{> menus/paginator}}
+    {{> menus/horizontal-scroll}}
 
-  {{#code}}
-    {{> menus/paginator}}
-  {{/code}}
+    {{#code}}
+      {{> menus/horizontal-scroll}}
+    {{/code}}
+
+    {{sectionHeading "Scrollable Vertical Menu"}}
+    <p>
+        To create a scrollable vertical menu, limit the height of your menu, and then add the {{code "pure-menu-scrollable"}} class name. The menu items can be scrolled or flicked. Submenus are not supported.
+    </p>
+
+    {{> menus/vertical-scroll}}
+
+    {{#code}}
+      {{> menus/vertical-scroll}}
+    {{/code}}
+
+    {{sectionHeading "Responsive Menus That Hide"}}
+    <p>
+        Check out our <a href="/layouts/">Layout Examples</a> to see how you can use
+        Pure as a foundation for more complex menus, such as:
+    </p>
+
+    <ul>
+        <li><a href="/layouts/side-menu/">Responsive Vertical Menu</a>, which
+        collapses behind a hamburger,
+        similar to the menu on this Pure website.</li>
+        <li><a href="/layouts/tucked-menu/">Responsive Horizontal-Scrollable Menu</a>,
+        which tucks out of the way on small screens.</li>
+        <li><a href="/layouts/tucked-menu-vertical/">Responsive Horizontal-to-Vertical Menu</a>,
+        which slides out of view.</li>
+    </ul>
 
 </div>
 

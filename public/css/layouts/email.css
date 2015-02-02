@@ -83,16 +83,16 @@ a {
  * -- NAV BAR STYLES --
  * Styling the default .pure-menu to look a little more unique.
  */
-#nav .pure-menu.pure-menu-open {
+#nav .pure-menu {
     background: transparent;
     border: none;
     text-align: left;
 }
-    #nav .pure-menu a:hover,
-    #nav .pure-menu a:focus {
+    #nav .pure-menu-link:hover,
+    #nav .pure-menu-link:focus {
         background: rgb(55, 60, 90);
     }
-    #nav .pure-menu a {
+    #nav .pure-menu-link {
         color: #fff;
         margin-left: 0.5em;
     }

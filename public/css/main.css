@@ -78,14 +78,10 @@ aside {
     position: relative;
     padding-left: 0;
 }
-    #layout.active {
-        position: relative;
+    #layout.active #menu {
         left: 160px;
+        width: 160px;
     }
-        #layout.active #menu {
-            left: 160px;
-            width: 160px;
-        }
 
 /* Apply the .box class on the immediate parent of any grid element (pure-u-*) to apply some padding. */
 .l-box {
@@ -306,6 +302,7 @@ code {
     #menu .pure-menu ul {
         border: none;
         background: transparent;
+        display: block;
     }
 
     #menu .pure-menu ul,
@@ -394,6 +391,7 @@ code {
         color: #fff;
         margin-top: 0;
         padding: 0.5em 0.8em;
+        text-transform: uppercase;
     }
     #menu .pure-menu-heading:hover,
     #menu .pure-menu-heading:focus {
@@ -585,6 +583,19 @@ a.pure-button-primary {
         border-right-width: 1px;
     }
 
+}
+
+@media (max-width: 58em) {
+    /* Only apply this when the window is smaller. Otherwise, the following
+    case results in extra padding on the left:
+        * Make the window small. (Rotate to portrait on a mobile.)
+        * Tap the menu to trigger the active state.
+        * Make the window large again. (Rotate to landscape on mobile.)
+    */
+    #layout.active {
+        position: relative;
+        left: 160px;
+    }
 }
 
 @media (min-width: 58em) {
