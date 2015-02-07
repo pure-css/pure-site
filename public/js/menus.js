@@ -113,7 +113,6 @@
                 else if (ARROW_KEYS_ENABLED && e.keyCode === 40) {
                     /* Down arrow */
                     ddm.halt(e);
-                    if (ddm._menu.id === 'debug-third') debugger;
                     // get the nextSibling (an LI) of the current link's LI
                     nextSibling = (currentLink) ? currentLink.parentNode.nextSibling : null;
                     // if the nextSibling is a text node (not an element), go to the next one
