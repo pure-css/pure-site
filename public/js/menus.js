@@ -154,6 +154,7 @@
                 var target = e.target;
                 if (target !== ddm._link && !ddm._menu.contains(target)) {
                     ddm.hide();
+                    ddm._link.blur();
                 }
             });
 
