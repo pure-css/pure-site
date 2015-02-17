@@ -51,7 +51,7 @@
             this.halt = function (e) {
                 e.stopPropagation();
                 e.preventDefault();
-            }
+            };
 
             this._dropdownParent = dropdownParent;
             this._link = this._dropdownParent.querySelector(MENU_LINK_SELECTOR);
