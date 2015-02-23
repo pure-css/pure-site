@@ -6,6 +6,7 @@
   "private": true,
   "repository": "git://github.com/yahoo/pure-site.git",
   "contributors": [
+    "James Alley <manalagi001@yahoo.com> (http://www.manlagi.com/)",
     "Eric Ferraiuolo <eferraiuolo@gmail.com> (http://ericf.me/)",
     "Tilo Mitra <tilomitra@gmail.com> (http://www.tilomitra.com/)"
   ],
@@ -92,7 +93,7 @@
       "component": "Pure"
     },
     "custodian": {
-      "email": "tilo@yahoo-inc.com",
+      "email": "jalley@yahoo-inc.com",
       "url": "http://purecss.io/"
     }
   }
