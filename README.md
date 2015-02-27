@@ -18,6 +18,19 @@ $ npm install
 $ npm start
 ```
 
+To run the health checks:
+
+```
+$ grunt health.check
+```
+
+By default, it will run the tests using the local instance (running on port 5000)
+But you can also specify a remote host:
+
+```
+$ grunt health.check --host=foo
+```
+
 ### Auto-Building of Browser Assets
 
 This site uses an integrated [Broccoli][] build process. When the site is
@@ -45,7 +58,7 @@ $ bower link
 
 Now you'll need to move into where you have this project checked out locally,
 install the website's npm dependencies (if you haven't done so already),
-link `pure` in `pure-site` using Bower, then start up the server with the 
+link `pure` in `pure-site` using Bower, then start up the server with the
 --pure-local argument:
 
 ```shell
