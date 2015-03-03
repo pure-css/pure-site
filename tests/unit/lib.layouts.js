@@ -10,6 +10,7 @@ describe('lib/layouts', function () {
 
     describe('load()', function () {
         it('returns an array', function (done) {
+            this.timeout(10000);
             liblayouts.load(function (err, data) {
                 if (err) throw err;
                 expect(data).to.be.an('array');
