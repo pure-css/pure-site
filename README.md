@@ -1,6 +1,9 @@
 Pure CSS Website
 ================
 
+[![Build Status](http://img.shields.io/travis/yahoo/pure-site.svg?style=flat-square)](https://travis-ci.org/yahoo/pure-site)
+[![Dependency Status](http://img.shields.io/gemnasium/yahoo/pure-site.svg?style=flat-square)](https://gemnasium.com/yahoo/pure-site)
+
 The website which showcases [Pure CSS][Pure].
 
 
