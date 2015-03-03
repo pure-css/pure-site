@@ -44,13 +44,26 @@ module.exports = function (grunt) {
                     }
                 }
             }
+        },
+
+        shell: {
+            health_check: {
+                command: 'mkdir -p artifacts/test/health-check &&' +
+                    ' ./node_modules/.bin/mocha --reporter tap tests/health-check.js --host=' + (grunt.option('host') || 'localhost:5000') +
+                        ' | tee artifacts/test/health-check/results.tap'
+            }
         }
     });
 
     // npm tasks.
-    grunt.loadNpmTasks('grunt-broccoli-build');
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-broccoli-build');
     grunt.loadNpmTasks('grunt-pure-grids');
+    grunt.loadNpmTasks('grunt-shell-spawn');
 
-    grunt.registerTask('default', ['clean', 'broccoli_build', 'clean:tmp']);
+    grunt.registerTask('build', ['clean', 'broccoli_build', 'clean:tmp']);
+
+    grunt.registerTask('health.check', ['shell:health_check']);
+
+    grunt.registerTask('default', ['build']);
 };

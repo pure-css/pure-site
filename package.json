@@ -59,13 +59,20 @@
     "grunt-cli": "^0.1.13",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-pure-grids": "^1.0.0",
+    "grunt-shell-spawn": "^0.3.1",
+    "istanbul": "^0.3.2",
+    "mocha": "^2.0.1",
+    "chai": "^1.10.0",
+    "chai-as-promised": "~4.1.1",
     "js-module-formats": "^0.1.0",
     "mkdirp": "^0.5.0",
     "rimraf": "^2.2.6",
+    "supertest": "~0.15.0",
     "walk-sync": "^0.1.0"
   },
   "scripts": {
-    "postinstall": "bower install && grunt"
+    "postinstall": "bower install && grunt",
+    "test": "istanbul cover -- node_modules/mocha/bin/_mocha tests/unit/ --reporter spec"
   },
   "jshintConfig": {
     "browser": true,

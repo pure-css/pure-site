@@ -1,6 +1,9 @@
 Pure CSS Website
 ================
 
+[![Build Status](http://img.shields.io/travis/yahoo/pure-site.svg?style=flat-square)](https://travis-ci.org/yahoo/pure-site)
+[![Dependency Status](http://img.shields.io/gemnasium/yahoo/pure-site.svg?style=flat-square)](https://gemnasium.com/yahoo/pure-site)
+
 The website which showcases [Pure CSS][Pure].
 
 
@@ -16,6 +19,19 @@ running locally.
 ```shell
 $ npm install
 $ npm start
+```
+
+To run the health checks:
+
+```
+$ grunt health.check
+```
+
+By default, it will run the tests using the local instance (running on port 5000)
+But you can also specify a remote host:
+
+```
+$ grunt health.check --host=foo
 ```
 
 ### Auto-Building of Browser Assets
@@ -45,7 +61,7 @@ $ bower link
 
 Now you'll need to move into where you have this project checked out locally,
 install the website's npm dependencies (if you haven't done so already),
-link `pure` in `pure-site` using Bower, then start up the server with the 
+link `pure` in `pure-site` using Bower, then start up the server with the
 --pure-local argument:
 
 ```shell
