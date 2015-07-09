@@ -30,8 +30,7 @@
     color: #666;
     transition: all 0.1s;
     cursor: pointer;
-    top: -0.813em;
-    position: relative;
+    display: inline-block;
     font-size: 0.8em;
 }
 
@@ -45,7 +44,6 @@
 .grid-tab-link-selected,
 .grid-tab-link-selected:visited {
     border: 1px solid #ccc;
-    background: #fff;
     border-bottom-color: transparent;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
