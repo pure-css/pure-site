@@ -144,6 +144,7 @@ function closeMenu() {
 
 document.getElementById('toggle').addEventListener('click', function (e) {
     toggleMenu();
+    e.preventDefault();
 });
 
 window.addEventListener(WINDOW_CHANGE_EVENT, closeMenu);
