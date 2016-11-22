@@ -12,7 +12,9 @@ describe('lib/layouts', function () {
         it('returns an array', function (done) {
             this.timeout(10000);
             liblayouts.load(function (err, data) {
-                if (err) throw err;
+                if (err) {
+                    throw err;
+                }
                 expect(data).to.be.an('array');
                 expect(data).to.have.length(8);
                 layout = data[0];
