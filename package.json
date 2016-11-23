@@ -4,11 +4,14 @@
   "homepage": "http://purecss.io/",
   "version": "1.18.13",
   "private": true,
-  "repository": "git://github.com/yahoo/pure-site.git",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/yahoo/pure-site.git"
+  },
+  "author": "Tilo Mitra <tilomitra@gmail.com> (http://www.tilomitra.com/)",
   "contributors": [
     "James Alley <manalagi001@yahoo.com> (http://www.manlagi.com/)",
-    "Eric Ferraiuolo <eferraiuolo@gmail.com> (http://ericf.me/)",
-    "Tilo Mitra <tilomitra@gmail.com> (http://www.tilomitra.com/)"
+    "Eric Ferraiuolo <eferraiuolo@gmail.com> (http://ericf.me/)"
   ],
   "directories": {
     "lib": "./lib",
