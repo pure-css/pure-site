@@ -3,7 +3,7 @@
 {{#if servePureLocally}}
 <link rel="stylesheet" href="/css/pure/pure{{min}}.css">
 {{else}}
-<link rel="stylesheet" href="https://yui-s.yahooapis.com/pure/{{pure.version}}/pure{{min}}.css">
+<link rel="stylesheet" href="https://unpkg.com/purecss@{{pure.version}}/build/pure{{min}}.css">
 {{/if}}
 
 {{#if includePureGR}}
@@ -11,14 +11,14 @@
   {{#if servePureLocally}}
     <link rel="stylesheet" href="/css/pure/grids-responsive-old-ie{{min}}.css">
   {{else}}
-    <link rel="stylesheet" href="https://yui-s.yahooapis.com/pure/{{pure.version}}/grids-responsive-old-ie{{min}}.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@{{pure.version}}/build/grids-responsive-old-ie{{min}}.css">
   {{/if}}
 <![endif]-->
 <!--[if gt IE 8]><!-->
   {{#if servePureLocally}}
     <link rel="stylesheet" href="/css/pure/grids-responsive{{min}}.css">
   {{else}}
-    <link rel="stylesheet" href="https://yui-s.yahooapis.com/pure/{{pure.version}}/grids-responsive{{min}}.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@{{pure.version}}/build/grids-responsive{{min}}.css">
   {{/if}}
 <!--<![endif]-->
 {{/if}}
