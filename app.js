@@ -75,7 +75,10 @@ if (config.isDevelopment) {
 }
 
 app.use(express.compress());
-app.use(express.favicon(path.join(config.dirs.pub, 'favicon.ico')));
+if (config.isProduction) {
+    // watcher lib removes build folder, which causes this to fail in dev
+    app.use(express.favicon(path.join(config.dirs.pub, 'favicon.ico')));
+}
 app.use(middleware.pure(config.pure));
 app.use(expyui.expose());
 app.use(middleware.exposeModuleGraph(app, config.graph));

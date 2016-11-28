@@ -32,7 +32,7 @@ describe('routes/start', function () {
         it('should return 400', function (done) {
             request(app).get('/start/css?mq=foo bar')
                 .expect(400)
-                .expect('Content-Type', 'text/html; charset=UTF-8')
+                .expect('Content-Type', 'text/html; charset=utf-8')
                 .end(done);
         });
     });

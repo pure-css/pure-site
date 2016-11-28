@@ -24,7 +24,7 @@ describe('Error cases', function () {
         it('should respond with 404', function (done) {
             request(app).get('/404')
                 .expect(404)
-                .expect('Content-Type', 'text/html; charset=UTF-8')
+                .expect('Content-Type', 'text/html; charset=utf-8')
                 .end(done);
         });
     });
@@ -33,7 +33,7 @@ describe('Error cases', function () {
         it('should respond with 500', function (done) {
             request(app).get('/500')
                 .expect(500)
-                .expect('Content-Type', 'text/html; charset=UTF-8')
+                .expect('Content-Type', 'text/html; charset=utf-8')
                 .end(done);
         });
     });
