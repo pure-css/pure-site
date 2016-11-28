@@ -25,12 +25,12 @@
             <tbody>
                 <tr>
                     <td>Responsive Rollup</td>
-                    <td>https://yui-s.yahooapis.com/pure/{{pure.version}}/pure-min.css</td>
+                    <td>https://unpkg.com/purecss@{{pure.version}}/build/pure-min.css</td>
                     <td>{{fileSize "pure"}}</td>
                 </tr>
                 <tr>
                     <td>Non-Responsive Rollup</td>
-                    <td>https://yui-s.yahooapis.com/pure/{{pure.version}}/pure-nr-min.css</td>
+                    <td>https://unpkg.com/purecss@{{pure.version}}/build/pure-nr-min.css</td>
                     <td>{{fileSize "pure-nr"}}</td>
                 </tr>
             </tbody>
@@ -39,7 +39,7 @@
 
     <h3>Alternate CDNs</h3>
     <p>
-        The main host for Pure is the Yahoo! CDN where Pure is available over HTTP and individual modules can be combined together in a single combo request. The following table lists alternate CDNs where Pure is hosted.
+        The main host for Pure is the unpkg CDN where Pure is available over HTTPS. The following table lists alternate CDNs where Pure is hosted.
     </p>
 
     <div class="table-responsive">
@@ -54,22 +54,16 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><a href="http://www.jsdelivr.com/">jsDelivr</a></td>
-                    <td>//cdn.jsdelivr.net/pure/{{pure.version}}/pure-min.css</td>
-                    <td>Yes</td>
-                    <td>Yes</td>
-                </tr>
-                <tr>
-                    <td><a href="http://rawgit.com/">RawGit</a></td>
-                    <td>//cdn.rawgit.com/yahoo/pure-release/v{{pure.version}}/pure-min.css</td>
-                    <td>Yes</td>
-                    <td>No</td>
-                </tr>
-                <tr>
                     <td><a href="http://cdnjs.com/">cdnjs</a></td>
                     <td>//cdnjs.cloudflare.com/ajax/libs/pure/{{pure.version}}/pure-min.css</td>
                     <td>Yes</td>
                     <td>No</td>
+                </tr>
+                <tr>
+                    <td><a href="http://www.jsdelivr.com/">jsDelivr</a></td>
+                    <td>//cdn.jsdelivr.net/pure/{{pure.version}}/pure-min.css</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
                 </tr>
                 <tr>
                     <td><a href="https://www.keycdn.com/">KeyCDN</a></td>
@@ -80,6 +74,12 @@
                 <tr>
                     <td><a href="http://www.osscdn.com/">OSS MaxCDN</a></td>
                     <td>//oss.maxcdn.com/libs/pure/{{pure.version}}/pure-min.css</td>
+                    <td>Yes</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td><a href="http://rawgit.com/">RawGit</a></td>
+                    <td>//cdn.rawgit.com/yahoo/pure-release/v{{pure.version}}/pure-min.css</td>
                     <td>Yes</td>
                     <td>No</td>
                 </tr>
@@ -113,39 +113,39 @@
             <tbody>
                 <tr>
                     <td>Base</td>
-                    <td>https://yui-s.yahooapis.com/pure/{{pure.version}}/base-min.css</td>
+                    <td>https://unpkg.com/purecss@{{pure.version}}/build/base-min.css</td>
                 </tr>
                 <tr>
                     <td>Buttons</td>
-                    <td>https://yui-s.yahooapis.com/pure/{{pure.version}}/buttons-min.css</td>
+                    <td>https://unpkg.com/purecss@{{pure.version}}/build/buttons-min.css</td>
                 </tr>
                 <tr>
                     <td>Forms (Responsive)</td>
-                    <td>https://yui-s.yahooapis.com/pure/{{pure.version}}/forms-min.css</td>
+                    <td>https://unpkg.com/purecss@{{pure.version}}/build/forms-min.css</td>
                 </tr>
                 <tr>
                     <td>Forms (Non-Responsive)</td>
-                    <td>https://yui-s.yahooapis.com/pure/{{pure.version}}/forms-nr-min.css</td>
+                    <td>https://unpkg.com/purecss@{{pure.version}}/build/forms-nr-min.css</td>
                 </tr>
                 <tr>
                     <td>Grids (Base)</td>
-                    <td>http://yui.yahooapis.com/pure/{{pure.version}}/grids-min.css</td>
+                    <td>https://unpkg.com/purecss@{{pure.version}}/build/grids-min.css</td>
                 </tr>
                 <tr>
                     <td>Grids (Responsive)</td>
-                    <td>https://yui-s.yahooapis.com/pure/{{pure.version}}/grids-responsive-min.css</td>
+                    <td>https://unpkg.com/purecss@{{pure.version}}/build/grids-responsive-min.css</td>
                 </tr>
                 <tr>
                     <td>Menus (Responsive)</td>
-                    <td>https://yui-s.yahooapis.com/pure/{{pure.version}}/menus-min.css</td>
+                    <td>https://unpkg.com/purecss@{{pure.version}}/build/menus-min.css</td>
                 </tr>
                 <tr>
                     <td>Menus (Non-Responsive)</td>
-                    <td>https://yui-s.yahooapis.com/pure/{{pure.version}}/menus-nr-min.css</td>
+                    <td>https://unpkg.com/purecss@{{pure.version}}/build/menus-nr-min.css</td>
                 </tr>
                 <tr>
                     <td>Tables</td>
-                    <td>https://yui-s.yahooapis.com/pure/{{pure.version}}/tables-min.css</td>
+                    <td>https://unpkg.com/purecss@{{pure.version}}/build/tables-min.css</td>
                 </tr>
             </tbody>
         </table>
@@ -153,18 +153,7 @@
 
     {{sectionHeading "Combo Handling"}}
     <p>
-        Combo handling is a service where one or more modules can be loaded using a single HTTP request. They are essentially dynamic rollups that are cacheable by CDNs.
-    </p>
-    <p>
-         Here's an example of a Yahoo! CDN combo URL that includes CSS for <a href="{{pathTo 'base'}}">Base</a>, <a href="{{pathTo 'grids'}}">Grids</a>, and <a href="{{pathTo 'forms'}}">Forms</a>:
-    </p>
-
-    {{#code}}
-        <link rel="stylesheet" href="https://yui-s.yahooapis.com/combo?pure/{{pure.version}}/base-min.css&pure/{{pure.version}}/grids-min.css&pure/{{pure.version}}/forms-min.css">
-    {{/code}}
-
-    <p>
-        jsDelivr is an alternative CDN that supports combo handling. Here's an example of a combo URL that includes the same CSS <a href="{{pathTo 'base'}}">Base</a>, <a href="{{pathTo 'grids'}}">Grids</a>, and <a href="{{pathTo 'forms'}}">Forms</a> as above.
+        jsDelivr is a CDN that supports combo handling. Here's an example of a combo URL that includes the same CSS <a href="{{pathTo 'base'}}">Base</a>, <a href="{{pathTo 'grids'}}">Grids</a>, and <a href="{{pathTo 'forms'}}">Forms</a> as above.
     </p>
 
     {{#code}}
