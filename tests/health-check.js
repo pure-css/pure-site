@@ -53,7 +53,7 @@ describe('Functional tests', function () {
             it('correctly responds on the ' + routePath + ' route', function (done) {
                 request.get(routePath)
                     .expect(200)
-                    .expect('Content-Type', 'text/html; charset=utf-8')
+                    .expect('Content-Type', /text\/html|charset=utf-8/)
                     .end(done);
             });
         });
