@@ -65,7 +65,7 @@
     "grunt-contrib-clean": "^1.0.0",
     "grunt-pure-grids": "^1.0.0",
     "grunt-shell-spawn": "^0.3.1",
-    "istanbul": "^0.4.5",
+    "jenkins-mocha": "^2.2.0",
     "js-module-formats": "^0.1.0",
     "mkdirp": "^0.5.0",
     "mocha": "^3.2.0",
@@ -74,8 +74,9 @@
     "walk-sync": "^0.3.1"
   },
   "scripts": {
+    "functional": "exit 0",
     "postinstall": "bower install && grunt",
-    "test": "istanbul cover -- node_modules/mocha/bin/_mocha tests/unit/ --reporter spec"
+    "test": "jenkins-mocha tests/unit"
   },
   "jshintConfig": {
     "browser": true,
