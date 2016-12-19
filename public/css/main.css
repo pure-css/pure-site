@@ -516,6 +516,12 @@ a.pure-button-primary {
     margin-left: auto;
     margin-right: auto;
 }
+.is-code-full code {
+    display: inline-block;
+    max-width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 
 /* --------------------------

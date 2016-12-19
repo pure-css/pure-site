@@ -35,6 +35,7 @@ function getPureMetadata(pure, callback) {
         pureMetadata = {
             version   : pure.version,
             modules   : pure.modules,
+            sriHash   : pure.sriHash,
             filesizes : results.filesizes,
             gridunits : results.gridunits,
             responsive: results.responsive

@@ -3,7 +3,7 @@
 {{#if servePureLocally}}
 <link rel="stylesheet" href="/css/pure/pure{{min}}.css">
 {{else}}
-<link rel="stylesheet" href="https://unpkg.com/purecss@{{pure.version}}/build/pure{{min}}.css">
+<link rel="stylesheet" href="https://unpkg.com/purecss@{{pure.version}}/build/pure{{min}}.css" integrity="sha384-{{pure.sriHash}}" crossorigin="anonymous">
 {{/if}}
 
 {{#if includePureGR}}
