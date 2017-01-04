@@ -10,7 +10,8 @@ var serveLocally = process.argv.slice(2).some(function (arg) {
 
 var bowerPureDir = path.resolve('bower_components', 'pure'),
     bowerPure    = require(path.join(bowerPureDir, 'bower.json')),
-    pureMin      = fs.readFileSync(path.resolve(bowerPureDir, (serveLocally ? 'build' : ''), 'pure-min.css'), 'utf-8');
+    pureMinPath  = path.resolve(bowerPureDir, 'build'),
+    pureMin      = fs.readFileSync(path.resolve(fs.existsSync(pureMinPath) ? pureMinPath : bowerPureDir, 'pure-min.css'), 'utf-8');
 
 exports.version = bowerPure.version;
 exports.modules = ['base', 'grids', 'forms', 'buttons', 'tables', 'menus'];
