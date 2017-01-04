@@ -65,7 +65,7 @@
     "grunt-contrib-clean": "^1.0.0",
     "grunt-pure-grids": "^1.0.0",
     "grunt-shell-spawn": "^0.3.1",
-    "jenkins-mocha": "^2.2.0",
+    "jenkins-mocha": "^4.1.0",
     "js-module-formats": "^0.1.0",
     "mkdirp": "^0.5.0",
     "mocha": "^3.2.0",
