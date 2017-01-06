@@ -108,6 +108,30 @@
     {{> buttons/icons}}
   {{/code}}
 
+
+  {{sectionHeading "Button Groups"}}
+  <p>
+      Group multiple buttons together on a single line.
+  </p>
+
+  <aside>
+      <p>
+          For assistive technologies (i.e, screen readers) a {{code "role"}} attribute should be provided to ensure that proper meaning is conveyed. Button groups should have a {{code "role=\"group\""}}, while toolbars should have {{code "role=\"toolbar\""}}.
+      </p>
+      <p>
+          Additionally, a clear label should be provided since most assistive technologies will not announce them. The code snippet below provides an example.
+      </p>
+  </aside>
+
+{{#prefixIds "default"}}
+  {{> buttons/groups}}
+{{/prefixIds}}
+
+
+{{#code}}
+  {{> buttons/groups}}
+{{/code}}
+
 </div>
 
 {{> prevent-scroll}}
