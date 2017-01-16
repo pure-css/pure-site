@@ -1,9 +1,0 @@
-{
-  "name": "pure-site",
-  "version": "1.18.13",
-  "private": true,
-  "dependencies": {
-    "pure": "0.6.2",
-    "rainbow": "~1.1.9"
-  }
-}

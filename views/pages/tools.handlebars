@@ -5,10 +5,20 @@
 {{> header}}
 
 <div class="content">
+    {{sectionHeading "Installing Pure with npm"}}
+
+    <p>
+        You can add Pure to your project through <a href="https://www.npmjs.com/">npm</a>. This is our recommended way to to integrate Pure into your project's build process and tool chain.
+    </p>
+
+  {{#code "shell"}}
+    $ npm install purecss --save
+  {{/code}}
+
     {{sectionHeading "Installing Pure with Bower"}}
 
     <p>
-        You can add Pure to your project through <a href="http://bower.io">Bower</a>. This is our recommended way to to integrate Pure into your project's build process and tool chain. It also works great if your website is SSL-encrypted.
+        You can add Pure to your project through <a href="http://bower.io">Bower</a>. This works great if your website is SSL-encrypted.
     </p>
 
   {{#code "shell"}}

@@ -7,7 +7,7 @@
     {{addLocalCSS  "/css/main.css" prepend=true hasOldIE=true}}
     {{addLocalCSS  "/css/main-grid.css" prepend=true hasOldIE=true}}
     {{addLocalCSS  "/css/rainbow/baby-blue.css"}}
-    {{addRemoteCSS "http://fonts.googleapis.com/css?family=Raleway:200"}}
+    {{addRemoteCSS "https://fonts.googleapis.com/css?family=Raleway:200"}}
 
     {{> styles}}
 
@@ -36,12 +36,12 @@
   {{/if}}
 
     {{addLocalJS "/js/ui.js"}}
-    {{addLocalJS "/vendor/rainbow/rainbow.min.js"}}
-    {{addLocalJS "/vendor/rainbow/language/generic.js"}}
-    {{addLocalJS "/vendor/rainbow/language/html.js"}}
-    {{addLocalJS "/vendor/rainbow/language/css.js"}}
-    {{addLocalJS "/vendor/rainbow/language/javascript.js"}}
-    {{addLocalJS "/vendor/rainbow/language/shell.js"}}
+    {{addLocalJS "/js/rainbow/rainbow.min.js"}}
+    {{addLocalJS "/js/rainbow/language/generic.js"}}
+    {{addLocalJS "/js/rainbow/language/html.js"}}
+    {{addLocalJS "/js/rainbow/language/css.js"}}
+    {{addLocalJS "/js/rainbow/language/javascript.js"}}
+    {{addLocalJS "/js/rainbow/language/shell.js"}}
 
   {{#localJS}}
     <script src="{{{.}}}"></script>

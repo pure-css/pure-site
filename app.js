@@ -63,7 +63,9 @@ app.yui.applyGroupConfig('app', {
 });
 
 if (config.isProduction) {
-    app.yui.setCoreFromCDN();
+    app.yui.setCoreFromCDN({
+        comboBase: 'https://yui-s.yahooapis.com/combo' + '?'
+    });
 } else {
     app.yui.setCoreFromAppOrigin();
 }

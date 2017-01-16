@@ -8,17 +8,12 @@ var mergeTrees     = require('broccoli-merge-trees'),
     stripMQs       = require('./lib/css-strip-mqs'),
     mapFiles       = require('./lib/map-files');
 
-var bower_components = unwatchedTree('bower_components/'),
-    node_modules     = unwatchedTree('node_modules/');
+var node_modules     = unwatchedTree('node_modules/');
 
 var vendor = mergeTrees([
-    mapFiles(bower_components, {
-        'rainbow/js/': 'vendor/rainbow/'
-    }),
-
     mapFiles(node_modules, {
-        'css-mediaquery/index.js'              : 'vendor/css-mediaquery.js',
-        'handlebars/dist/handlebars.runtime.js': 'vendor/handlebars.runtime.js'
+        'css-mediaquery/index.js'           : 'vendor/css-mediaquery.js',
+        'handlebars/dist/handlebars.runtime.js' : 'vendor/handlebars.runtime.js'
     })
 ]);
 

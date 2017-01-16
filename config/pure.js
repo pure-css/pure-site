@@ -8,14 +8,13 @@ var serveLocally = process.argv.slice(2).some(function (arg) {
     return arg === '--pure-local';
 });
 
-var bowerPureDir = path.resolve('bower_components', 'pure'),
-    bowerPure    = require(path.join(bowerPureDir, 'bower.json')),
-    pureMinPath  = path.resolve(bowerPureDir, 'build'),
-    pureMin      = fs.readFileSync(path.resolve(fs.existsSync(pureMinPath) ? pureMinPath : bowerPureDir, 'pure-min.css'), 'utf-8');
+var pureDir      = path.resolve('node_modules', 'purecss'),
+    purePkg      = require(path.join(pureDir, 'package.json')),
+    pureMin      = fs.readFileSync(path.resolve(pureDir, 'build', 'pure-min.css'), 'utf-8');
 
-exports.version = bowerPure.version;
+exports.version = purePkg.version;
 exports.modules = ['base', 'grids', 'forms', 'buttons', 'tables', 'menus'];
-exports.local   = path.dirname(path.join(bowerPureDir, bowerPure.main));
+exports.local   = path.dirname(path.join(pureDir, purePkg.browser));
 exports.sriHash = crypto
                     .createHash('sha384')
                     .update(pureMin, 'utf8')

@@ -47,36 +47,34 @@ manually kick off the build process or restart the server.
 
 Since this website dogfoods [`pure`][Pure] it's a great testbed to try out local
 changes you're making to Pure. The following steps explain how to run the
-website with Pure being served locally, and the instructions assume you have
-[Bower][] installed (if not do so now: `npm -g i bower`).
+website with Pure being served locally.
 
 Move into where you have the `pure` project checked out locally, build it via
-`grunt`, then create a global link using Bower:
+`grunt`, then create a global link using npm:
 
 ```shell
 $ cd pure/
 $ grunt
-$ bower link
+$ npm link
 ```
 
 Now you'll need to move into where you have this project checked out locally,
 install the website's npm dependencies (if you haven't done so already),
-link `pure` in `pure-site` using Bower, then start up the server with the
+link `pure` in `pure-site` using npm, then start up the server with the
 --pure-local argument:
 
 ```shell
 $ cd ../pure-site/
-$ bower link pure
+$ npm link purecss
 $ node server.js --pure-local
 ```
 
-**Note:** The steps to install the npm dependencies and link pure using Bower do
+**Note:** The steps to install the npm dependencies and link pure using npm do
 *not* have to be run each time you start the server. Also, you can leave the
 server running and rebuild `pure` via `grunt` and you'll see the changes in your
 browser after refreshing!
 
 
-[Bower]: http://bower.io/
 [Broccoli]: https://github.com/broccolijs/broccoli
 
 
