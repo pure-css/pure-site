@@ -98,7 +98,8 @@
   "yhint": {
     "excludes": [
       "build/",
-      "node_modules/"
+      "node_modules/",
+      "public/js/rainbow/"
     ]
   },
   "yahoo": {
