@@ -144,7 +144,6 @@ h3 {
 }
 
 .footer {
-    text-align: center;
     padding: 1em 0;
 }
 .footer a {
@@ -171,5 +170,9 @@ h3 {
         position: fixed;
         top: 0;
         bottom: 0;
+    }
+
+    .footer {
+        text-align: center;
     }
 }
