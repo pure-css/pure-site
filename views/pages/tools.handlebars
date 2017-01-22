@@ -15,6 +15,15 @@
     $ npm install purecss --save
   {{/code}}
 
+    <p>
+        {{code "require('yahoocss')"}} will load an object with the following methods:
+    </p>
+
+    <ul>
+        <li>{{code "getFile(name)"}}</li> &ndash; Retrieve contents of a Pure module file.
+        <li>{{code "getFilePath(name)"}}</li> &ndash; Return full path to a Pure file.
+    </ul>
+
     {{sectionHeading "Installing Pure with Bower"}}
 
     <p>
@@ -24,6 +33,17 @@
   {{#code "shell"}}
     $ bower install pure --save
   {{/code}}
+
+
+  {{sectionHeading "Installing Pure with Composer"}}
+
+  <p>
+      You can also install Pure with <a href="https://getcomposer.org/">Composer</a>.
+  </p>
+
+ {{#code "shell"}}
+  $ composer require yahoo/purecss
+ {{/code}}
 
 
     {{sectionHeading "Extending Pure with Grunt"}}
