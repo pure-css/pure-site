@@ -47,9 +47,9 @@
         Let's start with a simple example. Here's a grid with three columns:
     </p>
 
-  {{#code}}
-    {{> grids/intro}}
-  {{/code}}
+{{#code}}
+{{> grids/intro}}
+{{/code}}
 
 
     {{sectionHeading "Grids Units Sizes"}}
@@ -89,9 +89,9 @@
         Since media queries cannot be over-written, we <u>do not</u> include the grid system as part of {{code "pure.css"}}. You'll have to pull it in as a separate CSS file. You can do this by adding the following {{code "<link>"}} tag to your page.
     </p>
 
-  {{#code}}
-    {{> grids/combo}}
-  {{/code}}
+{{#code}}
+{{> grids/combo}}
+{{/code}}
 
     <p>
         Even though Pure Grids are designed to be mobile-first, you may want to show the "desktop-experience" to users who view your website in IE 8 or below. Just include the {{code "grids-responsive-old-ie.css"}} file inside an IE conditional statement and Pure Grids will adapt to show the desktop experience.
@@ -103,17 +103,17 @@
         The best way to understand the difference between Pure's regular grid and a responsive grid is through an example.The snippet below shows how regular Pure Grids are written. These grids are unresponsive. They'll always be {{code "width: 33.33%"}}, irrespective of the width of the screen.
     </p>
 
-  {{#code}}
-    {{> grids/compare-nr}}
-  {{/code}}
+{{#code}}
+{{> grids/compare-nr}}
+{{/code}}
 
     <p>
         Next, let's look at a responsive grid. Elements within this grid will be {{code "width: 100%"}} on small screens, but will shrink to become {{code "width: 33.33%"}} on medium-sized screens and above.
     </p>
 
-  {{#code}}
-    {{> grids/compare-r}}
-  {{/code}}
+{{#code}}
+{{> grids/compare-r}}
+{{/code}}
 
     <h3>Default Media Queries</h3>
 
