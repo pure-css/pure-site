@@ -29,20 +29,6 @@ module.exports = function (grunt) {
                         xl: 'screen and (min-width: 75em)'    // 1200px
                     }
                 }
-            },
-
-            gallery: {
-                dest: 'public/css/layouts/gallery-grid.css',
-
-                options: {
-                    selectorPrefix: '.u-',
-                    units         : 6,
-
-                    mediaQueries: {
-                        med : 'screen and (min-width: 30em)',
-                        lrg : 'screen and (min-width: 48em)'
-                    }
-                }
             }
         },
 
