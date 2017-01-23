@@ -10,7 +10,7 @@ Layout examples using [Pure CSS][pure] compiled from the [pure-site][] project.
 License
 -------
 
-This software is free to use under the Yahoo! Inc. BSD license.
-See the [LICENSE file][] for license text and copyright information.
+This software is free to use under the zLib license.
+See the [zLib][] license for more information.
 
-[LICENSE file]: https://github.com/yahoo/pure-site/blob/master/LICENSE.md
+[zLib]: http://www.zlib.net/zlib_license.html
