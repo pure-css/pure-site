@@ -32,7 +32,7 @@
     "combohandler": "^0.4.0",
     "css-mediaquery": "ericf/css-mediaquery#umd",
     "css-parse": "^2.0.0",
-    "express": "^3.21.2",
+    "express": "^4.14.1",
     "express-annotations": "~0.1.0",
     "express-handlebars": "^3.0.0",
     "express-map": "~0.1.0",
