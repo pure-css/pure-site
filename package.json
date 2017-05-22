@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "archiver": "^1.2.0",
-    "async": "^2.1.4",
+    "async": "^2.4.1",
     "combohandler": "^0.4.0",
     "css-mediaquery": "ericf/css-mediaquery#umd",
     "css-parse": "^2.0.0",
