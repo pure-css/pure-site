@@ -1,13 +1,13 @@
 Pure CSS Website
 ================
 
-[![Build Status](http://img.shields.io/travis/yahoo/pure-site.svg?style=flat-square)](https://travis-ci.org/yahoo/pure-site)
-[![Dependency Status](https://david-dm.org/yahoo/pure-site.svg)](https://david-dm.org/yahoo/pure-site)
+[![Build Status](http://img.shields.io/travis/pure-css/pure-site.svg?style=flat-square)](https://travis-ci.org/pure-css/pure-site)
+[![Dependency Status](https://david-dm.org/pure-css/pure-site.svg)](https://david-dm.org/pure-css/pure-site)
 
 The website which showcases [Pure CSS][Pure].
 
 
-[Pure]: https://github.com/yahoo/pure
+[Pure]: https://github.com/pure-css/pure
 
 
 Running Locally
@@ -96,4 +96,4 @@ License
 This software is free to use under the Yahoo! Inc. BSD license.
 See the [LICENSE file][] for license text and copyright information.
 
-[LICENSE file]: https://github.com/yahoo/pure-site/blob/master/LICENSE.md
+[LICENSE file]: https://github.com/pure-css/pure-site/blob/master/LICENSE.md
