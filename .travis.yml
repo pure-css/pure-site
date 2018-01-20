@@ -1,14 +1,13 @@
 language: node_js
 node_js:
-    - 8
-    - 6
-    - 4
+  - 8
+  - 6
+deploy:
+  provider: script
+  script: NOW_ALIAS=purecss.io ./node_modules/.bin/now-travis
+  skip_cleanup: true
+  on:
+    branch: master
 env:
-    global:
-        secure: "Trspn6Yak8jJwRiMjmpZXaBwJ064HeOQEHizCpRBeTNtxAL6OBnZjIFFt/8o40Kk2M/72CUYIN0Owlo6IFjE91kgWR/N3V1yMSuNKbQ0vEEcXBVrUyM9AiH1KdBUym5h/NSATE0AyjIwQSOc8/MJ+xX4jlp9EQo01B2gSHZCxpo="
-before_install: if [[ `npm -v` != 3* ]]; then npm i -g npm@3; fi
-after_script:
-    - NOW_ALIAS=purecss.io node_modules/.bin/now-travis
-branches:
-    only:
-        - master
+  global:
+    secure: Trspn6Yak8jJwRiMjmpZXaBwJ064HeOQEHizCpRBeTNtxAL6OBnZjIFFt/8o40Kk2M/72CUYIN0Owlo6IFjE91kgWR/N3V1yMSuNKbQ0vEEcXBVrUyM9AiH1KdBUym5h/NSATE0AyjIwQSOc8/MJ+xX4jlp9EQo01B2gSHZCxpo=
