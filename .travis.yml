@@ -4,5 +4,11 @@ node_js:
 env:
   global:
     - secure: Trspn6Yak8jJwRiMjmpZXaBwJ064HeOQEHizCpRBeTNtxAL6OBnZjIFFt/8o40Kk2M/72CUYIN0Owlo6IFjE91kgWR/N3V1yMSuNKbQ0vEEcXBVrUyM9AiH1KdBUym5h/NSATE0AyjIwQSOc8/MJ+xX4jlp9EQo01B2gSHZCxpo=
-after_script:
-  - NOW_ALIAS=purecss.io ./node_modules/.bin/now-travis;
+# after_script:
+#  - NOW_ALIAS=purecss.io ./node_modules/.bin/now-travis;
+deploy:
+  provider: script
+  script: NOW_ALIAS=purecss.io ./node_modules/.bin/now-travis
+  skip_cleanup: true
+  on:
+    branch: master
