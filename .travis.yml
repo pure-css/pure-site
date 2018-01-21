@@ -14,7 +14,7 @@ after_script:
   - "
 if [ ${TRAVIS_PULL_REQUEST} = 'false' ];
 then
-  NOW_ALIAS=purecss.io ./node_modules/.bin/now-travis
+  NOW_ALIAS=purecss.io ./node_modules/.bin/now-travis;
 else
   ./node_modules/.bin/now-travis;
 fi
