@@ -183,7 +183,7 @@ hbs.helpers.pathTo = function (name, options) {
 
 app.locals({
     site          : 'Pure',
-    copyright_year: '2017',
+    copyright_year: '2014 - Present',
 
     version    : config.version,
     yui_version: app.yui.config().version,
