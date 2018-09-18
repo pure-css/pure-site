@@ -14,7 +14,6 @@
 html, button, input, select, textarea,
 .pure-g [class *= "pure-u"] {
     font-family: Helvetica, Arial, sans-serif;
-    font-weight: 100;
     letter-spacing: 0.01em;
 }
 
