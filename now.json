@@ -2,6 +2,6 @@
   "version": 1,
   "alias": "purecss.io",
   "engines": {
-    "node": "6.x.x"
+    "node": "10.x.x"
   }
 }
