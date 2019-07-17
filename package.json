@@ -72,7 +72,7 @@
     "mocha": "^6.1.4",
     "now-travis": "^1.2.0",
     "rimraf": "^2.5.4",
-    "supertest": "^3.0.0",
+    "supertest": "^4.0.2",
     "walk-sync": "^2.0.2"
   },
   "scripts": {
