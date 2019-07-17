@@ -57,6 +57,8 @@ function downloadLayout(req, res, next) {
         if (!layout) { return next(error(404)); }
 
         res.set('Content-Disposition', 'attachment; filename="' + filename + '"');
-        liblayouts.archive(layout).pipe(res);
+        var archive = liblayouts.archive(layout);
+        archive.pipe(res);
+        archive.finalize();
     });
 }

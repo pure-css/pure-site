@@ -238,5 +238,6 @@ function downloadStart(req, res, next) {
     }
 
     res.set('Content-Disposition', 'attachment; filename="pure-start.zip"');
-    archive.finalize().pipe(res);
+    archive.pipe(res);
+    archive.finalize();
 }
