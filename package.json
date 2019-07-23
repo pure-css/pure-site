@@ -27,7 +27,7 @@
     "npm": ">=1.1.2"
   },
   "dependencies": {
-    "archiver": "^3.0.0",
+    "archiver": "^3.0.3",
     "async": "^3.1.0",
     "combohandler": "^0.4.0",
     "css-mediaquery": "github:ericf/css-mediaquery#umd",
