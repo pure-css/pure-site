@@ -71,7 +71,7 @@
     "mkdirp": "^0.5.1",
     "mocha": "^6.2.0",
     "now-travis": "^1.2.0",
-    "rimraf": "^2.5.4",
+    "rimraf": "^2.7.0",
     "supertest": "^4.0.2",
     "walk-sync": "^2.0.2"
   },
