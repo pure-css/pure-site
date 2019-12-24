@@ -111,9 +111,11 @@
 <script>
 (function (window, document) {
 var menu = document.getElementById('menu'),
+    rollback,
     WINDOW_CHANGE_EVENT = ('onorientationchange' in window) ? 'orientationchange':'resize';
 
 function toggleHorizontal() {
+    menu.classList.remove('closing');
     [].forEach.call(
         document.getElementById('menu').querySelectorAll('.custom-can-transform'),
         function(el){
@@ -126,10 +128,15 @@ function toggleMenu() {
     // set timeout so that the panel has a chance to roll up
     // before the menu switches states
     if (menu.classList.contains('open')) {
-        setTimeout(toggleHorizontal, 500);
+        menu.classList.add('closing');
+        rollBack = setTimeout(toggleHorizontal, 500);
     }
     else {
-        toggleHorizontal();
+        if (menu.classList.contains('closing')) {
+            clearTimeout(rollBack);
+        } else {
+            toggleHorizontal();
+        }
     }
     menu.classList.toggle('open');
     document.getElementById('toggle').classList.toggle('x');
