@@ -60,7 +60,7 @@
     "chai-as-promised": "^7.1.1",
     "es-dependency-graph": "^0.1.3",
     "es6-module-transpiler": "^0.4.0",
-    "grunt": "^1.0.1",
+    "grunt": "^1.1.0",
     "grunt-broccoli-build": "^0.6.0",
     "grunt-cli": "^1.2.0",
     "grunt-contrib-clean": "^2.0.0",
