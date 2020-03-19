@@ -69,7 +69,7 @@
     "jenkins-mocha": "^8.0.0",
     "js-module-formats": "^0.1.0",
     "mkdirp": "^0.5.1",
-    "mocha": "^7.1.0",
+    "mocha": "^7.1.1",
     "now-travis": "^1.2.0",
     "rimraf": "^3.0.0",
     "supertest": "^4.0.2",
