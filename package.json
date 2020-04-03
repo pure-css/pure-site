@@ -34,7 +34,7 @@
     "css-parse": "^2.0.0",
     "express": "^3.21.2",
     "express-annotations": "~0.1.0",
-    "express-handlebars": "^4.0.0",
+    "express-handlebars": "^4.0.2",
     "express-map": "~0.1.0",
     "express-params": "~0.0.3",
     "express-slash": "~1.0.0",
